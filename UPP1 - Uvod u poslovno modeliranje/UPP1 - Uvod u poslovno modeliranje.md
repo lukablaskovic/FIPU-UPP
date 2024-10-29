@@ -9,7 +9,7 @@
 
 # (1) Uvod u poslovno modeliranje
 
-<img src="./UPP_1.png" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/UPP_1.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;">Sva razmatranja o poslovnim procesima temelje se na potrebi da svoje poslove (bez obzira na to radi li se o proizvodnji, trgovini, uslugama, javnoj upravi, zdravstvu, obrazovanju, itd.) obavimo optimalno, odnosno što brže i kvalitetnije te uza što manji utrošak resursa. Modeliranje poslovnih procesa je jedan od ključnih alata za postizanje tog cilja, a ona je prije svega poslovna, a ne informatička disciplina. Na ovom kolegiju ćemo se praktično upoznati s modeliranjem poslovnih procesa pomoću BPMN 2.0 notacije i istražiti kako se ta znanja primjenjuju u razvoju softverskih rješenja. </div>
 <br>
@@ -97,7 +97,7 @@ Uočavamo da ovaj poslovni proces ima svoj **početak** i **kraj**, da se ponavl
 
 **Aktivnost (_eng. Task_)** je osnovni element poslovnog procesa koji predstavlja radni korak koji se izvodi u procesu. Aktivnosti se ne obavljaju proizvoljno, već uvijek u određenom slijedu. Tako opisan proces može se prikazati grafički na sljedeći način:
 
-<img src="./screenshots/pp_prodati_robu_01.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/pp_prodati_robu_01.png?raw=true" style="width:70%;">
 
 > Slika 1. Poslovni proces **PRODATI ROBU** i njegove aktivnosti
 
@@ -113,19 +113,21 @@ Početak i kraj procesa su **događaji (_eng. events_)**, a oni su prikazani kru
 Dakle upotrebljena su tri simbola koja mora imati svaki model poslovnog procesa prema BPMN normi.
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/start_end_events.png" style="width: 10%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/start_end_events.png?raw=true" style="width: 10%;">
   <span style="margin-left: 10px;"><b>Kružnica</b> (za početni i završni događaj)</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/task.png" style="width: 10%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/task.png?raw=true" style="width: 10%;">
   <span style="margin-left: 10px;"><b>Aktivnost</b> (označava se pravokutnikom)</span>
 </div>
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/arrow.png" style="width: 10%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/arrow.png?raw=true" style="width: 10%;">
   <span style="margin-left: 10px;"><b>Strelica</b> (za redoslijed izvođenja aktivnosti)</span>
 </div>
+
+<br>
 
 Ovakav temeljni oblik procesa naziva se često i **slijednim dijagramom**.
 
@@ -143,7 +145,7 @@ Gdje ćemo dodati **prvu skretnicu** u naš model procesa?
 
 Odgovor je nakon aktivnosti **Provjeriti uplatu** jer je to prvi korak u kojem se može dogoditi odstupanje od idealnog slučaja. Naime, ako kupac nije uplatio po predračunu, proces se ne može nastaviti u slijedu definiranom na slici 1.
 
-<img src="./screenshots/pp_prodati_robu_02.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/pp_prodati_robu_02.png?raw=true" style="width:70%;">
 
 > Slika 2. Prošireni model poslovnog procesa **PRODATI ROBU** s prvom skretnicom
 
@@ -151,10 +153,10 @@ Na slici 2. dodana je prva skretnica koja omogućuje modeliranje uvjeta izvedbe.
 
 Ispod skretnice je uobičajeno pisati uvjet izvedbe, to može biti bilo koja upitna rečenica koja jasno opisuje uvjet. Primjerice:
 
-- Uplaćeno?
-- Uplata po predračunu primljena?
-- Uplata primljena?
-- Uplata je izvršena?
+- _Uplaćeno?_
+- _Uplata po predračunu primljena?_
+- _Uplata primljena?_
+- _Uplata je izvršena?_
 
 Nakon toga skretnica se povezuje s aktivnostima koje slijede, a koje će se izvršiti ovisno o ispunjenosti uvjeta:
 
@@ -174,7 +176,7 @@ Primijetite još da unutar romba koji opisuje svaku skretnicu, koristimo simbol 
 
 Ova skretnica poznata je i kao **XOR Gateway**.
 
-<img src="./screenshots/elements/exclusive_gateway.png" style="width:10%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/exclusive_gateway.png?raw=true" style="width:10%;">
 
 - Ako je riječ o grananju procesa, onda znači da će se poslije skretnice provoditi aktivnosti **samo na jednom izlaznom slijedu**.
 - Ako više uvjeta može biti istinito, ova skretnica odabire samo onaj slijed **koji je prvi zadovoljen**.
@@ -182,7 +184,7 @@ Ova skretnica poznata je i kao **XOR Gateway**.
 
 U sljedećem primjeru, dodat ćemo još **jednu ekskluzivnu skretnicu** u naš model procesa kako bismo modelirali uvjet je li tražena roba dostupna na skladištu.
 
-<img src="./screenshots/pp_prodati_robu_03.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/pp_prodati_robu_03.png?raw=true" style="width:70%;">
 
 > Slika 3. Prošireni model poslovnog procesa **PRODATI ROBU** s dvjema ekskluzivnim skretnicama
 
@@ -210,7 +212,10 @@ Već na jednostavnom grafu na slici 3 mogu se prepoznati tri različite mogućno
 
 Značenje skretnice u danom primjeru treba tumačiti na sljedeći način:
 
-> Značenje **prve skretnice** treba tumačiti ovako: nakon što je obavljena aktivnost Provjeriti uplatu znat će se je li kupac uplatio naručenu robu. Ako potrebni iznos nije uplaćen (ovaj uvjet zapisan je ispod simbola skretnice tekstom 'Uplaćeno?'), roba neće biti otpremljena kupcu i proces će završiti u krajnjoj točki (događaju) s oznakom 'Narudžba nije ispunjena'. Ako je potreban iznos uplaćen i roba uspješno otpremljena kupcu, onda se proces nastavlja provjerom može li se otpremiti naručenu robu s obzirom na trenutačno stanje zaliha. Taj se uvjet ispituje u **drugoj skretnici** s oznakom 'Na zalihi?' koja imenom podsjeća na uvjet koji se ispituje. Ako su oba uvjeta ispunjena, poslovni će proces završiti onako kako se očekuje, odnosno poslovni će slučaj završiti događajem koji je nazvan 'Ispunjena narudžba'.
+> Značenje **prve skretnice** treba tumačiti ovako: nakon što je obavljena aktivnost Provjeriti uplatu znat će se je li kupac uplatio naručenu robu.
+> Ako potrebni iznos nije uplaćen (ovaj uvjet zapisan je ispod simbola skretnice tekstom 'Uplaćeno?'), roba neće biti otpremljena kupcu i proces će završiti u krajnjoj točki (događaju) s oznakom 'Narudžba nije ispunjena'.
+> Ako je potreban iznos uplaćen i roba uspješno otpremljena kupcu, onda se proces nastavlja provjerom može li se otpremiti naručenu robu s obzirom na trenutačno stanje zaliha. Taj se uvjet ispituje u **drugoj skretnici** s oznakom 'Na zalihi?' koja imenom podsjeća na uvjet koji se ispituje.
+> Ako su oba uvjeta ispunjena, poslovni će proces završiti onako kako se očekuje, odnosno poslovni će slučaj završiti događajem koji je nazvan 'Ispunjena narudžba'.
 
 **Važna napomena**:
 
@@ -253,11 +258,11 @@ U BPMN notaciji, proces se može podijeliti na **staze (_eng. lanes_)** i **polj
 
 > Pojmovi **staza** i **polje** nisu doslovni prijevodi engleskih riječi lane (swim lane) i pool, već izabrane hrvatske riječi koje bolje objašnjavaju značenja u kontekstu modeliranja poslovnih procesa.
 
-<img src="./screenshots/elements/pools_and_lanes.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/pools_and_lanes.png?raw=true" style="width:70%;">
 
 U nekim sljedećim poglavljima ćemo detaljno vidjeti koje su dobre prakse modeliranja kroz staze i polja, za sada ćemo **podijeliti naše organizacijske jedinice u staze**, dok će naziv polja biti naziv procesa - **PRODATI ROBU**.
 
-<img src="./screenshots/elements/prodati_robu_lanes.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/elements/prodati_robu_lanes.png?raw=true" style="width:70%;">
 
 Bez da previše razbijamo glavu kako koristiti staze i polja, možemo se držati sljedećeg pravila:
 
@@ -279,7 +284,7 @@ No prije toga idemo definirati tko obavlja koje aktivnosti u procesu:
 - **Skladište**:
   - Skladištar priprema robu za otpremu
 
-<img src="./screenshots/pp_prodati_robu_w_lanes.png" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/screenshots/pp_prodati_robu_w_lanes.png?raw=true" style="width:70%;">
 
 > Slika 4. Prošireni model poslovnog procesa **PRODATI ROBU** s dodanim stazama i poljem
 
