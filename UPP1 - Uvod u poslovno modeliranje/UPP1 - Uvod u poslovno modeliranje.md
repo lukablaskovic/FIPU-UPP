@@ -17,7 +17,7 @@
 <div style="float: clear; margin-right:5px;"> </div>
 <br>
 
-**🆙 Posljednje ažurirano: 24.10.2024.**
+**🆙 Posljednje ažurirano: 7.11.2024.**
 
 ## Sadržaj
 
