@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_09tp90i" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.4.2" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <bpmn:process id="Process_1jqa4f0" isExecutable="true">
+    <bpmn:task id="Activity_0dgt1ru" name="NAPISATI UGOVOR&#10;(Abstract task)" />
+    <bpmn:serviceTask id="Activity_1hi8465" name="IZRAČUNATI KAMATE&#10;(Service task)" />
+    <bpmn:receiveTask id="Activity_0kbufww" name="PRIMITI NARUDŽBU&#10;(Receive task)" />
+    <bpmn:sendTask id="Activity_1psj2wt" name="POSLATI PONUDU&#10;(Send task)" />
+    <bpmn:textAnnotation id="TextAnnotation_0swbrmr">
+      <bpmn:text>Radni korak, općenito. Vrsta nije posebno definirana</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0bk26at" sourceRef="Activity_0dgt1ru" targetRef="TextAnnotation_0swbrmr" />
+    <bpmn:textAnnotation id="TextAnnotation_043cxuy">
+      <bpmn:text>Automatizirana radnja koju izvodi neki vanjski servis (npr. web servis)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_13fl36y" sourceRef="Activity_1hi8465" targetRef="TextAnnotation_043cxuy" />
+    <bpmn:textAnnotation id="TextAnnotation_1tlcki0">
+      <bpmn:text>Aktivnost se pokreće kad bude zaprimljena obavijest drugog sudionika u procesu. Nakon primitka obavijest, ovaj radni korak se završava i tok se nastavlja</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1n3aegh" sourceRef="Activity_0kbufww" targetRef="TextAnnotation_1tlcki0" />
+    <bpmn:textAnnotation id="TextAnnotation_0ewfx1q">
+      <bpmn:text>Odašiljanje obavijesti prema drugom sudioniku u modelu procesa</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_0n1jln4" sourceRef="Activity_1psj2wt" targetRef="TextAnnotation_0ewfx1q" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1jqa4f0">
+      <bpmndi:BPMNShape id="TextAnnotation_0swbrmr_di" bpmnElement="TextAnnotation_0swbrmr">
+        <dc:Bounds x="300" y="85" width="150" height="70" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_043cxuy_di" bpmnElement="TextAnnotation_043cxuy">
+        <dc:Bounds x="301" y="195" width="137.9975670070198" height="54.881940012763245" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1tlcki0_di" bpmnElement="TextAnnotation_1tlcki0">
+        <dc:Bounds x="290" y="312" width="229.9976068921506" height="84.23739629865986" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0ewfx1q_di" bpmnElement="TextAnnotation_0ewfx1q">
+        <dc:Bounds x="290" y="440" width="230" height="50" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dgt1ru_di" bpmnElement="Activity_0dgt1ru">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ipcxv0_di" bpmnElement="Activity_1hi8465">
+        <dc:Bounds x="160" y="190" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1oyhdsz_di" bpmnElement="Activity_0kbufww">
+        <dc:Bounds x="160" y="300" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1brz30d_di" bpmnElement="Activity_1psj2wt">
+        <dc:Bounds x="160" y="420" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0bk26at_di" bpmnElement="Association_0bk26at">
+        <di:waypoint x="260" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_13fl36y_di" bpmnElement="Association_13fl36y">
+        <di:waypoint x="260" y="226" />
+        <di:waypoint x="300" y="222" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1n3aegh_di" bpmnElement="Association_1n3aegh">
+        <di:waypoint x="260" y="335" />
+        <di:waypoint x="290" y="332" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0n1jln4_di" bpmnElement="Association_0n1jln4">
+        <di:waypoint x="260" y="458" />
+        <di:waypoint x="290" y="457" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

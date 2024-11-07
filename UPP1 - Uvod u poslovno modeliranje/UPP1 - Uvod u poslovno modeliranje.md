@@ -36,7 +36,7 @@
   - [Vježba 2: Proces obrade natječaja](#vježba-2-proces-obrade-natječaja)
 - [4. Hijerarhija procesa i potprocesa](#4-hijerarhija-procesa-i-potprocesa)
   - [4.1 Staze i polja](#41-staze-i-polja)
-- [Zadaci za Vježbu 2](#zadaci-za-vježbu-2)
+- [Zadaci za Vježbu 1](#zadaci-za-vježbu-1)
     - [1. Proces obrade reklamacije](#1-proces-obrade-reklamacije)
     - [2. Proces najma vozila](#2-proces-najma-vozila)
     - [3. Proces automatizirane korisničke podrške](#3-proces-automatizirane-korisničke-podrške)
@@ -295,7 +295,7 @@ Radna se mjesta koja sudjeluju u procesu prikazuju izduljenim pravokutnikom koji
 
 Posao koji je na slici opisan aktivnošću **Otpremiti** nije jednostavan, već se sastoji od više radnih koraka. Takav se posao definira kao **potproces** (_eng. subprocess_). Svaki potproces ima svoju detaljniju strukturu koju se prikazuje na posebnome modelu. Primjerice, u takav potproces bi se trebala uvrstiti i aktivnost **Provjeriti zalihe** budući da je to radni korak koji se izvodi u skladištu prilikom pripreme robe za otpremu. Dodatno, skretnica **Na zalihi?** također bi trebala postati dio tog potprocesa. O tome ćemo detaljnije govoriti u sljedećim poglavljima.
 
-# Zadaci za Vježbu 2
+# Zadaci za Vježbu 1
 
 Temeljem sljedećih opisa poslovnih procesa i do sada obrađene BPMN notacije, **izmodelirajte poslovne procese u alatu po vlastitom izboru**.
 Svaki od poslovnih procesa treba sadržavati **nekoliko aktivnosti**, **ekskluzivne skretnice**, **polje** i **više staza**.

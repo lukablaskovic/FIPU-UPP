@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_05qq70u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.4.2" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <bpmn:process id="Process_1sl87s1" isExecutable="true">
+    <bpmn:userTask id="Activity_1lvi6ml" name="IZRADITI RAČUN&#10;(User task)" />
+    <bpmn:manualTask id="Activity_0ccdid2" name="INTERVJU S KANDIDATOM (manual task)" />
+    <bpmn:businessRuleTask id="Activity_036xl3y" name="OBNOVITI ZALIHE (business rule)" />
+    <bpmn:scriptTask id="Activity_14yfjil" name="UPISATI PARAMETRE&#10;(script)" />
+    <bpmn:textAnnotation id="TextAnnotation_1lcnpp3">
+      <bpmn:text>Posao koji obavlja korisnik računalom. Ovakve aktivnosti su uglavnom tipična interakcija korisnika i inf. sustava</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1fgxnhw" sourceRef="Activity_1lvi6ml" targetRef="TextAnnotation_1lcnpp3" />
+    <bpmn:textAnnotation id="TextAnnotation_14grwj8">
+      <bpmn:text>Posebno izveden posao koji treba ručno obaviti, odnosno koji se ne obavlja pomoću računala</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_15v3tt1" sourceRef="Activity_0ccdid2" targetRef="TextAnnotation_14grwj8" />
+    <bpmn:textAnnotation id="TextAnnotation_1rlcjlr">
+      <bpmn:text>Aktivnost s poslovnim pravilima koje će evaluirati sustav upravljanja poslovnim procesima. Rezultat evaluacije služit će za daljnje usmjeravanje procesa</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ge8dj1" sourceRef="Activity_036xl3y" targetRef="TextAnnotation_1rlcjlr" />
+    <bpmn:textAnnotation id="TextAnnotation_1wa68qb">
+      <bpmn:text>Sadržava neposredno izvršive naredbe za sustav automatiziranog upravljanja poslovnim procesom (engine)</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1ul6stk" sourceRef="Activity_14yfjil" targetRef="TextAnnotation_1wa68qb" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1sl87s1">
+      <bpmndi:BPMNShape id="TextAnnotation_1lcnpp3_di" bpmnElement="TextAnnotation_1lcnpp3">
+        <dc:Bounds x="300" y="92" width="230" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_14grwj8_di" bpmnElement="TextAnnotation_14grwj8">
+        <dc:Bounds x="295" y="197" width="240" height="65" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1rlcjlr_di" bpmnElement="TextAnnotation_1rlcjlr">
+        <dc:Bounds x="295" y="302" width="240" height="75" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1wa68qb_di" bpmnElement="TextAnnotation_1wa68qb">
+        <dc:Bounds x="297" y="417" width="235" height="65" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_046ce1z_di" bpmnElement="Activity_1lvi6ml">
+        <dc:Bounds x="160" y="80" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1c4qv3m_di" bpmnElement="Activity_0ccdid2">
+        <dc:Bounds x="160" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1laiv7b_di" bpmnElement="Activity_036xl3y">
+        <dc:Bounds x="160" y="300" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09fi1d0_di" bpmnElement="Activity_14yfjil">
+        <dc:Bounds x="160" y="410" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1fgxnhw_di" bpmnElement="Association_1fgxnhw">
+        <di:waypoint x="260" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_15v3tt1_di" bpmnElement="Association_15v3tt1">
+        <di:waypoint x="260" y="230" />
+        <di:waypoint x="290" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ge8dj1_di" bpmnElement="Association_1ge8dj1">
+        <di:waypoint x="260" y="340" />
+        <di:waypoint x="290" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_1ul6stk_di" bpmnElement="Association_1ul6stk">
+        <di:waypoint x="260" y="450" />
+        <di:waypoint x="290" y="450" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
