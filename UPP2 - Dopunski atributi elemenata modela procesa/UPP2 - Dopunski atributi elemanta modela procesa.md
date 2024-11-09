@@ -292,7 +292,7 @@ S druge strane, ako se radi o **vanjskom skladištu**, onda je to ispravno **pok
 
 - u pravilu želimo koristiti polje i staze za komunikaciju između entiteta unutar jednog procesa (npr. odjeli unutar iste tvrtke)
 - dva ili više polja koristimo kada naši entiteti nisu dio iste cjeline, već su udaljeni i komuniciraju prvenstveno kroz komunikacijske kanale (npr. e-mail) ili nemaju povezani interni informacijski sustav. Npr. tvrtka koja koristi vanjsko skladište za otpremu robe.
-- ako definiramo **end message event** u potprocesu isopd, ne smijemo iz njega slati nikakve vanjske poruke. Kako bismo prikazali čekanje na poruku u entitetu web trgovine, koristimo **intermediate message event** koji se okida kada se pošalje poruka iz vanjskog skladišta.
+- ako definiramo **end message event** u potprocesu isopd, ne smijemo iz njega definirati nikakve vanjske veze. Kako bismo prikazali čekanje na poruku u entitetu web trgovine, koristimo **intermediate message event** koji se okida kada se pošalje poruka iz vanjskog skladišta.
 
 Ove detalje ćemo detaljno obraditi na budućim vježbama.
 
