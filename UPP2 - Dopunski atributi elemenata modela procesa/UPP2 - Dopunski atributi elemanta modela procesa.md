@@ -28,9 +28,9 @@
 - [2. Nadogradnja poslovnog procesa `PRODATI ROBU`](#2-nadogradnja-poslovnog-procesa-prodati-robu)
 - [2.1 Osnovne vrste događaja](#21-osnovne-vrste-događaja)
 - [2.2 Osnove vrste aktivnosti](#22-osnove-vrste-aktivnosti)
-    - [2.2.1 Radni korak (eng. Task)](#221-radni-korak-eng-task)
-    - [2.2.2. Potproces (eng. Subprocess)](#222-potproces-eng-subprocess)
-    - [2.2.3 Kako ispravno koristiti `send` i `receive` aktivnosti?](#223-kako-ispravno-koristiti-send-i-receive-aktivnosti)
+  - [2.2.1 Radni korak (eng. Task)](#221-radni-korak-eng-task)
+  - [2.2.2. Potproces (eng. Subprocess)](#222-potproces-eng-subprocess)
+  - [2.2.3 Kako ispravno koristiti `send` i `receive` aktivnosti?](#223-kako-ispravno-koristiti-send-i-receive-aktivnosti)
 - [Zadaci za Vježbu 2](#zadaci-za-vježbu-2)
   - [1. Potvrda narudžbe u web trgovini](#1-potvrda-narudžbe-u-web-trgovini)
   - [2. Implementacija softvera](#2-implementacija-softvera)
@@ -292,6 +292,7 @@ S druge strane, ako se radi o **vanjskom skladištu**, onda je to ispravno **pok
 
 - u pravilu želimo koristiti polje i staze za komunikaciju između entiteta unutar jednog procesa (npr. odjeli unutar iste tvrtke)
 - dva ili više polja koristimo kada naši entiteti nisu dio iste cjeline, već su udaljeni i komuniciraju prvenstveno kroz komunikacijske kanale (npr. e-mail) ili nemaju povezani interni informacijski sustav. Npr. tvrtka koja koristi vanjsko skladište za otpremu robe.
+- ako definiramo **end message event** u potprocesu isopd, ne smijemo iz njega slati nikakve vanjske poruke. Kako bismo prikazali čekanje na poruku u entitetu web trgovine, koristimo **intermediate message event** koji se okida kada se pošalje poruka iz vanjskog skladišta.
 
 Ove detalje ćemo detaljno obraditi na budućim vježbama.
 
