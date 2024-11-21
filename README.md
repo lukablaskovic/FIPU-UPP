@@ -1,6 +1,6 @@
 # Materijali iz kolegija: Upravljanje poslovnim procesima (UPP)
 
-**Nositelj**: izv. prof. dr. sc. Darko Etinger
+**Nositelj**: izv. prof. dr. sc. Darko Etinger  
 **Asistent**: Luka Blašković, mag. inf.
 
 **Ustanova**: [Sveučilište Jurja Dobrile u Puli](https://www.unipu.hr/), [Fakultet informatike u Puli](https://fipu.unipu.hr/)
