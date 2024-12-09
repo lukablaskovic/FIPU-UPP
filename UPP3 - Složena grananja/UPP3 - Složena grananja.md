@@ -19,8 +19,6 @@
 
 **🆙 Posljednje ažurirano: 20.11.2024.**
 
-- skripta nije dovršena
-
 ## Sadržaj
 
 - [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
