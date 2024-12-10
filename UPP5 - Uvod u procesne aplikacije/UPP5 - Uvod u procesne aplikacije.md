@@ -16,7 +16,9 @@ Procesne aplikacije omogućuju automatizaciju poslovnih procesa korištenjem def
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 9.12.2024.**
+**🆙 Posljednje ažurirano: 10.12.2024.**
+
+- Samostalni zadatak za vježbu 5 bit će dodan naknadno
 
 # Sadržaj
 
@@ -43,7 +45,7 @@ Od početka razvoja BPMN-a isticalo se ostvarenje dvaju (prividno) međusobno te
 1. **osigurati** da se normom služe poslovni stručnjaci koji ne razvijaju aplikacije i
 2. **omogućiti** softverskim inženjerima da procesni model, izveden po toj normi, preslikaju u izvršnu aplikaciju primjerenu potrebama stvarnoga poslovnog procesa.
 
-Drugim riječima, važna namjena BPMN-a jest premošćivanje jaza u sporazumijevanju između poslovnih i informatičkih stručnjaka.
+Drugim riječima, važna namjena BPMN-a jest premošćivanje jaza u sporazumijevanju između poslovnih i informatičkih stručnjaka 🙂
 
 > Too often tension exists between the developer and analyst perpectives, resulting from the lack of a common semantics and heuristics set capable of depicting process activities in a way relevant to both parties.
 
@@ -86,14 +88,15 @@ Razlike između klasičnih i procesnih aplikacija mogu se sažeti u sljedećoj t
 
 **Primjer ove diferencijacije na webshop aplikaciji:**
 
-- Klasična aplikacija (zamišljamo u kontekstu kolegija _Programsko Inženjerstvo_ ili _Web aplikacije_):
+- **Klasična aplikacija** (zamišljamo u kontekstu kolegija _Programsko Inženjerstvo_ ili _Web aplikacije_):
 
   - Funkcionalnosti implementiramo _low-level_ programiranjem gdje razmišljamo o CRUD operacijama nad bazom podataka
   - _Primjer 1_: "Korisnik se registrira i pregledava proizvode" → CRUD operacije nad tablicama `users` i `products`, razvoj korisničkog sučelja, razvoj korespondirajućeg backenda za validaciju podataka i sl.
   - _Primjer 2_: "Korisnik dodaje proizvode u košaricu i i obavlja kupnju" → CRUD operacije nad tablicama `cart` i `orders`, razvoj korisničkog sučelja, razvoj odgovarajućih backend komponenti, spajanje na vanjske servise za plaćanje i sl.
   - **Ključno: Aplikacija se organizira oko podataka i operacijama nad njima**
+    <br>
 
-- Procesna aplikacija (zamišljamo u kontekstu ovog kolegija):
+- **Procesna aplikacija** (zamišljamo u kontekstu ovog kolegija):
   - Funkcionalnosti implementiramo _high-level_ programiranjem gdje razmišljamo o **tijeku rada i aktivnostima koje korisnik treba obaviti**
   - _Primjer 1_: "Korisnik se registrira i pregledava proizvode" → Procesna aplikacija definira radne korake koje korisnik treba obaviti, npr. "Registracija korisnika", "Pregled proizvoda", "Dodavanje proizvoda u košaricu". Korake definiramo kroz neki **procesni model** (u našem slučaju **BPMN**, ali može biti i drugi)
   - **Aplikacija reagira na vanjske događaje i poruke** (npr. "Korisnik je pokrenuo proces narudžbe", "Plaćanje uspješno", "Proizvod je otpremljen") → _event-driven_ i _message-driven_ programiranje
@@ -213,19 +216,19 @@ Nakon što pokrenemo kontejner, možemo provjeriti je li kontejner uspješno pok
 
 > Kontejner je uspješno pokrenut i radi na portu 8080
 
-Kontejner je, osim preko terminala, moguće pokrenuti direktno iz grafičkog sučelja, međutim onda je ove dodatne postavke potrebno unijeti u grafičkom sučelju.
+Kontejner je, osim preko terminala, **moguće pokrenuti direktno iz grafičkog sučelja**, međutim onda je ove dodatne postavke potrebno unijeti u grafičkom sučelju.
 
-Praktičnije je i brže naučiti osnovne Docker naredbe u terminalu.
+**Praktičnije je i brže naučiti osnovne Docker naredbe u terminalu**
 
 > CLI Cheat Sheet za Docker možete preuzeti na sljedećoj poveznici: https://docs.docker.com/get-started/docker_cheatsheet.pdf
 
-Nakon što je kontejner uspješno pokrenut, možemo pristupiti Camunda 7 platformi preko web preglednika na adresi: `http://localhost:8080/camunda`.
+Nakon što je kontejner uspješno pokrenut, možemo pristupiti Camunda 7 platformi preko web preglednika na adresi: `http://localhost:8080/camunda`
 
 Otvorite u web pregledniku adresu: `http://localhost:8080/camunda-welcome/index.html`. Ako je kontejner uspješno pokrenut, trebali biste vidjeti sljedeći prikaz:
 
 <img src="./screenshots/camunda_platform_web.png" style="width:90%; "></img>
 
-> Camunda 7 platforma pokrenuta preko Docker kontejnera `camunda/camunda-bpm-platform:latest`
+> Camunda 7 platforma pokrenuta lokalno preko Docker kontejnera: `camunda/camunda-bpm-platform:latest`
 
 # 3. Osnovne komponente Camunda 7 platforme
 
@@ -236,24 +239,22 @@ Camunda 7 platforma koju ste pokrenuli sastoji se nekoliko ključnih komponenti:
 - **Tasklist**: Popis zadataka koje korisnici trebaju obaviti (User Tasks)
 - **Admin**: Upravljanje korisnicima (User Management), grupama, ovlastima i sl.
 
-Za samu egzekuciju procesa dovoljan je samo **Workflow Engine**, dok su **Cockpit**, **Tasklist** i **Admin** dodatne komponente koje olakšavaju upravljanje i nadzor poslovnih procesa kroz grafičko sučelje.
+Za samu egzekuciju procesa dovoljan je samo **Workflow Engine**, dok su **Cockpit**, **Tasklist** i **Admin** dodatne komponente koje olakšavaju upravljanje i nadzor poslovnih procesa kroz grafička sučelja.
 
-Kao 5. komponentu ne smijemo izostaviti naš **Camunda Modeler** koji koristimo kao odvojeni alat za modeliranje.
+Kao 5. komponentu ne smijemo izostaviti naš **Camunda Modeler** koji koristimo kao odvojeni alat za **modeliranje**. Međutim, vidjet ćete da modeliranje sad dobiva na još jednoj dimenziji - onoj **podatkovnoj**.
 
 Za učenje, ovdje već imate uključena 2 poslovna procesa:
 
 - _Invoice Receipt_
 - _Review Invoice_
 
-Međutim, mi ćemo krenuti od same nule i kreirati novi vlastiti poslovni proces.
-
 ## 3.1 Camunda Cockpit
 
 Na početnoj stranici, gdje vidite prikaz svih komponenti, odaberite **Cockpit**.
 
-Tražit će vas da se prijavite. Korisničko ime i lozinka su **demo**.
+Tražit će vas da se prijavite. Korisničko ime i lozinka su `demo`.
 
-**Camunda 7 Cockpit** predstavlja centralno mjesto za nadzor, upravljanje i analizu poslovnih procesa koji se izvršavaju. Kao i druge komponente (osim Workflow Enginea), Cockpit je dostupan preko web sučelja.
+**Camunda 7 Cockpit** predstavlja centralno mjesto za **nadzor**, **upravljanje** i **analizu poslovnih procesa** koji se izvršavaju. Kao i druge komponente (osim Workflow Enginea), Cockpit je dostupan preko web grafičkog sučelja.
 
 Jednom kad se prijavite, vidjet ćete upravljačku ploču koja prikazuje trenutne **aktivne procese** i **procesne instance**.
 
@@ -261,7 +262,9 @@ Jednom kad se prijavite, vidjet ćete upravljačku ploču koja prikazuje trenutn
 
 > Početna upravljačka ploča Camunda Cockpit komponente
 
-Podsjetimo se: **Procesna instanca odnosi se na jedno pokretanje procesa**. Svaki korisnik koji pokrene proces ima svoju instancu procesa.
+Podsjetimo se: **Procesna instanca odnosi se na jedno pokretanje procesa**.
+
+Svaki korisnik koji pokrene proces ima svoju instancu procesa.
 
 Na ovom prikazu vidimo 2 aktivna procesa:
 
@@ -275,41 +278,41 @@ Od toga, postoji:
 
 Ako pritisnite `Processes` u gornjem izborniku, vidjet ćete popis pokrenutih **procesa**.
 
-<img src="./screenshots/cockpit-active-processes.png" style="width:90%; ">
+<img src="./screenshots/cockpit-active-processes.png" style="width:50%; ">
 
 <img src="./screenshots/cockpit-active-processes-instances.png" style="width:90%; ">
 
-> Pregled aktivnih procesa i njihovih instanci
+> Pregled **aktivnih procesa** i **procesnih instanci**
 
 Otvorite proces _Review Invoice_ kako biste vidjeli aktivne instance tog procesa i trenutno stanje procesa kroz **dijagram toka**.
 
 <img src="./screenshots/cockpit-instances-diagram.png" style="width:90%; ">
 
-Uočite sad putanju u programu:
+Uočite putanju u programu:
 
 > Dashboard → Processes → Review Invoice : Runtime
 
 Sad **pregledavamo aktivne instance procesa** _Review Invoice_. Vidimo da postoje dvije.
 
-U prvom planu vidimo dijagram ovog poslovnog procesa koji se sastoji od samo **2 aktivnosti**:
+U prvom planu vidimo dijagram ovog poslovnog procesa koji se sastoji od samo **2 aktivnosti (eng. Task)**:
 
 - _Assign Reviewer_ (User Task)
 - _Review Invoice_ (User Task)
 
-Na dijagramu vidimo brojku (2) pored aktivnosti _Assign Reviewer_ što znači da postoje **2 aktivne instance** ovog procesa **koje se trenutno nalazi na ovoj aktivnosti** (radnom koraku).
+Na dijagramu vidimo brojku `(2)` pored aktivnosti _Assign Reviewer_ što znači da postoje **2 aktivne instance** ovog procesa **koje se trenutno nalazi na ovoj aktivnosti** (radnom koraku).
 
-> Navedenu oznaku nazivamo **token**.
+> Spomenutu oznaku nazivamo **token**.
 
 U izborniku lijevo možemo vidjeti neke općenite informacije o procesu, kao što su:
 
 - **Definition Version** - verzija definicije procesa (u slučaju da se proces mijenjao, što je čest slučaj u praksi)
 - **Definition ID** - ID trenutne definicije poslovnog procesa
 - **Definition Key** - ključ definicije procesa
-- **History Time To Live** - koliko dugo se povijest procesa (pohranjene varijable) čuva u internoj bazi podataka
-- **Deployment ID** - ID trenutnog deploymenta poslovnog procesa
+- **History Time To Live** - koliko dugo se povijest procesa (pohranjene procesne varijable) čuva u internoj bazi podataka
+- **Deployment ID** - ID trenutnog _deploymenta_ poslovnog procesa
 - **Instance Running** - koliko je trenutno aktivnih instanci procesa, za trenutnu verziju i sve verzije ukupno
 
-Ako pritisnemo na jednu od dvije instance, otvorit će se još jedan prozor s detaljima o toj instanci. Ovdje su nam najzanimljivije pohranjene varijable, koje su u ovom slučaju:
+Ako pritisnemo na jednu od dvije instance, otvorit će se još jedan prozor s detaljima o toj instanci. Ovdje su nam najzanimljivije pohranjene **procesne varijable**:
 
 - _amount_
 - _creditor_
@@ -319,18 +322,18 @@ Ako pritisnemo na jednu od dvije instance, otvorit će se još jedan prozor s de
 
 <img src="./screenshots/cockpit-instance-details.png" style="width:90%; ">
 
-> Detalji o jednoj instanci procesa (**varijable**)
+> Detalji o jednoj instanci procesa _Review Invoice_ (**procesne varijable**)
 
 Vidimo da se svaka varijabla sastoji od:
 
 - **naziva/ključa**
-- **tipa podataka** (npr. Integer, Boolean, Double, String, File, itd.)
+- **tipa podataka** (npr. `Integer`, `Boolean`, `Double`, `String`, `File`, itd.)
 - **vrijednosti**
-- **opsega procesa gdje je vidljiva (scope)**
+- **opsega procesa gdje je procesna varijabla vidljiva (scope)**
 
 Vrijednosti se ovdje mogu direktno mijenjati, što je korisno **u slučaju da je potrebno ručno intervenirati u procesu**.
 
-U prozoru `Add criteria` moguće je definirati kriterije za filtriranje podataka po instanci, ključu i vrijednosti varijabli.
+U prozoru `Add criteria` moguće je definirati kriterije za filtriranje podataka po **instanci**, **ključu** i **vrijednosti varijable**.
 
 Ako se vratimo na `Dashboard → Processes` i otvorimo drugi proces _Invoice Receipt_, možemo vidjeti i ovaj proces i njegove aktivne instance.
 
@@ -344,9 +347,12 @@ Vidimo da je proces složeniji od prethodnog, sastoji se od 3 staze (swimlanes) 
 - **Approver**
 - **Accountant**
 
-Ovaj proces ima ukupno 6 aktivnih instanci, od kojih su 3 u definiciji procesa V1.0 i 3 u definiciji procesa V2.0.
+Ovaj proces ima ukupno 6 aktivnih instanci, od kojih su:
 
-Dalje, možemo uočiti nekoliko aktivnosti na svakoj stazi.
+- 3 u definiciji procesa V1.0 i
+- 3 u definiciji procesa V2.0
+
+Dalje, možemo uočiti nekoliko aktivnosti na svakoj stazi:
 
 - _Assign Approver Group_
 - _Approve Invoice_
@@ -354,11 +360,11 @@ Dalje, možemo uočiti nekoliko aktivnosti na svakoj stazi.
 - _Prepare Bank Transfer_
 - _Archive Invoice_
 
-Uočavate li nešto? _Review Invoice_ je ustvari potproces koji se koristi u ovom procesu, međutim on je definiran i deployan kao zasebni proces koji se izvršava u Workflow engineu, a i vidjeli smo ga malo prije.
+Uočavate li nešto? _Review Invoice_ je ustvari **potproces** koji se koristi u ovom procesu, međutim on je definiran i _deployan_ kao zasebni proces koji se izvršava u Workflow engineu, a i vidjeli smo ga malo prije.
 
 Dakle, kroz Camunda Cockpit, osim glavnog procesa koji se izvršava, **možemo na jednak način pratiti i potprocese koji se izvršavaju unutar glavnog procesa**.
 
-Ako pogledate ovdje graf, možemo vidjeti ukupno 3 tokena: brojke (1) na aktivnostima:
+Ako pogledate ovdje graf, možemo vidjeti ukupno 3 tokena: brojke `(1)` na aktivnostima:
 
 - _Approve Invoice_
 - _Prepare Bank Transfer_
@@ -377,11 +383,11 @@ Ako pogledate ovdje graf, možemo vidjeti ukupno 3 tokena: brojke (1) na aktivno
 
 Ako stisnemo na neku od ovih aktivnosti s tokenom, **filtrirat će nam se one instance koje se trenutno nalaze na toj aktivnosti**.
 
-Dodatno, pored potprocesa možemo odabrati opciju "Show Called Process Definition" koja će nam otvoriti novi prozor **s detaljima o tom potprocesu i njegovim aktivnim instancama**, dakle klikom na "Review Invoice", otvorit će se `Dashboard -> Processes -> Invoice Receipt -> Review Invoice: Runtime`.
+Dodatno, pored potprocesa možemo odabrati opciju `"Show Called Process Definition"` koja će nam otvoriti novi prozor **s detaljima o tom potprocesu i njegovim aktivnim instancama**, dakle klikom na "Review Invoice", otvorit će se `Dashboard -> Processes -> Invoice Receipt -> Review Invoice: Runtime`.
 
 ### 3.1.1 Egzekucija vlastitog procesa
 
-Prije nego što krenemo pregledavati druge komponente (Tasklist, Admin), idemo pokušati definirati vlastiti poslovni proces, pokrenuti ga te pratiti njegovo izvođenje unutar Camunda Cockpita.
+Prije nego što krenemo pregledavati druge komponente (`Tasklist`, `Admin`), idemo pokušati definirati vlastiti poslovni proces, pokrenuti ga te pratiti njegovo izvođenje unutar Camunda Cockpita.
 
 Otvorite Camunda Modeler i odaberite novi BPMN dijagram za Camunda 7 platformu.
 
@@ -391,13 +397,13 @@ Otvorite Camunda Modeler i odaberite novi BPMN dijagram za Camunda 7 platformu.
 
 Dijagram pohranite lokalno, na proizvoljnu lokaciju.
 
-Definirat ćemo jednostavan proces koji definira narudžbu proizvoda u webshopu. Nazovite ga: _webshop-order.bpmn_
+Definirat ćemo jednostavan proces koji definira **obradu narudžbe proizvoda u webshopu**. Nazovite ga: _webshop-order.bpmn_
 
 **Krenimo jednostavno**, definirat ćemo proces koji se sastoji od 3 aktivnosti u jednoj stazi:
 
-- Potvrda narudžbe
-- Priprema narudžbe
-- Isporuka narudžbe
+- _Potvrda narudžbe_
+- _Priprema narudžbe_
+- _Isporuka narudžbe_
 
 Za sada nećemo definirati dopunske atribute aktivnosti, niti skretnice. Napravite jednostavan linearni proces s 3 aktivnosti i početnim i završnim događajem.
 
@@ -405,25 +411,26 @@ Za sada nećemo definirati dopunske atribute aktivnosti, niti skretnice. Napravi
 
 > Jednostavan proces narudžbe u webshopu
 
-Prije nego možemo deployati ovaj proces, moramo definirati nekoliko stvari:
+Prije nego možemo _deployati_ ovaj proces, moramo definirati nekoliko stvari:
 
 - **Process name** - ime procesa (npr. _Webshop Order_)
 - **Version tag** - verzija procesa (npr. _v1.0_)
 - **Time to live** - koliko dugo se povijest procesa čuva u bazi podataka (unesite proizvoljnu vrijednost)
+- **Process ID** - jedinstveni identifikator procesa (npr. _narudzba_robe_) (čisto da vidite da ne mora biti isto kao ime procesa, ovaj podatak ćemo kasnije najviše koristiti)
 
-Stisnite na pool gdje je sadržan proces, trebao bi vam se otvoriti s desne strane prozor s postavkama procesa (**Properties panel**).
+Stisnite na _pool_ gdje je sadržan proces, trebao bi vam se otvoriti s desne strane prozor s postavkama procesa (**Properties panel**).
 
-Ako vam se ovaj prozor ne prikazuje, odaberite `Window -> Toggle Properties Panel`. Jednom kad se otvori, unesite tražene vrijednosti:
+Ako vam se ovaj prozor ne prikazuje, odaberite `Window -> Toggle Properties Panel`. Jednom kad se otvori, **unesite tražene vrijednosti**:
 
 <img src="./screenshots/webshop-order/webshop-order-default-props.png" style="width:70%; ">
 
-> Postavke procesa u Properties panelu
+> Postavke procesa u **Properties panelu**
 
 Sada možete deployati diagram pritiskom na ikonu rakete (🚀) u donjem lijevom kutu
 
 <img src="./screenshots/webshop-order/deploy_diagram.png" style="width:70%; ">
 
-> Pazite da se PORT REST endpointa poklapa s portom na kojem je pokrenuta Camunda platforma, odnosno PORT na koji je mapiran Docker kontejner.
+> **Provjerite da se PORT REST endpointa poklapa s portom na kojem je pokrenuta Camunda platforma, odnosno PORT na koji je mapiran Docker kontejner.**
 
 Trebali biste dobiti poruku o uspješnom deploymentu definicije procesa. Sada otvorite Camunda Cockpit i pregledajte procese:
 
@@ -433,23 +440,23 @@ Ako otvorite proces, vidjet ćete da **nema aktivnih instanci**. To je zato što
 
 U realnom okruženju, proces će se pokrenuti nekim događajem ili korisničkom interakcijom. Međutim, tijekom razvoja procesne aplikacije, možemo ručno pokrenuti proces:
 
-Vratite se u Modeler, na dnu odaberite strelicu pored ikone rakete (🚀) i odaberite `Start process instance`. Tražit će vas za opcionalni unos varijabli, za sad možete ostaviti prazno.
+**Vratite se u Modeler**, na dnu odaberite strelicu pored ikone rakete (🚀) i odaberite `Start process instance`.
 
 <img src="./screenshots/webshop-order/webshop-order-start-instance.png" style="width:60%; ">
 
-> Pokretanje nove instance procesa
+> Pokretanje nove instance procesa direktno unutar **Camunda Modelera**
 
 Trebali biste dobiti obavijest o uspješnom pokretanju instance procesa.
 
-Ako se vratite u Camunda Cockpit i osvježite stranicu očekivali biste novu instancu procesa koja čeka na zadatku "Potvrda narudžbe", međutim to nije slučaj. Zašto?
+Ako se vratite u Camunda Cockpit i osvježite stranicu očekivali biste novu instancu procesa koja čeka na zadatku `"Potvrda narudžbe"`, međutim to nije slučaj. Zašto?
 
 ### 3.1.2 `User Task` i forme
 
-Nećete vidjeti novu instancu procesa, niti će se ona pojaviti u Cockpitu jer je instanca već završila. Naime, proces koji smo definirali je jednostavan linearni proces koji se sastoji od 3 aktivnosti i završnog događaja. Ove 3 aktivnosti koje smo definirali nemaju nikakve dodatne postavke, odnosno nismo definirali način na koji korisnik može dati "input" u proces, npr. obraditi narudžbu, pripremiti narudžbu i sl.
+Nećete vidjeti novu instancu procesa, niti će se ona pojaviti u Cockpitu jer je instanca već završila (odnosno započela, odradila zadatke i završila). Naime, proces koji smo definirali je jednostavan linearni proces koji se sastoji od 3 aktivnosti i završnog događaja. Ove 3 aktivnosti koje smo definirali nemaju nikakve dodatne postavke/atribute, odnosno **nismo definirali način na koji korisnik može dati "input" u proces**, npr. **obraditi narudžbu**, **pripremiti narudžbu** i sl.
 
 Ako se prisjetite, rekli smo da za radnje koje obavlja korisnik preko informacijskog sustava (u našem slučaju je to Camunda Cockpit) koristimo **korisnički radni korak/zadatak** (`User task`) kao **opisni atribut aktivnosti**.
 
-Izmijenit ćemo proces tako da aktivnost "Potvrda narudžbe" bude `User task`.
+Izmijenit ćemo proces tako da aktivnost `"Potvrda narudžbe"` bude `User task`.
 
 Međutim to nije sve, moramo definirati i neki način kako će korisnik potvrditi tu narudžbu, kojom interakcijom? To ćemo definirati preko **formi**. Camunda 7 dozvoljava da definirate 3 vrste formi:
 
@@ -467,7 +474,7 @@ Mi ćemo za sad odabrati **treću opciju** obzirom da je ujedno i najjednostavni
 
 <img src="./screenshots/webshop-order/potvrda_narudzbe_task_form.png" style="width:90%; ">
 
-> Unos ID-a i odabir tipa forme: "Generated Task Forms"
+> Unos ID-a i odabir tipa forme: **"Generated Task Forms"**
 
 Svakoj aktivnosti, pa i ovoj, možete dodati ID, npr. `potvrda_narudzbe_task`.
 
@@ -478,25 +485,25 @@ Svakoj aktivnosti, pa i ovoj, možete dodati ID, npr. `potvrda_narudzbe_task`.
 
 Dignite verziju procesa na `v2.0` i _deployajte_ ga.
 
-Nakon toga, napravite novu instancu procesa.
+Nakon toga, startajte novu instancu procesa kroz Modeler.
 
 <img src="./screenshots/webshop-order/webshop-narudzba-potvrdena-form.png" style="width:90%; ">
 
 > Dodavanje novog polja u formu
 
-Otvorite instance ovog procesa, vidjet ćete 1 aktivnu instancu koja ima token na aktivnosti "Potvrda narudžbe".
+Otvorite instance ovog procesa, vidjet ćete **1 aktivnu instancu** koja ima token na aktivnosti `"Potvrda narudžbe"`.
 
 <img src="./screenshots/webshop-order/camunda_potvrda_narudzbe_pending.png" style="width:90%; ">
 
-> Pregled aktivne instance procesa s tokenom na aktivnosti "Potvrda narudžbe"
+> Pregled aktivne instance procesa s tokenom na aktivnosti `"Potvrda narudžbe"`
 
-Kako bi završili ovu aktivnost, moramo potvrditi narudžbu.
+Kako bi završili ovu aktivnost, moramo potvrditi narudžbu putem nove forme koju smo definirali 😎
 
 ## 3.2 Camunda Tasklist
 
-**Camunda Tasklist** je web aplikacija koja omogućuje korisnicima da vide i obavljaju zadatke (**User Task**) koji su im dodijeljeni u poslovnim procesima.
+**Camunda Tasklist** je web aplikacija unutar Camunde 7 koja omogućuje korisnicima da pregledavaju i obavljaju korisničke zadatke (**User Task**) koji su im dodijeljeni u poslovnim procesima.
 
-Otvorite Tasklist preko početne stranice Camunda platforme.
+Otvorite `Tasklist` preko početne stranice Camunda platforme.
 
 Ako vas traži korisničke podatke, možete ponovo unijeti **demo** kao korisničko ime i lozinku.
 
@@ -504,46 +511,44 @@ Lijevo ćete vidjeti grupirane zadatke po kategorijama. Zadatke je moguće grupi
 
 Odaberite `All Tasks` kako biste vidjeli sve zadatke.
 
-Obzirom da ste prijavljeni kao `demo`, koji ima administratorske ovlasti, vidjet ćete sve zadatke koji su trenutno aktivni u Camunda platformi.
+Obzirom da ste prijavljeni kao `demo`, koji ima **administratorske ovlasti**, vidjet ćete sve zadatke koji su trenutno aktivni u Camunda platformi.
 
-Vidjet ćete Task `Potvrda narudžbe`. Možete se samostalno dodijeliti tom zadatku, pritisnite na `Claim` skroz desno.
-
-Dodatno, **možete se samostalno i samostalno dodijeliti nekom zadatku**.
+Dakle, možete se samostalno dodijeliti na zadatak `Potvrda narudžbe`; pritisnite na `Claim` skroz desno.
 
 <img src="./screenshots/webshop-order/tasklist_all_tasks.png" style="width:90%; ">
 
-> Pregled svih zadataka u Tasklistu
+> Pregled svih zadataka (All Tasks) u `Tasklist` aplikaciji
 
 U sadržaju forme možete vidjeti polje `narudzba_potvrdena` kojem ste dodijelili labelu `"Želite li potvrditi narudžbu?"` i tip podatka `Boolean`.
 
-Možete odabrati checkbox i pritisnuti na `Complete` kako biste završili ovaj zadatak, ali ga i ne morate odabrati jer je polje `narudzba_potvrdena` definirano kao `Boolean` tip podatka, što znači da je moguće unijeti i `true` i `false` vrijednosti.
+Možete odabrati _checkbox_ i pritisnuti na `Complete` kako biste završili ovaj korisnički zadatak, ali ga i ne morate odabrati jer je polje `narudzba_potvrdena` definirano kao `Boolean` tip podatka, što znači da je moguće unijeti i `true` i `false` vrijednosti.
 
 Što će se dogoditi nakon što završite ovaj zadatak? 🤔
 
 Što ako ga završimo s `true` vrijednošću? A što ako ga završimo s `false` vrijednošću?
 
-Instanca procesa završava u oba slučaja.
+> Instanca procesa završava u oba slučaja.
 
 ---
 
 ### 3.2.1 Procesne varijable i dodavanje `XOR` skretnice
 
-Vidjeli smo u modeliranju, da je uobičajeno da se nakon `User Task`-a dodaje **XOR** skretnica koja određuje sljedeći korak u procesu ovisno o rezultatu zadatka, iako to ne mora uvijek biti slučaj.
+Vidjeli smo u modeliranju, da je uobičajeno da se nakon `User Taska` dodaje **`XOR`** skretnica koja **određuje sljedeći korak** u procesu ovisno o rezultatu korisničkog zadatka, iako to ne mora uvijek biti slučaj.
 
-Nadogradit ćemo proces dodavanjem XOR skretnice koja će ovisno o rezultatu zadatka "Potvrda narudžbe" odrediti sljedeći korak u procesu.
+Nadogradit ćemo proces dodavanjem `XOR` skretnice koja će ovisno o rezultatu zadatka `"Potvrda narudžbe"` podijeliti proces na dva toka:
 
-- ako je narudžba potvrđena, proces ide dalje na korak "Priprema narudžbe"
+- ako je narudžba potvrđena, proces ide dalje na korak `"Priprema narudžbe"`
 - ako narudžba nije potvrđena, proces završava
 
 <img src="./screenshots/webshop-order/webshop-order_xor_added.png" style="width:70%; ">
 
-> Dodavanje XOR skretnice u definiciju procesa s alternativnim slijedom
+> Dodavanje `XOR` skretnice u definiciju procesa s alternativnim slijedom
 
 Što je ovdje podatak/varijabla? 🤔
 
-U ovom slučaju, podatak je `narudzba_potvrdena` koji je definiran u formi zadatka "Potvrda narudžbe". Ovaj podatak je **varijabla** koja se pohranjuje u **procesnu instancu** i može se kasnije koristiti bilo gdje u procesu. Naziv varijable smo definirali prilikom definiranja forme (`ID - Refers to the process variable name`).
+U ovom slučaju, podatak je `narudzba_potvrdena` koji je definiran u formi korisničkog zadatka `"Potvrda narudžbe"`. Ovaj podatak je **procesna varijabla** koja se pohranjuje u **procesnu instancu** i može se kasnije koristiti bilo gdje u procesu. Naziv procesne varijable smo definirali prilikom definiranja forme (`ID - Refers to the process variable name`).
 
-Drugim riječima, varijabla je automatski pohranjena u procesnoj instanci jednom kad se zadatak "Potvrda narudžbe" završi.
+Drugim riječima, procesna varijabla je **automatski pohranjena u procesnoj instanci** jednom kad se aktivnost `"Potvrda narudžbe"` završi.
 
 Ono što moramo napraviti je definirati koristeći [Expression Language (EL) ](https://docs.camunda.org/manual/7.22/user-guide/process-engine/expression-language/) **izraze na izlaznim tokovima XOR skretnice**.
 
@@ -552,15 +557,17 @@ Na izlaznim tokovima smo već napisali labele:
 - da
 - ne
 
+**Međutim to nije dovoljno kod razvijamo procesne aplikacije!**
+
 Osnovna sintaksa za **provjeru vrijednosti procesne varijable** je:
 
 ```bash
 ${varijabla == "vrijednost"}
 ```
 
-U našem slučaju "vrijednost" je `true` ili `false`.
+U našem slučaju `"vrijednost"` je `true` ili `false`.
 
-Dakle, na izlaznom toku koji ide prema "Priprema narudžbe" napišite izraz:
+Dakle, na izlaznom toku koji ide prema `"Priprema narudžbe"` napišite izraz:
 
 ```bash
 ${narudzba_potvrdena == true}
@@ -578,29 +585,31 @@ Alternativno, moguće je `Boolean` izraze napisati i skraćeno:
 ${narudzba_potvrdena}
 ```
 
-odnosno
+odnosno ako nije potvrđena:
 
 ```bash
 ${!narudzba_potvrdena}
 ```
 
+Odaberite strelice i definirajte `Condition Expression` za svaki izlazni tok (2):
+
 <img src="./screenshots/webshop-order/expression_narudzba_potvrdena.png" style="width:90%; ">
 
 > Dodavanje izraza na izlazne tokove XOR skretnice (na izlazni tok "ne" dodan je izraz `${!narudzba_potvrdena}`)
 
-**Ako sad ispunite formu i odaberete** `true`, proces će ići prema aktivnosti "Priprema narudžbe". Ako odaberete `false`, proces će završiti.
+**Ako sad ispunite formu i odaberete** `true`, proces će ići prema aktivnosti `"Priprema narudžbe"`. Ako odaberete `false`, proces će završiti.
 
-Provjerite rezultat u Cockpitu:
+Provjerite rezultat u Camunda Cockpitu:
 
 <img src="./screenshots/webshop-order/webshop_order_priprema_narudzbe.png" style="width:70%; ">
 
-> Token (1) se nalazi na aktivnosti "Priprema narudžbe", što znači da jedna aktivna instanca procesa čeka na ovom koraku
+> Token (1) se nalazi na aktivnosti `"Priprema narudžbe"`, što znači da **jedna aktivna instanca procesa čeka na ovom koraku**
 
-Ako otvorite pregled procesne instance u Cockpitu, vidjet ćete da je varijabla `narudzba_potvrdena` pohranjena u procesnu instancu i ima vrijednost `true`.
+Ako otvorite pregled procesne instance u Cockpitu, vidjet ćete da je procesna varijabla `narudzba_potvrdena` pohranjena u procesnu instancu i ima vrijednost `true`.
 
 <img src="./screenshots/webshop-order/webshop_order_priprema_narudzbe_boolean_var.png" style="width:70%; ">
 
-> Pregled procesne instance s pohranjenom varijablom `narudzba_potvrdena`
+> Pregled procesne instance s pohranjenom procesnom varijablom `narudzba_potvrdena`
 
 **Pokrenite još dvije instance** ovog procesa kroz Modeler:
 
@@ -617,15 +626,15 @@ Do sad smo direktno izrađivali novu instancu procesa preko Modelera, iako je ov
 Problemi su sljedeći:
 
 - Pristigla je narudžba - gdje su podaci o narudžbi? Kako ih unijeti?
-- Kako korisnik može pokrenuti proces?
+- Kako krajnji korisnik može pokrenuti instancu procesa?
 
-**Procesne varijable** možemo, osim kroz različite aktivnosti, definirati i na početku, kod započinjanja procesa. Proces koji modeliramo započinje primitkom narudžbe, logično je da onda i podaci o narudžbi budu procesne varijable.
+Procesne varijable možemo, osim kroz različite aktivnosti, **definirati i na početku**, kod započinjanja procesa. Proces koji modeliramo započinje primitkom narudžbe, logično je da onda i podaci o narudžbi budu procesne varijable.
 
 Konkretno, podaci o narudžbi razlikovat će se u svakoj procesnoj instanci, samim tim je logično da ih ne definiramo unutar procesa (npr. u start eventu), već se unose **prilikom pokretanja procesa**.
 
 **1. Način:** Izrada procesne instance s varijablama preko **Camunda Tasklista**
 
-- otvorite Tasklist sučelje i odaberite `Start process` u gornjem desnom kutu
+- otvorite **Tasklist sučelje** i odaberite `Start process` u gornjem desnom kutu
 
 <img src="./screenshots/webshop-order/tasklist_start_process.png" style="width:100%; ">
 
@@ -640,7 +649,9 @@ Odaberite `webshop-order` proces:
 
 Dobit ćete poruku `"Process has been started."`
 
-Provjerite procesne varijable pohranjene u procesnu instancu u Cockpitu.
+Provjerite procesne varijable pohranjene u procesnu instancu u **Cockpitu**.
+
+---
 
 **2. Način:** Izrada procesne instance s varijablama preko **REST API-ja**
 
@@ -656,15 +667,15 @@ Otvorite **Postman** ili **Thunder Client**, možete poslati GET zahtjev na `htt
 
 <img src="./screenshots/HTTP_GET_process-definition.png" style="width:80%; ">
 
-> Uočite proces `webshop-order`
+> Uočite proces `webshop-order` kao drugu vrijednost u JSON listi
 
-Za pokretanje procesa, koristimo **POST metodu** i **endpoint** `http://localhost:8080/engine-rest/process-definition/key/<ProcessID>/start`, gdje je `<ProcessID>` ključ procesa, npr. `webshop-order` ili `narudzba_robe` - ovisno kako ste ga definirali u Modeleru.
+Za pokretanje procesa, koristimo **POST metodu** i **endpoint** `http://localhost:8080/engine-rest/process-definition/key/<ProcessID>/start`, gdje je `<ProcessID>` ključ procesa, npr. `webshop-order` ili `narudzba_robe` - ovisno kako ste ga definirali u Modeleru (pogledati poglavlje 3.1.1).
 
 <img src="./screenshots/ProcessID.png" style="width:30%; ">
 
 > Ključ procesa je `narudzba_robe`
 
-Dakle, endpoint za pokretanje procesa je:
+**Endpoint za pokretanje procesa je:**
 
 ```bash
 http://localhost:8080/engine-rest/process-definition/key/narudzba_robe/start
@@ -700,7 +711,7 @@ Npr. sljedeći JSON objekt započinje instancu procesa `narudzba_robe` s varijab
 
 > Izrada procesne instance s varijablama preko REST API-ja
 
-Provjerite instancu i pohranjene varijable u Cockpitu.
+Provjerite procesnu instancu i pohranjene varijable u **Cockpitu**.
 
 <img src="./screenshots/webshop-order/webshop-order-process-instance-restapi-vars.png" style="width:90%; ">
 
@@ -708,21 +719,21 @@ Provjerite instancu i pohranjene varijable u Cockpitu.
 
 # 4. Obrada vrijednosti procesnih varijabli u procesu
 
-Sad kad smo dodali mogućnost unosa podataka u proces preko Tasklista i REST API-ja, možemo iskoristiti te podatke u procesu.
+Sad kad smo dodali mogućnost unosa podataka u proces preko **Tasklista** i **REST API-ja**, možemo **iskoristiti te podatke u procesu**.
 
-Procesne varijable možemo dohvaćati na jednak način, bez obzira na način unosa, a to je sintaksom `${naziv_procesne_varijable}`.
+Procesne varijable možemo dohvaćati na jednak način, bez obzira na način unosa, a to je sintaksom: `${naziv_procesne_varijable}`.
 
-Nadogradit ćemo proces `narudzba_robe` tako da se na temelju unesenih podataka o narudžbi, izračuna ukupna cijena narudžbe. Slijed procesa se sad paralelno dijeli na `"Priprema narudžbe"` i novi User Task - `"Odobravanje popusta od 10%"`. Korisnik može odobriti ili odbiti popust na narudžbu, a prilikom odobravanja/odbijanja mora unijeti i svoje ime i prezime. Ako korisnik odobri popust, isti se mora izračunati i pohraniti u procesnu varijablu. Ako korisnik odbije popust, proces nastavlja na jednak način ali bez izračuna popusta.
+> Nadogradit ćemo proces `narudzba_robe` tako da se na temelju unesenih podataka o narudžbi, izračuna ukupna cijena narudžbe. Slijed procesa se sad paralelno dijeli na `"Priprema narudžbe"` i novi User Task - `"Odobravanje popusta od 10%"`. Korisnik može odobriti ili odbiti popust na narudžbu, a prilikom odobravanja/odbijanja mora unijeti i svoje ime i prezime. Ako korisnik odobri popust, isti se mora izračunati i pohraniti u procesnu varijablu. Ako korisnik odbije popust, proces nastavlja na jednak način ali bez izračuna popusta.
 
 Koje atribute ćemo koristiti za ovaj nadograđeni proces?
 
-- `Potvrda narudžbe` - **User Task**
-- `Odobravanje popusta` - **User Task**
-- `Izračunaj popust od 10%` - **Service Task**
-- `Priprema narudžbe` - **Manual Task**
-- `Isporuka narudžbe` - **User Task** - čisto da nam instanca ne završi odmah, inače bi bio _manual task_ ili potproces
+- `"Potvrda narudžbe"` - **User Task**
+- `"Odobravanje popusta"` - **User Task**
+- `"Izračunaj popust od 10%"` - **Service Task**
+- `"Priprema narudžbe"` - **Manual Task**
+- `"Isporuka narudžbe"` - **User Task** - čisto da nam instanca ne završi odmah, inače bi bio _manual task_ ili _potproces_
 
-Nakon `Odobravanje popusta` želimo izračunati ukupnu cijenu narudžbe i pohraniti ju u novu procesnu varijablu `ukupna_cijena`. Ova aktivnost ide u `XOR split` skretnicu `Popust odobren?` koja ovisno o rezultatu ide na `Izračunaj popust od 10%` ili direktno u `AND merge` skretnicu.
+Nakon `"Odobravanje popusta"` želimo izračunati ukupnu cijenu narudžbe i pohraniti ju u novu procesnu varijablu `ukupna_cijena`. Ova aktivnost ide u `XOR split` skretnicu `"Popust odobren?"` koja ovisno o rezultatu ide na `"Izračunaj popust od 10%"` ili direktno u `AND merge` skretnicu.
 
 <img src="./screenshots/webshop-order/webshop-order_nadogradeno.png" style="width:90%; ">
 
@@ -732,7 +743,7 @@ Prvo ćemo definirati formu za `Odobravanje popusta`. Odaberite `Generated Task 
 - `djelatnik_ime` - tip podatka `String`, labela: `"Molimo unesite vaše ime"`
 - `djelatnik_prezime` - tip podatka `String`, labela: `"Molimo unesite vaše prezime"`
 
-Gotovo svaka aktivnost može kao rezultat svog izvršavanja pohraniti neku procesnu varijablu. Moguće je iskoristiti vrijednosti postojećih varijabli te unutar `Expression` izraza izračunati nove vrijednosti.
+**Gotovo svaka aktivnost može kao rezultat svog izvršavanja pohraniti neku procesnu varijablu**. Moguće je iskoristiti vrijednosti postojećih varijabli te unutar `Expression` izraza izračunati nove vrijednosti.
 
 **Mi želimo izračunati ukupnu cijenu narudžbe** koristeći procesne varijable `cijena` i `kolicina` te pohraniti rezultat u novu varijablu `ukupna_cijena`.
 
@@ -744,7 +755,7 @@ ${cijena * kolicina}
 
 <img src="./screenshots/webshop-order/odobravanje_popusta_user_task.png" style="width:60%; ">
 
-> Dodavanje 3 polja u Form fields korisničkog zadatka "Odobravanje popusta" i dodavanje **Outputs** izračunate procesne varijable `ukupna_cijena`
+> Dodavanje 3 polja u Form fields korisničkog zadatka `"Odobravanje popusta"` te dodavanje izračunate procesne varijable `ukupna_cijena` kao izlaznu vrijednost (**Outputs**) ovog zadatka
 
 Na izlaznom toku `Da` dodajte izraz:
 
@@ -758,9 +769,9 @@ Na izlaznom toku `Ne` dodajte izraz:
 ${!popust_odobren}
 ```
 
-Izlazni tok `Da` ide na `Izračunaj popust od 10%`, a izlazni tok `Ne` ide direktno u `AND merge` skretnicu.
+Izlazni tok `Da` ide na aktivnost `"Izračunaj popust od 10%"`, a izlazni tok `Ne` ide direktno u `AND merge` skretnicu.
 
-Na `Izračunaj popust od 10%` aktivnosti ćemo odabrati servisni zadatak. Odaberite:
+Na `"Izračunaj popust od 10%"` aktivnosti ćemo odabrati **servisni zadatak**. Servisni zadatak je aktivnost koja se izvršava automatski, bez korisničke interakcije, i može izvršiti neki posao, npr. izračunati popust. Odaberite jednostavni izraz:
 
 > `Implementation` -> `Type` -> `Expression`
 
@@ -780,7 +791,7 @@ ${execution.setVariable("ukupna_cijena", ukupna_cijena - ukupna_cijena*0.1)}
 
 > Definiranje izraza za izračun popusta od 10% na servisnom zadatku `"Izračunaj popust od 10%"`
 
-To je to! **Redployajte novu verziju procesa** i **pokrenite novu instancu procesa** kroz REST API ili Tasklist. Dodajte početne procesne varijable: `proizvod`, `cijena`, `kolicina` i pratite tijek procesa kroz Cockpit.
+To je to! **Redployajte novu verziju procesa** i **pokrenite novu instancu procesa** kroz **REST API** ili **Tasklist**. Dodajte početne procesne varijable: `proizvod`, `cijena`, `kolicina` i pratite tijek procesa kroz **Cockpit**.
 
 <img src="./screenshots/webshop-order/webshop-upgraded-1.png" style="width:90%; ">
 
@@ -792,13 +803,13 @@ Nakon potvrde narudžbe, paralelno se izvršavaju aktivnosti `"Priprema narudžb
 
 > Prikaz aktivne instance procesa s tokenom na aktivnosti `"Odobravanje popusta"` i `AND merge` skretnici budući da se manualni taskovi preskaču
 
-Otvaramo Tasklist i odabiremo zadatak `"Odobravanje popusta"`. Unosimo podatke i odobravamo popust.
+Otvaramo **Tasklist** i odabiremo zadatak `"Odobravanje popusta"`. Unosimo podatke i odobravamo popust.
 
 <img src="./screenshots/webshop-order/webshop-upgraded-3.png" style="width:90%; ">
 
 > Generirana forma za `"Odobravanje popusta"` s unesenim podacima za procesne varijable: `popust_odobren`, `djelatnik_ime` i `djelatnik_prezime`
 
-Otvorite Cockpit i pogledajte stanje procesne instance i unesenih varijabli. Vidjet ćete da se izračunao popust od 10% i pregazio vrijednost procesne varijable `ukupna_cijena`, koja je bila `100`. Token se sada nalazi na aktivnosti `"Isporuka narudžbe"`, kako se instanca ne bi završila odmah (premda nismo definirali kako dalje).
+Otvorite **Cockpit** i pogledajte stanje procesne instance i unesenih varijabli. Vidjet ćete da se izračunao popust od 10% i pregazio vrijednost procesne varijable `ukupna_cijena`, koja je bila `100`. Token se sada nalazi na aktivnosti `"Isporuka narudžbe"`, kako se instanca ne bi završila odmah (premda nismo definirali kako dalje).
 
 <img src="./screenshots/webshop-order/webshop-upgraded-4.png" style="width:90%; ">
 
@@ -806,4 +817,4 @@ Otvorite Cockpit i pogledajte stanje procesne instance i unesenih varijabli. Vid
 
 # Samostalni zadatak za Vježbu 5
 
-- bit će objavljen uskoro :)
+- bit će objavljen uskoro : )
