@@ -38,6 +38,8 @@ Procesne aplikacije omogućuju automatizaciju poslovnih procesa korištenjem def
 - [4. Obrada vrijednosti procesnih varijabli u procesu](#4-obrada-vrijednosti-procesnih-varijabli-u-procesu)
 - [Samostalni zadatak za Vježbu 5](#samostalni-zadatak-za-vježbu-5)
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # 1. Uvod u procesne aplikacije
 
 Od početka razvoja BPMN-a isticalo se ostvarenje dvaju (prividno) međusobno teško uskladivih ciljeva:
@@ -109,11 +111,13 @@ U kontekstu ovog kolegija, procesne aplikacije ćemo interpretirati kao web apli
 
 Do sad smo naučili kako ispravno modelirati procese u BPMN notaciji, a sada ćemo se upoznati s alatom Camunda 7 koji omogućuje izvođenje (egzekuciju) tih procesa.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # 2. Camunda 7
 
 Camunda 7 je _open-source_ platforma koja koristi BPMN za vizualno modeliranje procesa te pruža mehanizme za njihovo **izvršavanje**, **nadzor** i **upravljanje**. Primjenom Camunde, organizacije mogu optimizirati svoje poslovne procese i povećati učinkovitost poslovanja kroz automatizaciju zadataka i transparentno praćenje tijeka procesa.
 
-<img src="./screenshots/camunda.png" style="width:90%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/camunda.png?raw=true" style="width:90%; "></img>
 
 Do sad ste koristili [Open Source Desktop Modeler](https://camunda.com/download/modeler/) za modeliranje poslovnih procesa u BPMN notaciji, sada ćemo se upoznati s dodatnim komponentama Camunda platforme:
 
@@ -148,7 +152,7 @@ Najbolji način je pretražiti na internetu kako pristupiti BIOS-u na vašem ra�
 
 > Dakle, na Windowsu, Docker Desktop zahtjeva instalaciju WSL-2 **ili** Hyper-V.
 
-<img src="./screenshots/docker-install-windows.png" style="width:70%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/docker-install-windows.png?raw=true" style="width:70%; "></img>
 
 > Upute za instalaciju Docker Desktop na Windows OS-u, dostupno na: https://docs.docker.com/desktop/setup/install/windows-install/
 
@@ -162,7 +166,7 @@ docker --version
 
 Pokrenite Docker Desktop aplikaciju i prijavite se s vašim Docker računom. Ako nemate Docker račun, možete ga besplatno kreirati na [Docker Hub-u](https://app.docker.com/signup).
 
-<img src="./screenshots/docker-desktop-gui.png" style="width:70%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/docker-desktop-gui.png?raw=true" style="width:70%; "></img>
 
 > Grafičko sučelje Docker Desktop aplikacije
 
@@ -179,7 +183,7 @@ U pravilu, za sada će nam samo biti bitni **Container** i **Images** tabovi.
 
 > **VAŽNO!** Kontejneri se uvijek pokreću preko odgovarajućeg image-a, gdje image predstavlja predložak za pokretanje kontejnera, a kontejner predstavlja realiziranu sliku (instancu) tog predloška.
 
-<img src="./screenshots/docker-images-gui.png" style="width:70%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/docker-images-gui.png?raw=true" style="width:70%; "></img>
 
 > Prikaz svih preuzetih Docker "slika" (_eng. Docker images_)
 
@@ -214,7 +218,7 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 
 Nakon što pokrenemo kontejner, možemo provjeriti je li kontejner uspješno pokrenut preko Docker Desktop aplikacije.
 
-<img src="./screenshots/docker-camunda-container-running.png" style="width:70%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/docker-camunda-container-running.png?raw=true" style="width:80%; "></img>
 
 > Kontejner je uspješno pokrenut i radi na portu 8080
 
@@ -228,9 +232,11 @@ Nakon što je kontejner uspješno pokrenut, možemo pristupiti Camunda 7 platfor
 
 Otvorite u web pregledniku adresu: `http://localhost:8080/camunda-welcome/index.html`. Ako je kontejner uspješno pokrenut, trebali biste vidjeti sljedeći prikaz:
 
-<img src="./screenshots/camunda_platform_web.png" style="width:90%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/camunda_platform_web.png?raw=true" style="width:90%; "></img>
 
 > Camunda 7 platforma pokrenuta lokalno preko Docker kontejnera: `camunda/camunda-bpm-platform:latest`
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 3. Osnovne komponente Camunda 7 platforme
 
@@ -260,7 +266,7 @@ Tražit će vas da se prijavite. Korisničko ime i lozinka su `demo`.
 
 Jednom kad se prijavite, vidjet ćete upravljačku ploču koja prikazuje trenutne **aktivne procese** i **procesne instance**.
 
-<img src="./screenshots/cockpit-dashboard.png" style="width:90%; "></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-dashboard.png?raw=true" style="width:90%; "></img>
 
 > Početna upravljačka ploča Camunda Cockpit komponente
 
@@ -280,15 +286,15 @@ Od toga, postoji:
 
 Ako pritisnite `Processes` u gornjem izborniku, vidjet ćete popis pokrenutih **procesa**.
 
-<img src="./screenshots/cockpit-active-processes.png" style="width:50%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-active-processes.png?raw=true" style="width:50%; ">
 
-<img src="./screenshots/cockpit-active-processes-instances.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-active-processes-instances.png?raw=true" style="width:90%; ">
 
 > Pregled **aktivnih procesa** i **procesnih instanci**
 
 Otvorite proces _Review Invoice_ kako biste vidjeli aktivne instance tog procesa i trenutno stanje procesa kroz **dijagram toka**.
 
-<img src="./screenshots/cockpit-instances-diagram.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-instances-diagram.png?raw=true" style="width:90%; ">
 
 Uočite putanju u programu:
 
@@ -322,7 +328,7 @@ Ako pritisnemo na jednu od dvije instance, otvorit će se još jedan prozor s de
 - _invoiceDocument_
 - _invoiceNumber_
 
-<img src="./screenshots/cockpit-instance-details.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-instance-details.png?raw=true" style="width:90%; ">
 
 > Detalji o jednoj instanci procesa _Review Invoice_ (**procesne varijable**)
 
@@ -339,7 +345,7 @@ U prozoru `Add criteria` moguće je definirati kriterije za filtriranje podataka
 
 Ako se vratimo na `Dashboard → Processes` i otvorimo drugi proces _Invoice Receipt_, možemo vidjeti i ovaj proces i njegove aktivne instance.
 
-<img src="./screenshots/cockpit-invoice-receipt-instances.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/cockpit-invoice-receipt-instances.png?raw=true" style="width:90%; ">
 
 > Pregled aktivnih instanci procesa _Invoice Receipt_
 
@@ -387,13 +393,15 @@ Ako stisnemo na neku od ovih aktivnosti s tokenom, **filtrirat će nam se one in
 
 Dodatno, pored potprocesa možemo odabrati opciju `"Show Called Process Definition"` koja će nam otvoriti novi prozor **s detaljima o tom potprocesu i njegovim aktivnim instancama**, dakle klikom na "Review Invoice", otvorit će se `Dashboard -> Processes -> Invoice Receipt -> Review Invoice: Runtime`.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### 3.1.1 Egzekucija vlastitog procesa
 
 Prije nego što krenemo pregledavati druge komponente (`Tasklist`, `Admin`), idemo pokušati definirati vlastiti poslovni proces, pokrenuti ga te pratiti njegovo izvođenje unutar Camunda Cockpita.
 
 Otvorite Camunda Modeler i odaberite novi BPMN dijagram za Camunda 7 platformu.
 
-<img src="./screenshots/modeler-new-camunda7.png" style="width:30%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/modeler-new-camunda7.png?raw=true" style="width:30%; ">
 
 > Odaberite Camunda Platform 7 -> BPMN diagram
 
@@ -409,7 +417,7 @@ Definirat ćemo jednostavan proces koji definira **obradu narudžbe proizvoda u 
 
 Za sada nećemo definirati dopunske atribute aktivnosti, niti skretnice. Napravite jednostavan linearni proces s 3 aktivnosti i početnim i završnim događajem.
 
-<img src="./screenshots/webshop-order/webshop-order.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order.png?raw=true" style="width:70%; ">
 
 > Jednostavan proces narudžbe u webshopu
 
@@ -424,19 +432,19 @@ Stisnite na _pool_ gdje je sadržan proces, trebao bi vam se otvoriti s desne st
 
 Ako vam se ovaj prozor ne prikazuje, odaberite `Window -> Toggle Properties Panel`. Jednom kad se otvori, **unesite tražene vrijednosti**:
 
-<img src="./screenshots/webshop-order/webshop-order-default-props.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order-default-props.png?raw=true" style="width:70%; ">
 
 > Postavke procesa u **Properties panelu**
 
 Sada možete deployati diagram pritiskom na ikonu rakete (🚀) u donjem lijevom kutu
 
-<img src="./screenshots/webshop-order/deploy_diagram.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/deploy_diagram.png?raw=true" style="width:70%; ">
 
 > **Provjerite da se PORT REST endpointa poklapa s portom na kojem je pokrenuta Camunda platforma, odnosno PORT na koji je mapiran Docker kontejner.**
 
 Trebali biste dobiti poruku o uspješnom deploymentu definicije procesa. Sada otvorite Camunda Cockpit i pregledajte procese:
 
-<img src="./screenshots/webshop-order/webshop-order-deployed.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order-deployed.png?raw=true" style="width:90%; ">
 
 Ako otvorite proces, vidjet ćete da **nema aktivnih instanci**. To je zato što nismo pokrenuli niti jednu.
 
@@ -444,7 +452,7 @@ U realnom okruženju, proces će se pokrenuti nekim događajem ili korisničkom 
 
 **Vratite se u Modeler**, na dnu odaberite strelicu pored ikone rakete (🚀) i odaberite `Start process instance`.
 
-<img src="./screenshots/webshop-order/webshop-order-start-instance.png" style="width:60%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order-start-instance.png?raw=true" style="width:60%; ">
 
 > Pokretanje nove instance procesa direktno unutar **Camunda Modelera**
 
@@ -474,7 +482,7 @@ Općenito, forme definiraju **način na koji korisnik može unijeti podatke u pr
 
 Mi ćemo za sad odabrati **treću opciju** obzirom da je ujedno i najjednostavnija.
 
-<img src="./screenshots/webshop-order/potvrda_narudzbe_task_form.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/potvrda_narudzbe_task_form.png?raw=true" style="width:90%; ">
 
 > Unos ID-a i odabir tipa forme: **"Generated Task Forms"**
 
@@ -489,17 +497,19 @@ Dignite verziju procesa na `v2.0` i _deployajte_ ga.
 
 Nakon toga, startajte novu instancu procesa kroz Modeler.
 
-<img src="./screenshots/webshop-order/webshop-narudzba-potvrdena-form.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-narudzba-potvrdena-form.png?raw=true" style="width:90%; ">
 
 > Dodavanje novog polja u formu
 
 Otvorite instance ovog procesa, vidjet ćete **1 aktivnu instancu** koja ima token na aktivnosti `"Potvrda narudžbe"`.
 
-<img src="./screenshots/webshop-order/camunda_potvrda_narudzbe_pending.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/camunda_potvrda_narudzbe_pending.png?raw=true" style="width:90%; ">
 
 > Pregled aktivne instance procesa s tokenom na aktivnosti `"Potvrda narudžbe"`
 
 Kako bi završili ovu aktivnost, moramo potvrditi narudžbu putem nove forme koju smo definirali 😎
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## 3.2 Camunda Tasklist
 
@@ -517,7 +527,7 @@ Obzirom da ste prijavljeni kao `demo`, koji ima **administratorske ovlasti**, vi
 
 Dakle, možete se samostalno dodijeliti na zadatak `Potvrda narudžbe`; pritisnite na `Claim` skroz desno.
 
-<img src="./screenshots/webshop-order/tasklist_all_tasks.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/tasklist_all_tasks.png?raw=true" style="width:90%; ">
 
 > Pregled svih zadataka (All Tasks) u `Tasklist` aplikaciji
 
@@ -542,7 +552,7 @@ Nadogradit ćemo proces dodavanjem `XOR` skretnice koja će ovisno o rezultatu z
 - ako je narudžba potvrđena, proces ide dalje na korak `"Priprema narudžbe"`
 - ako narudžba nije potvrđena, proces završava
 
-<img src="./screenshots/webshop-order/webshop-order_xor_added.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order_xor_added.png?raw=true" style="width:70%; ">
 
 > Dodavanje `XOR` skretnice u definiciju procesa s alternativnim slijedom
 
@@ -595,7 +605,7 @@ ${!narudzba_potvrdena}
 
 Odaberite strelice i definirajte `Condition Expression` za svaki izlazni tok (2):
 
-<img src="./screenshots/webshop-order/expression_narudzba_potvrdena.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/expression_narudzba_potvrdena.png?raw=true" style="width:90%; ">
 
 > Dodavanje izraza na izlazne tokove XOR skretnice (na izlazni tok "ne" dodan je izraz `${!narudzba_potvrdena}`)
 
@@ -603,19 +613,19 @@ Odaberite strelice i definirajte `Condition Expression` za svaki izlazni tok (2)
 
 Provjerite rezultat u Camunda Cockpitu:
 
-<img src="./screenshots/webshop-order/webshop_order_priprema_narudzbe.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop_order_priprema_narudzbe.png?raw=true" style="width:70%; ">
 
 > Token (1) se nalazi na aktivnosti `"Priprema narudžbe"`, što znači da **jedna aktivna instanca procesa čeka na ovom koraku**
 
 Ako otvorite pregled procesne instance u Cockpitu, vidjet ćete da je procesna varijabla `narudzba_potvrdena` pohranjena u procesnu instancu i ima vrijednost `true`.
 
-<img src="./screenshots/webshop-order/webshop_order_priprema_narudzbe_boolean_var.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop_order_priprema_narudzbe_boolean_var.png?raw=true" style="width:70%; ">
 
 > Pregled procesne instance s pohranjenom procesnom varijablom `narudzba_potvrdena`
 
 **Pokrenite još dvije instance** ovog procesa kroz Modeler:
 
-<img src="./screenshots/webshop-order/webshop_3_instances.png" style="width:70%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop_3_instances.png?raw=true" style="width:70%; ">
 
 > Prikaz 3 aktivne instance procesa, od kojih 2 čekaju na aktivnosti "Potvrda narudžbe", a jedna na "Priprema narudžbe"
 
@@ -638,14 +648,14 @@ Konkretno, podaci o narudžbi razlikovat će se u svakoj procesnoj instanci, sam
 
 - otvorite **Tasklist sučelje** i odaberite `Start process` u gornjem desnom kutu
 
-<img src="./screenshots/webshop-order/tasklist_start_process.png" style="width:100%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/tasklist_start_process.png?raw=true" style="width:100%; ">
 
 Odaberite `webshop-order` proces:
 
 - unesite `Business Key` (proizvoljno): predstavlja jedinstveni ključ procesne instance (npr. u stvarnosti može biti ID narudžbe)
 - dodajte varijable pritiskom na "Add a variable" i unesite neke podatke o narudžbi u obliku ključ:vrijednost parova
 
-<img src="./screenshots/webshop-order/webshop-order-start-process-from-tasklist.png" style="width:80%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order-start-process-from-tasklist.png?raw=true" style="width:80%; ">
 
 > Pokretanje procesa s varijablama preko **Tasklista**
 
@@ -667,13 +677,13 @@ http://localhost:8080/engine-rest
 
 Otvorite **Postman** ili **Thunder Client**, možete poslati GET zahtjev na `http://localhost:8080/engine-rest/process-definition` kako biste dobili sve definicije procesa:
 
-<img src="./screenshots/HTTP_GET_process-definition.png" style="width:80%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/HTTP_GET_process-definition.png?raw=true" style="width:80%; ">
 
 > Uočite proces `webshop-order` kao drugu vrijednost u JSON listi
 
 Za pokretanje procesa, koristimo **POST metodu** i **endpoint** `http://localhost:8080/engine-rest/process-definition/key/<ProcessID>/start`, gdje je `<ProcessID>` ključ procesa, npr. `webshop-order` ili `narudzba_robe` - ovisno kako ste ga definirali u Modeleru (pogledati poglavlje 3.1.1).
 
-<img src="./screenshots/ProcessID.png" style="width:30%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/ProcessID.png?raw=true" style="width:30%; ">
 
 > Ključ procesa je `narudzba_robe`
 
@@ -709,15 +719,17 @@ Npr. sljedeći JSON objekt započinje instancu procesa `narudzba_robe` s varijab
 }
 ```
 
-<img src="./screenshots/instanciranje_procesa_rest_api.png" style="width:100%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/instanciranje_procesa_rest_api.png?raw=true" style="width:100%; ">
 
 > Izrada procesne instance s varijablama preko REST API-ja
 
 Provjerite procesnu instancu i pohranjene varijable u **Cockpitu**.
 
-<img src="./screenshots/webshop-order/webshop-order-process-instance-restapi-vars.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order-process-instance-restapi-vars.png?raw=true" style="width:90%; ">
 
 > Pregled procesne instance definirane preko REST API-ja i njezinih pohranjenih varijabli
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 4. Obrada vrijednosti procesnih varijabli u procesu
 
@@ -737,7 +749,7 @@ Koje atribute ćemo koristiti za ovaj nadograđeni proces?
 
 Nakon `"Odobravanje popusta"` želimo izračunati ukupnu cijenu narudžbe i pohraniti ju u novu procesnu varijablu `ukupna_cijena`. Ova aktivnost ide u `XOR split` skretnicu `"Popust odobren?"` koja ovisno o rezultatu ide na `"Izračunaj popust od 10%"` ili direktno u `AND merge` skretnicu.
 
-<img src="./screenshots/webshop-order/webshop-order_nadogradeno.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-order_nadogradeno.png?raw=true" style="width:90%; ">
 
 Prvo ćemo definirati formu za `Odobravanje popusta`. Odaberite `Generated Task Forms` i dodajte polja:
 
@@ -755,7 +767,7 @@ Odaberite `Outputs` i dodajte novu varijablu `ukupna_cijena`. Odaberite `String 
 ${cijena * kolicina}
 ```
 
-<img src="./screenshots/webshop-order/odobravanje_popusta_user_task.png" style="width:60%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/odobravanje_popusta_user_task.png?raw=true" style="width:60%; ">
 
 > Dodavanje 3 polja u Form fields korisničkog zadatka `"Odobravanje popusta"` te dodavanje izračunate procesne varijable `ukupna_cijena` kao izlaznu vrijednost (**Outputs**) ovog zadatka
 
@@ -789,33 +801,35 @@ U našem slučaju:
 ${execution.setVariable("ukupna_cijena", ukupna_cijena - ukupna_cijena*0.1)}
 ```
 
-<img src="./screenshots/webshop-order/service_task_izracun_popusta.png" style="width:60%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/service_task_izracun_popusta.png?raw=true" style="width:60%; ">
 
 > Definiranje izraza za izračun popusta od 10% na servisnom zadatku `"Izračunaj popust od 10%"`
 
 To je to! **Redployajte novu verziju procesa** i **pokrenite novu instancu procesa** kroz **REST API** ili **Tasklist**. Dodajte početne procesne varijable: `proizvod`, `cijena`, `kolicina` i pratite tijek procesa kroz **Cockpit**.
 
-<img src="./screenshots/webshop-order/webshop-upgraded-1.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-upgraded-1.png?raw=true" style="width:90%; ">
 
 > Početno stanje instance procesa s varijablama `proizvod`, `cijena` i `kolicina`, čekanje na aktivnost `"Potvrda narudžbe"`
 
 Nakon potvrde narudžbe, paralelno se izvršavaju aktivnosti `"Priprema narudžbe"` i `"Odobravanje popusta"`. Međutim, proces čeka na egzekuciju `"Odobravanje popusta"` budući da je to `User Task`.
 
-<img src="./screenshots/webshop-order/webshop-upgraded-2.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-upgraded-2.png?raw=true" style="width:90%; ">
 
 > Prikaz aktivne instance procesa s tokenom na aktivnosti `"Odobravanje popusta"` i `AND merge` skretnici budući da se manualni taskovi preskaču
 
 Otvaramo **Tasklist** i odabiremo zadatak `"Odobravanje popusta"`. Unosimo podatke i odobravamo popust.
 
-<img src="./screenshots/webshop-order/webshop-upgraded-3.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-upgraded-3.png?raw=true" style="width:90%; ">
 
 > Generirana forma za `"Odobravanje popusta"` s unesenim podacima za procesne varijable: `popust_odobren`, `djelatnik_ime` i `djelatnik_prezime`
 
 Otvorite **Cockpit** i pogledajte stanje procesne instance i unesenih varijabli. Vidjet ćete da se izračunao popust od 10% i pregazio vrijednost procesne varijable `ukupna_cijena`, koja je bila `100`. Token se sada nalazi na aktivnosti `"Isporuka narudžbe"`, kako se instanca ne bi završila odmah (premda nismo definirali kako dalje).
 
-<img src="./screenshots/webshop-order/webshop-upgraded-4.png" style="width:90%; ">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Uvod%20u%20procesne%20aplikacije/screenshots/webshop-order/webshop-upgraded-4.png?raw=true" style="width:90%; ">
 
 > Prikaz aktivne instance procesa s tokenom na aktivnosti `"Isporuka narudžbe"` nakon izračuna popusta od 10% i pohranjenih varijabli.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # Samostalni zadatak za Vježbu 5
 
