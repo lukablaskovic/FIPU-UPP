@@ -3,7 +3,7 @@
   <bpmn:collaboration id="Collaboration_0nkdloh">
     <bpmn:participant id="Participant_0mwnvv3" name="Proces narudžbe robe" processRef="narudzba_robe" />
   </bpmn:collaboration>
-  <bpmn:process id="narudzba_robe" name="webshop-order" isExecutable="true" camunda:versionTag="v5.0" camunda:historyTimeToLive="10">
+  <bpmn:process id="narudzba_robe" name="webshop-order" isExecutable="true" camunda:versionTag="v6.0" camunda:historyTimeToLive="10">
     <bpmn:userTask id="potvrda_narudzbe_task" name="Potvrda narudžbe">
       <bpmn:extensionElements>
         <camunda:formData>

@@ -16,9 +16,7 @@ Procesne aplikacije omogućuju automatizaciju poslovnih procesa korištenjem def
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 10.12.2024.**
-
-- Samostalni zadatak za vježbu 5 bit će dodan naknadno
+**🆙 Posljednje ažurirano: 13.12.2024.**
 
 # Sadržaj
 
@@ -833,4 +831,19 @@ Otvorite **Cockpit** i pogledajte stanje procesne instance i unesenih varijabli.
 
 # Samostalni zadatak za Vježbu 5
 
-- bit će objavljen uskoro : )
+Modelirajte jednostavni proces prijave studentske prakse na Fakultetu informatike u Puli. Postoje 3 sudionika u procesu prakse:
+
+1. Student
+2. Poslodavac
+3. Profesor
+
+Proces započinje kod studenta odabirom zadataka za praksu. Student ispunjava web formu gdje unosi svoje ime, prezime, JMBAG i šifru zadatka (izmislite podatke). Nakon toga, sljedeći korak je odobravanje prakse od strane profesora. Profesor pregledava podatke studenta i šifru zadatka u web sučelju, a nakon toga odobrava ili odbija prijavu. Ako je prijava prihvaćena, proces se vraća na studenta i njegovu aktivnost ispunjavanja web forme. Ako profesor prihvati prijavu, proces se nastavlja kod poslodavca. Poslodavac provodi intervju sa studentom, a nakon toga odlučuje hoće li ga prihvatiti ili odbiti. Ako ga odbije, proces se ponovno vraća na studenta i njegov unos podataka. Ako ga prihvati, proces ide prema studentu koji sad mora unijeti kratak opis zadatka, datum izvođenja prakse te ime i prezime mentora koji mu je dodijeljen te istovremeno prema profesoru kojeg se samo obavještava. Nakon tih paralelnih aktivnosti, proces se završava.
+
+Nakon što ste modelirali proces, implementirajte procesnu aplikaciju u **Camundi 7**:
+
+- Dodajte definirane korisničke aktivnosti i korespondirajuće forme
+- Definirajte procesne varijable i njihove vrijednosti
+- Definirajte skretnice i uvjete na izlaznim tokovima
+- Obavještavanje sudionika procesa ne implementirate
+
+Predajete isključivo `.bpmn` datoteku procesa i aplikacije definirane u Camunda Modeleru.
