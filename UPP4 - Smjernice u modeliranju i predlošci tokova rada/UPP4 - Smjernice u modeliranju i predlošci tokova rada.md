@@ -9,7 +9,7 @@
 
 # (4) Smjernice u modeliranju i predlošci tokova rada
 
-<img src="../upp-icons/UPP_4.png" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_4.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;"></div>
 <br>
@@ -111,7 +111,7 @@ Dok bi se **događaji** mogli odnositi na:
 
 _Primjer: Obrada pristigle narudžbe i upis narudžbe u ERP sustav_
 
-<img src="./screenshots/diagram_1.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_1.png?raw=true" style="width:40%; box-shadow: none !important;"></img>
 
 > Primjer neispravno modeliranog (iznad) i ispravno modeliranog (ispod) procesa
 
@@ -123,7 +123,7 @@ _Primjer: Obrada pristigle narudžbe i upis narudžbe u ERP sustav_
 
 _Primjer: Proces postprodajne usluge koji započinje jednom kad je roba otpremljena kupcu_
 
-<img src="./screenshots/diagram_2.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_2.png?raw=true" style="width:40%; box-shadow: none !important;"></img>
 
 > Primjer dvaju modeliranih procesa u zasebnim poljima
 
@@ -138,7 +138,7 @@ Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili
 **Međudogađaji** se koriste za:
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/intermediate_throw_event.png" style="width: 7%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/intermediate_throw_event.png?raw=true" style="width: 7%;">
   <span style="margin-left: 10px;">Označavanje <b>ključnih točaka</b> u procesu, tzv. <b>Milestone</b> (<code>Intermediate throw event</code>)</span>
 </div>
 
@@ -149,7 +149,7 @@ Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili
 <hr>
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/message_intermediate_catch_event.png" style="width: 10%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/message_intermediate_catch_event.png?raw=true" style="width: 10%;">
   <span style="margin-left: 10px;">Definiranje <b>nespecificiranog čekanja</b> u procesu, odnosno <b>čekanje na primitak vanjskog signala</b> (<code>Message Intermediate Catch event</code>)</span>
 </div>
 
@@ -160,7 +160,7 @@ Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili
 <hr>
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/timer_intermediate_catch_event.png" style="width: 10%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/timer_intermediate_catch_event.png?raw=true" style="width: 10%;">
   <span style="margin-left: 10px;">Označavanje kraja <b>specificiranog čekanja</b> u procesu, ili <b>početak određenog vremenskog razdoblja</b> (<code>Timer Intermediate Catch event</code>)</span>
 </div>
 
@@ -170,7 +170,7 @@ Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili
 <hr>
 
 <div style="display: flex; align-items: center;">
-  <img src="./screenshots/elements/message_intermediate_throw_event.png" style="width: 7%;">
+  <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/message_intermediate_throw_event.png?raw=true" style="width: 7%;">
   <span style="margin-left: 10px;">Za <b>signalizaciju drugih aktora</b> u procesu, ili <b>okidanje drugih procesa</b> (<code>Message Intermediate throw event</code>)</span>
 </div>
 
@@ -183,7 +183,7 @@ Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili
 
 _Primjer: Klijent naručuje hranu iz restorana putem nekog medija, a potom čeka na dovršetak. Međutim, ako prođe preko sat vremena, klijent odustaje od narudžbe._
 
-<img src="./screenshots/diagram_3.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_3.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranog procesa u jednom polju s dvije staze
 
@@ -204,7 +204,7 @@ Vanjske procese moguće je okinuti pomoću `Send Task` aktivnosti, međutim ono 
 
 **Komunikaciju između događaja** prikazujemo kroz `Message Flow`, koji predstavlja samo **vezu informativnog karaktera** (ne utječe na sekvencijalni tijek procesa već samo pruža informaciju o komunikaciji između dva objekta).
 
-<img src="./screenshots/diagram_4.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_4.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranog procesa u dva polja
 
@@ -231,7 +231,7 @@ Komunikaciju ćemo nastojati objasniti na primjeru **Veleprodaje** i **Skladišt
 
 **Skladište** u ovom kontekstu je _outsourcani_ partner čiji ćemo proces nazvati OTPREMA ROBE.
 
-<img src="./screenshots/diagram_5.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_5.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranih procesa s **pogrešnom komunikacijom između 2 polja/procesa**
 
@@ -242,13 +242,13 @@ Idemo identificirati što je dobro, a što pogrešno u ovom modelu.
 
 Kako ispraviti ovu pogrešku? Jednostavno ćemo dodati početni događaj u polje **Skladište - Otprema robe**.
 
-<img src="./screenshots/diagram_6.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_6.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranih procesa s **ispravljenom komunikacijom između 2 polja/procesa**
 
 Međutim, što ako se radi o internom skladištu koje je dio iste veleprodaje? U tom slučaju komunikaciju **ne želimo modelirati kao slanje poruke** (prisjetimo se emaila, SMS-a i sl.) Dakle, možemo maknuti `Send Task` aktivnost i samo nastaviti `Sequence Flow`.
 
-<img src="./screenshots/diagram_7.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_7.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranog procesa VELEPRODAJA - PROCES NARUČIVANJA ROBE **pogrešnom komunikacijom unutar istog polja**
 
@@ -257,7 +257,7 @@ Međutim, što ako se radi o internom skladištu koje je dio iste veleprodaje? U
 
 Možemo jednostavno ukloniti `Send Task` aktivnost i samo nastaviti `Sequence Flow`
 
-<img src="./screenshots/diagram_8.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_8.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranog procesa VELEPRODAJA - PROCES NARUČIVANJA ROBE s **ispravnom komunikacijom unutar istog polja**
 
@@ -269,7 +269,7 @@ Razmotrimo ponovno scenarij s eksternim skladištem. Što se događa ako se, nak
 
 Kako bismo cijeli proces učinili jasnijim i preglednijim, možemo ga modelirati **korištenjem međudogađaja** `Message Intermediate Throw Event` i `Message Intermediate Catch Event`:
 
-<img src="./screenshots/diagram_9.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_9.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer modeliranog procesa s ponovnim pokretanjem procesa 'Otprema robe' u skladištu
 
@@ -296,7 +296,7 @@ U oba slučaja potrebno je držati se pravila imenovanja događaja (međudogađa
 
 `Receive Task` nismo puno dosad koristili, međutim on je ustvari kratica za `Message Intermediate Catch event` i `Task` koji se koristi za hvatanje poruka od vanjskih dionika. Ukoliko želimo modelirati aktivnost koji čeka na primitak poruke te ju nakon tog izvršavamo, koristimo `Receive Task`.
 
-<img src="./screenshots/elements/receive_task.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/receive_task.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Sljedeći primjeri su ekvivalentni (Iznad je `Message Intermediate Catch event + Task`, ispod je `Receive Task`)
 
@@ -304,20 +304,20 @@ U oba slučaja potrebno je držati se pravila imenovanja događaja (međudogađa
 
 Uzmimo za primjer sljedeći super jednostavan proces pripreme i posluživanja hrane:
 
-<img src="./screenshots/diagram_10.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_10.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 Možemo dodati `Intermediate Throw Event` "Hrana spremna" kako bismo naglasili ključnu točku u procesu. Ovaj događaj ne utječe na sekvencijalni tijek procesa, već samo signalizira da je hrana spremna za posluživanje te na taj način postižemo bolju čitljivost procesa.
 
-<img src="./screenshots/diagram_11.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_11.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 _Primjer: Što ako su naši klijenti djeca na rođendanu? Želimo zabavljati djecu dok čekaju hranu._
 Možemo dodati paralelnu aktivnost gdje zabavljamo djecu dok hrana nije gotova, a samo čekanje na spremanje hrane naglasiti kroz `Timer Intermediate Catch Event` "Trajanje pripreme hrane". Po završetku vremenskog razdoblja, proces se nastavlja.
 
-<img src="./screenshots/diagram_12.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_12.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 _Primjer:_ Zakomplicirat ćemo još malo stvari. Što ako nam hrana izgori i nemamo više ideja kako zabavljati djecu (primjerice prođe preko 2 sata)? U tom slučaju, ćemo naručiti pizzu iz obližnje pizzerije. Komunikaciju prema pizzeriji možemo prikazati kroz `Send Task` aktivnost koja se izvršava jednom kad se okine `Timer Intermediate Catch Event` - "Djeca izgubila strpljenje nakon 2 sata".
 
-<img src="./screenshots/diagram_13.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_13.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 ## 1.5 Entiteti na Message flow
 
@@ -325,7 +325,7 @@ Uobičajeno je dodati entitete na `Message Flow` kako bi se dodatno pojasnila ko
 
 Jednako tako možemo na `Message Flow` između `Manual task` "Dostavljanje pizze" i `Message Intermediate Catch Event`: "Jednom kad je pizza dostavljena", dodati entitet "Naručene pizze i račun" kako bi naglasili da se poruka odnosi na **dostavu pizze i račun**.
 
-<img src="./screenshots/diagram_14.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_14.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 **Entiteti** na `Message Flow` su korisni jer:
 
@@ -335,7 +335,7 @@ Jednako tako možemo na `Message Flow` između `Manual task` "Dostavljanje pizze
 
 Ilustracija ispod prikazuje komunikaciju između PRODAVATELJA i KUPCA te različite entitete koji se šalju između njih, a koje definiramo na `Message Flow`.
 
-<img src="./screenshots/diagram_15.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_15.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 # 2. Predlošci tokova rada
 
@@ -375,13 +375,13 @@ Koristit ćemo sljedeće oznake za predloške:
 
 Neka aktivnost (npr. `A2`) može započeti ako je završena aktivnost koja joj prethodi (npr. `A1`).
 
-<img src="./screenshots/predlosci/WCP-1-1-2.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-1-1-2.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-1: Slijed između dvije aktivnosti
 
 Ipak, treba podsjetiti na to kako aktivnosti modelirati kada ih izvode različiti sudionici, u različitim poljima. Koristimo `Message Flow` za komunikaciju između polja te odgovarajuće **međudogađaje**:
 
-<img src="./screenshots/predlosci/WCP-1-2-2.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-1-2-2.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-1: Slijed između dvije aktivnosti u različitim poljima
 
@@ -393,7 +393,7 @@ Nakon neke aktivnosti, proces se dijeli u više paralelnih grana. To znači da n
 
 Od jedne značke (_eng. token_) koja ulazi u paralelnu skretnicu `S1`, uvijek se stvara (bez provjere uvjeta) onoliko kopija koliko ima izlaznih grana i svaka od tih kopija značke dalje se kreće po jednoj od paralelnih grana.
 
-<img src="./screenshots/predlosci/WCP-2.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-2.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-2: Paralelno dijeljenje
 
@@ -401,7 +401,7 @@ Od jedne značke (_eng. token_) koja ulazi u paralelnu skretnicu `S1`, uvijek se
 
 Neka aktivnost može početi ako su prije nje završene aktivnosti na svim paralelnim granama (mogu biti dvije ili više). To znači da aktivnost `A5` može započeti tek nakon što su završene aktivnosti `A2`, `A3` i `A4`. U **paralelnoj skretnici spajanja S2** (_eng. AND Merge_) sve se ulazne značke uvijek spajaju, bez provjere uvjeta, **u jednu izlaznu**.
 
-<img src="./screenshots/predlosci/WCP-3.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-3.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-3: Sinkronizacija
 
@@ -409,7 +409,7 @@ Neka aktivnost može početi ako su prije nje završene aktivnosti na svim paral
 
 Nakon neke aktivnosti proces će se nastaviti **samo u jednoj** od više mogućih grana. To znači da će nakon `A1` biti izvedena aktivnost `A2` ili `A3` ili `A4` (odnosno slijed kojem su one na početku). Značka koja ulazi u ekskluzivnu XOR skretnicu `S1` ne dijeli se, već nastavlja jednim od putova koji udovoljava uvjetu što se ispituje prije te skretnice.
 
-<img src="./screenshots/predlosci/WCP-4.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-4.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-4: Ekskluzivni izbor
 
@@ -417,7 +417,7 @@ Nakon neke aktivnosti proces će se nastaviti **samo u jednoj** od više mogući
 
 Neka aktivnost može početi čim je izvedena neka od aktivnosti koje su se izvodile u dva ili više paralelnih sljedova. To znači da aktivnost `A5` može započeti kad završe ili `A2` ili `A3` ili `A4` (odnosno slijed kojem su one bile na kraju).. Aktivnost `A5` će pokrenuti ona značka koju je ekskluzivna skretnica `S1` uputila na neki od sljedova, a koje je prošla kroz ekskluzivnu skretnicu spajanja `S2`.
 
-<img src="./screenshots/predlosci/WCP-5.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-5.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-5: Jednostavno spajanje
 
@@ -429,7 +429,7 @@ U ovoj grupi su predlošci koji se koriste za grananje i sinkronizaciju toka izv
 
 Nakon neke aktivnosti proces se može nastaviti u jednoj, dvjema ili u više mogućih grana, **ali najmanje u jednoj**. To znači da poslije `A1` može biti izvedena bilo koja aktivnost, ili bilo koje dvije aktivnosti ili sve tri aktivnosti od mogućih `A2`, `A3` i `A4`.
 
-<img src="./screenshots/predlosci/WCP-6.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-6.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-6: Višestruki izbor
 
@@ -439,7 +439,7 @@ Neka aktivnost može početi ako su izvedene sve aktivnosti koje su se izvodile 
 
 U poslovnom smislu to znači da će se procesna instanca, koja je obrađena u `A1`, moći obraditi u `A5` nakon što je provedena barem jedna ili više aktivnosti iz skupa `A2`, `A3` i `A4`.
 
-<img src="./screenshots/predlosci/WCP-7.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-7.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-7: Strukturno sinkronizirano spajanje
 
@@ -449,7 +449,7 @@ Neka aktivnost može početi ako su izvedene sve aktivnosti na dva ili više par
 
 **Nesimetrično spajanje** riješeno je kombinacijom inkluzivne skretnice `S1` (koja će stvoriti jednu, dvije ili tri značke na bilo kojem od tri slijeda) te uvjetovanih događaja na sva tri slijeda ispred konvergentne ekskluzivne skretnice `S2`. Ti će uvjetovani događaji dopustiti izvođenje aktivnosti POKRENUTI MARKETINŠKE AKCIJE kad završe one od prethodnih aktivnosti koje se moraju uskladiti.
 
-<img src="./screenshots/predlosci/WCP-8.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-8.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-8 na primjeru procesa organizacije marketinške kampanje: Nesimetrično sinkronizirano spajanje
 
@@ -463,7 +463,7 @@ Ovaj predložak opisuje točku u procesu nakon koje se može ponoviti jedna ili 
 
 Tipičan primjer za ovaj predložak može se pronaći u zdravstvu, a prikazan je na sljedećem primjeru:
 
-<img src="./screenshots/predlosci/WCP-9.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-9.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-9: Proizvoljno ponavljanje
 
@@ -483,7 +483,7 @@ Okidač koji to omogućuje zovemo prolaznim jer nestaje ako u osnovnom procesu v
 
 Primjer opisuje rad noćnog čuvara u nadziranom objektu. Čuvar će se poslije dolaska (u 20 sati) smjestiti u kontrolnu sobu i "Uključiti nadzorni sustav" koji se sastoji od kamera i senzora kretanja. Ako senzor registrira pokret u objektu, on će "Poslati signal" u kontrolnu sobu. Ako je čuvar u sobi, on će "Provjeriti ishodište alarma". Ako pak čuvara nema, poslani signal neće biti iskorišten i propast će (zato ga zovemo prolaznim).
 
-<img src="./screenshots/predlosci/WCP-10.png" style="width:50%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-10.png?raw=true" style="width:50%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-10: Prolazni okidač
 
@@ -503,6 +503,6 @@ Analizom modela može se utvrditi da su u procesu zapravo **dva stalna okidača*
 
 Prvi smo već naveli i on je modeliran eksplicitno. Međutim, drugi okidač modeliran je implicitno i određen svojstvom prijamne aktivnosti "Izraditi ukupni račun za prozor". U tu aktivnost ulazi poruka (entitet) - "Račun za staklarske radove" iz emitirajućeg međudogađaja "Poslan račun za staklarske radove" i pokreće se ("okida") njezino izvođenje.
 
-<img src="./screenshots/predlosci/WCP-11.png" style="width:60%; box-shadow: none !important;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/predlosci/WCP-11.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
 > Primjer predloška WCP-11: Stalni okidač
