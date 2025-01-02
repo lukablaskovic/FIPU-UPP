@@ -252,7 +252,7 @@ Međutim, što ako se radi o internom skladištu koje je dio iste veleprodaje? U
 
 > Primjer modeliranog procesa VELEPRODAJA - PROCES NARUČIVANJA ROBE **pogrešnom komunikacijom unutar istog polja**
 
-- ✅ **Dobar dio**: Budući da se radi o internom skladištu, uklanjamo `Timer Intermediate Catch event` "Svaki ponedjeljak", već na sekvencijalni slijed između pripreme robe i XOR Mergea možemo ubaciti milestone "Roba spremna", iako je to više opcionalno, bolje pojašnjava tijek procesa i **naglašava da je postojalo neko vremensko razdoblje** za pripremu robe.
+- ✅ **Dobar dio**: Budući da se radi o internom skladištu, uklanjamo `Timer Intermediate Catch event` "Svaki ponedjeljak", već na sekvencijalni slijed između pripreme robe i XOR Mergea možemo ubaciti _milestone_ "Roba spremna", iako je to više opcionalno, bolje pojašnjava tijek procesa i **naglašava da je postojalo neko vremensko razdoblje** za pripremu robe.
 - ❌ **Pogreška**: Radi se o internom skladištu, ne modeliramo "slanje maila, SMS-a ili sl. poruke" već samo "provjeravamo" dostupnost robe u tom skladištu putem istog IT sustava, ERP-a ili sl.
 
 Možemo jednostavno ukloniti `Send Task` aktivnost i samo nastaviti `Sequence Flow`
@@ -291,7 +291,7 @@ U oba slučaja potrebno je držati se pravila imenovanja događaja (međudogađa
 2. Koristite `Receive Task` za obradu poruka koje dolaze od dionika procesa (`Receive Task` je ustvari ekvivalentna kratica za `Message Intermediate Catch event + Task`)
 3. Koristite `Message Intermediate Throw Event` za signalizaciju drugim procesima da nešto učine (okidanje drugih procesa)
 4. Koristite `Message Intermediate Catch Event` za hvatanje signala ili poruka od drugih procesa (okidanje procesa na temelju događaja)
-5. Koristite `Intermediate Throw Event` za signalizaciju ključnih točaka u procesu (milestone)
+5. Koristite `Intermediate Throw Event` za signalizaciju ključnih točaka u procesu (_milestone_)
 6. Koristite `Timer Intermediate Catch Event` kada proces stagnira na način da čeka na specificirano vremensko razdoblje
 
 `Receive Task` nismo puno dosad koristili, međutim on je ustvari kratica za `Message Intermediate Catch event` i `Task` koji se koristi za hvatanje poruka od vanjskih dionika. Ukoliko želimo modelirati aktivnost koji čeka na primitak poruke te ju nakon tog izvršavamo, koristimo `Receive Task`.
