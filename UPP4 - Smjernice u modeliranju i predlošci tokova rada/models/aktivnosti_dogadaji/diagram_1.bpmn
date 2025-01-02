@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1a45530" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:collaboration id="Collaboration_0e58ouo">
+    <bpmn:participant id="Participant_0p3gs67" name="OBRADA NARUDŽBE" processRef="Process_17gs0h4" />
+    <bpmn:participant id="Participant_1akgcze" name="OBRADA NARUDŽBE" processRef="Process_0jmw9lt" />
+    <bpmn:textAnnotation id="TextAnnotation_1i2kg2c">
+      <bpmn:text>Nepotrebno</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1qp821e">
+      <bpmn:text>Dovoljno je staviti Message start event</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_14r7hm7" associationDirection="None" sourceRef="Event_0p9mmpi" targetRef="TextAnnotation_1qp821e" />
+    <bpmn:association id="Association_07fh8ar" associationDirection="None" sourceRef="Activity_09jug2w" targetRef="TextAnnotation_1i2kg2c" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_17gs0h4" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Pristigla narudžba">
+      <bpmn:outgoing>Flow_1u2exxg</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0jygc8e" name="Upis narudžbe u ERP sustav">
+      <bpmn:incoming>Flow_0c0m976</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_09jug2w" name="Obrada pristigle narudžbe">
+      <bpmn:incoming>Flow_1u2exxg</bpmn:incoming>
+      <bpmn:outgoing>Flow_0c0m976</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1u2exxg" sourceRef="StartEvent_1" targetRef="Activity_09jug2w" />
+    <bpmn:sequenceFlow id="Flow_0c0m976" sourceRef="Activity_09jug2w" targetRef="Activity_0jygc8e" />
+  </bpmn:process>
+  <bpmn:process id="Process_0jmw9lt" isExecutable="true">
+    <bpmn:startEvent id="Event_0p9mmpi" name="Pristigla narudžba">
+      <bpmn:outgoing>Flow_17jg52e</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1xglamz" />
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_17u62bg" name="Upis narudžbe u ERP sustav">
+      <bpmn:incoming>Flow_17jg52e</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_17jg52e" sourceRef="Event_0p9mmpi" targetRef="Activity_17u62bg" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0e58ouo">
+      <bpmndi:BPMNShape id="BPMNShape_0rxtk5s" bpmnElement="Participant_1akgcze" isHorizontal="true">
+        <dc:Bounds x="160" y="340" width="550" height="200" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1f6hyhc_di" bpmnElement="Event_0p9mmpi">
+        <dc:Bounds x="242" y="447" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="490" width="89" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0aupgkv" bpmnElement="Activity_17u62bg">
+        <dc:Bounds x="350" y="425" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_05q2uih" bpmnElement="Flow_17jg52e">
+        <di:waypoint x="278" y="465" />
+        <di:waypoint x="350" y="465" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_0p3gs67_di" bpmnElement="Participant_0p3gs67" isHorizontal="true">
+        <dc:Bounds x="160" y="90" width="550" height="205" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="242" y="197" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="240" width="89" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wxriak_di" bpmnElement="Activity_0jygc8e">
+        <dc:Bounds x="530" y="175" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u7way1_di" bpmnElement="Activity_09jug2w">
+        <dc:Bounds x="360" y="175" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1u2exxg_di" bpmnElement="Flow_1u2exxg">
+        <di:waypoint x="278" y="215" />
+        <di:waypoint x="360" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c0m976_di" bpmnElement="Flow_0c0m976">
+        <di:waypoint x="460" y="215" />
+        <di:waypoint x="530" y="215" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_14r7hm7_di" bpmnElement="Association_14r7hm7">
+        <di:waypoint x="275" y="455" />
+        <di:waypoint x="350" y="401" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_07fh8ar_di" bpmnElement="Association_07fh8ar">
+        <di:waypoint x="450" y="175" />
+        <di:waypoint x="485" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1qp821e_di" bpmnElement="TextAnnotation_1qp821e">
+        <dc:Bounds x="350" y="350" width="100" height="55" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_1i2kg2c_di" bpmnElement="TextAnnotation_1i2kg2c">
+        <dc:Bounds x="450" y="110" width="100" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
