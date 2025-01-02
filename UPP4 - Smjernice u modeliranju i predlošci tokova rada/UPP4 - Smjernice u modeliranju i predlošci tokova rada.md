@@ -50,6 +50,8 @@ Cilj ove skripte pružiti je sveobuhvatan pregled principa i smjernica u modelir
     - [WCP-10 Prolazni okidač (eng. Transient Trigger)](#wcp-10-prolazni-okidač-eng-transient-trigger)
     - [WCP-11 Stalni okidač (eng. Persistent Trigger)](#wcp-11-stalni-okidač-eng-persistent-trigger)
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # 1. Smjernice za modeliranje procesa
 
 Do sad ste naučili da postoje 3 glavna objekata toka u BPMN notaciji, to su:
@@ -130,6 +132,8 @@ _Primjer: Proces postprodajne usluge koji započinje jednom kad je roba otpremlj
 U ovom procesu "Roba otpremljena kupcu" prikazujemo kao `End Event` jer se radi o završenom događaju, koji se dogodio kao rezultat procesa otpreme. Proces POSTPRODAJNA OBRADA započinje jednom kad je roba otpremljena kupcu, a završava kad je postprodajna usluga pružena. Ovakvim imenovanjem procesa nema smisla proces POSTPRODAJNE USLUGE ugnijezditi kao potproces unutar procesa OTPREMA ROBE jer se radi o dvjema različitim procesima, odnosno proces postprodaje započinje tek kad je roba otpremljena kupcu.
 
 Isto bi bilo moguće kada bi modelirali proces OBRADA NARUDŽBE koji bi "razbili" na potprocese OTPREMA ROBE i POSTPRODAJNA OBRADA.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## 1.2 Koji međudogađaj odabrati?
 
@@ -336,6 +340,8 @@ Jednako tako možemo na `Message Flow` između `Manual task` "Dostavljanje pizze
 Ilustracija ispod prikazuje komunikaciju između PRODAVATELJA i KUPCA te različite entitete koji se šalju između njih, a koje definiramo na `Message Flow`.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_15.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 2. Predlošci tokova rada
 
