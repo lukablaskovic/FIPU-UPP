@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1kvvkor" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.30.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.22.0">
+  <bpmn:collaboration id="Collaboration_1ufj2up">
+    <bpmn:participant id="Participant_0wvtb2w" name="Primjer slanja HTTP POST zahtjeva" processRef="connector_POST" />
+  </bpmn:collaboration>
+  <bpmn:process id="connector_POST" name="connector_POST" isExecutable="true" camunda:versionTag="v2.0" camunda:historyTimeToLive="10">
+    <bpmn:startEvent id="StartEvent_1" name="Početak">
+      <bpmn:outgoing>Flow_1ruqrti</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1tec2gw" name="Unos prezimena">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="prezime" label="Molimo da unesete prezime korisnika" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1ruqrti</bpmn:incoming>
+      <bpmn:outgoing>Flow_165t6qc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0ztvp8w" name="Dohvaćanje podataka o korisniku">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="url">http://host.docker.internal:8000/user</camunda:inputParameter>
+            <camunda:inputParameter name="method">POST</camunda:inputParameter>
+            <camunda:inputParameter name="payload">{
+"prezime" : "${prezime}"
+}</camunda:inputParameter>
+            <camunda:inputParameter name="headers">
+              <camunda:map>
+                <camunda:entry key="Content-Type">application/json</camunda:entry>
+              </camunda:map>
+            </camunda:inputParameter>
+            <camunda:outputParameter name="statusni_kod">${statusCode}</camunda:outputParameter>
+            <camunda:outputParameter name="odgovor">${response}</camunda:outputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>http-connector</camunda:connectorId>
+        </camunda:connector>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="ime">${S(odgovor).prop("ime").value()}</camunda:outputParameter>
+          <camunda:outputParameter name="username">${S(odgovor).prop("username").value()}</camunda:outputParameter>
+          <camunda:outputParameter name="email">${S(odgovor).prop("email").value()}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_165t6qc</bpmn:incoming>
+      <bpmn:outgoing>Flow_1mrhqla</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1ruqrti" sourceRef="StartEvent_1" targetRef="Activity_1tec2gw" />
+    <bpmn:sequenceFlow id="Flow_165t6qc" sourceRef="Activity_1tec2gw" targetRef="Activity_0ztvp8w" />
+    <bpmn:sequenceFlow id="Flow_1mrhqla" sourceRef="Activity_0ztvp8w" targetRef="Activity_05lu4nz" />
+    <bpmn:sequenceFlow id="Flow_0pzdw6e" sourceRef="Activity_05lu4nz" targetRef="Event_18j41xo" />
+    <bpmn:endEvent id="Event_18j41xo" name="Kraj">
+      <bpmn:incoming>Flow_0pzdw6e</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Activity_05lu4nz" name="Test">
+      <bpmn:incoming>Flow_1mrhqla</bpmn:incoming>
+      <bpmn:outgoing>Flow_0pzdw6e</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1ufj2up">
+      <bpmndi:BPMNShape id="Participant_0wvtb2w_di" bpmnElement="Participant_0wvtb2w" isHorizontal="true">
+        <dc:Bounds x="160" y="90" width="800" height="220" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_1_di" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="200" y="225" width="40" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_02nw4ax" bpmnElement="Activity_1tec2gw">
+        <dc:Bounds x="280" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08uhthr_di" bpmnElement="Activity_0ztvp8w">
+        <dc:Bounds x="430" y="160" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_18j41xo_di" bpmnElement="Event_18j41xo">
+        <dc:Bounds x="902" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="910" y="225" width="20" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0h2bupa_di" bpmnElement="Activity_05lu4nz">
+        <dc:Bounds x="640" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ruqrti_di" bpmnElement="Flow_1ruqrti">
+        <di:waypoint x="238" y="200" />
+        <di:waypoint x="280" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_165t6qc_di" bpmnElement="Flow_165t6qc">
+        <di:waypoint x="380" y="200" />
+        <di:waypoint x="430" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1mrhqla_di" bpmnElement="Flow_1mrhqla">
+        <di:waypoint x="530" y="200" />
+        <di:waypoint x="640" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0pzdw6e_di" bpmnElement="Flow_0pzdw6e">
+        <di:waypoint x="740" y="200" />
+        <di:waypoint x="902" y="200" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
