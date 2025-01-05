@@ -21,11 +21,11 @@ Servisna arhitektura Camunda aplikacije obuhvaća dizajn i implementaciju raspod
 
 **🆙 Posljednje ažurirano: 5.1.2025.**
 
-# Sadržaj
+## Sadržaj
 
 - [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
 - [(6) Servisna arhitektura procesne aplikacije](#6-servisna-arhitektura-procesne-aplikacije)
-- [Sadržaj](#sadržaj)
+  - [Sadržaj](#sadržaj)
 - [1. Servisni zadaci (eng. Service Task)](#1-servisni-zadaci-eng-service-task)
   - [1.1 Priprema poslužitelja](#11-priprema-poslužitelja)
   - [1.2 Slanje HTTP GET zahtjeva](#12-slanje-http-get-zahtjeva)
@@ -558,6 +558,8 @@ Odaberite **Edit Content** i uredite sadržaj emaila. Poslat ćemo korisniku jed
 
 Kako su podaci o korisniku pohranjeni u procesnim varijablama, koje se prosljeđuje u tijelu HTTP POST zahtjeva na ovaj poslužitelj, moramo ih dohvatiti i koristiti u predlošku e-mail poruke. Za to koristimo tzv. **placeholders** koje pišemo duplim vitičastim zagradama `{}`.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 Dakle, naše varijable možemo koristiti na sljedeći način:
 
 ```plaintext
@@ -601,6 +603,8 @@ Za pošiljatelja navodite vaš email koji ste koristili prilikom registracije Gm
 > Primjer Email.js predloška e-mail poruke
 
 Spremite promjene.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## 2.3 Implementacija slanja e-mail poruke
 
@@ -766,6 +770,8 @@ _Primjer zaprimljenog e-maila:_
 To je to! Uspješno smo implementirali Express.js poslužitelj za slanje e-mail poruka putem _Email.js_ servisa 🚀
 
 > Sljedeći korak je integracija ovog poslužitelja s _Camunda Engineom_, preciznije `Connector` implementacija na `Send Task` elementu.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## 2.4 Definiranje `Send Task` aktivnosti
 

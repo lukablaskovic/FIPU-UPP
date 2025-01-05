@@ -18,11 +18,11 @@ Procesne aplikacije omogućuju automatizaciju poslovnih procesa korištenjem def
 
 **🆙 Posljednje ažurirano: 13.12.2024.**
 
-# Sadržaj
+## Sadržaj
 
 - [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
 - [(5) Uvod u procesne aplikacije](#5-uvod-u-procesne-aplikacije)
-- [Sadržaj](#sadržaj)
+  - [Sadržaj](#sadržaj)
 - [1. Uvod u procesne aplikacije](#1-uvod-u-procesne-aplikacije)
 - [2. Camunda 7](#2-camunda-7)
   - [2.1 Pokretanje preko Dockera](#21-pokretanje-preko-dockera)
