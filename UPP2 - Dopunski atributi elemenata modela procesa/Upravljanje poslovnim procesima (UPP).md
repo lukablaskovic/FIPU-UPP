@@ -5,7 +5,7 @@
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important; float:left;"></img>
 
 # (2) Dopunski atributi elemenata modela procesa
 
@@ -96,7 +96,7 @@ Međudogađaji su važni jer omogućuju da se aktivnost prekine i nastavi kasnij
 
 **Međudogađaje** (_eng. Intermediate events_) definiramo kružnicom s unutarnjom koncentričnom kružnicom.
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-UPP/refs/heads/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/elements/start_end_intermediate.png" style="width: 20%;">
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-UPP/refs/heads/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/elements/start_end_intermediate.png" style="width: 20%; float:left;">
 
 ---
 
