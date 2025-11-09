@@ -14,7 +14,7 @@
 <div style="float: clear; margin-right:5px;"></div>
 <br>
 
-<div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja.</div>
+<div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja sljedova aktivnosti.</div>
 <br>
 
 **🆙 Posljednje ažurirano: 9.11.2025.**
@@ -81,7 +81,7 @@ Dobra je praksa koristiti XOR skretnicu spajanja **kako bi naglasili da se izlaz
 
 Kod XOR skretnice, **čak i kad je moguće da je više uvjeta istinito**, **ona aktivnost koja prva završi će nastaviti tok** (budući da je XOR skretnica ekskluzivna - uvjeti se isključuju). Dakle, iako je moguće definirati inkluzivne aktivnosti pred ovu skretnicu, to nije poželjno.
 
-Ako se vratimo na primjer iznad, XOR merge skretnicu jednostavno postavljamo prije same aktivnosti **i ne dodajemo joj naziv**.
+Ako se vratimo na primjer iznad, XOR merge skretnicu jednostavno postavljamo prije same aktivnosti **i ne dodajemo joj naziv!**
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_xor_user_ex3.png?raw=true" style="width:70%">
 
@@ -114,7 +114,7 @@ Logičke izraze (`> 1500 eur` i `> 300 eur`) smo zapisali na strelicama, a oznak
 
 <img src="./screenshots/elements/xor-default-path-selection.png" style="width:30%">
 
-> Slika 5: Odabir zadanog toka (_eng. Default flow_) iz XOR skretnice grananja. Iako je moguće definirati uvjet na zadanom toku (`< 300 €`), preporuka je zadani tok označiti bez uvjeta radi brže čitljivosti modela procesa.
+> Slika 5: Odabir zadanog toka (_eng. Default flow_) iz XOR skretnice grananja. Iako je moguće definirati uvjet na zadanom toku (`< 300 €`), preporuka je zadani tok (ako postoji) označiti bez uvjeta radi brže čitljivosti modela procesa.
 
 Nakon obavještavanja, ovisno o uvjetu odabrat će se samo jedna aktivnost, a skretnica spajanja će **pričekati na ulazni tok jedne od aktivnosti i nastaviti dalje**.
 
@@ -147,7 +147,7 @@ Ono što je ključno, jest da se sve aktivnosti **započinju izvršavati istovre
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_ex1.png?raw=true" style="width:70%">
 
-> Slika 5: Paralelna (AND) skretnica za definiranje paralelnog grananja
+> Slika 6: Paralelna (AND) skretnica za definiranje paralelnog grananja u 2 slijeda aktivnosti
 
 AND skretnice u pravilu **ne želimo imenovati** budući da se sve aktivnosti koje slijede započinju bezuvjetno izvršavati, odnosno nema predikata kojim se uvjetuje izbor između aktivnosti.
 
@@ -169,7 +169,7 @@ Kako ćemo definirati čekanje na izvršavanje svih aktivnosti?
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_ex2_pogresno.png?raw=true" style="width:70%">
 
-> Slika 6: **Pogrešan način** povezivanja toka nakon paralelne skretnice grananja
+> Slika 6: **Pogrešan način** povezivanja sljedova aktivnosti nakon paralelne skretnice grananja
 
 Ono što ustvari moramo je definirati spajanje svih tokova kroz **paralelnu skretnicu spajanja** (_eng. parallel merge gateway_). Preciznije, **želimo prikazati čekanje na izvršavanje svih aktivnosti** kroz ekvivalentnu skretnicu spajanja.
 
@@ -179,7 +179,7 @@ Samim time, kod korištenja paralelnih skretnica za grupiranje dolaznih sljedova
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_ex2_ispravno.png?raw=true" style="width:70%">
 
-> Slika 7: **Ispravan način** povezivanja toka nakon paralelne skretnice koristeći **AND merge skretnicu**
+> Slika 7: **Ispravan način** povezivanja toka nakon paralelne skretnice koristeći **AND skretnicu spajanja**
 
 <hr>
 
@@ -207,50 +207,52 @@ Koliko će se izvršavati svaka aktivnost?
 
 Potrebno je **pričekati na izvršavanje svih aktivnosti** prije nastavka potprocesa "Otprema proizvoda" - upravo to prikazujemo AND skretnicom spajanja.
 
-Međutim, što ako uplata nije uspješna? Nema problema, **možemo kombinirati AND skretnicu s XOR skretnicom** kako bismo definirali alternativni tok.
+Međutim, što ako uplata nije uspješna? Nema problema, **možemo kombinirati AND skretnicu s XOR skretnicom** kako bismo definirali alternativni tijek aktivnosti.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_narudzba_ex2.png?raw=true" style="width:70%">
 
-> Slika 9: Primjer kombiniranja AND i XOR skretnice za definiranje alternativnog toka
+> Slika 9: Primjer kombiniranja AND i XOR skretnice za definiranje alternativnog slijeda aktivnosti
 
 <hr>
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-> _Primjer korištenja paralelnih skretnica spajanja i grananja_ u procesu **produljenja registracije motornog vozila**. Kako je proces dovoljno poznat i ne treba ga posebno objašnjavati, prikazat ćemo samo dijagram gdje je istaknuto da se **dokumenti za registraciju mogu predati ako je prije toga (1) uspješno obavljen tehnički pregled** i **(2) uplaćeno osiguranje vozila**.
+> _Primjer korištenja paralelnih skretnica spajanja i grananja_ u procesu **produljenja registracije motornog vozila**. Kako je proces dovoljno poznat i ne treba ga posebno objašnjavati, prikazat ćemo samo dijagram gdje je istaknuto da se **dokumenti za registraciju mogu predati ako je prije toga: (1) uspješno obavljen tehnički pregled** i **(2) uplaćeno osiguranje vozila**.
 
 <img src="./screenshots/pp_produljenje_registracije_vozila.png" style="width:70%">
 
-> Slika 10: Proces produljenja registracije motornog vozila
+> Slika 10: Proces produljenja registracije motornog vozila. Entiteti na sekvencijalnim vezama nisu obavezni, ali pomažu u razumijevanju procesa.
 
-Iako je moguće prikazati aktivnosti "Uplatiti osiguranje za vozilo" i "Obaviti tehnički pregled" kao sekvencijalne, **AND skretnicama želimo naglasiti dvije stvari:**
+Iako je moguće aktivnosti "Uplatiti osiguranje za vozilo" i "Obaviti tehnički pregled" prikazati kao sekvencijalne, **AND skretnicama želimo naglasiti dvije stvari:**
 
-1. **da se izvode paralelno** (bez sekvencijalne ovisnosti između njih), i
-2. **da je potrebno izvršiti oba zadatka** prije nego je motorno vozilo moguće registrirati.
+1. **da se sljedovi aktivnosti izvode paralelno** (bez sekvencijalne ovisnosti između njih), i
+2. **da je potrebno izvršiti oba slijeda aktivnosti** prije nego je motorno vozilo moguće registrirati.
 
 Možete još uočiti različite entitete: "Prometna dozvola", "Stara polica osiguranja", "Nova polica osiguranja" i "Potvrda o ispravnosti vozila" koje smo definirali na sekvencijalnim sljedovima.
 
-**Entitete** je moguće definirati na informacijskim tokovima (_eng. message flow_) kako bi dodatno pojasnili koje se informacije razmjenjuju između sudionika u procesu, ali i na sekvencijalnim tokovima npr. kako bi prikazali koje se informacije ili resursi koriste (npr. dokumenti, podaci, materijali i sl.) tijekom izvođenja aktivnosti.
+**Entitete** (_eng. Entities_) je moguće definirati na informacijskim tokovima (_eng. message flow_) kako bi dodatno pojasnili koje se informacije razmjenjuju između sudionika u procesu, ali i na sekvencijalnim tokovima primjerice kako bi prikazali koje se informacije ili resursi koriste (npr. dokumenti, podaci, materijali i sl.) tijekom izvođenja aktivnosti.
 
-> Podsjetnik: Sekvencijalni tokovi (_eng. sequence flow_) se koriste za povezivanje elemenata unutar jednog procesa i označavaju se punim strelicama, dok se informacijski tokovi (_eng. message flow_) koriste za povezivanje elemenata između različitih sudionika (polja) i označavaju se isprekidanim strelicama.
+**Entiteti nisu obavezni, ali mogu pomoći u boljem razumijevanju procesa.**
+
+> Podsjetnik: Sekvencijalni tokovi (_eng. Sequence flow_) se koriste za povezivanje elemenata unutar jednog procesa i označavaju se punim strelicama, dok se informacijski tokovi (_eng. message flow_) koriste za povezivanje elemenata između različitih sudionika (polja) i označavaju se isprekidanim strelicama.
 
 <hr>
 
-Ima li smisla koristiti AND skretnicu kada nam aktivnosti imaju različita trajanja? Ukratko - DA, ima smisla. Rekli smo da je razlog taj što želimo prikazati da aktivnosti **započinju paralelno** (nema očite međuovisnosti između njih) i da je potrebno **pričekati na izvršavanje svih aktivnosti** prije nastavka procesa.
+Ima li smisla koristiti AND skretnicu kada nam aktivnosti imaju različita trajanja? Ukratko - DA, ima smisla. Rekli smo da je razlog taj što želimo prikazati da aktivnosti **započinju paralelno - _split_** (nema očite međuovisnosti između njih) i da je potrebno **pričekati na izvršavanje svih aktivnosti - _merge_**, prije nastavka procesa.
 
-> _Primjer:_ U procesu prijave preferencija na studentsku praksu, traži se odabir najmanje 3 ponuđene opcije (zadataka). Nakon odabira, započinje se paralelno izvođenje tri različita slijeda aktivnosti: 1. Obavještavanje poslodavca i evaluacija kandidata kod poslodavca, 2. Studentska priprema za evaluaciju, i 3. Pohrana odabira preferencija u bazu podataka i obavještavanje studenta o odabranom zadatku.
+> _Primjer:_ U procesu prijave preferencija na studentsku praksu, traži se odabir najmanje 3 ponuđene opcije (zadataka). Nakon odabira, započinje se paralelno izvođenje tri različita slijeda aktivnosti: **1. Obavještavanje poslodavca i evaluacija kandidata kod poslodavca**, **2. Studentska priprema za evaluaciju**, i **3. Pohrana odabira preferencija u bazu podataka i obavještavanje studenta o odabranom zadatku**.
 
 <img src="./screenshots/pp_praksa_1.png" style="width:70%">
 
-> Slika : Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem
+> Slika 11: Proces prijave preferencija na studentsku praksu s paralelnom AND skretnicom grananja i spajanja
 
-U ovom konkretnom primjeru, sljedovi aktivnosti zasigurno će imati različita trajanja, ali ono što je ključno je da se sve aktivnosti započinju paralelno i da je potrebno pričekati na završetak svih aktivnosti prije nego se proces prakse može nastaviti.
+U ovom konkretnom primjeru, **sljedovi aktivnosti zasigurno će imati različita trajanja**, ali ono što je ključno je da se sve aktivnosti započinju paralelno i da je potrebno pričekati na završetak svih aktivnosti prije nego se proces prakse može nastaviti.
 
 _Primjer:_
 
-- Slijed 1 (Obavještavanje poslodavca i evaluacija kandidata kod poslodavca) može trajati nekoliko dana, npr. 3-4 radna dana
-- Slijed 2 (Studentska priprema za evaluaciju) može trajati nekoliko sati, npr. 2-3 sata ili pak noć prije!
-- Slijed 3 (Pohrana odabira preferencija u bazu podataka i obavještavanje studenta o odabranom zadatku) će vjerojatno trajati samo nekoliko sekundi
+- **Slijed 1:** (Obavještavanje poslodavca i evaluacija kandidata kod poslodavca) može trajati nekoliko dana, npr. 3-4 radna dana
+- **Slijed 2:** (Studentska priprema za evaluaciju) može trajati nekoliko sati, npr. 2-3 sata ili pak noć prije!
+- **Slijed 3:** (Pohrana odabira preferencija u bazu podataka i obavještavanje studenta o odabranom zadatku) će vjerojatno trajati samo nekoliko sekundi
 
 Ovaj proces možemo detaljnije prikazati raspodjelom u polja i staze:
 
@@ -263,7 +265,7 @@ Poslodavca možemo predstaviti kao vanjskog dionika u procesu kroz zasebno polje
 
 <img src="./screenshots/pp_praksa_2.png" style="width:70%">
 
-> Slika : Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze
+> Slika 11: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze
 
 Uočite da smo aktivnost "Evaluacija kandidata" premjestili u polje POSLODAVAC. Poslodavac odrađuje svoj interni proces evaluacije kandidata koji mi apstrahiramo - dovoljno je prikazati kako poslodavac prima obavijest o kandidatu, provodi evaluaciju i završava proces evaluacije.
 
@@ -277,6 +279,8 @@ Nakon paralelnog grananja AND skretnicom, sada nemamo više aktivnost "Evaluacij
 </details>
 
 <img src="./screenshots/pp_praksa_3.png" style="width:70%">
+
+> Slika 12: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze. Uočite prijamni međudogađaj obavijesti koji označava čekanje na rezultat evaluacije poslodavca.
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -296,7 +300,7 @@ Kao i kod XOR i AND skretnica, i kod inkluzivne (OR) skretnice postoje skretnice
 </span>
 </div>
 
-Inkluzivna skretnicu možemo zamisliti kao **logičku disjunkciju** (operator `OR`), odnosno **odabir jednog ili više uvjeta**. Ukoliko je zadovoljen uvjet, izvršava se odgovarajući slijed aktivnosti. Na neki način radi se **mixu** između XOR i AND skretnice zato što je moguće da se izvrši **samo jedan tok** (kao kod XOR skretnice) ili **više tokova** (kao kod AND skretnice).
+Inkluzivna skretnicu možemo zamisliti kao **logičku disjunkciju** (operator `OR`), odnosno **odabir jednog ili više uvjeta**. Ukoliko je zadovoljen uvjet, izvršava se odgovarajući slijed aktivnosti. Na neki način radi se **mixu** između `XOR` i `AND` skretnice zato što je moguće da se izvrši **samo jedan tok** (kao kod `XOR` skretnice) ili **više tokova** (kao kod `AND` skretnice).
 
 > _Primjer_, imamo Bitcoin mjenjačnicu te želimo definirati slijed aktivnosti nakon što korisnik zatraži prodaju određene količine Bitcoina. Primitkom ponude, djelatnik mora poduzeti različite aktivnosti ovisno o cijeni transakcije (vrijednosti Bitcoina koju korisnik želi prodati u eurima):
 
@@ -313,7 +317,7 @@ U opisanom procesu barem jedan uvjet će uvijek biti zadovoljen (`iznos > 0 eura
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_bitcoin_mjenjacnica.png?raw=true" style="width:70%">
 
-> Slika 11: Proces prodaje Bitcoina u mjenjačnici
+> Slika 11: Proces prodaje Bitcoina u mjenjačnici definiran kroz inkluzivne skretnice grananja i spajanja
 
 <hr>
 
@@ -328,63 +332,71 @@ Kod **inkluzivnog grananja**, moramo uzeti nekoliko stvari u obzir:
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_bitcoin_mjenjacnica_neispravno.png?raw=true" style="width:70%">
 
-> Slika 12: Proces prodaje Bitcoina u mjenjačnici s defaultnim tokom (**neispravno**)
+> Slika 12: Proces prodaje Bitcoina u mjenjačnici s defaultnim tokom (**neispravno zbog _defaultne_ grane**)
 
-Problem je sljedeći:
+Prisjetite se: Zadani (_default flow_) izvršava se onda kada **nijedan od definiranih uvjeta nije zadovoljen**.
 
-- ako je zadovoljen uvjet `iznos > 1000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost **Obrada narudžbe**
-- ako je zadovoljen uvjet `iznos > 10 000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost **Obrada narudžbe**
-- ako je zadovoljen uvjet `iznos > 1000 eura` i `iznos > 10 000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost **Obrada narudžbe**.
-- u svim drugim slučajevima (`iznosi između 1 i 1000 eura`), izvršit će se samo aktivnost **Obrada narudžbe**, što je OK.
+**Uočite problem:**
 
-**VAŽNO:** Ista skretnica grananja ne mora dolaziti u paru s istom skretnicom spajanja. Npr. XOR sa XOR, AND s AND, ili OR s OR. Moguće je kombinirati različite skretnice grananja i spajanja ovisno o potrebama modela procesa.
+- ako je zadovoljen uvjet `iznos > 1000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost "Obrada narudžbe"
+- ako je zadovoljen uvjet `iznos > 10 000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost "Obrada narudžbe"
+- ako je zadovoljen uvjet `iznos > 1000 eura` i `iznos > 10 000 eura`, neće se izvršiti _defaultni_ tok i neće se izvršiti aktivnost "Obrada narudžbe".
+- u svim drugim slučajevima (`iznosi između 1 i 1000 eura`), izvršit će se samo aktivnost "Obrada narudžbe", što je OK.
+
+**VAŽNO:** **Ista skretnica grananja ne mora "dolaziti u paru" s istom skretnicom spajanja**. Npr. `XOR` → `XOR`, `AND` → `AND`, ili `OR` → `OR`. Moguće je (i vrlo učestalo) kombinirati različite skretnice grananja i spajanja ovisno o potrebama modela procesa.
 
 Što bi se dogodilo kad bi za skretnicu spajanja koristili `AND` skretnicu? Kako onda interpretiramo model?
 
 <img src="./screenshots/mjepp_bitcoin_mjenjacnica_neispravno_2.png" style="width:70%">
 
-> Slika : Proces prodaje Bitcoina u mjenjačnici s AND skretnicom spajanja (**neispravno**)
+> Slika 13: Proces prodaje Bitcoina u mjenjačnici s AND skretnicom spajanja (**neispravno - kriva skretnica spajanja**)
 
-**Problem je sljedeći**: `AND` skretnica spajanja će pričekati na **sve ulazne tokove** prije nego nastavi dalje, a ne samo na one koji su "aktivirani" (zadovoljeni) kao što to čini `OR` skretnica spajanja. Npr. ako je korisnik prodao Bitcoin u iznosu od 750 eura, skretnica spajanja će čekati na izvršenje sve 3 aktivnosti prije nego nastavi dalje, međutim dvije neće nikada biti izvršene jer uvjeti nisu zadovoljeni.
+**Problem je sljedeći**: `AND` skretnica spajanja će pričekati na **sve ulazne tokove** prije nego nastavi dalje, a ne samo na one koji su "aktivirani" (zadovoljeni) kao što to čini `OR` skretnica spajanja.
+
+Primjerice, ako je korisnik prodao Bitcoin u iznosu od 750 eura, skretnica spajanja će čekati na izvršenje sve 3 aktivnosti prije nego nastavi dalje, međutim dvije (druga i treća) neće nikada biti izvršene jer uvjeti nisu zadovoljeni - ovdje dolazi do _deadlocka_ procesa.
 
 <hr>
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-> _Primjer posluživanja više vrsta jela u restoranu_: Skupina gostiju dolazi u restoran gdje se poslužuje hrana po prethodnoj rezervaciji za veće skupine gostiju. Nakon što se gosti smjeste, konobar donosi jelovnik i gosti biraju jelo. Radi jednostavnosti, recimo da gosti biraju između mesne, vegetarijanske i riblje plate. Međutim, kako ima puno gostiju za stolom, vjerojatno je da će odabrati više različitih vrsta jela. Proces možemo modelirati kroz inkluzivnu skretnicu.
+> _Primjer posluživanja više vrsta jela u restoranu_: Skupina gostiju dolazi u restoran gdje se poslužuje hrana po prethodnoj rezervaciji za veće skupine gostiju. Nakon što se gosti smjeste, konobar donosi jelovnik i gosti biraju jelo. Radi jednostavnosti, recimo da gosti biraju između mesne, vegetarijanske i riblje plate. Međutim, kako ima puno gostiju za stolom, vjerojatno je da će odabrati više različitih vrsta jela. Odabir hrane možemo modelirati kroz inkluzivnu skretnicu.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_odabir_vrsta_jela.png?raw=true" style="width:70%">
 
-> Slika : Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu
+> Slika 14: Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu grananja i spajanja
 
-Na ovom primjeru također možemo kombinirati skretnice grananja i spajanja različitih tipova. Npr. možemo kombinirati skretnicu grananja `OR` sa skretnicom spajanja `XOR`. Kako onda interpretiramo model?
+**Objasnite kako se ponaša ovaj model?**
+
+<hr>
+
+Na ovom primjeru također možemo kombinirati skretnice grananja i spajanja različitih tipova. Recimo možemo kombinirati skretnicu grananja `OR` sa skretnicom spajanja `XOR`. Kako onda interpretiramo model?
 
 <details>
   <summary>Spoiler alert! Odgovor na pitanje</summary>
   Tada će naš konobar pričekati na <b>prvu pripremljenu platu</b> i poslužit će je gostima čim je spremna. To znači da ako su gosti naručili mesnu i riblju platu, a mesna plata je gotova prva, konobar će poslužiti mesnu platu čim je spremna, bez čekanja na riblju platu. Ipak, tada moramo malo izmijeniti model budući da bi na ovaj način proces završio prvim posluživanjem.
 </details>
 
-Ako postavimo `OR` skretnicu grananja za odabir jela, a naši gosti naruče sve 3 vrste jela, a pritom postoji `XOR` skretnica spajanja, tada će, prema trenutnom modelu, konobar pričekati na prvu pripremljenu platu i poslužit će je gostima čim je spremna - nakon toga proces završava (što nije ono što želimo), budući da se preostala hrana još uvijek priprema.
+Ako postavimo `OR` skretnicu grananja za odabir jela, a naši gosti naruče sve 3 vrste jela, a pritom postoji `XOR` skretnica spajanja, tada će, prema trenutnom modelu, **konobar pričekati na prvu pripremljenu platu i poslužit će je gostima čim je spremna** - nakon toga proces završava (što nije ono što želimo), budući da se preostala hrana još uvijek priprema.
 
 Ako se naruče sve 3 vrste jela, `OR` skretnica će osigurati "3 ispaljivanja signala", dakle sve što moramo modelirati je petlju gdje konobar čeka na signale o gotovoj hrani jednom kad dostavi prvu platu.
 
-Kako bi proces bio čitljiviji, podijelit ćemo ga u staze "Konobar" i "Kuhinja".
+Kako bi proces bio čitljiviji, podijelit ćemo ga u dvije staze "Konobar" i "Kuhinja".
 
-Kako ne znamo koliko će jela gosti naručiti, niti ne znamo vrijeme pripreme svakog jela, čekanje ćemo definirati kroz **prijamni međudogađaj obavijesti** (_eng. Message Intermediate Catch Event_) koji će konobar "uhvatiti" svaki put kad kuhinja javi da je jelo spremno. Nakon toga poslužuje jelo, a nakon što su gosti pojeli (prikazujemo istim međudogađajem), konobar sakuplja prazne tanjure i pribor te **ukoliko se priprema još hrane** (XOR skretnica grananja), ponavlja ciklus čekanja na obavijesti ili završava proces.
+Ne znamo koliko će jela gosti naručiti, niti ne znamo vrijeme pripreme svakog jela, čekanje ćemo definirati kroz **prijamni međudogađaj obavijesti** (_eng. Message Intermediate Catch Event_) koji će konobar "uhvatiti signal" svaki put kad kuhinja javi da je jelo spremno. Nakon toga, konobar poslužuje jelo, a nakon što su gosti pojeli (prikazujemo predajnim međudogađajem - _milestone_), konobar sakuplja prazne tanjure i pribor te **ukoliko se priprema još hrane** (`XOR` skretnica grananja), ponavlja ciklus čekanja na obavijesti ili završava proces.
 
 <img src="./screenshots/pp_odabir_vrsta_jela_nadopunjeno.png" style="width:70%">
 
-> Slika : Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu, nadopunjen prijamnim međudogađajima obavijesti
+> Slika 15: Proces posluživanja više vrsta jela u restoranu, modeliran na način da konobar dostavlja jela čim su spremna. Primjer pokazuje kako je moguće kombinirati različite vrste skretnica grananja i spajanja.
 
 To je to! Sada smo u jednom modelu prikazali inkluzivnu, paralelnu i ekskluzivnu skretnicu te kombinirali uzastopno različite tipove skretnica grananja i spajanja.
 
 Uočite sljedeće skretnice (s lijeva na desno):
 
-- **Prva paralelna AND skretnica** je skretnica **grananja** (_split/branching_) budući da konobar paralelno kreće s postavljanjem pribora za jelo, a kuhinja kreće s pripremom hrane.
-- **Inkluzivna OR skretnica** je skretnica **grananja** budući da su gosti mogli naručiti jednu, dvije ili sve tri vrste jela.
-- **Ekskluzivna XOR skretnica** je skretnica **spajanja** (_join/merge_) budući da se svaka plata poslužuje čim je spremna (proces nastavlja čim stigne jedan signal - međutim svi pokrenuti će kad tad stići)
-- **Druga inkluzivna OR skretnica** je skretnica **spajanja** koja služi za implementaciju petlje; ako se dostavlja prvo jelo, skretnica "propušta" odmah jer je 1/1 signal stigao, ali ako se naručilo više jela, te jedno već dostavilo, skretnica će čekati na sljedeći signal (sljedeće jelo koje je spremno) i tako dalje dok se ne dostave sva jela. Potencijalno bi se ovdje mogla koristiti i XOR varijanta, međutim OR je prikladnija.
-- **Druga ekskluzivna XOR skretnica** je skretnica **grananja** koja odlučuje hoće li se proces ponoviti (ako se priprema još hrane) ili će završiti (ako su svi gosti pojeli sve naručeno).
+- **Prva paralelna `AND` skretnica** je skretnica **grananja** (_split/branching_) budući da konobar paralelno kreće s postavljanjem pribora za jelo, a kuhinja kreće s pripremom hrane.
+- **Inkluzivna `OR` skretnica** je skretnica **grananja** budući da su gosti mogli naručiti jednu, dvije ili sve tri vrste jela.
+- **Ekskluzivna `XOR` skretnica** je skretnica **spajanja** (_join/merge_) budući da se svaka plata poslužuje čim je spremna (proces nastavlja čim stigne jedan signal - međutim svi pokrenuti će kad tad stići)
+- **Druga inkluzivna `OR` skretnica** je skretnica **spajanja** koja služi za implementaciju petlje; ako se dostavlja prvo jelo, skretnica "propušta" odmah jer je 1/1 signal stigao, ali ako se naručilo više jela, te jedno već dostavilo, skretnica će čekati na sljedeći signal (sljedeće jelo koje je spremno) i tako dalje dok se ne dostave sva jela. Potencijalno bi se ovdje mogla koristiti i XOR varijanta, međutim OR je prikladnija.
+- **Druga ekskluzivna `XOR` skretnica** je skretnica **grananja** koja odlučuje hoće li se proces ponoviti (ako se priprema još hrane) ili će završiti (ako su svi gosti pojeli sve naručeno).
 
 <div style="page-break-after: always; break-after: page;"></div>
 
