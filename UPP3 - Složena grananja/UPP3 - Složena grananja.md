@@ -112,7 +112,7 @@ Logičke izraze (`> 1500 eur` i `> 300 eur`) smo zapisali na strelicama, a oznak
 
 **Default flow** predstavlja zadani sljed nakon skretnice koji će se izvršiti ukoliko nijedan od definiranih uvjeta nije zadovoljen (niti jedan drugi uvjet se ne evaluira u istinitu vrijednost). Moguće ga je definirati za OR i XOR skretnice.
 
-<img src="./screenshots/elements/xor-default-path-selection.png" style="width:30%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/elements/xor-default-path-selection.png?raw=true" style="width:30%">
 
 > Slika 5: Odabir zadanog toka (_eng. Default flow_) iz XOR skretnice grananja. Iako je moguće definirati uvjet na zadanom toku (`< 300 €`), preporuka je zadani tok (ako postoji) označiti bez uvjeta radi brže čitljivosti modela procesa.
 
@@ -219,7 +219,7 @@ Međutim, što ako uplata nije uspješna? Nema problema, **možemo kombinirati A
 
 > _Primjer korištenja paralelnih skretnica spajanja i grananja_ u procesu **produljenja registracije motornog vozila**. Kako je proces dovoljno poznat i ne treba ga posebno objašnjavati, prikazat ćemo samo dijagram gdje je istaknuto da se **dokumenti za registraciju mogu predati ako je prije toga: (1) uspješno obavljen tehnički pregled** i **(2) uplaćeno osiguranje vozila**.
 
-<img src="./screenshots/pp_produljenje_registracije_vozila.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_produljenje_registracije_vozila.png?raw=true" style="width:70%">
 
 > Slika 10: Proces produljenja registracije motornog vozila. Entiteti na sekvencijalnim vezama nisu obavezni, ali pomažu u razumijevanju procesa.
 
@@ -242,7 +242,7 @@ Ima li smisla koristiti AND skretnicu kada nam aktivnosti imaju različita traja
 
 > _Primjer:_ U procesu prijave preferencija na studentsku praksu, traži se odabir najmanje 3 ponuđene opcije (zadataka). Nakon odabira, započinje se paralelno izvođenje tri različita slijeda aktivnosti: **1. Obavještavanje poslodavca i evaluacija kandidata kod poslodavca**, **2. Studentska priprema za evaluaciju**, i **3. Pohrana odabira preferencija u bazu podataka i obavještavanje studenta o odabranom zadatku**.
 
-<img src="./screenshots/pp_praksa_1.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_1.png?raw=true" style="width:70%">
 
 > Slika 11: Proces prijave preferencija na studentsku praksu s paralelnom AND skretnicom grananja i spajanja
 
@@ -263,7 +263,7 @@ Definirat ćemo polje PROVOĐENJE STUDENTSKE PRAKSE koje sadrži dvije staze:
 
 Poslodavca možemo predstaviti kao vanjskog dionika u procesu kroz zasebno polje POSLODAVAC.
 
-<img src="./screenshots/pp_praksa_2.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_2.png?raw=true" style="width:70%">
 
 > Slika 11: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze
 
@@ -278,7 +278,7 @@ Nakon paralelnog grananja AND skretnicom, sada nemamo više aktivnost "Evaluacij
   Koristeći <b>prijamni međudogađaj obavijesti</b> (<i>eng. Intermediate Catch Event</i>). Primjerice, možemo ga nazvati "Zaprimanje rezultata evaluacije na mail/telefon". Ovaj međudogađaj označava čekanje na vanjsku obavijest (rezultat evaluacije) prije nego se proces može nastaviti. 
 </details>
 
-<img src="./screenshots/pp_praksa_3.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_3.png?raw=true" style="width:70%">
 
 > Slika 12: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze. Uočite prijamni međudogađaj obavijesti koji označava čekanje na rezultat evaluacije poslodavca.
 
@@ -347,7 +347,7 @@ Prisjetite se: Zadani (_default flow_) izvršava se onda kada **nijedan od defin
 
 Što bi se dogodilo kad bi za skretnicu spajanja koristili `AND` skretnicu? Kako onda interpretiramo model?
 
-<img src="./screenshots/mjepp_bitcoin_mjenjacnica_neispravno_2.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/mjepp_bitcoin_mjenjacnica_neispravno_2.png?raw=true" style="width:70%">
 
 > Slika 13: Proces prodaje Bitcoina u mjenjačnici s AND skretnicom spajanja (**neispravno - kriva skretnica spajanja**)
 
@@ -384,7 +384,7 @@ Kako bi proces bio čitljiviji, podijelit ćemo ga u dvije staze "Konobar" i "Ku
 
 Ne znamo koliko će jela gosti naručiti, niti ne znamo vrijeme pripreme svakog jela, čekanje ćemo definirati kroz **prijamni međudogađaj obavijesti** (_eng. Message Intermediate Catch Event_) koji će konobar "uhvatiti signal" svaki put kad kuhinja javi da je jelo spremno. Nakon toga, konobar poslužuje jelo, a nakon što su gosti pojeli (prikazujemo predajnim međudogađajem - _milestone_), konobar sakuplja prazne tanjure i pribor te **ukoliko se priprema još hrane** (`XOR` skretnica grananja), ponavlja ciklus čekanja na obavijesti ili završava proces.
 
-<img src="./screenshots/pp_odabir_vrsta_jela_nadopunjeno.png" style="width:70%">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_odabir_vrsta_jela_nadopunjeno.png?raw=true" style="width:70%">
 
 > Slika 15: Proces posluživanja više vrsta jela u restoranu, modeliran na način da konobar dostavlja jela čim su spremna. Primjer pokazuje kako je moguće kombinirati različite vrste skretnica grananja i spajanja.
 
