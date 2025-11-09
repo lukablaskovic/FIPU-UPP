@@ -28,9 +28,9 @@
 - [2. Nadogradnja poslovnog procesa `PRODATI ROBU`](#2-nadogradnja-poslovnog-procesa-prodati-robu)
 - [2.1 Osnovne vrste događaja](#21-osnovne-vrste-događaja)
 - [2.2 Osnove vrste aktivnosti](#22-osnove-vrste-aktivnosti)
-  - [2.2.1 Radni korak (eng. Task)](#221-radni-korak-eng-task)
-  - [2.2.2. Potproces (eng. Subprocess)](#222-potproces-eng-subprocess)
-  - [2.2.3 Kako ispravno koristiti `send` i `receive` aktivnosti?](#223-kako-ispravno-koristiti-send-i-receive-aktivnosti)
+    - [2.2.1 Radni korak (eng. Task)](#221-radni-korak-eng-task)
+    - [2.2.2. Potproces (eng. Subprocess)](#222-potproces-eng-subprocess)
+    - [2.2.3 Kako ispravno koristiti `send` i `receive` aktivnosti?](#223-kako-ispravno-koristiti-send-i-receive-aktivnosti)
 - [Zadaci za Vježbu 2](#zadaci-za-vježbu-2)
   - [1. Proces upisa studenata na Sveučilište](#1-proces-upisa-studenata-na-sveučilište)
   - [2. UPPTech - Implementacija softvera](#2-upptech---implementacija-softvera)
@@ -294,11 +294,15 @@ Dakle, sljedeće je pogrešno:
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/pp_wrong_receive_send_tasks.png?raw=true" style="width:50%;">
 
+> Slika 6. Pogrešan način korištenja `send` i `receive` aktivnosti unutar istog polja
+
 Da se radi o nekoj malo trgovini koja ima svoje malo interno skladište, onda bi to mogli ovako prikazati međutim umjesto **send** i **receive** koristili bismo **obične sekvencijalne veze**.
 
 S druge strane, ako se radi o **vanjskom skladištu**, onda je to ispravno **pokazati na sljedeći način**:
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/pp_otprema_2_entiteta_ispravno.png?raw=true" style="width:50%;">
+
+> Slika 7. Ispravan način korištenja `send` i `receive` aktivnosti između dva polja
 
 > **Zapamti!**
 
