@@ -32,6 +32,8 @@
 - [4. Ukratko, kada koristiti koju skretnicu?](#4-ukratko-kada-koristiti-koju-skretnicu)
 - [Zadaci za Vježbu 3](#zadaci-za-vježbu-3)
   - [1. Wolt - dostava hrane](#1-wolt---dostava-hrane)
+  - [2. Liječenje pacijenta koji dolazi na hitnu pomoć](#2-liječenje-pacijenta-koji-dolazi-na-hitnu-pomoć)
+  - [3. Organizacija koncerta u Pulskoj Areni](#3-organizacija-koncerta-u-pulskoj-areni)
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -428,5 +430,31 @@ Također, vidjeli smo da za svaku skretnicu možemo definirati skretnicu **grana
 
 ## 1. Wolt - dostava hrane
 
-Modelirajte proces naručivanja hrane preko Wolt aplikacije. Proces započinje jednom kad u restoran pristigne narudžba s Wolt aplikacije. Nakon što djelatnik obradi narudžbu, paralelno se kreće u pripremu hrane i obavještavanje dostavljača. Dostavljač, kao vanjski sudionik, sudjeluje samo u procesu dostave hrane. Taj proces započinje jednom kad dostavljaču pristigne obavijest o traženoj dostavi. Dostavljač pregledava obavijest i odlučuje hoće li prihvatiti dostavu. Ako odbije, njegov proces tu završava i o tome obavještava restoran. Ako prihvati, obavještava restoran da će preuzeti dostavu.
-Međutim, dostavu je moguće preuzeti tek kad je hrana gotova, što traje određeno vrijeme te nakon što se spakira. U međuvremenu, restoran čeka na potvrdnu informaciju od dostavljača. Ako je potvrda informacija pozitivna (dostavljač prihvaća dostavu unutar 30 minuta) i hrana spakirana, tada se tok može nastaviti. Ako je potvrdna informacija negativna, tada se u sustavu zatraži novi dostavljač. Jednom kad su svi uvjeti zadovoljeni, obavještava se korisnika da je hrana na putu te se potom paralelno izrađuje račun i obavještava dostavljača da je hrana gotova. Dostavljač čeka na tu informaciju, dostavlja robu i tu njegov proces završava, dok proces u restoranu završava izdavanjem računa i obavještavanjem dostavljača da je hrana gotova.
+Modelirajte proces naručivanja hrane putem Wolt aplikacije. Proces započinje onoga trenutka kada u restoran pristigne narudžba s Wolt aplikacije. Nakon što djelatnik obradi narudžbu, paralelno započinje priprema hrane i obavještavanje dostavljača. Dostavljač, kao samostalni vanjski sudionik, nije dio organizacije restorana te sudjeluje samo u procesu dostave hrane. Taj proces započinje kada dostavljaču pristigne obavijest o traženoj dostavi. Dostavljač pregledava obavijest i odlučuje hoće li prihvatiti dostavu. Ako odbije, njegov proces tu završava i o tome obavještava restoran. Ako prihvati, obavještava restoran da će preuzeti dostavu.
+
+Međutim, dostava se može preuzeti tek nakon što je hrana pripremljena i zapakirana, što zahtijeva određeno vrijeme. U tom razdoblju restoran čeka potvrdu od dostavljača da će zaista preuzeti i dostaviti naručenu hranu. Ako je povratna informacija pozitivna (dostavljač prihvaća dostavu unutar otprilike 20 minuta), a hrana je zapakirana (spremna za preuzimanje), tada se slijed može nastaviti. Ako je povratna informacija negativna, u sustavu se zatraži novi dostavljač i čeka se njegova potvrda. Kada su svi uvjeti zadovoljeni, korisnik se obavještava da je hrana na putu te se istovremeno izrađuje račun i obavještava dostavljača da je hrana spremna za preuzimanje. Kada dostavljač primi tu informaciju, preuzima hranu u restoranu, dostavlja je korisniku i time proces završava.
+
+## 2. Liječenje pacijenta koji dolazi na hitnu pomoć
+
+Liječenje pacijenta u bolnici koji dolazi na hitnu pomoć započinje njegovim dolaskom i prijavom na šalteru hitnog prijema. Medicinski tehničar unosi osnovne podatke o pacijentu u informacijski sustav te obavještava dežurnog liječnika. Nakon toga slijedi početna trijaža u kojoj medicinska sestra procjenjuje težinu stanja pacijenta i određuje razinu hitnosti. Ako je stanje pacijenta životno ugrožavajuće, odmah se upućuje u sobu za hitne intervencije, gdje paralelno započinju mjerenje vitalnih funkcija i pozivanje dežurnog liječnika specijalista. Ako pacijent nije u kritičnom stanju, čeka pregled u čekaonici dok se ne oslobodi liječnik; ako čeka više od 1 sat, medicinska sestra ponovno procjenjuje njegovo stanje i, ako je potrebno, ažurira razinu hitnosti, a ako čeka više od 3 sata, pacijent shvaća da mu ipak nije toliko loše i odlučuje otići kući.
+
+Liječnik zatim pregledava pacijenta i odlučuje o daljnjim postupcima. Ako je potrebno, izdaje naloge za laboratorijske pretrage i dijagnostičke preglede (rendgen, CT, ultrazvuk). Pacijent odrađuje dijagnostičke pretrage jednu po jednu, ali ne nužno definiranim redoslijedom, već kako se koji uređaj oslobodi. Nakon što rezultati stignu, sustav ih automatski pridružuje pacijentovu kartonu i obavještava liječnika da su dostupni. Na temelju rezultata liječnik donosi odluku o liječenju. Ako je potrebno bolničko liječenje, pacijent se upućuje na odjel, a ako nije, propisuje se terapija i pacijent se otpušta kući uz upute o daljnjem postupanju. U slučaju da tijekom obrade dođe do pogoršanja stanja, proces se vraća na hitnu intervenciju. Proces završava kada pacijent napusti hitnu službu ili bude službeno primljen na bolnički odjel.
+
+## 3. Organizacija koncerta u Pulskoj Areni
+
+Proces organizacije velikog koncerta u Pulskoj Areni započinje donošenjem odluke o održavanju događaja i izborom glavnog izvođača. Organizator (npr. produkcijska tvrtka AdriaSound Events) kontaktira menadžment izvođača - primjerice _Coldplay_, _Dua Lipa_ ili _Imagine Dragons_ — radi pregovora o uvjetima nastupa. Nakon prihvaćanja ponude, paralelno se pokreću tri ključna toka aktivnosti: pravna priprema ugovora, rezervacija prostora te izrada preliminarnog proračuna.
+Po potpisivanju ugovora aktiviraju se potproces pripreme koncerta. Tri tima djeluju paralelno i koordinirano:
+
+1. Organizacijski tim vodi komunikaciju s izvođačem, dobavljačima i gradskim službama te prati realizaciju ugovorenih obveza.
+
+2. Produkcijski tim izrađuje tehničku dokumentaciju, plan pozornice, svjetla i ozvučenja te koordinira dostavu i postavljanje opreme.
+
+3. Marketinški tim osmišljava strategiju oglašavanja i pokreće prodaju ulaznica putem platformi poput Eventim.hr ili Entrio.
+
+Sustav za prodaju ulaznica kontinuirano prati broj prodanih karata. Ako se prodaja odvija sporije od planiranog, marketinški tim pokreće dodatnu kampanju i aktivira sponzorske suradnje. Ako su ulaznice rasprodane, prodaja se automatski zatvara i svi kanali obavještavaju publiku o rasprodaji ulaznica.
+Tijekom završne faze pripreme, produkcijski tim organizira tehničku probu izvođača. Ako se pojave problemi sa zvukom ili rasvjetom, proces se vraća na prilagodbu tehničke konfiguracije dok se ne postigne željena razina kvalitete - ukoliko isto nije moguće, kreće se u hitni pronalazak zamjenske opreme u suradnji s lokalnim dobavljačima.
+Na dan koncerta tri tima ponovno djeluju paralelno: organizacijski tim nadzire dolazak izvođača i publike te koordinira sigurnost događaja u suradnji s policijom i vatrogascima (ulasci ljudi, sigurnosne provjere torbi i sl.), produkcijski tim ponovno provjerava zvuk, svijetlo i specijalne efekte, a marketinški tim koordinira održavanje koncerta s lokalnim medijima i sponzorima. U slučaju _last-minute_ nepovoljnih vremenskih uvjeta, meteorološki sustav automatski obavještava organizacijski tim, koji donosi odluku o pomicanju rasporeda ili odgodi koncerta za drugi dan.
+Jednom kad koncert započne, izvođač preuzima glavnu pozornicu i započinje program. Tijekom nastupa tehnički tim kontinuirano nadzire zvuk, svjetlo i specijalne efekte, sigurnosni tim nadzire sigurnost publike a marketinški tim na terenu prodaje rekvizite, _merch_, hranu i piće. Nakon završetka koncerta započinje proces demontaže, prikupljanja opreme i čišćenja Arene, dok marketinški tim i organizacijski tim prikupljaju povratne informacije od publike i sponzora te izrađuju završno financijsko izvješće.
+Proces završava kada su svi ugovori i računi zatvoreni, prostor vraćen u prvobitno stanje i završno izvješće poslano gradu Puli i sponzorima.
+
+_#Ne postoji idealno rješenje za modeliranje ovih procesa - pokušajte na temelju pomoćnog teksta prikazati što realniju sliku procesa._
