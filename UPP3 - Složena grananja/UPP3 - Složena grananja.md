@@ -17,7 +17,7 @@
 <div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja sljedova aktivnosti.</div>
 <br>
 
-**🆙 Posljednje ažurirano: 9.11.2025.**
+**🆙 Posljednje ažurirano: 16.11.2025.**
 
 ## Sadržaj
 
@@ -28,7 +28,7 @@
   - [1.1. `XOR` skretnica spajanja (eng. XOR merge/join gateway)](#11-xor-skretnica-spajanja-eng-xor-mergejoin-gateway)
 - [2. Paralelna (eng. Parallel) skretnica](#2-paralelna-eng-parallel-skretnica)
   - [2.1 `AND` skretnica spajanja (eng. AND merge/join)](#21-and-skretnica-spajanja-eng-and-mergejoin)
-- [3. Inkluzivna (eng. Inclusive) skretnica](#3-inkluzivna-eng-inclusive-skretnica)
+- [3. Inkluzivna `OR` (eng. Inclusive) skretnica](#3-inkluzivna-or-eng-inclusive-skretnica)
 - [4. Ukratko, kada koristiti koju skretnicu?](#4-ukratko-kada-koristiti-koju-skretnicu)
 - [Zadaci za Vježbu 3](#zadaci-za-vježbu-3)
   - [1. Wolt - dostava hrane](#1-wolt---dostava-hrane)
@@ -171,7 +171,7 @@ Kako ćemo definirati čekanje na izvršavanje svih aktivnosti?
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_ex2_pogresno.png?raw=true" style="width:70%">
 
-> Slika 6: **Pogrešan način** povezivanja sljedova aktivnosti nakon paralelne skretnice grananja
+> Slika 7: **Pogrešan način** povezivanja sljedova aktivnosti nakon paralelne skretnice grananja
 
 Ono što ustvari moramo je definirati spajanje svih tokova kroz **paralelnu skretnicu spajanja** (_eng. parallel merge gateway_). Preciznije, **želimo prikazati čekanje na izvršavanje svih aktivnosti** kroz ekvivalentnu skretnicu spajanja.
 
@@ -181,7 +181,7 @@ Samim time, kod korištenja paralelnih skretnica za grupiranje dolaznih sljedova
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_ex2_ispravno.png?raw=true" style="width:70%">
 
-> Slika 7: **Ispravan način** povezivanja toka nakon paralelne skretnice koristeći **AND skretnicu spajanja**
+> Slika 8: **Ispravan način** povezivanja toka nakon paralelne skretnice koristeći **AND skretnicu spajanja**
 
 <hr>
 
@@ -195,7 +195,7 @@ Iskoristit ćemo AND skretnicu kako bi prikazali paralelno slanje obavijesti (po
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_narudzba_ex1.png?raw=true" style="width:70%">
 
-> Slika 8: Primjer korištenja AND skretnice za paralelno slanje obavijesti i provjeru uplate
+> Slika 9: Primjer korištenja AND skretnice za paralelno slanje obavijesti i provjeru uplate
 
 Ovdje paralelno izvršavamo 2 zadatka (premda ih može biti proizvoljan broj, nije loše ograničiti na najviše 3-4 radi preglednosti modela):
 
@@ -213,7 +213,7 @@ Međutim, što ako uplata nije uspješna? Nema problema, **možemo kombinirati A
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_and_narudzba_ex2.png?raw=true" style="width:70%">
 
-> Slika 9: Primjer kombiniranja AND i XOR skretnice za definiranje alternativnog slijeda aktivnosti
+> Slika 10: Primjer kombiniranja AND i XOR skretnice za definiranje alternativnog slijeda aktivnosti
 
 <hr>
 
@@ -223,7 +223,7 @@ Međutim, što ako uplata nije uspješna? Nema problema, **možemo kombinirati A
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_produljenje_registracije_vozila.png?raw=true" style="width:70%">
 
-> Slika 10: Proces produljenja registracije motornog vozila. Entiteti na sekvencijalnim vezama nisu obavezni, ali pomažu u razumijevanju procesa.
+> Slika 11: Proces produljenja registracije motornog vozila. Entiteti na sekvencijalnim vezama nisu obavezni, ali pomažu u razumijevanju procesa.
 
 Iako je moguće aktivnosti "Uplatiti osiguranje za vozilo" i "Obaviti tehnički pregled" prikazati kao sekvencijalne, **AND skretnicama želimo naglasiti dvije stvari:**
 
@@ -246,7 +246,7 @@ Ima li smisla koristiti AND skretnicu kada nam aktivnosti imaju različita traja
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_1.png?raw=true" style="width:70%">
 
-> Slika 11: Proces prijave preferencija na studentsku praksu s paralelnom AND skretnicom grananja i spajanja
+> Slika 12: Proces prijave preferencija na studentsku praksu s paralelnom AND skretnicom grananja i spajanja
 
 U ovom konkretnom primjeru, **sljedovi aktivnosti zasigurno će imati različita trajanja**, ali ono što je ključno je da se sve aktivnosti započinju paralelno i da je potrebno pričekati na završetak svih aktivnosti prije nego se proces prakse može nastaviti.
 
@@ -267,7 +267,7 @@ Poslodavca možemo predstaviti kao vanjskog dionika u procesu kroz zasebno polje
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_2.png?raw=true" style="width:70%">
 
-> Slika 11: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze
+> Slika 13: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze
 
 Uočite da smo aktivnost "Evaluacija kandidata" premjestili u polje POSLODAVAC. Poslodavac odrađuje svoj interni proces evaluacije kandidata koji mi apstrahiramo - dovoljno je prikazati kako poslodavac prima obavijest o kandidatu, provodi evaluaciju i završava proces evaluacije.
 
@@ -282,11 +282,11 @@ Nakon paralelnog grananja AND skretnicom, sada nemamo više aktivnost "Evaluacij
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_praksa_3.png?raw=true" style="width:70%">
 
-> Slika 12: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze. Uočite prijamni međudogađaj obavijesti koji označava čekanje na rezultat evaluacije poslodavca.
+> Slika 14: Proces prijave preferencija na studentsku praksu s paralelnim grananjem i spajanjem, prikazan kroz polja i staze. Uočite prijamni međudogađaj obavijesti koji označava čekanje na rezultat evaluacije poslodavca.
 
 <div style="page-break-after: always; break-after: page;"></div>
 
-# 3. Inkluzivna (eng. Inclusive) skretnica
+# 3. Inkluzivna `OR` (eng. Inclusive) skretnica
 
 **Inkluzivna** (OR) skretnica (_eng. Inclusive gateway_) koristi se za modeliranje situacija **baziranih isključivo na podacima** (vrijednostima u procesnoj instanci) gdje se **odabire jedan ili više izlaznih tokova**, odnosno provode se aktivnosti **na svim sljedovima za koji su uvjeti ispunjeni**.
 
@@ -319,7 +319,7 @@ U opisanom procesu barem jedan uvjet će uvijek biti zadovoljen (`iznos > 0 eura
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_bitcoin_mjenjacnica.png?raw=true" style="width:70%">
 
-> Slika 11: Proces prodaje Bitcoina u mjenjačnici definiran kroz inkluzivne skretnice grananja i spajanja
+> Slika 15: Proces prodaje Bitcoina u mjenjačnici definiran kroz inkluzivne skretnice grananja i spajanja
 
 <hr>
 
@@ -334,7 +334,7 @@ Kod **inkluzivnog grananja**, moramo uzeti nekoliko stvari u obzir:
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_bitcoin_mjenjacnica_neispravno.png?raw=true" style="width:70%">
 
-> Slika 12: Proces prodaje Bitcoina u mjenjačnici s defaultnim tokom (**neispravno zbog _defaultne_ grane**)
+> Slika 16: Proces prodaje Bitcoina u mjenjačnici s _defaultnim tokom_ (**neispravno zbog _defaultne_ grane**)
 
 Prisjetite se: Zadani (_default flow_) izvršava se onda kada **nijedan od definiranih uvjeta nije zadovoljen**.
 
@@ -351,7 +351,7 @@ Prisjetite se: Zadani (_default flow_) izvršava se onda kada **nijedan od defin
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/mjepp_bitcoin_mjenjacnica_neispravno_2.png?raw=true" style="width:70%">
 
-> Slika 13: Proces prodaje Bitcoina u mjenjačnici s AND skretnicom spajanja (**neispravno - kriva skretnica spajanja**)
+> Slika 16: Proces prodaje Bitcoina u mjenjačnici s AND skretnicom spajanja (**neispravno - kriva skretnica spajanja**)
 
 **Problem je sljedeći**: `AND` skretnica spajanja će pričekati na **sve ulazne tokove** prije nego nastavi dalje, a ne samo na one koji su "aktivirani" (zadovoljeni) kao što to čini `OR` skretnica spajanja.
 
@@ -365,7 +365,7 @@ Primjerice, ako je korisnik prodao Bitcoin u iznosu od 750 eura, skretnica spaja
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_odabir_vrsta_jela.png?raw=true" style="width:70%">
 
-> Slika 14: Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu grananja i spajanja
+> Slika 17: Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu grananja i spajanja
 
 **Objasnite kako se ponaša ovaj model?**
 
@@ -388,7 +388,7 @@ Ne znamo koliko će jela gosti naručiti, niti ne znamo vrijeme pripreme svakog 
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_odabir_vrsta_jela_nadopunjeno.png?raw=true" style="width:70%">
 
-> Slika 15: Proces posluživanja više vrsta jela u restoranu, modeliran na način da konobar dostavlja jela čim su spremna. Primjer pokazuje kako je moguće kombinirati različite vrste skretnica grananja i spajanja.
+> Slika 18: Proces posluživanja više vrsta jela u restoranu, modeliran na način da konobar dostavlja jela čim su spremna. Primjer pokazuje kako je moguće kombinirati različite vrste skretnica grananja i spajanja.
 
 To je to! Sada smo u jednom modelu prikazali inkluzivnu, paralelnu i ekskluzivnu skretnicu te kombinirali uzastopno različite tipove skretnica grananja i spajanja.
 
@@ -442,8 +442,8 @@ Liječnik zatim pregledava pacijenta i odlučuje o daljnjim postupcima. Ako je p
 
 ## 3. Organizacija koncerta u Pulskoj Areni
 
-Proces organizacije velikog koncerta u Pulskoj Areni započinje donošenjem odluke o održavanju događaja i izborom glavnog izvođača. Organizator (npr. produkcijska tvrtka AdriaSound Events) kontaktira menadžment izvođača - primjerice _Coldplay_, _Dua Lipa_ ili _Imagine Dragons_ — radi pregovora o uvjetima nastupa. Nakon prihvaćanja ponude, paralelno se pokreću tri ključna toka aktivnosti: pravna priprema ugovora, rezervacija prostora te izrada preliminarnog proračuna.
-Po potpisivanju ugovora započinje priprema koncerta. Tri tima djeluju paralelno i koordinirano:
+Proces organizacije velikog koncerta u Pulskoj Areni započinje donošenjem odluke o održavanju događaja i izborom glavnog izvođača. Organizator (npr. produkcijska tvrtka AdriaSound Events) kontaktira menadžment tim izvođača - primjerice _Coldplay_, _Dua Lipa_ ili _Imagine Dragons_ — radi pregovora o uvjetima nastupa. Nakon prihvaćanja ponude, paralelno se pokreću tri ključna toka aktivnosti: pravna priprema ugovora, rezervacija prostora te izrada preliminarnog proračuna.
+Po potpisivanju ugovora započinje priprema koncerta. Tri tima tvrtke _AdriaSound Events_ djeluju paralelno i koordinirano:
 
 1. **Organizacijski tim** vodi komunikaciju s izvođačem, dobavljačima i gradskim službama te prati realizaciju ugovorenih obveza.
 
@@ -451,10 +451,10 @@ Po potpisivanju ugovora započinje priprema koncerta. Tri tima djeluju paralelno
 
 3. **Marketinški tim** osmišljava strategiju oglašavanja i pokreće prodaju ulaznica putem platformi poput Eventim.hr ili Entrio.
 
-Sustav za prodaju ulaznica kontinuirano prati broj prodanih karata. Ako se prodaja odvija sporije od planiranog, marketinški tim pokreće dodatnu kampanju i aktivira sponzorske suradnje. Ako su ulaznice rasprodane, prodaja se automatski zatvara i svi kanali obavještavaju publiku o rasprodanim ulaznicama.
+Vanjski sustav za prodaju ulaznica kontinuirano prati broj prodanih karata. Ako se prodaja odvija sporije od planiranog, obavještava se marketinški tim koji pokreće dodatnu kampanju i aktivira sponzorske suradnje. Ako su ulaznice rasprodane, prodaja se automatski zatvara i svi kanali obavještavaju publiku o rasprodanim ulaznicama.
 **Tijekom završne faze pripreme**, produkcijski tim organizira tehničku probu izvođača. Ako se pojave problemi sa zvukom ili rasvjetom, proces se vraća na prilagodbu tehničke konfiguracije dok se ne postigne željena razina kvalitete - ukoliko isto nije moguće, kreće se u hitni pronalazak zamjenske opreme u suradnji s lokalnim dobavljačima.
-**Na dan koncerta** tri tima ponovno djeluju paralelno: organizacijski tim nadzire dolazak izvođača i publike te koordinira sigurnost događaja u suradnji s policijom, vatrogascima i zaštitarskim službama (ulasci ljudi, sigurnosne provjere torbi i sl.), produkcijski tim ponovno provjerava zvuk, svijetlo i specijalne efekte, a marketinški tim koordinira održavanje koncerta s lokalnim medijima i sponzorima. U slučaju _last-minute_ nepovoljnih vremenskih uvjeta, meteorološki sustav automatski obavještava organizacijski tim, koji donosi odluku o pomicanju rasporeda ili odgodi koncerta za drugi dan.
-**Jednom kad koncert započne**, izvođač preuzima glavnu pozornicu i započinje program. Tijekom nastupa tehnički tim kontinuirano nadzire zvuk, svjetlo i specijalne efekte, sigurnosni tim nadzire sigurnost publike a marketinški tim na terenu prodaje rekvizite, _merchandise_, hranu i piće. **Nakon završetka koncerta** započinju aktivnosti demontaže, prikupljanja opreme i čišćenja Arene, dok marketinški tim i organizacijski tim prikupljaju povratne informacije od publike i sponzora te izrađuju završno financijsko izvješće.
+**Na dan koncerta** tri tima ponovno djeluju paralelno: organizacijski tim nadzire dolazak izvođača i publike te koordinira sigurnost događaja u suradnji s policijom, vatrogascima i zaštitarskim službama (ulasci ljudi, sigurnosne provjere torbi i sl.), produkcijski tim ponovno provjerava zvuk, svijetlo i specijalne efekte, a marketinški tim koordinira informacije o održavanju koncerta s lokalnim medijima i sponzorima (ako postoje). U slučaju _last-minute_ nepovoljnih vremenskih uvjeta, meteorološki sustav automatski obavještava organizacijski tim, koji donosi odluku o pomicanju rasporeda ili odgodi koncerta za drugi dan.
+**Jednom kad koncert započne**, izvođač preuzima glavnu pozornicu i započinje program. Tijekom nastupa produkcijski tim kontinuirano nadzire zvuk, svjetlo i druge specijalne efekte, organizacijski tim nadzire sigurnost publike a marketinški tim na terenu prodaje rekvizite, _merchandise_, hranu i piće. **Nakon završetka koncerta** započinju aktivnosti demontaže, prikupljanja opreme i čišćenja Arene, dok marketinški tim u suradnji sa organizacijskim prikuplja povratne informacije od publike i sponzora te izrađuju završno financijsko izvješće.
 Proces završava kada su svi ugovori i računi zatvoreni, prostor vraćen u prvobitno stanje i završno izvješće poslano gradu Puli i sponzorima.
 
 _#Ne postoji idealno rješenje za modeliranje ovih procesa - pokušajte na temelju pomoćnog teksta prikazati što realniju sliku procesa._
