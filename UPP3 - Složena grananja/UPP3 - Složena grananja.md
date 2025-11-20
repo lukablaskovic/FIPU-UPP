@@ -93,7 +93,7 @@ Ako se vratimo na primjer iznad, XOR merge skretnicu jednostavno postavljamo pri
 
 <hr>
 
-Rekli smo da se **XOR skretnicom može definirati i više od dva izlazna toka** (recimo kad predikat nije Boolean oblika, ili aktivnost ima više od 2 moguća ishoda). Takva sintaksa je dozvoljena i onda je **vrlo poželjno koristi ekvivalentnu XOR skretnicu spajanja**.
+Rekli smo da se **XOR skretnicom može definirati i više od dva izlazna toka** (aktivnost ima više od 2 moguća ishoda). Takva sintaksa je dozvoljena i onda je **vrlo poželjno koristi ekvivalentnu XOR skretnicu spajanja**.
 
 _Primjer_: Vlasnik tvrtke za izvođenje obrtničkih radova dobiva narudžbu. Obrtnik će izračunati vrijednost radova i obavijestiti naručitelja **telefonom**, **mailom** ili **dopisom**, ovisno o vrijednosti, a tek onda izvesti naručeno.
 
