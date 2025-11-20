@@ -16,3 +16,9 @@
 
 Kolegij slušaju:
 - studenti 3. godine [Prijediplomskog sveučilišnog studija Informatika](https://fipu.unipu.hr/fipu/studijski_programi/preddiplomski_sveucilisni_studij_informatika) u 5. semestru, na [Fakultetu informatike u Puli](https://fipu.unipu.hr/fipu)
+
+## YouTube 📺
+
+1. [Uvod u poslovno modeliranje](https://youtu.be/0jEYhr3UVRw) ([UPP1](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje))
+2. [Dopunski atributi elemenata modela procesa](https://youtu.be/MSzWz8dIQec) ([UPP2](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa))
+3. [Složena grananja](https://youtu.be/smgoim8Ayvo) ([UPP3](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP3%20-%20Slo%C5%BEena%20grananja))
