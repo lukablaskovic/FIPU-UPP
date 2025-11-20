@@ -302,7 +302,7 @@ Da se radi o nekoj malo trgovini koja ima svoje malo interno skladište, onda bi
 
 S druge strane, ako se radi o **vanjskom skladištu**, onda je to ispravno **pokazati na sljedeći način**:
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/pp_otprema_2_entiteta_ispravno.png?raw=true" style="width:70%;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/screenshots/pp_intermediate_2_procesa_ispravno.png?raw=true" style="width:70%;">
 
 > Slika 7. Ispravan način korištenja `send` i `receive` aktivnosti između dva polja.
 > _Note:_ U modelu postoje lebdeći (_floating_) elementi (međudogađaj - "Primitak obavijesti o otpremanju iz vanjskog skladišta") koji nije povezan sekvencijalnim tokom s ostatkom modela. Pokazat ćemo kako rješavati ovakve situacije na vježbama UPP3.
