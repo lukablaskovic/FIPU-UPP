@@ -104,7 +104,7 @@ Prije nego možete započeti s realizacijom projekta, sastavite kratak dokument 
 - *luka.blaskovic@unipu.hr* ili
 - preko _Google Chata_
 
-## 1.2 Modeliranje poslovnih procesa BPMN notacijom
+### 1.2 Modeliranje poslovnih procesa BPMN notacijom
 
 **BPMN dijagram #1 (_As-Is_ model)**
 Prvo modelirate _As-Is_ stanje poslovnog procesa. Ovo je ključni dio projekta za koji dobivate najveći broj bodova obzirom da uključuje identifikaciju poslovnog procesa, prikupljanje podataka i informacija te njihovu analizu i modeliranje.
