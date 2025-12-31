@@ -7,9 +7,9 @@
 
 <img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
-# (6) Servisna arhitektura procesne aplikacije
+# (7) Servisna arhitektura procesne aplikacije
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_6.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_7.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;">
 
@@ -21,10 +21,12 @@ Servisna arhitektura Camunda aplikacije obuhvaća dizajn i implementaciju raspod
 
 **🆙 Posljednje ažurirano: 5.1.2025.**
 
+- skripta će dobiti Update na Camunda 8 platformu u 01/26
+
 ## Sadržaj
 
 - [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
-- [(6) Servisna arhitektura procesne aplikacije](#6-servisna-arhitektura-procesne-aplikacije)
+- [(7) Servisna arhitektura procesne aplikacije](#7-servisna-arhitektura-procesne-aplikacije)
   - [Sadržaj](#sadržaj)
 - [1. Servisni zadaci (eng. Service Task)](#1-servisni-zadaci-eng-service-task)
   - [1.1 Priprema poslužitelja](#11-priprema-poslužitelja)
@@ -48,7 +50,7 @@ Do sam smo iz vježbi najmanje govorili o servisnim zadacima (_eng. Service task
 
 Za slanje HTTP zahtjeva koristit ćemo **Camunda7 Connectors API**, preciznije [http-connector](https://github.com/camunda/camunda-bpm-platform/tree/master/connect) modul. Ovaj modul dolazi s Camunda platformom te ga nije potrebno naknadno instalirati.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/microservice_arch_illustration.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/microservice_arch_illustration.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 > Ilustracija servisne arhitekture procesne aplikacije
 
@@ -134,13 +136,13 @@ Kako bismo vidjeli što se dešava, odnosno kako naša procesna instanca ne bi o
 
 Dodajte novo polje te u postavkama postavite osnovne podatke kako bi mogli izraditi procesnu instancu.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_1.png?raw=true" style="width:60%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_1.png?raw=true" style="width:60%; box-shadow: none !important;">
 
 > Jednostavna procesna definicija koja se sastoji od `Service Task` i `User Task` elemenata
 
 Definirat ćemo i jednostavnu formu za `User Task` element:
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_2.png?raw=true" style="width:30%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_2.png?raw=true" style="width:30%; box-shadow: none !important;">
 
 > Dodavanje polja u `User Task` formu
 
@@ -152,7 +154,7 @@ docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
 
 Za kraj, kako ne bi dobili grešku, moramo odabrati `Connector` implementaciju servisnog zadatka, a za ID postaviti `http-connector`.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_3.png?raw=true" style="width:60%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_3.png?raw=true" style="width:60%; box-shadow: none !important;">
 
 > Deployajte procesnu definiciju na _Camunda Engine_ i pokrenite novu procesnu instancu.
 
@@ -180,7 +182,7 @@ Razlog zašto koristimo `http://host.docker.internal:8000` umjesto `http://local
 
 `http://host.docker.internal` je adresa koja **omogućava pristup resursima na domaćinu iz Docker containera**.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_4.png?raw=true" style="width:60%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_4.png?raw=true" style="width:60%; box-shadow: none !important;">
 
 > Dodavanje `Connector inputs` polja (`url` i `method`) u servisni zadatak "Slanje HTTP GET zahtjeva"
 
@@ -196,7 +198,7 @@ Recimo da želimo preusmjeriti tok procesa koristeći XOR skretnicu temeljem sta
 
 Dakle, želimo implementirati sljedeći sekvencijalni tok:
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_1.png?raw=true" style="width:60%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_1.png?raw=true" style="width:60%; box-shadow: none !important;">
 
 Što se tiče `Connector outputs` polja, dostupne su sljedeće varijable:
 
@@ -215,7 +217,7 @@ Na XOR skretnicu dodajte sljedeće uvjete:
 - `${statusni_kod == 200}`: nastavlja sekvencijalni flow prema `User Task 1`
 - `${statusni_kod != 200}`: nastavlja sekvencijalni flow prema `User Task 2`
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_2.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_2.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 Za kraj, unutar Express.js poslužitelja vratite statusni kod 200 kako biste preusmjerili tok na `User Task 1`.
 
@@ -234,7 +236,7 @@ Ako otvorite pregled procesne instance u **Cockpitu**, vidjet ćete da je tok pr
 
 - **Name** = `statusni_kod`, **Type** = `Integer`, **Value** = `200`, **Scope** = `connector_GET`
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_3_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_3_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 Testirajte i drugi uvjet tako da promijenite statusni kod u Express.js poslužitelju na npr. 404.
 
@@ -250,7 +252,7 @@ Dodajte novu procesnu varijablu `odgovor` koja će pohraniti tijelo odgovora HTT
 
 Možemo vidjeti procesnu varijablu `odgovor` u detaljima procesne instance u **Cockpitu**.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_4_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_4_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 Međutim, iz web aplikacija znamo da nije uobičajeno slati tekstualne odgovore na ovaj način, već koristimo JSON. Vratit ćemo jednostavan objekt _key-value_ parova kao JSON odgovor te ga zatim pohraniti u procesnu varijablu.
 
@@ -276,7 +278,7 @@ Ako provjerite detalje procesne instance u **Cockpitu**, vidjet ćete da je tije
 
 Ukoliko želimo koristiti taj odgovor kao objekt, moramo odraditi proces **deserijalizacije**.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_5_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_5_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 Ideja je da pohranimo tijelo odgovora u dvije nove procesne varijable `ime` i `prezime`
 
@@ -336,7 +338,7 @@ Na isti način možemo deserijalizirati bilo koji drugi primitivni tip podatka.
 
 > Redeployajte procesnu definiciju i pokušajte ponovno pokrenuti procesnu instancu.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_6_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_get_status_code_6_cockpit.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 > **Deserijalizacija JSON podataka** iz tijela odgovora u procesne varijable `ime` i `prezime`
 
@@ -404,13 +406,13 @@ Implementirat ćemo sljedeći proces: "Primjer slanja HTTP POST zahtjeva":
 2. `Service Task` "Dohvaćanje podataka o korisniku" **šalje prezime na poslužitelj HTTP POST metodom** i vraća objekt korisnika
 3. `User Task` "Test" samo stopira proces kako bi mogli vidjeti rezultate u Cockpitu
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_1.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_1.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 > Procesna definicija sa servisnim zadatkom koji šalje HTTP POST zahtjev na poslužitelj
 
 Dalje, definirat ćemo jednostavnu formu za unos prezimena u `User Task` elementu "Unos prezimena".
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_2.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_2.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 > Dodavanje polja za unos prezimena u `User Task` formu
 
@@ -448,7 +450,7 @@ Dodatno, moramo poslati i zaglavlje (`header`) kako bi poslužitelj znao da se r
 
 - **Local variable name** = `headers`, **Assignment type** = `Map`, **Map entries** (Key = `Content-Type`, Value = `application/json`)
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_3.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_3.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 > **Obavezno** je potrebno proslijediti i `Content-Type` zaglavlje kako bi poslužitelj ispravno interpretirao tijelo zahtjeva. Tada u `payload` možemo jednostavno pisati JSON objekt kao string.
 
@@ -462,7 +464,7 @@ Budući da svaki korisnik sadrži podatke o imenu, prezimenu, korisničkom imenu
 
 Ako ste sve napravili ispravno, nakon unosa prezimena putem Tasklist aplikacije, vidjet ćete ispis tijela zahtjeva na poslužitelju, a zatim i dohvaćene podatke o korisniku u Cockpitu.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_4.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector_post_4.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -478,13 +480,13 @@ Registrirat ćemo novi račun na _Email.js_ servisu, a nakon toga povezati naš 
 
 Izradite novi račun na [Email.js](https://www.emailjs.com/) servisu i povežite svoj **Gmail** račun.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-selecct-service.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-selecct-service.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 Prilikom povezivanja morate dozvoliti pristup vašem Gmail računu i omogućiti **Slanje e-poruka u vaše ime**. Jednom kad povežete račun, možete poslati testnu poruku kako biste se uvjerili da je sve ispravno konfigurirano.
 
 Trebali biste dobiti sljedeći email u vašem sandučiću koji ste poslali "sami sebi":
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/emailjs-test-email.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/emailjs-test-email.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 ## 2.1 Priprema poslužitelja za automatsko slanje e-maila
 
@@ -500,7 +502,7 @@ Naravno, moguće je iskoristiti postojeći Express.js poslužitelj koji smo defi
 
 Prije nego nastavimo, nije loše pogledati kako do sada izgleda **raspodijeljena arhitektura naše procesne aplikacije**:
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/process-app-distributed.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/process-app-distributed.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 > Ilustracija raspodijeljene arhitekture procesne aplikacije bazirane na Camundi 7
 
@@ -542,13 +544,13 @@ Predložak (_eng. Template_) možete kreirati na sljedećoj poveznici: https://d
 
 Kliknite na **Create New Template** i izradite novi predložak. Nazovite ga `process-app-template`.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-create-new-template.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-create-new-template.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 > _Email.js_ - kreiranje novog predloška e-mail poruke (**Email Templates**)
 
 Otvorite postavke predloška (_eng. Settings_) i promijenite njegov naziv, potom kopirajte negdje **ID predloška** (_eng. Template ID_) jer će nam trebati kasnije. Pohranite promjene.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-template-settings.png?raw=true" style="width:70%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-template-settings.png?raw=true" style="width:70%; box-shadow: none !important;">
 
 U **Content** odjeljku možete definirati sadržaj e-mail poruke, uključujući naslov (_eng. Subject_) te sadržaj emaila (_eng. Content_).
 
@@ -598,7 +600,7 @@ Za pošiljatelja navodite vaš email koji ste koristili prilikom registracije Gm
 
 **Sve skupa trebalo bi izgledati ovako:**
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-template.png?raw=true" style="width:100%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/email-js-template.png?raw=true" style="width:100%; box-shadow: none !important;">
 
 > Primjer Email.js predloška e-mail poruke
 
@@ -674,7 +676,7 @@ app.post("/send-email", async (req, res) => {
         headers: {
           "Content-Type": "application/json", // uključujemo Content-Type zaglavlje
         },
-      }
+      },
     );
     // obrada uspješnog odgovora
     res.status(200).json({
@@ -685,7 +687,7 @@ app.post("/send-email", async (req, res) => {
     // obrada greške
     console.error(
       "Greška prilikom slanja emaila: ",
-      (error.response && error.response.data) || error.message
+      (error.response && error.response.data) || error.message,
     );
     res.status(500).json({
       error: "Greška prilikom slanja emaila!",
@@ -722,7 +724,7 @@ app.post("/send-email", async (req, res) => {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
     res.status(200).json({
       message: "Email uspješno poslan!",
@@ -731,7 +733,7 @@ app.post("/send-email", async (req, res) => {
   } catch (error) {
     console.error(
       "Greška prilikom slanja emaila: ",
-      (error.response && error.response.data) || error.message
+      (error.response && error.response.data) || error.message,
     );
     res.status(500).json({
       error: "Greška prilikom slanja emaila!",
@@ -763,7 +765,7 @@ Ako ste sve točno napravili, email bi se trebao poslati na vašu e-mail adresu,
 
 _Primjer zaprimljenog e-maila:_
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/gmail-received-email.png?raw=true" style="width:90%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/gmail-received-email.png?raw=true" style="width:90%; box-shadow: none !important;">
 
 > Primjer e-mail poruke koju smo poslali koristeći _Email.js_ servis
 
@@ -779,7 +781,7 @@ Postupak definiranja `Send Task` elementa je identičan kao i kod `Service Task`
 
 Nadogradit ćemo proces "Primjer slanja HTTP POST zahtjeva" `Send Taskom` - "Slanje podataka o korisniku na mail administratora", gdje pretpostavljamo da smo administrator mi, odnosno email koji smo definirali na Email.js servisu.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task1.png?raw=true" style="width:60%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task1.png?raw=true" style="width:60%; box-shadow: none !important;">
 
 > Procesna definicija s dodanim `Send Task` elementom
 
@@ -794,7 +796,7 @@ Dalje, dodajemo sljedeće `Connector inputs`:
 
 > Pazite da se imena procesnih varijabli podudaraju s imenima varijabli koje referenciramo Expressionom u `payload` varijabli!
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task2.png?raw=true" style="width:100%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task2.png?raw=true" style="width:100%; box-shadow: none !important;">
 
 > Dodavanje `Connector inputs` za `Send Task` element, primjer definiranja tijela zahtjeva i zaglavlja
 
@@ -804,7 +806,7 @@ Kao odgovor, dovoljno nam je samo pohraniti statusni kod odgovora u **izlaznu pr
 
 Prije nego testirate procesnu definiciju, provjerite da ste pokrenuli oba poslužitelja (`express-server` i `express-email-server`) te da su dostupni na odgovarajućim portovima. Ako koristite VS Code, oba poslužitelja možete pokrenuti u zasebnim terminalima, najpreglednije je odvojiti ih u zasebne radne prozore (`Terminal -> Split Terminal`).
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/split_terminal.png?raw=true" style="width:100%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/split_terminal.png?raw=true" style="width:100%; box-shadow: none !important;">
 
 > Redeployajte procesnu definiciju i pokušajte ponovno pokrenuti procesnu instancu.
 
@@ -816,6 +818,6 @@ Ako ste sve ispravno definirali, nakon što unesete prezime u `User Task` elemen
 
 > Primjerice, unijeli smo prezime "Marić" i dohvatili podatke o korisniku Marku Mariću. Nakon toga, podaci o korisniku su poslani na našu e-mail adresu.
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task3.png?raw=true" style="width:100%; box-shadow: none !important;">
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Servisna%20arhitektura%20procesne%20aplikacije/screenshots/http-connector/http-connector-send_task3.png?raw=true" style="width:100%; box-shadow: none !important;">
 
 > Primjer rezultata procesne instance u Cockpitu
