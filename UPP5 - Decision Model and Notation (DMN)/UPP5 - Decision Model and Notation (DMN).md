@@ -11,6 +11,9 @@
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_5.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
+<div style="float: clear; margin-right:5px;"></div>
+<br>
+
 <div style="float: clear; margin-right:5px;">
 
 </div>
@@ -19,5 +22,3 @@
 **🆙 Posljednje ažurirano: 30.12.2025.**
 
 ## Sadržaj
-
-<div style="page-break-after: always; break-after: page;"></div>
