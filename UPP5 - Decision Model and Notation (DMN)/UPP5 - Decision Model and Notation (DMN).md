@@ -19,7 +19,7 @@ DMN je formalni standard za modeliranje poslovnih odluka unutar informacijskih s
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 30.12.2025.**
+**🆙 Posljednje ažurirano: 3. 1. 2026**
 
 ## Sadržaj
 
