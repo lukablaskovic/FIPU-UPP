@@ -27,7 +27,7 @@ DMN je formalni standard za modeliranje poslovnih odluka unutar informacijskih s
 - [(5) Decision Model and Notation (DMN)](#5-decision-model-and-notation-dmn)
   - [Sadržaj](#sadržaj)
 - [1. Uvod u DMN](#1-uvod-u-dmn)
-  - [2. Osnovni koncepti DMN-a](#2-osnovni-koncepti-dmn-a)
+- [2. Osnovni koncepti DMN-a](#2-osnovni-koncepti-dmn-a)
   - [2.1 Kombiniranje više ulaznih uvjeta](#21-kombiniranje-više-ulaznih-uvjeta)
   - [2.2 Friendly Enough Expression Language (FEEL)](#22-friendly-enough-expression-language-feel)
     - [FEEL: Tablica usporednih i logičkih operatora](#feel-tablica-usporednih-i-logičkih-operatora)
