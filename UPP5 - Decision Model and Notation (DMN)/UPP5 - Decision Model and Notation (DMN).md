@@ -5,7 +5,7 @@
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important; float:left;"></img>
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
 # (5) Decision Model and Notation (DMN)
 
@@ -49,7 +49,7 @@ DMN je formalni standard za modeliranje poslovnih odluka unutar informacijskih s
 
 DMN omogućuje učinkovitu suradnju između poslovnih analitičara, domen­skih stručnjaka i razvojnih timova kroz upotrebu standardiziranog notacijskog i izražajnog jezika koji je razumljiv i tehničkim i netehničkim sudionicima. Na sličan način kao što BPMN služi za modeliranje tijeka poslovnih procesa, DMN se fokusira na modeliranje same logike odlučivanja, čime se postiže jasna razdvojenost između procesa i odluka te olakšava njihovo održavanje, promjene i ponovno korištenje.
 
-<img src="./screenshots/dmn_logo.png" style="width:20%; box-shadow: none !important; float:left;"></img>
+<img src="./screenshots/dmn_logo.png" style="width:20%; box-shadow: none !important;"></img>
 
 > Slika 1. DMN (Decision Model and Notation) logotip
 
