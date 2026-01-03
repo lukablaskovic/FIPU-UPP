@@ -57,6 +57,8 @@ DMN je dizajniran da bude interoperabilan s drugim standardima, posebno s BPMN-o
 
 Mi ćemo **DMN koristiti u kombinaciji s BPMN-om** kako bismo transformirali **one poslovne odluke i pravila koja su složenija i zahtjevnija za modeliranje unutar samog BPMN** modela poslovnog procesa - samim time, naš BPMN model će biti pregledniji i jednostavniji za razumijevanje, a poslovna logika egzaktno definirana unutar DMN modela.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # 2. Osnovni koncepti DMN-a
 
 Osnovni koncepti DMN-a uključuju:
@@ -239,6 +241,8 @@ Sada možemo ažurirati našu DMN tablicu odluke koristeći FEEL izraze za defin
 
 > Slika 7. DMN tablica odluke "Dish": Odabir jela na temelju uvjeta `Godišnje doba` i `How Many Guests` koristeći FEEL izraze za definiranje ulaznih vrijednosti.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # 3. Kako integrirati DMN s BPMN-om?
 
 Možda se pitate, zašto smo ovo uopće išli modelirati DMN tablicom odluke kada možemo jednostavno prikazati logiku odlučivanja unutar samog BPMN modela poslovnog procesa koristeći skretnice? **Koja nam je uopće korist od DMN-a?**
@@ -306,6 +310,8 @@ Primjer generaliziranog BPMN modela:
 > Slika 11. BPMN model: Priprema hrane na temelju DMN tablice odluke koristeći _Business Rule Task_ za odabir jela (generalizirana verzija)
 
 > Napomena: U scenarijima prilikom razvoja poslovne aplikacije, moramo povezati naš _Business Rule Task_ s odgovarajućom DMN tablicom odluke unutar Camunda okruženja. Ovo ćemo pokazati na sljedećim vježbama, a za sada je dovoljno da naučimo modelirati DMN tablice odluke.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # 4. Politike odlučivanja (Hit Policies)
 
@@ -599,6 +605,8 @@ U slučaju da klijent prihvati kredit, potpisuje se ugovor o kreditu i kredit se
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP5%20-%20Decision%20Model%20and%20Notation%20(DMN)/screenshots/bpmn_determine_loan02.png?raw=true" style="width:100%; box-shadow: none !important;"></img>
 
 > Slika 21. BPMN model: Određivanje uvjeta za odobravanje kredita koristeći sve četiri DMN tablice odluka i _Business Rule Task_ aktivnosti
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # Zadaci za Vježbu 5
 
