@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0wsrkln" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.39.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_1re788f" name="Calculate Loan Fees">
+    <decisionTable id="DecisionTable_08z1mj5" hitPolicy="COLLECT" aggregation="SUM">
+      <input id="Input_1" label="Tip kredita">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_11l1jpx">
+          <text>"Gotovinski","Stambeni","Auto","Poslovni"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_15mmxve" label="Iznos kredita">
+        <inputExpression id="LiteralExpression_10ui7uw" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0essv7o" label="Trajanje kredita">
+        <inputExpression id="LiteralExpression_08li3iw" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_077ek88" label="Potrebno osiguranje?">
+        <inputExpression id="LiteralExpression_1nenmaz" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Naknada" typeRef="number" />
+      <rule id="DecisionRule_13rcehx">
+        <inputEntry id="UnaryTests_14jyxes">
+          <text>"Gotovinski"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_176q3xi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0xvpasi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sjow9c">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0natc1r">
+          <text>500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1n0xdf6">
+        <inputEntry id="UnaryTests_0a3wxva">
+          <text>"Stambeni"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0paa6f3">
+          <text>&gt;50000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b1we8u">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c3gc2m">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kjymbc">
+          <text>1000</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0esx7qz">
+        <inputEntry id="UnaryTests_0ehu57u">
+          <text>"Auto"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yg67r7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04keznw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1984b5u">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1muthu0">
+          <text>300</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xpccgx">
+        <inputEntry id="UnaryTests_0ibzl2n">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0q42o2x">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17a4u2y">
+          <text>&gt;180</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_10xex72">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_090mqrb">
+          <text>350</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04ys94i">
+        <inputEntry id="UnaryTests_0knr54r">
+          <text>"Gotovinski"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aamnny">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_14j8nmd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yxrace">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_123cw6e">
+          <text>500</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xc1moj">
+        <inputEntry id="UnaryTests_1h9z2t1">
+          <text>"Auto"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1aj2fnr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18urypq">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hnl1km">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09e2pvw">
+          <text>250</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_180y3z4">
+        <inputEntry id="UnaryTests_00wc7zy">
+          <text>"Stambeni"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sderu7">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ozgib6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hqqss4">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_071iisa">
+          <text>1000</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1re788f">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

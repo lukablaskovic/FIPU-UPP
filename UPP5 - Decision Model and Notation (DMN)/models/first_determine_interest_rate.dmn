@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1w0jevh" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.39.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_1igdn7j" name="Determine Interest Rate">
+    <decisionTable id="DecisionTable_0yb8dqy" hitPolicy="FIRST">
+      <input id="Input_1" label="Kreditni rizik">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0pfvu3f">
+          <text>"High","Medium","Low"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1mak2qh" label="Iznos kredita">
+        <inputExpression id="LiteralExpression_199sv24" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Kamatna stopa" typeRef="number" biodi:width="192" />
+      <rule id="DecisionRule_18jtjpq">
+        <inputEntry id="UnaryTests_0zlnjqb">
+          <text>"Medium"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01bgqc9">
+          <text>&lt;=10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f1y6gc">
+          <text>9.5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tce5sr">
+        <inputEntry id="UnaryTests_1ozrada">
+          <text>"Medium"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1k9g6pw">
+          <text>&gt;10000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rwl1kn">
+          <text>11.0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0tgxypt">
+        <inputEntry id="UnaryTests_0bxwi8j">
+          <text>Low</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_175i72e">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rysu0j">
+          <text>5.5</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_1igdn7j">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

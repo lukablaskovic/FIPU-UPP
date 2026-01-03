@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_144cwr6" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.39.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_0smtpp8" name="Dish">
+    <decisionTable id="DecisionTable_1qd0pyp">
+      <input id="Input_1" label="Godišnje doba">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_11gheeu" label="How Many Guests">
+        <inputExpression id="LiteralExpression_16ubrjb" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Jelo" typeRef="string" />
+      <rule id="DecisionRule_1m2rekv">
+        <inputEntry id="UnaryTests_1y3djo0">
+          <text>"Jesen"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06b2nhi">
+          <text>&lt;=8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uvusqn">
+          <text>"Gulaš od junetine"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0auhlkt">
+        <inputEntry id="UnaryTests_1nifrei">
+          <text>"Zima"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sak2lh">
+          <text>&lt;=8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ophj9u">
+          <text>"Sarme"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lk7mes">
+        <inputEntry id="UnaryTests_0ok6oz6">
+          <text>"Proljeće"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cjnuwf">
+          <text>&lt;=4</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d02dyu">
+          <text>"Lasagne"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tf7uvn">
+        <inputEntry id="UnaryTests_1elarlx">
+          <text>"Proljeće"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08mx6m8">
+          <text>[5..8]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fsom4z">
+          <text>"Piletina na žaru"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sbo8zj">
+        <inputEntry id="UnaryTests_11fmvcx">
+          <text>"Jesen", "Proljeće", "Zima"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ezacak">
+          <text>&gt;8</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1drjd3u">
+          <text>"Roštilj"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1awdtw5">
+        <inputEntry id="UnaryTests_04pu0b1">
+          <text>"Ljeto"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1efhqbi">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mxnuct">
+          <text>"Piletina na žaru"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0smtpp8">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

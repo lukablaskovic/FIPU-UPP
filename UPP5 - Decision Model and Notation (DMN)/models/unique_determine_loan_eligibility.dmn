@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" id="Definitions_1fne1o2" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.39.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_0btrzn5" name="Determine Loan Eligibility">
+    <decisionTable id="DecisionTable_0pzossm">
+      <input id="Input_1" label="Dob" biodi:width="192">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0j7h07o" label="Prihod" biodi:width="192">
+        <inputExpression id="LiteralExpression_16fa6il" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1c9hsc6" label="Kreditni rizik" biodi:width="192">
+        <inputExpression id="LiteralExpression_1lro0su" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_1jlnbs4">
+          <text>"Visok","Srednji","Nizak"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0os843s" label="Iznos kredita" biodi:width="192">
+        <inputExpression id="LiteralExpression_10p8ruw" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Odluka o kreditu" typeRef="string" biodi:width="192">
+        <outputValues id="UnaryTests_1d0o4nb">
+          <text>"Odobren","Odbijen"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1h2qsys">
+        <inputEntry id="UnaryTests_1owj8lg">
+          <text>&lt;=18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_123um0p">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01iytir">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wswzbv">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wnkg76">
+          <text>"Odbijen"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_04r7piy">
+        <inputEntry id="UnaryTests_1u06ca1">
+          <text>&gt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0sho22o">
+          <text>&lt;1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_19d6r03">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0t4akci">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vf64yn">
+          <text>"Odbijen"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0goh0aw">
+        <inputEntry id="UnaryTests_0dnja67">
+          <text>&gt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i6kgb5">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1asz0ic">
+          <text>"Visok"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nel030">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01pcyry">
+          <text>"Odbijen"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qhvzpa">
+        <inputEntry id="UnaryTests_1ac1yyb">
+          <text>&gt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wkhpd0">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1yyym5p">
+          <text>"Srednji"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06yablf">
+          <text>&gt;20000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16jmn4m">
+          <text>"Odbijen"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zc7j2p">
+        <inputEntry id="UnaryTests_08rk2sn">
+          <text>&gt;18</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18bdfhk">
+          <text>&gt;=1000</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0n4nkhi">
+          <text>"Nizak", "Srednji"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ifaeic">
+          <text>&lt;=20000</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05u096l">
+          <text>"Odobren"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0btrzn5">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
