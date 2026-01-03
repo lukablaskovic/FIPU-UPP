@@ -5,7 +5,7 @@
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important; float:left;"></img>
 
 # (5) Decision Model and Notation (DMN)
 
@@ -49,7 +49,7 @@ DMN je formalni standard za modeliranje poslovnih odluka unutar informacijskih s
 
 DMN omogućuje učinkovitu suradnju između poslovnih analitičara, domen­skih stručnjaka i razvojnih timova kroz upotrebu standardiziranog notacijskog i izražajnog jezika koji je razumljiv i tehničkim i netehničkim sudionicima. Na sličan način kao što BPMN služi za modeliranje tijeka poslovnih procesa, DMN se fokusira na modeliranje same logike odlučivanja, čime se postiže jasna razdvojenost između procesa i odluka te olakšava njihovo održavanje, promjene i ponovno korištenje.
 
-<img src="./screenshots/dmn_logo.png" style="width:20%; box-shadow: none !important;"></img>
+<img src="./screenshots/dmn_logo.png" style="width:20%; box-shadow: none !important; float:left;"></img>
 
 > Slika 1. DMN (Decision Model and Notation) logotip
 
@@ -57,7 +57,7 @@ DMN je dizajniran da bude interoperabilan s drugim standardima, posebno s BPMN-o
 
 Mi ćemo **DMN koristiti u kombinaciji s BPMN-om** kako bismo transformirali **one poslovne odluke i pravila koja su složenija i zahtjevnija za modeliranje unutar samog BPMN** modela poslovnog procesa - samim time, naš BPMN model će biti pregledniji i jednostavniji za razumijevanje, a poslovna logika egzaktno definirana unutar DMN modela.
 
-## 2. Osnovni koncepti DMN-a
+# 2. Osnovni koncepti DMN-a
 
 Osnovni koncepti DMN-a uključuju:
 
