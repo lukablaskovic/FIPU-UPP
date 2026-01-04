@@ -473,35 +473,35 @@ U nastavku su prikazane najčešće korištene vrste _interrupting boundary even
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/interrupting_boundary_event.png?raw=true" style="width: 10%;">
-  <span style="margin-left: 10px;"><code>Interrupting Boundary Event</code> <b> (prekidajući boundary događaj)</b>  generalni prekidajući međudogađaj koji se može koristiti za hvatanje različitih vrsta eskalacija, signala ili poruka koje mogu prekinuti aktivnost na koju je vezan. Zamislimo ga kao _milestone_ međudogađaj koji se odnosi na aktivnost i kada se dogodi, aktivnost se prekida.</span>
+  <span style="margin-left: 10px;"><code>Interrupting Boundary Event</code> <b> (prekidajući boundary događaj)</b>  generalni prekidajući međudogađaj koji se može koristiti za hvatanje različitih vrsta eskalacija, signala ili poruka koje mogu prekinuti aktivnost na koju je vezan. Zamislimo ga kao <i>milestone</i> međudogađaj koji se odnosi na aktivnost i kada se dogodi, aktivnost se prekida.</span>
 </div>
 
 _Primjeri imenovanja:_ "Hrana djelomično gotova", "Dio namirnica nedostaje", "Javljanje osobe s većim prioritetom"...
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/interrupting_timer_boundary_event.png?raw=true" style="width: 10%;">
-  <span style="margin-left: 10px;"><code>Interrupting Timer Boundary Event</code> <b>(prekidajući vremenski boundary događaj)</b>  koristi se za prekidanje aktivnosti nakon određenog vremenskog razdoblja ili u određenom specificiranom vremenskom trenutku. Zamislimo ga kao **alarm koji se postavlja na aktivnost** i kada istekne vrijeme, aktivnost se prekida.</span>
+  <span style="margin-left: 10px;"><code>Interrupting Timer Boundary Event</code> <b>(prekidajući vremenski boundary događaj)</b>  koristi se za prekidanje aktivnosti nakon određenog vremenskog razdoblja ili u određenom specificiranom vremenskom trenutku. Zamislimo ga kao <b>alarm koji se postavlja na aktivnost</b> i kada istekne vrijeme, aktivnost se prekida.</span>
 </div>
 
 _Primjeri imenovanja_: "Isteklo vrijeme za rješavanje zadataka", "Rok za dostavu dokumentacije je prošao", "Prošlo je više od 24 sata"...
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/interrupting_message_boundary_event.png?raw=true" style="width: 10%;">
-  <span style="margin-left: 10px;"><code>Interrupting Message Boundary Event</code> <b>(prekidajući obavještajni boundary event)</b>  koristi se za hvatanje dolaznih poruka koje mogu prekinuti aktivnost. Zamislimo ga kao **signal koji prekida aktivnost** kada stigne određena poruka.</span>
+  <span style="margin-left: 10px;"><code>Interrupting Message Boundary Event</code> <b>(prekidajući obavještajni boundary event)</b>  koristi se za hvatanje dolaznih poruka koje mogu prekinuti aktivnost. Zamislimo ga kao <b>signal koji prekida aktivnost</b> kada stigne određena poruka.</span>
 </div>
 
 _Primjeri imenovanja_: "Otkaži/storniraj narudžbu", "Hitno zaustavi izvođenje", "Stigao zahtjev za promjenu", "primljeni podaci vanjske analize ..." itd.
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/interrupting_escalation_boundary_event.png?raw=true" style="width: 10%;">
-  <span style="margin-left: 10px;"><code>Interrupting Escalation Boundary Event</code> <b>(prekidajući eskalacijski boundary event)</b>  koristi se za hvatanje eskalacija koje mogu prekinuti aktivnost. Eskalacije se obično koriste za označavanje situacija koje zahtijevaju hitnu pažnju ili intervenciju. Zamislimo ga kao **signal upozorenja koji prekida aktivnost** kada se dogodi eskalacija. Ovo je podskup generalnog _interrupting boundary eventa_.</span>
+  <span style="margin-left: 10px;"><code>Interrupting Escalation Boundary Event</code> <b>(prekidajući eskalacijski boundary event)</b>  koristi se za hvatanje eskalacija koje mogu prekinuti aktivnost. Eskalacije se obično koriste za označavanje situacija koje zahtijevaju hitnu pažnju ili intervenciju. Zamislimo ga kao <b>signal upozorenja koji prekida aktivnost</b> kada se dogodi eskalacija. Ovo je podskup generalnog <i>interrupting boundary eventa</i>.</span>
 </div>
 
 _Primjeri imenovanja_: "Rizik premašio dopušteni prag", "Kritični resurs nedostupan", "Rezultat nije vjerodostojan", "Projekt kasni"...
 
 <div style="display: flex; align-items: center;">
   <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/elements/interrupting_error_boundary_event.png?raw=true" style="width: 10%;">
-  <span style="margin-left: 10px;"><code>Interrupting Error Boundary Event</code> <b>(prekidajući boundary event greške)</b>  koristi se za hvatanje grešaka koje mogu prekinuti aktivnost. Zamislimo ga kao **signal greške koji prekida aktivnost** kada se dogodi greška. Ovo je podskup generalnog _interrupting boundary eventa_.</span>
+  <span style="margin-left: 10px;"><code>Interrupting Error Boundary Event</code> <b>(prekidajući boundary event greške)</b>  koristi se za hvatanje grešaka koje mogu prekinuti aktivnost. Zamislimo ga kao <b>signal greške koji prekida aktivnost</b> kada se dogodi greška. Ovo je podskup generalnog <i>interrupting boundary eventa</i>.</span>
 </div>
 
 _Primjeri imenovanja_: "Greška u sustavu", "Neuspjela validacija podataka", "Pogrešan unos korisnika"

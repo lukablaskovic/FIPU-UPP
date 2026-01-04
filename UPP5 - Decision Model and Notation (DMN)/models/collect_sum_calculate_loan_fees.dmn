@@ -27,6 +27,7 @@
       </input>
       <output id="Output_1" label="Naknada" typeRef="number" />
       <rule id="DecisionRule_13rcehx">
+        <description>Fiksna naknada za sve gotovinske kredite</description>
         <inputEntry id="UnaryTests_14jyxes">
           <text>"Gotovinski"</text>
         </inputEntry>
@@ -44,6 +45,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_1n0xdf6">
+        <description>Fiksna naknada za stambene kredite veće od 50k</description>
         <inputEntry id="UnaryTests_0a3wxva">
           <text>"Stambeni"</text>
         </inputEntry>
@@ -61,6 +63,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0esx7qz">
+        <description>Fiksna naknada za sve auto kredite</description>
         <inputEntry id="UnaryTests_0ehu57u">
           <text>"Auto"</text>
         </inputEntry>
@@ -78,6 +81,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0xpccgx">
+        <description>Dodatna naknada za sve kredite s rokom otplate duljim od 15god (180 mjeseci)</description>
         <inputEntry id="UnaryTests_0ibzl2n">
           <text></text>
         </inputEntry>
@@ -95,6 +99,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_04ys94i">
+        <description>Fiksna administrativna naknada za osiguranje gotovinskih</description>
         <inputEntry id="UnaryTests_0knr54r">
           <text>"Gotovinski"</text>
         </inputEntry>
@@ -112,6 +117,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0xc1moj">
+        <description>Fiksna administrativna naknada za osiguranje auto kredita</description>
         <inputEntry id="UnaryTests_1h9z2t1">
           <text>"Auto"</text>
         </inputEntry>
@@ -129,6 +135,7 @@
         </outputEntry>
       </rule>
       <rule id="DecisionRule_180y3z4">
+        <description>Bez osiguranja otplate, ovo nam predstavlja veći rizik.</description>
         <inputEntry id="UnaryTests_00wc7zy">
           <text>"Stambeni"</text>
         </inputEntry>
