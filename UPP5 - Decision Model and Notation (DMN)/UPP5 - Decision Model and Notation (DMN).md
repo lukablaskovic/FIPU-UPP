@@ -30,9 +30,9 @@ DMN je formalni standard za modeliranje poslovnih odluka unutar informacijskih s
 - [2. Osnovni koncepti DMN-a](#2-osnovni-koncepti-dmn-a)
   - [2.1 Kombiniranje više ulaznih uvjeta](#21-kombiniranje-više-ulaznih-uvjeta)
   - [2.2 Friendly Enough Expression Language (FEEL)](#22-friendly-enough-expression-language-feel)
-    - [FEEL: Tablica usporednih i logičkih operatora](#feel-tablica-usporednih-i-logičkih-operatora)
-    - [FEEL: Tablica aritmetičkih i string operatora](#feel-tablica-aritmetičkih-i-string-operatora)
-    - [FEEL: Rasponi, liste i posebni FEEL operatori](#feel-rasponi-liste-i-posebni-feel-operatori)
+      - [FEEL: Tablica usporednih i logičkih operatora](#feel-tablica-usporednih-i-logičkih-operatora)
+      - [FEEL: Tablica aritmetičkih i string operatora](#feel-tablica-aritmetičkih-i-string-operatora)
+      - [FEEL: Rasponi, liste i posebni FEEL operatori](#feel-rasponi-liste-i-posebni-feel-operatori)
 - [3. Kako integrirati DMN s BPMN-om?](#3-kako-integrirati-dmn-s-bpmn-om)
   - [3.1 Poslovno pravilo (Business Rule Task)](#31-poslovno-pravilo-business-rule-task)
 - [4. Politike odlučivanja (Hit Policies)](#4-politike-odlučivanja-hit-policies)
@@ -281,7 +281,7 @@ U BPMN modelu, možemo koristiti **Poslovna pravila** (_eng. Business Rule Task_
 
 <div style="display: flex; align-items: center;">
   <img src="./screenshots/business_rule_task.png" style="width: 10%;">
-  <span style="margin-left: 10px;"><b>Business Task Rule</b> element u BPMN modelu služi za integraciju s DPMN tablicama u svrhu boljeg modeliranja donošenja poslovnih odluka unutar BPMN procesa.
+  <span style="margin-left: 10px;"><b>Business Rule Task</b> element u BPMN modelu služi za integraciju s DMN tablicama u svrhu boljeg modeliranja donošenja poslovnih odluka unutar BPMN procesa.
 </span>
 </div>
 
@@ -291,7 +291,7 @@ _Business Rule Task_ element, kao i obične aktivnosti, **zahtjevaju neke resurs
 
 ---
 
-Kada bismo naš _Business Task Rule_ sada nazvali "Odaberi jelo" i povezali ga s DMN tablicom odluke koju smo ranije definirali, BPMN model bi izgledao mnogo jednostavnije i preglednije. Rezultat DMN tablice odluke je **podatak koji predstavlja odabrano jelo**, a mi ga možemo koristiti na sljedećoj skretnici prema kojoj ćemo granati daljnji tijek procesa.
+Kada bismo naš _Business Rule Task_ sada nazvali "Odaberi jelo" i povezali ga s DMN tablicom odluke koju smo ranije definirali, BPMN model bi izgledao mnogo jednostavnije i preglednije. Rezultat DMN tablice odluke je **podatak koji predstavlja odabrano jelo**, a mi ga možemo koristiti na sljedećoj skretnici prema kojoj ćemo granati daljnji tijek procesa.
 
 Na izlazne sljedove XOR skretnice grananja "Odabrano jelo?" možemo jednostavno **ispisati sve moguće izlazne rezultate iz DMN tablice** odluke ("Gulaš od junetine", "Sarme", "Lasagne", "Piletina na žaru", "Roštilj").
 
@@ -342,7 +342,7 @@ Dobra praksa je prvo u nekoliko natuknica opisati poslovna pravila koja želimo 
 
 - `Dob` - dob klijenta (tip: `number`)
 - `Prihod` - mjesečni prihodi klijenta u eurima (tip: `number`)
-- `Kreditni rizik` - ocjena kreditnog rizika klijenta (tip: `string`, moguće vrijednosti: "Nizak", "Srednji", "Visok")
+- `Kreditni rizik` - ocjena kreditnog rizika klijenta (tip: `string`, moguće vrijednosti: "Low", "Medium", "High")
 - `Iznos kredita` - traženi iznos kredita u eurima (tip: `number`)
 
 **Izlazni rezultat**:
@@ -353,9 +353,9 @@ Dalje, definirat ćemo **poslovna pravila** koja želimo modelirati:
 
 1. Ako je `Dob` klijenta manja od 18 godina, kredit se odbija.
 2. Ako je `Dob` klijenta veća ili jednaka 18 godina, a `Prihod` manji od 1000 eura, kredit se odbija.
-3. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, a `Kreditni rizik` je "Visok", kredit se odbija.
-4. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, `Kreditni rizik` je "Srednji", a `Iznos kredita` veći od 20,000 eura, kredit se odbija.
-5. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, `Kreditni rizik` je "Nizak" ili "Srednji", a `Iznos kredita` manji ili jednak 20,000 eura, kredit se odobrava.
+3. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, a `Kreditni rizik` je "High", kredit se odbija.
+4. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, `Kreditni rizik` je "Medium", a `Iznos kredita` veći od 20,000 eura, kredit se odbija.
+5. Ako je `Dob` klijenta veća ili jednaka 18 godina, `Prihod` veći ili jednaki 1000 eura, `Kreditni rizik` je "Low" ili "Medium", a `Iznos kredita` manji ili jednak 20,000 eura, kredit se odobrava.
 
 Ovu DMN tablicu odluke s _Unique hit policy_ možemo modelirati na sljedeći način:
 
@@ -363,7 +363,7 @@ Ovu DMN tablicu odluke s _Unique hit policy_ možemo modelirati na sljedeći na�
 
 > Slika 12. DMN tablica odluke "Determine Loan Eligibility": Određivanje ulaznih uvjeta za odobravanje kredita koristeći _Unique_ hit policy
 
-Budući da neki stupci imaju **predefinirane vrijednosti**, npr. `Kreditni rizik` može biti samo "Nizak", "Srednji" ili "Visok", ili `Odluka o kreditu` može biti samo "Odobren" ili "Odbijen", možemo definirati te stupce kao **enumeracije**, odnosno definirati preddefinirane vrijednosti koje su dopuštene za te stupce.
+Budući da neki stupci imaju **predefinirane vrijednosti**, npr. `Kreditni rizik` može biti samo "Low", "Medium" ili "High", ili `Odluka o kreditu` može biti samo "Odobren" ili "Odbijen", možemo definirati te stupce kao **enumeracije**, odnosno definirati preddefinirane vrijednosti koje su dopuštene za te stupce.
 
 - jednostavno navodimo vrijednosti u **dvostrukim navodnicima** i **odvajamo ih zarezom**.
 
