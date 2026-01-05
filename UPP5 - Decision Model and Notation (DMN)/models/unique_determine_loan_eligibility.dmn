@@ -17,7 +17,7 @@
           <text></text>
         </inputExpression>
         <inputValues id="UnaryTests_1jlnbs4">
-          <text>"Visok","Srednji","Nizak"</text>
+          <text>"High","Medium","Low"</text>
         </inputValues>
       </input>
       <input id="InputClause_0os843s" label="Iznos kredita" biodi:width="192">
@@ -72,7 +72,7 @@
           <text>&gt;=1000</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1asz0ic">
-          <text>"Visok"</text>
+          <text>"High"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1nel030">
           <text></text>
@@ -89,7 +89,7 @@
           <text>&gt;=1000</text>
         </inputEntry>
         <inputEntry id="UnaryTests_1yyym5p">
-          <text>"Srednji"</text>
+          <text>"Medium"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_06yablf">
           <text>&gt;20000</text>
@@ -106,7 +106,7 @@
           <text>&gt;=1000</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0n4nkhi">
-          <text>"Nizak", "Srednji"</text>
+          <text>"Low", "Medium"</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0ifaeic">
           <text>&lt;=20000</text>
