@@ -1,0 +1,34 @@
+{
+  "components": [
+    {
+      "text": "Potvrda pristigle narudžbe",
+      "type": "text",
+      "layout": {
+        "row": "Row_0r1nkzc",
+        "columns": 13
+      },
+      "id": "Field_0plkhcd",
+      "properties": {}
+    },
+    {
+      "label": "Potvrđujem ispravnost narudžbe",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_18m7ndw",
+        "columns": null
+      },
+      "id": "Field_11m817k",
+      "key": "checkbox_potvrda_narudzbe",
+      "description": "Molimo vas da odaberete opciju iznad ako ste pregledali pristiglu narudžbu i potvrđujete ju za daljnju obradu."
+    }
+  ],
+  "type": "default",
+  "id": "order-confirmation-form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.39.0"
+  },
+  "schemaVersion": 19
+}
