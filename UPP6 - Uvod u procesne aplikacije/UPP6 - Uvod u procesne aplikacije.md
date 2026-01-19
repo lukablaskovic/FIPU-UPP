@@ -35,7 +35,7 @@ Takav način razvoja donosi niz prednosti: bolju usklađenost softvera s poslovn
   - [3.4 XOR grananje procesa na temelju procesnih varijabli](#34-xor-grananje-procesa-na-temelju-procesnih-varijabli)
   - [3.5 Kako još pokrenuti procesne instance?](#35-kako-još-pokrenuti-procesne-instance)
   - [3.6 Izmjena vrijednosti procesnih varijabli tijekom izvođenja procesa](#36-izmjena-vrijednosti-procesnih-varijabli-tijekom-izvođenja-procesa)
-- [Samostalni zadatak za vježbu 6](#samostalni-zadatak-za-vježbu-6)
+- [Zadaci za vježbu 6](#zadaci-za-vježbu-6)
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -48,7 +48,7 @@ Od početka razvoja BPMN-a isticalo se ostvarenje dvaju (prividno) međusobno te
 
 Drugim riječima, važna namjena BPMN-a jest **premošćivanje jaza u sporazumijevanju između poslovnih i informatičkih stručnjaka**.
 
-> Too often tension exists between the developer and analyst perpectives, resulting from the lack of a common semantics and heuristics set capable of depicting process activities in a way relevant to both parties.
+> Too often tension exists between the developer and analyst perspectives, resulting from the lack of a common semantics and heuristics set capable of depicting process activities in a way relevant to both parties.
 
 Promatramo li BPMN 2.0 normu općenito, s odmakom od formalno izrečenih logičkih i tehničkih pojedinosti, možemo zaključiti da ona ima sljedeća svojstva:
 
@@ -116,9 +116,9 @@ _Primjer 2_: "Korisnik dodaje proizvode u košaricu i i obavlja kupnju" → CRUD
 - zamišljamo u kontekstu gradiva kolegija [_Upravljanje poslovnim procesima_](https://fipu.unipu.hr/fipu/predmet/upp) ili [_Upravljanje projektima_](https://fipu.unipu.hr/fipu/predmet/uprpro).
 - Funkcionalnosti implementiramo _high-level_ programiranjem gdje razmišljamo o **tijeku rada i aktivnostima koje korisnik treba obaviti** (procesno-orijentirano programiranje i [process thinking](https://www.wealest.com/articles/process-thinking)).
 
-_Primjer 1_: "Korisnik se registrira i pregledava proizvode" → Procesna aplikacija definira radne korake koje korisnik treba obaviti, npr. "Registracija korisnika", "Pregled proizvoda", "Dodavanje proizvoda u košaricu". Korake definiramo kroz neki **procesni model** (u našem slučaju BPMN, ali može biti i drugi). Svaki korak može biti različitog tipa (korisnička aktivnost, automatizirana aktivnost, manualna aktivnost itd.) i može imati različite ishode (npr. "Registracija uspješna", "Proizvodi dohvaćeni").
+_Primjer 1_: "Korisnik se registrira i pregledava proizvode" → Procesna aplikacija definira radne korake koje korisnik treba obaviti, npr. "Registracija korisnika", "Pregled proizvoda", "Dodavanje proizvoda u košaricu". Korake definiramo kroz neki **procesni model** (u našem slučaju BPMN, ali može biti i drugi). Svaki korak može biti različitog tipa (korisnička aktivnost, automatizirana aktivnost, ručna aktivnost itd.) i može imati različite ishode (npr. "Registracija uspješna", "Proizvodi dohvaćeni").
 
-_Primjer 2_: "Korisnik dodaje proizvode u košaricu i obavlja kupnju" → Procesna aplikacija definira radne korake koje korisnik treba obaviti, npr. "Dodavanje proizvoda u košaricu", "Pregled košarice", "Unos podataka za plaćanje", "Potvrda narudžbe". Svaki radni korak može biti različitog tipa (korisnička aktivnost, automatizirana aktivnost, manualna aktivnost itd.) i može imati različite ishode (npr. "Plaćanje uspješno", "Plaćanje neuspješno", "Kupnja izvršena", "Proizvodi predani dostavnoj službi", itd.).
+_Primjer 2_: "Korisnik dodaje proizvode u košaricu i obavlja kupnju" → Procesna aplikacija definira radne korake koje korisnik treba obaviti, npr. "Dodavanje proizvoda u košaricu", "Pregled košarice", "Unos podataka za plaćanje", "Potvrda narudžbe". Svaki radni korak može biti različitog tipa i može imati različite ishode (npr. "Plaćanje uspješno", "Plaćanje neuspješno", "Kupnja izvršena", "Proizvodi predani dostavnoj službi", itd.).
 
 > **Zapamtite**: Procesno-orijentirane aplikacije prate tijek rada (_workflow_) na poslužiteljskoj strani kroz jasno definirane radne korake (aktivnosti) i **prate stanje procesa**.
 > Backend je _stateful_ – prati se cjelokupan tijek rada korisnika
@@ -128,7 +128,7 @@ _Primjer 2_: "Korisnik dodaje proizvode u košaricu i obavlja kupnju" → Proces
 
 ---
 
-**Razvoj _stateful_ poslovne aplikacije tehnički je zahtijevnije od razvoja _stateless_ aplikacije.** Glavni izazov leži u upravljanju stanjem aplikacije tijekom vremena, što uključuje praćenje napretka korisnika kroz različite faze poslovnog procesa, rukovanje prekidima i nastavcima rada te osiguravanje konzistentnosti podataka unutar dinamičnog okruženja. To zahtijeva sofisticiranije arhitekture, često uključujući korištenje mehanizme za upravljanje transakcijama i složene implementacije za obradu događaja/okidača. Osim toga, razvoj _stateful_ aplikacija može povećati složenost testiranja i održavanja, jer je potrebno osigurati da se stanjem pravilno upravlja u svim mogućim scenarijima korištenja, kako ne bi došlo do gubitka podataka ili nekonzistentnosti u aplikaciji.
+**Razvoj _stateful_ poslovne aplikacije tehnički je zahtjevnije od razvoja _stateless_ aplikacije.** Glavni izazov leži u upravljanju stanjem aplikacije tijekom vremena, što uključuje praćenje napretka korisnika kroz različite faze poslovnog procesa, rukovanje prekidima i nastavcima rada te osiguravanje konzistentnosti podataka unutar dinamičnog okruženja. To zahtijeva sofisticiranije arhitekture, često uključujući korištenje mehanizme za upravljanje transakcijama i složene implementacije za obradu događaja/okidača. Osim toga, razvoj _stateful_ aplikacija može povećati složenost testiranja i održavanja, jer je potrebno osigurati da se stanjem pravilno upravlja u svim mogućim scenarijima korištenja, kako ne bi došlo do gubitka podataka ili nekonzistentnosti u aplikaciji.
 
 Sljedeća ilustracija navodi osnovne razlike između ove dvije paradigme, i naglašava zašto je _stateful_ procesno-orijentirani razvoj aplikacija tehnički zahtjevniji:
 
@@ -190,13 +190,13 @@ Za motivaciju, u nastavku su navedene neke od većih svjetskih tvrtki koje prepo
 
 > Slika 3. Neke od većih svjetskih tvrtki koje koriste Camundu za upravljanje svojim poslovnim procesima. Više informacija dostupno je na: https://camunda.com/about/customers/
 
-**Ovo nije plaćena reklama za Camundu!** Cilj je istaknuti značaj i sve veću zastupljenost procesno-orijentiranog pristupa razvoju softvera u industrijskoj praksi. Camunda se u tom kontekstu navodi isključivo kao jedan od alata koji omogućuje implementaciju takvog pristupa - a s kojim mi već imamo iskustva kroz rad na vježbama, ali i broje [besplante edukacijske materijale](https://academy.camunda.com/) koje Camunda nudi, kao i besplatnu verziju ove platforme za učenje, eksperimentiranje i razvoj manjih procesnih aplikacija.
+**Ovo nije plaćena reklama za Camundu!** Cilj je istaknuti značaj i sve veću zastupljenost procesno-orijentiranog pristupa razvoju softvera u industrijskoj praksi. Camunda se u tom kontekstu navodi isključivo kao jedan od alata koji omogućuje implementaciju takvog pristupa - a s kojim mi već imamo iskustva kroz rad na vježbama, ali i broje [besplatne edukacijske materijale](https://academy.camunda.com/) koje Camunda nudi, kao i besplatnu verziju ove platforme za učenje, eksperimentiranje i razvoj manjih procesnih aplikacija.
 
 Za vas, kao buduće informatičke stručnjake, **ključno je razumjeti temeljne koncepte procesno-orijentiranog razvoja**, neovisno o konkretnom alatu ili platformi. Važno je kritički sagledati zašto velike organizacije primjenjuju ovaj pristup, na koji način on doprinosi poboljšanju poslovnih procesa i učinkovitosti, te koje su njegove prednosti i ograničenja u odnosu na tradicionalne, podatkovno ili funkcionalno orijentirane pristupe razvoju aplikacija.
 
 Koga zanima više, možete pročitati izvrsne studije slučaja na Camundinoj web stranici: https://camunda.com/case-studies
 
-Tema je složena i zahtijeva puno samostalnog istraživanja i učenja. Ipak, cilj ove skripte nije iscrpno obraditi cjelokupno područje, već zagrebati površinu te pružiti temeljne koncepte i smjernice koje mogu poslužiti kao polazište za daljnje produbljivanje znanja onima koje zanima ovaj pristup razvoju softvera. Već ste naučili kako modelirati poslovne procese i odluke na vježbam do sada, i to je odličan (i nužan) prvi korak u razumijevanju procesno-orijentiranog pristupa.
+Tema je složena i zahtijeva puno samostalnog istraživanja i učenja. Ipak, cilj ove skripte nije iscrpno obraditi cjelokupno područje, već zagrebati površinu te pružiti temeljne koncepte i smjernice koje mogu poslužiti kao polazište za daljnje produbljivanje znanja onima koje zanima ovaj pristup razvoju softvera. Već ste naučili kako modelirati poslovne procese i to je odličan (i **nužan**) prvi korak u razumijevanju procesno-orijentiranog pristupa.
 
 Također, sva stečena znanja iz modeliranja mogu se učinkovito primjenjivati i izvan konteksta izvršavanja aplikacija ("offline"), primjerice u svrhe poslovnog modeliranja, analize i optimizacije procesa, njihova sustavnog dokumentiranja, kao i jasne prezentacije procesa različitim dionicima unutar organizacije.
 
@@ -334,7 +334,7 @@ Ili naredbom `bash`:
 
 Nakon pokretanja skripte, trebali biste vidjeti ispis u terminalu koji pokazuje napredak pokretanja različitih komponenti Camunda 8 platforme. Na početku ispise će vam se prikazati detalji o verziji JDK-a koju koristite - provjerite da je to JDK 21, 22 ili 23.
 
-Kod uspješnog pokretanje, vidjet ćete sljedeće _logove_ u terminalu:
+Kod uspješnog pokretanja, vidjet ćete sljedeće _logove_ u terminalu:
 
 ```
 8:59PM DBG Failed to read PID from file. This is expected for the first run.
@@ -377,7 +377,7 @@ Refer to https://docs.camunda.io/docs/guides/getting-started-java-spring/ for he
 
 Ovo znači da je Camunda 8 platforma uspješno pokrenuta i spremna za korištenje.
 
-Primjetit ćete da Camunda **ne zauzima terminalski prozor nakon uspješnog pokretanja** - to je zato što se svi procesi pokreću u pozadini. Terminalski prozor možete slobodno zatvoriti ili koristiti za druge naredbe.
+Primijetit ćete da Camunda **ne zauzima terminalski prozor nakon uspješnog pokretanja** - to je zato što se svi procesi pokreću u pozadini. Terminalski prozor možete slobodno zatvoriti ili koristiti za druge naredbe.
 
 Kako biste zaustavili Camunda 8 platformu, otvorite novu instancu terminala (ili koristite postojeću), navigirajte do direktorija i pokrenite skriptu za zaustavljanje:
 
@@ -511,23 +511,23 @@ Vidjet ćete jednostavan BPMN model s 5 elemenata:
 - Servisni zadatak - "Ship items"
 - Završni događaj - "Order shipped"
 
-Kako bismo deployali poslovnu aplikaciju, jednostavno ćemo kliknuti na **ikonu rakete** 🚀 o donjem lijevom kutu Camunda Modelera, odabrati `Camunda 8 Self-Managed`, a kao cluster endpoint upisati Zeebe API Cluster endpoint URL (gRPC protokol) (pogledati _logove_ u terminalu - **sekcija 2.1**). Autentifikaciju ostavite na `None`.
+Kako bismo _deployali_ procesnu aplikaciju, jednostavno ćemo kliknuti na **ikonu rakete** 🚀 o donjem lijevom kutu Camunda Modelera, odabrati `Camunda 8 Self-Managed`, a kao cluster endpoint upisati Zeebe API Cluster endpoint URL (gRPC protokol) (pogledati _logove_ u terminalu - **sekcija 2.1**). Autentifikaciju ostavite na `None`.
 
 - Zadana adresa Zeebe Clustera je: `http://localhost:26500`
 
 Odaberite `Deploy BPMN`.
 
-Ako ste sve ispravno napravili, trebali biste vidjeti poruku o uspješnom deploymentu procesa.
+Ako ste sve ispravno napravili, trebali biste vidjeti poruku o uspješnom _deploymentu_ procesa.
 
 <img src="./screenshots/diagram_01_succesful.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
-> Slika 9. Uspješan deployment BPMN procesa iz Camunda Modelera na Camunda 8 Self-Managed platformu.
+> Slika 9. Uspješan _deployment_ BPMN procesa iz Camunda Modelera na Camunda 8 Self-Managed platformu.
 
 Vratite se u Operate aplikaciju i osvježite stranicu. **Sada biste trebali vidjeti novu definiciju procesa**.
 
 <img src="./screenshots/diagram_01_process_definition.png" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
-> Slika 10. Nova definicija procesa "Order Process" vidljiva u Camunda Operate aplikaciji nakon uspješnog deploymenta iz Camunda Modelera.
+> Slika 10. Nova definicija procesa "Order Process" vidljiva u Camunda Operate aplikaciji nakon uspješnog _deploymenta_ iz Camunda Modelera.
 
 Ako odaberete definiciju procesa, otvorit će se "Processes" kartica koja prikazuje više detalja. Ovdje možete vidjeti sve pokrenute instance procesa, njihovo stanje, varijable i povijest izvršavanja.
 
@@ -573,7 +573,7 @@ Vratite se u Operate aplikaciju i osvježite karticu "Processes". Sada biste tre
 
 U prikazu ćete vidjeti da **trenutno postoji 1 aktivna procesna instanca koja se nalazi na aktivnosti "Check inventory".**
 
-Zelena oznaka s kružićem predstavlja **token** ili **trenutnu poziciju unutar procesa gdje se instanca nalazi**
+Zelena oznaka s kružićem predstavlja **značku** tj. **token** ili **trenutnu poziciju unutar procesa gdje se instanca nalazi**
 
 Pored kružića se nalazi brojka `1`, što označava da postoji jedna procesna instanca čiji je token trenutno na toj aktivnosti. Kada bi pokrenuli još jedan proces iste definicije, vidjeli bismo brojku `2` na istoj aktivnosti, što bi značilo da su dvije procesne instance trenutno na toj točki u procesu.
 
@@ -595,7 +595,7 @@ Uočite nekoliko kartica s detaljima:
 
 **Procesna varijabla** predstavlja podatak koji je povezan s određenom instancom procesa i koristi se za pohranu informacija tijekom njenog trajanja. Procesnim varijablama se prema zadanim postavkama može pristupati svugdje unutar procesa, što omogućuje dinamično upravljanje tokom procesa na temelju njihovih vrijednosti.
 
-> Ako se prisjetite, na prošlim vježbama (skripta 5), smo modelirali proces odobravanja kredita koristeći BPMN i DMN notacije. Podaci s kojima korisnik započinje proces (npr. željeni iznos kredita, željeni rok otplate, osobni podaci, itd.) su podaci koje bismo pohranili kao **početne vrijednosti procesnih varijabli** (npr. pokretanjem procesa iz Camunda Modelera). Tijekom izvršavanja procesa, različiti zadaci i odluke bi koristili te varijable za donošenje odluka (npr. izračun kreditnog rizika), ali također bi mogli ažurirati ili dodavati nove varijable (npr. rezultat provjere kreditnog rizika, odobreni iznos kredita, itd.) koje bi se koristile u daljnjem toku procesa.
+> Ako se prisjetite, na prošlim vježbama (skripta 5), smo modelirali proces odobravanja kredita koristeći BPMN i DMN notacije. Podaci s kojima korisnik započinje proces (npr. željeni iznos kredita, željeni rok otplate, osobni podaci, itd.) su podaci koje bismo pohranili kao **početne vrijednosti procesnih varijabli** (npr. pokretanjem procesa iz Modelera). Tijekom izvršavanja procesa, različiti zadaci i odluke bi koristili te varijable za donošenje odluka (npr. izračun kreditnog rizika), ali također bi mogli ažurirati ili dodavati nove varijable (npr. rezultat provjere kreditnog rizika, odobreni iznos kredita, itd.) koje bi se koristile u daljnjem toku procesa.
 
 Zašto su procesne varijable važne?
 
@@ -606,12 +606,12 @@ Pitanje: Zašto se ovaj proces zaustavio na aktivnosti "Check inventory" i nije 
 
 <details>
   <summary>Spoiler alert! Odgovor na pitanje</summary>
-  Aktivnosti "Check inventory", "Charge payment method" i "Ship items" su servisni zadaci koji zahtijevaju tzv. *job workere* da ih obrade ili kontektore da se povežu s vanjskim sustavima. Mi nismo pokrenuli niti jedan job worker ili konektor koji bi obradio te zadatke, stoga se procesna instanca zaustavila na prvom servisnom zadatku "Check inventory" čekajući da netko ili nešto obradi taj zadatak - ovo nije greška - jednostavno se aktivnost još nije izvršila.
+  Aktivnosti "Check inventory", "Charge payment method" i "Ship items" su servisni zadaci koji zahtijevaju tzv. *job workere* da ih obrade ili *connectore* da se povežu s vanjskim sustavima. Mi nismo pokrenuli niti jedan job worker ili konektor koji bi obradio te zadatke, stoga se procesna instanca zaustavila na prvom servisnom zadatku "Check inventory" čekajući da netko ili nešto obradi taj zadatak - ovo nije greška - jednostavno se aktivnost još nije izvršila.
 </details>
 
 ---
 
-Job workeri već dolaze implementirani unutar Self-Managed paketa koji smo preuzeli. Možemo odabrati `Java + Spring` implementaciju ili Node.js implementaciju. Naravno, odabrati ćemo Node.js implementaciju jer nam je to bliže.
+_Job workeri_ već dolaze implementirani unutar Self-Managed paketa koji smo preuzeli. Možemo odabrati `Java + Spring` implementaciju ili Node.js implementaciju. Naravno, odabrat ćemo Node.js implementaciju jer nam je to bliže.
 
 Unutar terminala, navigirajte do direktorija `camunda-8-get-started/nodejs`.
 
@@ -641,7 +641,7 @@ Struktura ovog Node.js _workera_ izgleda ovako:
 
 Osim test datoteka i konfiguracijskih datoteka za [TypeScript](https://www.typescriptlang.org/) i [Jest](https://jestjs.io/), najvažniji direktorij je `source` koji sadrži implementaciju našeg _job workera_.
 
-Unutar `source/index.ts` datoteke, uočite da se koristi `@camunda8/sdk` biblioteka za povezivanje s Camunda platformom i obradu zadataka, dok su pojedinačne implementacije zadataka implementirane unutar `source/workers.ts` datoteke.
+Unutar `source/index.ts` datoteke, uočite da se koristi [@camunda8/sdk](https://www.npmjs.com/package/@camunda8/sdk) biblioteka za povezivanje s Camunda platformom i obradu zadataka, dok su pojedinačne implementacije zadataka implementirane unutar `source/workers.ts` datoteke.
 
 ```ts
 import { Camunda8 } from "@camunda8/sdk";
@@ -658,35 +658,36 @@ startWorkers(client);
 console.log("Job workers started. Waiting for jobs...\n");
 ```
 
-Implementacija sadrži 3 job workera koji obrađuju zadatke:
+Implementacija sadrži 3 _job workera_ koji obrađuju zadatke:
 
-- inventoryWorker - obrađuje "Check inventory" servisni zadatak
-- paymentChargeWorker - obrađuje "Charge payment method" servisni zadatak
-- shippingWorker - obrađuje "Ship items" servisni zadatak
+- `inventoryWorker` - obrađuje "Check inventory" servisni zadatak
+- `paymentChargeWorker` - obrađuje "Charge payment method" servisni zadatak
+- `shippingWorker` - obrađuje "Ship items" servisni zadatak
 
-Primjer implementacije jednog od workera:
+Primjer implementacije jednog od _workera_:
 
 ```ts
-onst inventoryWorker = client.createJobWorker<Variables, Variables>({ // The first type parameter is the input variables, the second is the output variables
-        type: 'check-inventory',
-        timeout: 10000, // Timeout for the job worker to complete the job before it is available for another worker poll
-        maxJobsToActivate: 5, // Maximum number of jobs to process concurrently
-        worker: 'check-inventory-worker',
-        jobHandler: async (job, log) => {
-            log.info('Processing check-inventory job:', job.jobKey)
-            const item = job.variables.item ?? 'default-item'
-            log.info(`Checking inventory for item: ${item}`)
-            // Simulate checking inventory
-            await new Promise((resolve) => setTimeout(resolve, 2000))
-            log.info(`check-inventory job completed: ${job.jobKey}`)
-            return job.complete({ item: `${item} allocated` })
-        }
-    })
+const inventoryWorker = client.createJobWorker<Variables, Variables>({
+  // The first type parameter is the input variables, the second is the output variables
+  type: "check-inventory",
+  timeout: 10000, // Timeout for the job worker to complete the job before it is available for another worker poll
+  maxJobsToActivate: 5, // Maximum number of jobs to process concurrently
+  worker: "check-inventory-worker",
+  jobHandler: async (job, log) => {
+    log.info("Processing check-inventory job:", job.jobKey);
+    const item = job.variables.item ?? "default-item";
+    log.info(`Checking inventory for item: ${item}`);
+    // Simulate checking inventory
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    log.info(`check-inventory job completed: ${job.jobKey}`);
+    return job.complete({ item: `${item} allocated` });
+  },
+});
 ```
 
 Ove implementaciju su vrlo jednostavne i predstavljaju samo simulaciju stvarne poslovne aktivnosti (npr. provjera zaliha, naplata, otprema). U stvarnom svijetu, ove aktivnosti bi uključivale pozive na vanjske sustave, baze podataka, API-je i sl.
 
-Ako otvorite `package.json` datoteku, vidjet ćete da su definirane potrebne ovisnosti i skripte za pokretanje workera.
+Ako otvorite `package.json` datoteku, vidjet ćete da su definirane potrebne ovisnosti i skripte za pokretanje _workera_.
 
 Ove _job workere_ možemo pokrenuti kao i svaki drugi Node.js projekt:
 
@@ -698,7 +699,7 @@ npm install # instalacija ovisnosti
 npm start # pokretanje job workera (typescript aplikacije)
 ```
 
-Nakon pokretanja workera, trebali biste vidjeti ispis u terminalu koji pokazuje da su job workeri pokrenuti i čekaju na zadatke.
+Nakon pokretanja _workera_, trebali biste vidjeti ispis u terminalu koji pokazuje da su* job workeri* pokrenuti i čekaju na zadatke.
 
 Međutim, zadaci su već definirani (naša procesna instanca je već na "Check inventory" aktivnosti), stoga će se odmah početi obrađivati.
 
@@ -735,9 +736,9 @@ Za kraj, uočite i kako se promijenila vrijednost procesne varijable `item` - sa
 
 > Slika 15. Završena procesna instanca u Camunda Operate aplikaciji s tokenom na završnom događaju "Order shipped".
 
-To je to! Uspješno smo pokrenuli i završili našu prvu instancu poslovnog procesa koristeći Camudna 8 platformu i Node.js job workere.
+To je to! Uspješno smo pokrenuli i završili našu prvu instancu poslovnog procesa koristeći Camunda 8 platformu i Node.js job _workere_.
 
-> Za vježbu možete _deployati_ procesnu definiciju i pokrenuti više instanci procesa pod nazivom `diagram_2.bpmn` u direktoriju `camunda-8-get-started/bpmn/`. Ovaj proces je sličan prethodnom, ali uključuje _interrupting boundary error evente_ koji omogćuju rukovanje greškama tijekom izvršavanja procesa.
+> Za vježbu možete _deployati_ procesnu definiciju i pokrenuti više instanci procesa pod nazivom `diagram_2.bpmn` u direktoriju `camunda-8-get-started/bpmn/`. Ovaj proces je sličan prethodnom, ali uključuje _interrupting boundary error evente_ koji omogućuju rukovanje greškama tijekom izvršavanja procesa.
 
 ## 3.3 Camunda Tasklist aplikacija
 
@@ -769,7 +770,7 @@ _Primjerice:_ možete imati 2 BPMN datoteke (glavni proces i ugniježđeni potpr
 
 ---
 
-Krenimo jednostavno - izraditi ćemo jednostavni BPMN model "Proces narudžbe u robe" koji modelira obradu pristigle narudžbe u nekoj trgovini.
+Krenimo jednostavno - izradit ćemo jednostavni BPMN model "Proces narudžbe robe u trgovini" koji modelira obradu pristigle narudžbe u nekoj trgovini.
 
 Dodajte sljedeće BPMN elemente u model:
 
@@ -787,7 +788,7 @@ Dodajte sljedeće BPMN elemente u model:
 
 Sada ćemo implementirati korisnički zadatak "Potvrda narudžbe" kako bismo omogućili interakciju s korisnikom putem Camunda Tasklist aplikacije.
 
-Odaberite element korisničkog zadatka i otvorite "Properties Panel". Ako se panel ne prikazuje, odaberite `Window` > `Toggle Properties Panel` ili ga otvorite kraticom `Ctrl + P`.
+Odaberite element korisničkog zadatka i otvorite _Properties Panel_. Ako se panel ne prikazuje, odaberite `Window` > `Toggle Properties Panel` ili ga otvorite kraticom `Ctrl + P`.
 
 <img src="./screenshots/webshop-app/properties_panel.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -806,7 +807,7 @@ Pod **Templates** možemo odabrati predložak za gotovi _connector_ element. Ovd
 Mi ćemo odabrati karticu **Implementation** koja je dostupna za **korisničke zadatke** i **business rule** zadatke.
 
 - **Camunda user task**: omogućuje konfiguraciju korisničkog zadatka unutar Camunda platforme.
-- **Job worker**: omogućuje konfiguraciju servisnog zadatka koji će obrađivati vanjski job worker.
+- **Job worker**: omogućuje konfiguraciju servisnog zadatka koji će obrađivati vanjski job worker (npr. neki Node.js ili Java program).
 
 Odabrat ćemo `Camunda user task` kako bismo konfigurirali naš korisnički zadatak "Potvrda narudžbe". Dalje, možemo odabrati vrstu forme koja će se koristiti za unos podataka od strane korisnika.
 
@@ -823,9 +824,9 @@ Odabrat ćemo `Camunda Forms` kako bismo iskoristili ugrađeni oblik. Definirajt
 
 #### Izrada Camunda Forme <!-- omit in toc -->
 
-Formu možemo također dizajnirati unutar Camudna Modelera. Odaberite `File` > `New File` > `Form (Camunda 8)` i spremite je unutar procesne aplikacije kao `order-confirmation-form.form`. Forme u Camundi imaju nastavak `.form`.
+Formu možemo također dizajnirati unutar Camunda Modelera. Odaberite `File` > `New File` > `Form (Camunda 8)` i spremite je unutar procesne aplikacije kao `order-confirmation-form.form`. Forme u Camundi imaju nastavak `.form`.
 
-Otvorit će vam se Camundin uređivač formi gdje možete dodavati različite elemente forme (npr. tekstualna polja, padajuće liste, radio gumbe, checkboxe, datume, brojeve itd.) kako biste prikupili potrebne informacije od korisnika.
+Otvorit će vam se Camundin uređivač formi gdje možete dodavati različite elemente forme (npr. tekstualna polja, padajuće liste, radio gumbe, _checkboxove_, datume, brojeve itd.) kako biste prikupili potrebne informacije od korisnika.
 
 <img src="./screenshots/webshop-app/new_form_connection.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -845,7 +846,7 @@ Uredite labelu, opis i **ključ** elementa kako biste ga lakše referencirali un
 
 To je to za sad, vraćamo se na BPMN model i spremamo sve promjene.
 
-Možemo pokušati deployati prvu verziju naše procesne aplikacije `webshop-order-process` na Camunda platformu koristeći ikonu rakete 🚀 u donjem lijevom kutu Camunda Modelera.
+Možemo pokušati _deployati_ prvu verziju naše procesne aplikacije `webshop-order-process` na Camunda platformu koristeći ikonu rakete 🚀 u donjem lijevom kutu Camunda Modelera.
 
 Nakon toga, pokrenite procesnu instancu iz Modelera koristeći ikonu **Run** ▶️. Za sada nećemo slati početne procesne varijable.
 
@@ -875,7 +876,7 @@ Nakon dodjeljivanja, zadatak možemo kompletirati i bez odabira _checkboxa_ za p
 
 To je to! Vratimo se u Operate aplikaciju i osvježite karticu "Processes". Sada biste trebali vidjeti da je token procesne instance pomaknut na završni događaj "Narudžba poslana", što označava da je proces uspješno dovršen.
 
-Zašto je to tako? Trenutno nemamo implementaciju ručnih (_manual_) zadataka pa stoga procesni _engine_ automatski prolazi kroz te aktivnosti bez čekanja na vanjsku interakciju. Ovo nije greška - jednostavno nismo implementirali logiku za te zadatke.
+Zašto je to tako? Trenutno nemamo implementaciju ručnih (_eng. manual task_) zadataka pa stoga procesni _engine_ automatski prolazi kroz te aktivnosti **bez čekanja na vanjsku interakciju**. Ovo nije greška - jednostavno nismo implementirali logiku za te zadatke.
 
 <img src="./screenshots/webshop-app/operate_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -887,7 +888,9 @@ Sada ćemo nadograditi naš proces "webshop-order-process" kako bismo implementi
 
 U slučaju da korisnik potvrdi narudžbu, proces će nastaviti dalje regularnim tokom, dok će u slučaju da korisnik ne potvrdi narudžbu, proces završiti.
 
-Idemo direktno nadograditi BPMN model dodavanjem jednostavne XOR skretnice grananja nakon korisničkog zadatka "Potvrda narudžbe". Zašto onda? **Zato što ćemo imati vrijednost procesne varijable** `checkbox_potvrda_narudzbe` koja nam govori je li korisnik potvrdio narudžbu ili ne.
+Idemo direktno nadograditi BPMN model dodavanjem jednostavne XOR skretnice grananja nakon korisničkog zadatka "Potvrda narudžbe".
+
+- Zašto onda? **Zato što ćemo imati vrijednost procesne varijable** `checkbox_potvrda_narudzbe` koja nam govori je li korisnik potvrdio narudžbu ili ne.
 
 <img src="./screenshots/webshop-app/webshop-order-process_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -917,7 +920,7 @@ Simple as that!
 
 > Slika 27. Definiranje FEEL uvjeta za izlazne slijedove iz XOR skretnice grananja toka procesa u Camunda Modeleru.
 
-Spremite sve promjene i deployajte nadograđeni BPMN model na Camunda platformu. Nakon toga, pokrenite novu procesnu instancu.
+Spremite sve promjene i _deployajte_ nadograđeni BPMN model na Camunda platformu. Nakon toga, pokrenite novu procesnu instancu.
 
 Otvorite Operate aplikaciju i provjerite stanje procesne instance. Token bi trebao biti na korisničkom zadatku "Potvrda narudžbe". Također, primjetite da je sada definicija procesa nadograđena na verziju 2.
 
@@ -935,7 +938,7 @@ Pokrenite Camunda Tasklist aplikaciju i otvorite zadatak "Potvrda narudžbe". Ov
 
 Sigurno se pitate - zašto pokrećemo procesne instance iz Camunda Modelera? To nam nema smisla ako se aplikacija nalazi u produkcijskom okruženju. Tada želimo da joj korisnici pristupaju putem lijepih web i mobilnih sučelja koje smo izradili.
 
-To je točno. Pokretanje procesnih instanci iz Camunda Modelera je zgodno za razvoj i testiranje, ali u stvarnom svijetu, procesne instance se obično pokreću na druge načine - najčešće putem REST API poziva iz naših aplikacija.
+To je točno. Pokretanje procesnih instanci iz Camunda Modelera je zgodno za razvoj i testiranje, ali u stvarnom svijetu, procesne instance se obično pokreću na druge načine - **najčešće putem REST API poziva iz naših vlastitih aplikacija**.
 
 Osim toga, želimo proslijediti naše podatke o narudžbi kao početne procesne varijable prilikom pokretanja procesa (možemo i to kroz Modeler, ali nije skroz praktično).
 
@@ -949,7 +952,7 @@ Naš Zeebe engine radi na [gRPC](https://grpc.io/) protokolu. Radi se o komunika
 
 Međutim, Zeebe također nudi REST API sloj putem HTTP protokola preko kojeg možemo slati HTTP zahtjeve i obavljati različite operacije nad procesnim instancama, procesnim definicijama, varijablama i sl., uključujući:
 
-- Deployanje procesne definicije ([POST /deployments](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/create-deployment/))
+- _Deployanje_ procesne definicije ([POST /deployments](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/create-deployment/))
 - Pokretanje procesne instance ([POST /process-instances](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/create-process-instance/))
 - Izvršavanje korisničkog zadatka ([POST /user-tasks/{userTaskKey}/completion](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/complete-user-task/))
 
@@ -964,7 +967,13 @@ curl http://localhost:8080/v2/topology
 Ispis:
 
 ```text
-{"brokers":[{"nodeId":0,"host":"localhost","port":26501,"partitions":[{"partitionId":1,"role":"leader","health":"healthy"}],"version":"8.8.9"}],"clusterSize":1,"partitionsCount":1,"replicationFactor":1,"gatewayVersion":"8.8.9","lastCompletedChangeId":"-1"}%
+{"brokers":[{"nodeId":0,"host":"localhost","port":26501,"partitions":
+
+[{"partitionId":1,"role":"leader","health":"healthy"}],"version":"8.8.9"}],
+
+"clusterSize":1,"partitionsCount":1,"replicationFactor":1,
+
+"gatewayVersion":"8.8.9","lastCompletedChangeId":"-1"}
 ```
 
 Ovo potvrđuje da je naš Zeebe engine dostupan putem REST API-ja na `http://localhost:8080`.
@@ -979,7 +988,7 @@ Ako otvorite Camunda dokumentaciju REST API-ja za `POST /process-instances`, vid
 
 Poslat ćemo sljedeći curl zahtjev za pokretanje nove procesne instance bez početnih procesnih varijabli:
 
-- zastavica `-L` omogućuje praćenje eventualnih preusmjeravanja (HTTP redirects)
+- zastavica `-L` omogućuje praćenje eventualnih preusmjeravanja ([HTTP redirects](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections))
 - šaljemo dva HTTP zaglavlja: `Content-Type: application/json` i `Accept: application/json`
 - šaljemo JSON tijelo zahtjeva s podacima o procesnoj definiciji koju želimo pokrenuti (`processDefinitionId` i `processDefinitionVersion`) te praznim skupom početnih varijabli (`variables`: `{}`)
 
@@ -1004,7 +1013,7 @@ Kako nam Camunda ne bi sama dodjeljivala ID procesne definicije, možemo sami to
 
 > Slika 32. Postavljanje prilagođenog ID-a procesne definicije "webshop-order-process" unutar Camunda Modelera.
 
-Prije sljedećeg slanja, obavezno **deployajte** procesnu definiciju na Camunda platformu kako biste osigurali da je najnovija verzija dostupna. Provjerite u Operate aplikaciji jesu li izmjene vidljive.
+Prije sljedećeg slanja, obavezno _*deployajte*_ procesnu definiciju na Camunda platformu kako biste osigurali da je najnovija verzija dostupna. Provjerite u Operate aplikaciji jesu li izmjene vidljive.
 
 Nakon slanja zahtjeva, trebali biste dobiti HTTP odgovor s podacima o pokrenutoj procesnoj instanci:
 
@@ -1072,14 +1081,14 @@ Koje BPMN elemente dodajemo u model?
 - Nakon XOR skretnice grananja, na izlazu "da", dodajemo AND skretnicu grananja kako bismo paralelno izvršili dvije aktivnosti:
   - "Priprema narudžbe" (ručni zadatak)
   - "Odobravanje popusta" (korisnički zadatak)
-- Ako djelatnik odobri popust, dodajemo servisni zadatak "Izrčaunaj popust od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal`.
+- Ako djelatnik odobri popust, dodajemo servisni zadatak "Izračunaj popust od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal`.
 - Nakon toga, dodajemo AND skretnicu spajanja i XOR skretnicu spajanja kako bismo spojili ispravno tokove procesa i nastavili prema aktivnosti "Isporuka narudžbe".
 
 <img src="./screenshots/webshop-app/webshop-order-process_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 35. Nadograđeni BPMN model "webshop-order-process" s logikom za odobravanje popusta i izmjenu vrijednosti procesne varijable `orderTotal`.
 
-> Napomena: Procesnu definiciju ne možete deployati dok imate grešaka. Nedostaju implementacije zadatka "Evidencija popusta u sustav", vrijednosti na XOR skretnicu "Popust odobren" i definicija servisnog zadatka "Izračun popusta od 10%".
+> Napomena: **Procesnu definiciju ne možete _deployati_ dok imate grešaka** (pogledati Camunda konzolu na dnu). Nedostaju implementacije zadatka "Evidencija popusta u sustav", vrijednosti na XOR skretnicu "Popust odobren" i definicija servisnog zadatka "Izračun popusta od 10%".
 
 #### Prikaz vrijednosti procesnih varijabli u Formi <!-- omit in toc -->
 
@@ -1146,17 +1155,17 @@ popust_odobren = false
 
 #### Script task za izračun popusta <!-- omit in toc -->
 
-Sada moramo implementirati servisni zadatak "Izračun popusta od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal` smanjenjem za 10%. Ipak, kako nemamo vanjski job worker za ovaj zadatak, moramo koristiti jednostavni **script task** koji će izvršiti skriptu unutar samog procesnog enginea.
+Sada moramo implementirati servisni zadatak "Izračun popusta od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal` smanjenjem za 10%. Ipak, kako nemamo vanjski job worker za ovaj zadatak, moramo koristiti jednostavni **_script task_** koji će izvršiti skriptu unutar samog procesnog enginea.
 
 Ne koristi li se servisni zadatak za to? Da, ali u kontekstu procesnog aplikacija na Camunda 8 platformi, servisni zadaci se interpretiraju kao vanjski servisi koji rade određene poslove izvan procesnog enginea. Budući da nemamo vanjski servis za izračun popusta, koristit varijantu _script taska_ koji omogućuje izvršavanje skripti unutar procesa.
 
-**Script task** omogućuje sinkrono izvršavanje koda unutar procesnog enginea bez potrebe za vanjskim servisom. Ovo je korisno za jednostavne zadatke poput jednostavnih izračuna ili manipulacije podacima. Za sve ozbiljnije zadatke, preporučuje se korištenje servisnih zadataka s vanjskim job workerima.
+**_Script task_** omogućuje sinkrono izvršavanje koda unutar procesnog enginea bez potrebe za vanjskim servisom. Ovo je korisno za jednostavne zadatke poput jednostavnih izračuna ili manipulacije podacima. Za sve ozbiljnije zadatke, preporučuje se korištenje servisnih zadataka s vanjskim job workerima.
 
 <img src="./screenshots/webshop-app/service_task.png" style="width:30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 38. Zamjena servisnog zadatka "Izračun popusta od 10%" sa _skriptnim taskom_ unutar Camunda Modelera.
 
-Izmjenite postavke _Implementation_ u _Properties Panelu_ za odabrani _script task_ u `FEEL Expression`.
+Izmijenite postavke _Implementation_ u _Properties Panelu_ za odabrani _script task_ u `FEEL Expression`.
 
 Nakon toga, definirajte naziv **rezultantne procesne varijable**, npr. `orderTotal_w_discount` te unesite sljedeći FEEL izraz za izračun popusta:
 
@@ -1170,7 +1179,7 @@ orderTotal * 0.9
 
 > Slika 39. Konfiguracija _script taska_ s FEEL izrazom za izračun popusta unutar Camunda Modelera.
 
-Spremite sve promjene i deployajte nadograđeni BPMN model na Camunda platformu. Nakon toga, pokrenite novu procesnu instancu s početnim procesnim varijablama putem Postmana. **Pazite da odaberete točnu verziju procesne definicije**.
+Spremite sve promjene i _deployajte_ nadograđeni BPMN model na Camunda platformu. Nakon toga, pokrenite novu procesnu instancu s početnim procesnim varijablama putem Postmana. **Pazite da odaberete točnu verziju procesne definicije**.
 
 Početno stanje u Operate aplikaciji: čekanje na potvrdu narudžbe. Dakle, prebacujemo se u Tasklist aplikaciju.
 
@@ -1194,23 +1203,41 @@ Gotovi smo! Vratimo se u Operate aplikaciju i osvježimo karticu "Processes". Pr
 
 > Slika 42. Završena procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s izmijenjenom vrijednošću procesne varijable `orderTotal_w_discount` nakon odobrenja popusta.
 
-# Samostalni zadatak za vježbu 6
+---
 
-Modelirajte jednostavni proces prijave studentske prakse na Fakultetu informatike u Puli. Postoje 3 sudionika u procesu prakse:
+#### Savjeti za razvoj <!-- omit in toc -->
+
+Kako se snalaziti u izraditi Camunda 8 procesnih aplikacija?
+
+- Iskoristite primjere iz ove skripte kao vodič za izradu vlastitih procesnih aplikacija
+- Koristite službenu Camunda dokumentaciju za dodatne informacije o svojstvima koja možete mijenjati različitim BPMN elementima
+- Testirajte svoje procese često kako biste osigurali da sve radi kako treba i obratite pažnju na greške u Camunda konzoli (na dnu Modelera)
+- Pomognite si generirati složenije koristeći genAI te ih testirajte poput [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) alata.
+- Definirajte si osnovno okruženje u Postmanu kako biste mogli brže testirati svoje procese putem REST API-ja
+
+# Zadaci za vježbu 6
+
+Modelirajte jednostavni proces prijave studentske prakse na Fakultetu informatike u Puli. Postoje 3 sudionika u procesu prakse (modelirajte 1 polje i 3 staze):
 
 1. **Student**
 2. **Poslodavac**
 3. **Profesor**
 
-Proces započinje kod studenta odabirom zadatka za praksu. Student ispunjava web formu gdje unosi svoje ime, prezime, JMBAG i šifru zadatka (izmislite podatke).
+Proces započinje kod studenta odabirom zadatka za praksu. Student ispunjava Camunda formu gdje unosi svoje ime, prezime, JMBAG i šifru zadatka (izmislite podatke).
 
-Sljedeći korak je odobravanje prakse od strane profesora. Profesor pregledava podatke studenta i šifru zadatka u web sučelju, a nakon toga odobrava ili odbija prijavu. Ako prijava nije prihvaćena, proces se vraća na studenta i njegovu aktivnost ispunjavanja web forme. Ako profesor prihvati prijavu, proces se nastavlja kod poslodavca. Poslodavac provodi intervju sa studentom, a nakon toga odlučuje hoće li ga prihvatiti ili odbiti. Ako ga odbije, proces se ponovno vraća na studenta i njegov unos podataka. Ako ga prihvati, proces ide prema studentu koji sad mora unijeti kratak opis zadatka, datum izvođenja prakse te ime i prezime mentora koji mu je dodijeljen te istovremeno prema profesoru kojeg se samo obavještava. Nakon izvršavanja tih paralelnih aktivnosti, proces se završava.
+Sljedeći korak je odobravanje prakse od strane profesora. Profesor pregledava podatke studenta i šifru zadatka u web sučelju, a nakon toga odobrava ili odbija prijavu. (podatke pošaljite kao početne procesne varijable).
+
+Ako prijava nije prihvaćena, proces se vraća na studenta i njegovu aktivnost ispunjavanja web forme. Ako profesor prihvati prijavu, proces se nastavlja kod poslodavca.
+
+Poslodavac provodi intervju sa studentom, a nakon toga odlučuje hoće li ga prihvatiti ili odbiti. Ako ga odbije, proces se ponovno vraća na studenta i njegov unos podataka.
+
+Ako poslodavac prihvati studenta, proces se grana prema studentu koji sad mora unijeti kratak opis zadatka, datum izvođenja prakse te ime i prezime mentora koji mu je dodijeljen, te se paralelno grana prema profesoru kojeg se samo obavještava (simulacija). Nakon izvršavanja tih paralelnih aktivnosti, proces se završava.
 
 Nakon što ste modelirali proces, implementirajte procesnu aplikaciju u **Camundi 8**:
 
-- Dodajte definirane korisničke aktivnosti i korespondirajuće forme
-- Definirajte procesne varijable i njihove vrijednosti
+- Dodajte definirane korisničke aktivnosti i korespondirajuće Camunda forme
+- Definirajte procesne varijable i njihove vrijednosti (REST API)
 - Definirajte skretnice i uvjete na izlaznim tokovima
-- Obavještavanje sudionika procesa ne implementirate
+- Obavještavanje sudionika procesa ne implementirate (možete pustiti manual task koji se automatski preskače)
 
-**Predajete zip datoteku koja sadrži sve potrebne datoteke procesne aplikacije.**
+**Predajete zip datoteku koja sadrži sve potrebne datoteke procesne aplikacije uključujući _screenshotove_ iz Operate i Tasklist aplikacija koji dokazuju ispravno izvođenje procesa.**
