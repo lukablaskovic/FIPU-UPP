@@ -428,7 +428,7 @@ Sada kada smo uspješno pokrenuli Camunda 8 platformu, spremni smo za razvoj na�
 
 <br>
 
-1. **Camunda Operate**: Web aplikacija za **nadzor i upravljanje izvršenjem poslovnih procesa**. Omogućuje pregled aktivnih i završenih procesa, praćenje njihovog stanja, analizu performansi te dijagnostiku problema tijekom izvršavanja.
+3. **Camunda Operate**: Web aplikacija za **nadzor i upravljanje izvršenjem poslovnih procesa**. Omogućuje pregled aktivnih i završenih procesa, praćenje njihovog stanja, analizu performansi te dijagnostiku problema tijekom izvršavanja.
    - Operate ćemo koristiti za praćenje i upravljanje našim procesima nakon što ih implementiramo i pokrenemo.
 
    - Dokumentacija: https://camunda.com/platform/operate/
