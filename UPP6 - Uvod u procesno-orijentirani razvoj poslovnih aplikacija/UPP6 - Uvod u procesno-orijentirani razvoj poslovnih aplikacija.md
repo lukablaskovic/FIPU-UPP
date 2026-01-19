@@ -12,12 +12,12 @@
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_6.png?raw=true" style="width:9%; border-radius: 8px; float:right;]"></img>
 
 <div style="float: clear; margin-right:5px;">
-Procesno orijentirani razvoj aplikacija (*eng. process-oriented development*) predstavlja pristup razvoju softverskih rješenja koji u središte stavlja poslovne procese – njihovo modeliranje, implementaciju i upravljanje unutar organizacije. Umjesto tradicionalnog razvoja usmjerenog primarno na podatke ili funkcionalnosti, ovaj pristup koristi standardizirane notacije poput BPMN-a te oblikuje aplikaciju oko poslovnih aktivnosti, ciljeva i tijeka rada.
+Procesno orijentirani razvoj aplikacija (<i>eng. process-oriented development</i>) predstavlja pristup razvoju softverskih rješenja koji u središte stavlja poslovne procese – njihovo modeliranje, implementaciju i upravljanje unutar organizacije. Umjesto tradicionalnog razvoja usmjerenog primarno na podatke ili funkcionalnosti, ovaj pristup koristi standardizirane notacije poput BPMN-a te oblikuje aplikaciju oko poslovnih aktivnosti, ciljeva i tijeka rada.
 Takav način razvoja donosi niz prednosti: bolju usklađenost softvera s poslovnim potrebama, veću fleksibilnost te mogućnost brze prilagodbe promjenama u poslovnom okruženju. Osim toga, procesno orijentirani pristup pridonosi povećanju učinkovitosti i transparentnosti poslovnih procesa te poboljšava komunikaciju između poslovnih stručnjaka, menadžera i developera. U ovoj skripti dat ćemo uvod u procesno orijentirani razvoj aplikacija koristeći Camunda 8 platformu i njezin skup alata za modeliranje, implementaciju i nadzor procesno-orijentiranih aplikacija.
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 18.1.2026.**
+**🆙 Posljednje ažurirano: 19.1.2026.**
 
 ## Sadržaj
 
@@ -144,7 +144,7 @@ Na kolegijima Programsko inženjerstvo i Web aplikacije, naučili ste razvijati 
 
 U ovoj i sljedećoj skripti, nastojat ćemo zagrebati površinu procesno-orijentiranog _stateful_ razvoja poslovnih aplikacija.
 
-Kako je sam razvoj složeniji, nećemo iz nule razvijati procesne aplikacije, već ćemo koristiti **Camunda 8 platformu** koja nam omogućuje razvoj (_eng. development_), izvršavanje (_eng. execution_) i upravljanje (eng. management) procesno-orijentiranih aplikacija.
+Kako je sam razvoj složeniji, nećemo iz nule razvijati procesne aplikacije, već ćemo koristiti **Camunda 8 platformu** koja nam omogućuje **razvoj** (_eng. development_), **izvršavanje** (_eng. execution_) i **upravljanje** (_eng. management_) procesno-orijentiranim aplikacijama.
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -247,7 +247,7 @@ Ako ne koristite package manager na Windowsu, možete preuzeti Microsoft Build o
 Nakon uspješne instalacije, možete provjeriti je li JDK ispravno instaliran otvaranjem naredbenog retka i upisivanjem sljedeće naredbe:
 
 ```bash
-java --version
+→ java --version
 ```
 
 Očekivani ispis:
@@ -279,7 +279,7 @@ Na Windows OS-u, **ako preuzimate JDK ručno**, potrebno je ekstraktirati preuze
 Otvorite novu instancu terminala i ponovno pokrenite naredbu:
 
 ```bash
-java --version
+→ java --version
 ```
 
 ## 2.1 Pokretanje Camunda 8 Self-Managed paketa
@@ -404,7 +404,7 @@ Navigirat će vas na stranicu za prijavu. Prisjetite se, kako koristimo _Self-ma
 
 # 3. Razvoj jednostavne procesne aplikacije u Camunda 8
 
-Sada kada smo uspješno pokrenuli Camunda 8 platformu, spremni smo za razvoj naše prve procesne aplikacije koristeći Camunda alate. Prije svega, ukratko ćemo se upoznati s osnovnim komponentama Camunda 8 platforme koje ćemo koristiti tijekom razvoja.
+Sada kada smo uspješno pokrenuli Camunda 8 platformu, spremni smo za razvoj naše prve procesne aplikacije koristeći Camunda alate. Prije svega, ukratko ćemo se upoznati s osnovnim komponentama Camunda 8 platforme koje ćemo koristiti za vrijeme razvoja.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/zeebe-logo.png?raw=true" style="width:40%;"></img>
 
@@ -456,7 +456,7 @@ Sada kada smo uspješno pokrenuli Camunda 8 platformu, spremni smo za razvoj na�
 
 <br>
 
-7. **Camunda Connectors**: Komponenta koja omogućuje **integraciju Camunda platforme s vanjskim sustavima i uslugama** putem unaprijed definiranih konektora. Konektori olakšavaju komunikaciju između poslovnih procesa i različitih API-ja, baza podataka, servisa u oblaku i drugih sustava.
+7. **Camunda Connectors**: Komponenta koja omogućuje **integraciju Camunda platforme s vanjskim sustavima i uslugama** putem unaprijed definiranih <i>connectora</i>. <i>Connectori</i> olakšavaju komunikaciju između poslovnih procesa i različitih API-ja, baza podataka, servisa u oblaku i drugih sustava.
    - Connectors ćemo koristiti za povezivanje naših procesa s vanjskim sustavima (npr. slanje e-pošte, dohvaćanje podataka iz baze, slanje zahtjeva na HTTP poslužitelje itd.)
 
    - Dokumentacija: https://docs.camunda.io/docs/components/connectors/introduction-to-connectors/
@@ -606,7 +606,7 @@ Pitanje: Zašto se ovaj proces zaustavio na aktivnosti "Check inventory" i nije 
 
 <details>
   <summary>Spoiler alert! Odgovor na pitanje</summary>
-  Aktivnosti "Check inventory", "Charge payment method" i "Ship items" su servisni zadaci koji zahtijevaju tzv. *job workere* da ih obrade ili *connectore* da se povežu s vanjskim sustavima. Mi nismo pokrenuli niti jedan job worker ili konektor koji bi obradio te zadatke, stoga se procesna instanca zaustavila na prvom servisnom zadatku "Check inventory" čekajući da netko ili nešto obradi taj zadatak - ovo nije greška - jednostavno se aktivnost još nije izvršila.
+  Aktivnosti "Check inventory", "Charge payment method" i "Ship items" su servisni zadaci koji zahtijevaju tzv. <i>job workere</i> da ih obrade ili <i>connectore</i> da se povežu s vanjskim sustavima. Mi nismo pokrenuli niti jedan <i>job worker</i> ili <i>connector</i> koji bi obradio te zadatke, stoga se procesna instanca zaustavila na prvom servisnom zadatku "Check inventory" čekajući da netko ili nešto obradi taj zadatak - ovo nije greška - jednostavno se aktivnost još nije izvršila.
 </details>
 
 ---
@@ -695,8 +695,8 @@ Ove _job workere_ možemo pokrenuti kao i svaki drugi Node.js projekt:
 2. Otvorite `package.json` i provjerite kako se pokreće aplikacija - skripta za pokretanje je definirana kao `start`, dakle: `npm start`
 
 ```bash
-npm install # instalacija ovisnosti
-npm start # pokretanje job workera (typescript aplikacije)
+→ npm install # instalacija ovisnosti
+→ npm start # pokretanje job workera (typescript aplikacije)
 ```
 
 Nakon pokretanja _workera_, trebali biste vidjeti ispis u terminalu koji pokazuje da su* job workeri* pokrenuti i čekaju na zadatke.
@@ -961,7 +961,7 @@ Dokumentacija za Camunda Zeebe REST API dostupna je na: [Camunda Zeebe REST API 
 Otvorite Postman ili curl, i testirajte topologiju vaše Camunda platforme slanjem HTTP zahtjeva na endpoint `/topology`:
 
 ```bash
-curl http://localhost:8080/v2/topology
+→ curl http://localhost:8080/v2/topology
 ```
 
 Ispis:
@@ -997,7 +997,7 @@ Poslat ćemo sljedeći curl zahtjev za pokretanje nove procesne instance bez po�
 **Primjer slanja HTTP zahtjeva za pokretanje instance bez početnih varijabli:**
 
 ```bash
-curl -L 'http://localhost:8080/v2/process-instances' \
+→ curl -L 'http://localhost:8080/v2/process-instances' \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
 -d '{
@@ -1045,7 +1045,7 @@ Kako bismo definirali početne vrijednosti procesnih varijabli, možemo ih jedno
 **Primjer slanja HTTP zahtjeva za pokretanje instance s početnim procesnim varijablama:**
 
 ```bash
-curl -L 'http://localhost:8080/v2/process-instances' \
+→ curl -L 'http://localhost:8080/v2/process-instances' \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
 -d '{
@@ -1205,10 +1205,11 @@ Gotovi smo! Vratimo se u Operate aplikaciju i osvježimo karticu "Processes". Pr
 
 ---
 
-#### Savjeti za razvoj <!-- omit in toc -->
+#### Nekoliko savjeta za razvoj u Camundi 8 <!-- omit in toc -->
 
 Kako se snalaziti u izraditi Camunda 8 procesnih aplikacija?
 
+- Radite u malim koracima (iterativno) i često _deployajte_ svoje promjene na Camunda platformu
 - Iskoristite primjere iz ove skripte kao vodič za izradu vlastitih procesnih aplikacija
 - Koristite službenu Camunda dokumentaciju za dodatne informacije o svojstvima koja možete mijenjati različitim BPMN elementima
 - Testirajte svoje procese često kako biste osigurali da sve radi kako treba i obratite pažnju na greške u Camunda konzoli (na dnu Modelera)
@@ -1238,6 +1239,6 @@ Nakon što ste modelirali proces, implementirajte procesnu aplikaciju u **Camund
 - Dodajte definirane korisničke aktivnosti i korespondirajuće Camunda forme
 - Definirajte procesne varijable i njihove vrijednosti (REST API)
 - Definirajte skretnice i uvjete na izlaznim tokovima
-- Obavještavanje sudionika procesa ne implementirate (možete pustiti manual task koji se automatski preskače)
+- Obavještavanje sudionika procesa ne implementirate (možete pustiti manual task - automatski se preskače)
 
 **Predajete zip datoteku koja sadrži sve potrebne datoteke procesne aplikacije uključujući _screenshotove_ iz Operate i Tasklist aplikacija koji dokazuju ispravno izvođenje procesa.**
