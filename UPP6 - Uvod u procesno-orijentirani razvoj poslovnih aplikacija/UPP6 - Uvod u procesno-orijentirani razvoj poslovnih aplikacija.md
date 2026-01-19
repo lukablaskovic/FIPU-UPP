@@ -132,7 +132,7 @@ _Primjer 2_: "Korisnik dodaje proizvode u košaricu i obavlja kupnju" → Proces
 
 Sljedeća ilustracija navodi osnovne razlike između ove dvije paradigme, i naglašava zašto je _stateful_ procesno-orijentirani razvoj aplikacija tehnički zahtjevniji:
 
-<img src="./screenshots/stateless_vs_stateful.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/stateless_vs_stateful.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 1. Razlike između _stateless_ i _stateful_ arhitekture poslužiteljske strane aplikacije.
 
@@ -154,7 +154,7 @@ Camunda 8 je moderna platforma koja služi orkestraciji, upravljanju i automatiz
 
 Mi smo do sada koristili Camunda Modeler alat za modeliranje poslovnih procesa (BPMN) i odluka (DMN). Camunda 8 platforma, međutim, nudi mnogo više od samog modeliranja.
 
-<img src="./screenshots//camunda_illustration.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/camunda_illustration.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 2. Camunda 8 platforma sastoji se od više komponenti koje omogućuju razvoj, izvršavanje i nadzor procesno-orijentiranih aplikacija.
 
@@ -186,7 +186,7 @@ Za motivaciju, u nastavku su navedene neke od većih svjetskih tvrtki koje prepo
 - [A1](https://www.a1.hr/) - jedan od jačih telekomunikacijskih operatera u regiji - koristi Camundu za upravljanje složenim poslovnim procesima unutar svoje organizacije, uključujući korisničku podršku, upravljanje mrežom i interne operacije.
   - Pročitajte više ovdje: https://camunda.com/case-study/a1-telekom-austria-group/
 
-<img src="./screenshots/camunda-customers.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/camunda-customers.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 3. Neke od većih svjetskih tvrtki koje koriste Camundu za upravljanje svojim poslovnim procesima. Više informacija dostupno je na: https://camunda.com/about/customers/
 
@@ -220,7 +220,7 @@ Prvi korak je preuzeti Camunda 8 Self-Managed starter paket sa službene stranic
 
 Pustite da se paket preuzima (veličina oko 1.2 GB), a za to vrijeme možete provjeriti imate li ispunjene preduvjete (JDK 21, 22 ili 23).
 
-<img src="./screenshots/camunda_8_self_mng_download.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/camunda_8_self_mng_download.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 4. Preuzimanje Camunda 8 Self-Managed starter paketa.
 
@@ -272,7 +272,7 @@ Na Windows OS-u, **ako preuzimate JDK ručno**, potrebno je ekstraktirati preuze
   - Variable value: apsolutna putanja do JDK mape, npr. `C:\Program Files\Java\jdk-21`
 - **Također, otvorite varijablu `Path`** pod "System Variables", odaberite "Edit..." i provjerite postoji li unos `%JAVA_HOME%\bin`. Ako ne postoji, dodajte novi unos s tom vrijednošću.
 
-<img src="./screenshots/windows_environemnt_Vars.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/windows_environemnt_Vars.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 5. Postavljanje `JAVA_HOME` varijable okruženja na Windows OS-u.
 
@@ -398,7 +398,7 @@ Navigirat će vas na stranicu za prijavu. Prisjetite se, kako koristimo _Self-ma
 - **Korisničko ime**: `demo`
 - **Lozinka**: `demo`
 
-<img src="./screenshots/camunda-8-operate-login.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/camunda-8-operate-login.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 6. Prijava u Camunda 8 Operate aplikaciju koristeći zadane vjerodajnice. Aplikacija je dostupna na adresi [http://localhost:8080/operate](http://localhost:8080/operate)
 
@@ -406,7 +406,7 @@ Navigirat će vas na stranicu za prijavu. Prisjetite se, kako koristimo _Self-ma
 
 Sada kada smo uspješno pokrenuli Camunda 8 platformu, spremni smo za razvoj naše prve procesne aplikacije koristeći Camunda alate. Prije svega, ukratko ćemo se upoznati s osnovnim komponentama Camunda 8 platforme koje ćemo koristiti tijekom razvoja.
 
-<img src="./screenshots/zeebe-logo.png" style="width:40%;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/zeebe-logo.png?raw=true" style="width:40%;"></img>
 
 > Slika 7. Zeebe je _cloud-native workflow engine_ koji pokreće Camunda 8 platformu i predstavlja srce Camunda 8 platforme.
 
@@ -485,7 +485,7 @@ Camunda Operate je web aplikacija koja nam omogućuje **nadzor i upravljanje pos
 
 Početni zaslon aplikacije, nakon prijave, prikazuje pregled svih dostupnih **definicija procesa** i **njihovih pokrenutih instanci**.
 
-<img src="./screenshots/operate-pocetni-ekran.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/operate-pocetni-ekran.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 8. Početni zaslon Camunda Operate aplikacije prikazuje pregled definicija procesa i njihovih instanci. Pod "Processes" vidimo sve definirane procese i procesne instance, a pod "Decisions" sve definirane odluke i njihove instance.
 
@@ -519,13 +519,13 @@ Odaberite `Deploy BPMN`.
 
 Ako ste sve ispravno napravili, trebali biste vidjeti poruku o uspješnom _deploymentu_ procesa.
 
-<img src="./screenshots/diagram_01_succesful.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_succesful.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 9. Uspješan _deployment_ BPMN procesa iz Camunda Modelera na Camunda 8 Self-Managed platformu.
 
 Vratite se u Operate aplikaciju i osvježite stranicu. **Sada biste trebali vidjeti novu definiciju procesa**.
 
-<img src="./screenshots/diagram_01_process_definition.png" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_process_definition.png?raw=true" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 10. Nova definicija procesa "Order Process" vidljiva u Camunda Operate aplikaciji nakon uspješnog _deploymenta_ iz Camunda Modelera.
 
@@ -533,7 +533,7 @@ Ako odaberete definiciju procesa, otvorit će se "Processes" kartica koja prikaz
 
 Također, možete pretraživati i filtrirati instance procesa prema različitim kriterijima, kao što su status (_Completed/Canceled/Active,Incident_), naziv, verzija definicije i sl.
 
-<img src="./screenshots/diagram_01_definition_Details.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_definition_Details.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 11. Detalji definicije procesa "Order Process" u Camunda Operate aplikaciji, uključujući pregled pokrenutih instanci procesa (trenutno ih nema).
 
@@ -555,7 +555,7 @@ Odaberite `Start BPMN process instance`.
 
 Ako je sve prošlo u redu, trebali biste vidjeti poruku o uspješnom pokretanju nove procesne instance za odabranu procesnu definiciju.
 
-<img src="./screenshots/diagram_01_run_from_modeler.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_run_from_modeler.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 12. Pokretanje nove procesne instance iz Camunda Modelera s početnom varijablom.
 
@@ -577,7 +577,7 @@ Zelena oznaka s kružićem predstavlja **značku** tj. **token** ili **trenutnu 
 
 Pored kružića se nalazi brojka `1`, što označava da postoji jedna procesna instanca čiji je token trenutno na toj aktivnosti. Kada bi pokrenuli još jedan proces iste definicije, vidjeli bismo brojku `2` na istoj aktivnosti, što bi značilo da su dvije procesne instance trenutno na toj točki u procesu.
 
-<img src="./screenshots/diagram_01_process_instancs_tokens.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_process_instancs_tokens.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 13. Pregled procesnih instanci u Camunda Operate aplikaciji s prikazom tokena na aktivnosti "Check inventory".
 
@@ -589,7 +589,7 @@ Uočite nekoliko kartica s detaljima:
 - **Variables**: prikazuje procesne varijable povezane s instancom procesa, uključujući njihove nazive i vrijednosti. Ovdje možemo direktno i uređivati varijable (brisati, dodavati ili mijenjati vrijednosti) kako bismo utjecali na daljnje izvršavanje procesa.
 - **Diagram View**: vizualni prikaz instance našeg procesa - gdje se trenutno nalazi token, koje su aktivnosti dovršene, a koje nisu ni započele. Odabirom na pojedini BPMN element, možemo vidjeti dodatne informacije o tom elementu (npr. vrijeme početka i završetka, varijable povezane s njim, eventualne incidente itd.)
 
-<img src="./screenshots/diagram_01_instance_Details.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_instance_Details.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 14. Detalji procesne instance u Camunda Operate aplikaciji, uključujući pregled varijabli i povijesti izvršavanja.
 
@@ -732,7 +732,7 @@ Uočite i kako su se ažurirali logovi u kartici "Instance History" - sada može
 
 Za kraj, uočite i kako se promijenila vrijednost procesne varijable `item` - sada ima vrijednost `laptop allocated`, što je rezultat obrade prvog zadatka `inventoryWorker`.
 
-<img src="./screenshots/diagram_01_finish.png" style="width:90%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/diagram_01_finish.png?raw=true" style="width:90%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 15. Završena procesna instanca u Camunda Operate aplikaciji s tokenom na završnom događaju "Order shipped".
 
@@ -760,7 +760,7 @@ webshop-order-process
 
 Otvorite `webshop-order-process.bpmn` datoteku, u donjem lijevom kutu odaberite ikonu plave konfiguracijske datoteke i provjerite nalazi li se vaša BPMN datoteka unutar procesne aplikacije.
 
-<img src="./screenshots/webshop-app/checking.png" style="width:40%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/checking.png?raw=true" style="width:40%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 16. Provjera da je BPMN datoteka unutar Camunda procesne aplikacije.
 
@@ -780,7 +780,7 @@ Dodajte sljedeće BPMN elemente u model:
 - **Ručni zadatak**: "Predaja narudžbe dostavnoj službi"
 - **Završni događaj**: "Narudžba poslana"
 
-<img src="./screenshots/webshop-app/webshop-order-process_01.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/webshop-order-process_01.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 17. Početni jednostavni BPMN model "Proces narudžbe u trgovini" izrađen u Camunda Modeleru (webshop-order-process.bpmn).
 
@@ -790,7 +790,7 @@ Sada ćemo implementirati korisnički zadatak "Potvrda narudžbe" kako bismo omo
 
 Odaberite element korisničkog zadatka i otvorite _Properties Panel_. Ako se panel ne prikazuje, odaberite `Window` > `Toggle Properties Panel` ili ga otvorite kraticom `Ctrl + P`.
 
-<img src="./screenshots/webshop-app/properties_panel.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/properties_panel.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 18. Otvaranje "Properties Panel" u Camunda Modeleru za konfiguraciju pojedinog BPMN elemenata.
 
@@ -818,7 +818,7 @@ Možemo odabrati između:
 
 Odabrat ćemo `Camunda Forms` kako bismo iskoristili ugrađeni oblik. Definirajte **Form ID**: `order-confirmation-form`.
 
-<img src="./screenshots/webshop-app/new_camunda_form01.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/new_camunda_form01.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 19. Konfiguracija korisničkog zadatka "Potvrda narudžbe" kao Camunda user task s ugrađenim Camunda Forms oblikom.
 
@@ -828,7 +828,7 @@ Formu možemo također dizajnirati unutar Camunda Modelera. Odaberite `File` > `
 
 Otvorit će vam se Camundin uređivač formi gdje možete dodavati različite elemente forme (npr. tekstualna polja, padajuće liste, radio gumbe, _checkboxove_, datume, brojeve itd.) kako biste prikupili potrebne informacije od korisnika.
 
-<img src="./screenshots/webshop-app/new_form_connection.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/new_form_connection.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 20. Izrada Camunda Forms forme "order-confirmation-form.form" unutar Camunda Modelera.
 
@@ -840,7 +840,7 @@ Elementi forme također imaju postavke koje uređujemo preko panela s desne stra
 
 Uredite labelu, opis i **ključ** elementa kako biste ga lakše referencirali unutar procesa. Primjer na slici ispod:
 
-<img src="./screenshots/webshop-app/new_camunda_form02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/new_camunda_form02.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 21. Konfiguracija elemenata forme "order-confirmation-form.form" unutar Camunda Modelera.
 
@@ -852,13 +852,13 @@ Nakon toga, pokrenite procesnu instancu iz Modelera koristeći ikonu **Run** ▶
 
 Otvorite Operate i provjerite stanje poslovnog procesa. Ako ste sve ispravno napravili, token procesne instance će "čekati" na korisničkom zadatku "Potvrda narudžbe".
 
-<img src="./screenshots/webshop-app/operate_01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/operate_01.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 22. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na korisničkom zadatku "Potvrda narudžbe".
 
 Sada otvorite Camunda Tasklist aplikaciju kako biste vidjeli dodijeljene zadatke. Otvorite resurs `/tasklist` - trebali biste vidjeti novi zadatak pod nazivom "Potvrda narudžbe".
 
-<img src="./screenshots/webshop-app/tasklist01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/tasklist01.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 23. Pregled dodijeljenih zadataka u Camunda Tasklist aplikaciji.
 
@@ -868,7 +868,7 @@ Rekli smo da u našim procesima postoje različiti dionici. Iz tog razloga, u Ca
 
 Za sada možemo dodijeliti zadatak sami sebi klikom na gumb `Assign to me` budući da smo prijavljeni kao `demo` korisnik koji ima administratorska prava.
 
-<img src="./screenshots/webshop-app/tasklist02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/tasklist02.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 24. Dodjela zadatka "Potvrda narudžbe" korisniku `demo` u Camunda Tasklist aplikaciji.
 
@@ -878,7 +878,7 @@ To je to! Vratimo se u Operate aplikaciju i osvježite karticu "Processes". Sada
 
 Zašto je to tako? Trenutno nemamo implementaciju ručnih (_eng. manual task_) zadataka pa stoga procesni _engine_ automatski prolazi kroz te aktivnosti **bez čekanja na vanjsku interakciju**. Ovo nije greška - jednostavno nismo implementirali logiku za te zadatke.
 
-<img src="./screenshots/webshop-app/operate_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/operate_02.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 25. Završena procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na završnom događaju "Narudžba poslana". Uočite kako se izmijenila procesna varijabla `checkbox_potvrda_narudzbe` na odabranu vrijednost u Camunda Tasklist aplikaciji.
 
@@ -892,7 +892,7 @@ Idemo direktno nadograditi BPMN model dodavanjem jednostavne XOR skretnice grana
 
 - Zašto onda? **Zato što ćemo imati vrijednost procesne varijable** `checkbox_potvrda_narudzbe` koja nam govori je li korisnik potvrdio narudžbu ili ne.
 
-<img src="./screenshots/webshop-app/webshop-order-process_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/webshop-order-process_02.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 26. Nadograđeni BPMN model "webshop-order-process" s XOR skretnicom grananja toka procesa na temelju vrijednosti procesne varijable `checkbox_potvrda_narudzbe`.
 
@@ -916,7 +916,7 @@ checkbox_potvrda_narudzbe = false
 
 Simple as that!
 
-<img src="./screenshots/webshop-app/adding_sequence_flow_condition.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/adding_sequence_flow_condition.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 27. Definiranje FEEL uvjeta za izlazne slijedove iz XOR skretnice grananja toka procesa u Camunda Modeleru.
 
@@ -924,13 +924,13 @@ Spremite sve promjene i _deployajte_ nadograđeni BPMN model na Camunda platform
 
 Otvorite Operate aplikaciju i provjerite stanje procesne instance. Token bi trebao biti na korisničkom zadatku "Potvrda narudžbe". Također, primjetite da je sada definicija procesa nadograđena na verziju 2.
 
-<img src="./screenshots/webshop-app/operate_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/operate_03.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 28. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na korisničkom zadatku "Potvrda narudžbe" nakon nadogradnje BPMN modela na verziju 2.
 
 Pokrenite Camunda Tasklist aplikaciju i otvorite zadatak "Potvrda narudžbe". Ovaj put, **nemojte označiti _checkbox_ za potvrdu narudžbe i kompletirajte zadatak**.
 
-<img src="./screenshots/webshop-app/operate_04.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/operate_04.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 29. Završena procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na završnom događaju "Narudžba se odbija" nakon što korisnik nije potvrdio narudžbu.
 
@@ -944,7 +944,7 @@ Osim toga, želimo proslijediti naše podatke o narudžbi kao početne procesne 
 
 Osim preko REST API-ja, procesne instance možemo pokretati i preko Tasklist aplikacije (ručno pokretanje procesa). Jednostavno otvorite aplikaciju, odaberite karticu `Processes` i odaberite procesnu definiciju za koju želite pokrenuti novu instancu.
 
-<img src="./screenshots/webshop-app/tasklist_start_process.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/tasklist_start_process.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 30. Pokretanje nove procesne instance iz Camunda Tasklist aplikacije.
 
@@ -982,7 +982,7 @@ Ipak, kako koristimo Self-Managed paket, moramo dodati router prefix `/v2` u URL
 
 Ako otvorite Camunda dokumentaciju REST API-ja za `POST /process-instances`, vidjet ćete upute kako koristiti ovaj endpoint, odnosno kako strukturirati HTTP zahtjev za pokretanje nove procesne instance.
 
-<img src="./screenshots/webshop-app/create_process_instance_docs_example.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/create_process_instance_docs_example.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 31. Dokumentacija za Camunda Zeebe REST API endpoint `POST /process-instances` za pokretanje nove procesne instance. Uočite različite primjere HTTP klijenata (curl, JavaScript, Python, Java, Go, C#).
 
@@ -1009,7 +1009,7 @@ curl -L 'http://localhost:8080/v2/process-instances' \
 
 Kako nam Camunda ne bi sama dodjeljivala ID procesne definicije, možemo sami to napraviti u Camunda Modeleru. Odaberite **polje** i u postavkama mu izmijenite ID na npr. `webshop-order-process`.
 
-<img src="./screenshots/webshop-app/custom_process_id.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/custom_process_id.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 32. Postavljanje prilagođenog ID-a procesne definicije "webshop-order-process" unutar Camunda Modelera.
 
@@ -1031,7 +1031,7 @@ Nakon slanja zahtjeva, trebali biste dobiti HTTP odgovor s podacima o pokrenutoj
 
 Idemo ovo preslikati u Postman kako bismo lakše započinjali nove procesne instance ubuduće. Zaglavlja ne moramo ručno dodavati u ovom slučaju budući da ih Postman automatski dodaje prilikom slanja JSON tijela zahtjeva.
 
-<img src="./screenshots/webshop-app/postman_instanciranje_procesa.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/postman_instanciranje_procesa.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 33. Uspješno instanciranje procesne instance "webshop-order-process" putem Postman HTTP klijenta.
 
@@ -1062,7 +1062,7 @@ curl -L 'http://localhost:8080/v2/process-instances' \
 
 Otvorite Operate aplikaciju i provjerite novu procesnu instancu. Uočite kako su početne procesne varijable dostupne unutar instance.
 
-<img src="./screenshots/webshop-app/operate_05.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/operate_05.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 34. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s početnim procesnim varijablama definiranima putem REST API-ja.
 
@@ -1084,7 +1084,7 @@ Koje BPMN elemente dodajemo u model?
 - Ako djelatnik odobri popust, dodajemo servisni zadatak "Izračunaj popust od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal`.
 - Nakon toga, dodajemo AND skretnicu spajanja i XOR skretnicu spajanja kako bismo spojili ispravno tokove procesa i nastavili prema aktivnosti "Isporuka narudžbe".
 
-<img src="./screenshots/webshop-app/webshop-order-process_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/webshop-order-process_03.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 35. Nadograđeni BPMN model "webshop-order-process" s logikom za odobravanje popusta i izmjenu vrijednosti procesne varijable `orderTotal`.
 
@@ -1110,7 +1110,7 @@ Nazvat ćemo tablicu "Pristigla narudžba" i dodati joj 4 stupca (prema ključev
 
 Za svaki stupac dodajte naslov i odgovarajući ključ (mi ćemo dodati sufiks `_form` svakom kako bismo razlikovali varijable u formi od onih u procesu).
 
-<img src="./screenshots/webshop-app/tablica_narudzbe_01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/tablica_narudzbe_01.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 36. Dodavanje tablice "Pristigla narudžba" u Camunda Forms formu "order-confirmation-form.form".
 
@@ -1135,7 +1135,7 @@ Zatim, izradit ćemo novu Camunda formu `popust_form.form` gdje ćemo jednostavn
 
 Dodat ćemo u formu i sliku koja označava 10%, čisto da izgleda malo zanimljivije. Procesnu varijablu odobrenog popusta nazvat ćemo `popust_odobren`.
 
-<img src="./screenshots/webshop-app/popust_form.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/popust_form.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 37. Camunda Forms forma "popust_form.form" za odobravanje popusta s checkbox elementom.
 
@@ -1161,7 +1161,7 @@ Ne koristi li se servisni zadatak za to? Da, ali u kontekstu procesnog aplikacij
 
 **_Script task_** omogućuje sinkrono izvršavanje koda unutar procesnog enginea bez potrebe za vanjskim servisom. Ovo je korisno za jednostavne zadatke poput jednostavnih izračuna ili manipulacije podacima. Za sve ozbiljnije zadatke, preporučuje se korištenje servisnih zadataka s vanjskim job workerima.
 
-<img src="./screenshots/webshop-app/service_task.png" style="width:30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/service_task.png?raw=true" style="width:30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 38. Zamjena servisnog zadatka "Izračun popusta od 10%" sa _skriptnim taskom_ unutar Camunda Modelera.
 
@@ -1175,7 +1175,7 @@ orderTotal * 0.9
 
 - vrijednost procesne varijable `orderTotal` se množi s 0.9 kako bi se izračunala nova vrijednost s popustom od 10%
 
-<img src="./screenshots/webshop-app/script_element_expression.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/script_element_expression.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 39. Konfiguracija _script taska_ s FEEL izrazom za izračun popusta unutar Camunda Modelera.
 
@@ -1183,13 +1183,13 @@ Spremite sve promjene i _deployajte_ nadograđeni BPMN model na Camunda platform
 
 Početno stanje u Operate aplikaciji: čekanje na potvrdu narudžbe. Dakle, prebacujemo se u Tasklist aplikaciju.
 
-<img src="./screenshots/webshop-app/v6_01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/v6_01.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 40. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na korisničkom zadatku "Potvrda narudžbe" nakon nadogradnje BPMN modela.
 
 Ako otvorite zadatak "Potvrda narudžbe" u Tasklist aplikaciji, vidjet ćete da je tablica ispunjena podacima iz procesnih varijabli kao što smo definirali u formi FEEL izrazom.
 
-<img src="./screenshots/webshop-app/v6_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/v6_02.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 41. Pregled zadatka "Potvrda narudžbe" u Camunda Tasklist aplikaciji s ispunjenom tablicom podacima iz procesnih varijabli.
 
@@ -1199,7 +1199,7 @@ Nakon odobravanja popusta, _script task_ će automatski izračunati novu vrijedn
 
 Gotovi smo! Vratimo se u Operate aplikaciju i osvježimo karticu "Processes". Proces ćete pronaći pod filterom **Finished Instances**: `Completed`. Odaberite instancu i pregledajte je li se uspješno izračunala vrijednost procesne varijable `orderTotal_w_discount`.
 
-<img src="./screenshots/webshop-app/v6_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija/screenshots/webshop-app/v6_03.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 42. Završena procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s izmijenjenom vrijednošću procesne varijable `orderTotal_w_discount` nakon odobrenja popusta.
 
