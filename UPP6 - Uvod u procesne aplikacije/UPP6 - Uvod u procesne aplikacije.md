@@ -34,6 +34,8 @@ Takav način razvoja donosi niz prednosti: bolju usklađenost softvera s poslovn
   - [3.3 Camunda Tasklist aplikacija](#33-camunda-tasklist-aplikacija)
   - [3.4 XOR grananje procesa na temelju procesnih varijabli](#34-xor-grananje-procesa-na-temelju-procesnih-varijabli)
   - [3.5 Kako još pokrenuti procesne instance?](#35-kako-još-pokrenuti-procesne-instance)
+  - [3.6 Izmjena vrijednosti procesnih varijabli tijekom izvođenja procesa](#36-izmjena-vrijednosti-procesnih-varijabli-tijekom-izvođenja-procesa)
+- [Samostalni zadatak za vježbu 6](#samostalni-zadatak-za-vježbu-6)
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -943,4 +945,272 @@ Osim preko REST API-ja, procesne instance možemo pokretati i preko Tasklist apl
 
 > Slika 30. Pokretanje nove procesne instance iz Camunda Tasklist aplikacije.
 
-Preko REST API-ja, procesne instance možemo pokrenuti slanjem `POST` zahtjeva na endpoint: `http://localhost:8086/`
+Naš Zeebe engine radi na [gRPC](https://grpc.io/) protokolu. Radi se o komunikacijskom protokolu koji omogućuje visoku efikasnu komunikaciju između klijenata i servera koristeći HTTP/2 kao transportni sloj - često se koristi u mikroservisima i raspodijeljenim sustavima zbog svoje brzine i niske latencije (priprema za kolegij - [Raspodijeljeni sustavi](https://fipu.unipu.hr/fipu/predmet/rassus_a) za one koji nastavljaju diplomski studij).
+
+Međutim, Zeebe također nudi REST API sloj putem HTTP protokola preko kojeg možemo slati HTTP zahtjeve i obavljati različite operacije nad procesnim instancama, procesnim definicijama, varijablama i sl., uključujući:
+
+- Deployanje procesne definicije ([POST /deployments](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/create-deployment/))
+- Pokretanje procesne instance ([POST /process-instances](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/create-process-instance/))
+- Izvršavanje korisničkog zadatka ([POST /user-tasks/{userTaskKey}/completion](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/specifications/complete-user-task/))
+
+Dokumentacija za Camunda Zeebe REST API dostupna je na: [Camunda Zeebe REST API Reference](https://docs.camunda.io/docs/apis-tools/orchestration-cluster-api-rest/orchestration-cluster-api-rest-overview/).
+
+Otvorite Postman ili curl, i testirajte topologiju vaše Camunda platforme slanjem HTTP zahtjeva na endpoint `/topology`:
+
+```bash
+curl http://localhost:8080/v2/topology
+```
+
+Ispis:
+
+```text
+{"brokers":[{"nodeId":0,"host":"localhost","port":26501,"partitions":[{"partitionId":1,"role":"leader","health":"healthy"}],"version":"8.8.9"}],"clusterSize":1,"partitionsCount":1,"replicationFactor":1,"gatewayVersion":"8.8.9","lastCompletedChangeId":"-1"}%
+```
+
+Ovo potvrđuje da je naš Zeebe engine dostupan putem REST API-ja na `http://localhost:8080`.
+
+Ipak, kako koristimo Self-Managed paket, moramo dodati router prefix `/v2` u URL jer je Camunda platforma konfigurirana da koristi ovaj prefix za REST API pozive. Ovo nam se ispisuje prilikom pokretanja Camunde pod **Orchestration Cluster API**.
+
+Ako otvorite Camunda dokumentaciju REST API-ja za `POST /process-instances`, vidjet ćete upute kako koristiti ovaj endpoint, odnosno kako strukturirati HTTP zahtjev za pokretanje nove procesne instance.
+
+<img src="./screenshots/webshop-app/create_process_instance_docs_example.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 31. Dokumentacija za Camunda Zeebe REST API endpoint `POST /process-instances` za pokretanje nove procesne instance. Uočite različite primjere HTTP klijenata (curl, JavaScript, Python, Java, Go, C#).
+
+Poslat ćemo sljedeći curl zahtjev za pokretanje nove procesne instance bez početnih procesnih varijabli:
+
+- zastavica `-L` omogućuje praćenje eventualnih preusmjeravanja (HTTP redirects)
+- šaljemo dva HTTP zaglavlja: `Content-Type: application/json` i `Accept: application/json`
+- šaljemo JSON tijelo zahtjeva s podacima o procesnoj definiciji koju želimo pokrenuti (`processDefinitionId` i `processDefinitionVersion`) te praznim skupom početnih varijabli (`variables`: `{}`)
+
+**OPREZ!** Potrebno je zamijeniti vrijednost `processDefinitionId` s ID-om vaše **procesne definicije** koju želite pokrenuti.
+
+**Primjer slanja HTTP zahtjeva za pokretanje instance bez početnih varijabli:**
+
+```bash
+curl -L 'http://localhost:8080/v2/process-instances' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{
+  "processDefinitionId": "Process_022948p",
+  "processDefinitionVersion": 2,
+  "variables": {}
+}'
+```
+
+Kako nam Camunda ne bi sama dodjeljivala ID procesne definicije, možemo sami to napraviti u Camunda Modeleru. Odaberite **polje** i u postavkama mu izmijenite ID na npr. `webshop-order-process`.
+
+<img src="./screenshots/webshop-app/custom_process_id.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 32. Postavljanje prilagođenog ID-a procesne definicije "webshop-order-process" unutar Camunda Modelera.
+
+Prije sljedećeg slanja, obavezno **deployajte** procesnu definiciju na Camunda platformu kako biste osigurali da je najnovija verzija dostupna. Provjerite u Operate aplikaciji jesu li izmjene vidljive.
+
+Nakon slanja zahtjeva, trebali biste dobiti HTTP odgovor s podacima o pokrenutoj procesnoj instanci:
+
+```json
+{
+  "processDefinitionId": "webshop-order-process",
+  "processDefinitionVersion": 1,
+  "tenantId": "<default>",
+  "variables": {},
+  "processDefinitionKey": "2251799813770739",
+  "processInstanceKey": "2251799813775821",
+  "tags": []
+}
+```
+
+Idemo ovo preslikati u Postman kako bismo lakše započinjali nove procesne instance ubuduće. Zaglavlja ne moramo ručno dodavati u ovom slučaju budući da ih Postman automatski dodaje prilikom slanja JSON tijela zahtjeva.
+
+<img src="./screenshots/webshop-app/postman_instanciranje_procesa.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 33. Uspješno instanciranje procesne instance "webshop-order-process" putem Postman HTTP klijenta.
+
+Kako bismo definirali početne vrijednosti procesnih varijabli, možemo ih jednostavno dodati unutar JSON tijela zahtjeva. Dodat ćemo sljedeće početne procesne varijable:
+
+- `customerName`: ime i prezime kupca (npr. "Ivan Horvat")
+- `orderId`: jedinstveni identifikator narudžbe (npr. "ORD-1001")
+- `orderTotal`: ukupni iznos narudžbe (npr. 299.99)
+- `items`: niz artikala u narudžbi (npr. ["laptop", "mouse", "keyboard"])
+
+**Primjer slanja HTTP zahtjeva za pokretanje instance s početnim procesnim varijablama:**
+
+```bash
+curl -L 'http://localhost:8080/v2/process-instances' \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-d '{
+  "processDefinitionId": "webshop-order-process",
+  "processDefinitionVersion": 1,
+  "variables": {
+    "customerName": "Ivan Horvat",
+    "orderId": "ORD-1001",
+    "orderTotal": 299.99,
+    "items": ["laptop", "mouse", "keyboard"]
+  }
+}'
+```
+
+Otvorite Operate aplikaciju i provjerite novu procesnu instancu. Uočite kako su početne procesne varijable dostupne unutar instance.
+
+<img src="./screenshots/webshop-app/operate_05.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 34. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s početnim procesnim varijablama definiranima putem REST API-ja.
+
+**Ove procesne varijable dostupne su unutar cijele procesne instance** i možemo ih koristiti za donošenje odluka, prikaz podataka u formama, te u job workerima. Možemo ih ažurirati za vrijeme izvođenja procesa, a njihove vrijednosti možemo pratiti i izmjenjivati i unutar Camunda Operate aplikacije.
+
+## 3.6 Izmjena vrijednosti procesnih varijabli tijekom izvođenja procesa
+
+Naučili smo kako definirati jednostavne procesne aplikacije koristeći Camunda Modeler, kako pokretati procesne instance putem Modelera i REST API-ja, te kako koristiti Camundine aplikacije Operate i Tasklist za upravljanje procesnim instancama i zadacima. Sada ćemo naučiti kako možemo mijenjati vrijednosti procesnih varijabli tijekom izvođenja procesa koristeći **servisne zadatke** (_service tasks_), a na sljedećim vježbama i koristeći vanjske servise.
+
+Nadogradit ćemo proces `webshop-order-process` tako da omogućimo djelatniku trgovine da odobri popust za narudžbu od 10%. Ako djelatnik odobri popust, vrijednost procesne varijable `orderTotal` će se smanjiti za 10%. Ako ne odobri, vrijednost ostaje nepromijenjena i proces nastavlja dalje.
+
+Idemo modelirati ovu logiku u našem BPMN modelu.
+
+Koje BPMN elemente dodajemo u model?
+
+- Nakon XOR skretnice grananja, na izlazu "da", dodajemo AND skretnicu grananja kako bismo paralelno izvršili dvije aktivnosti:
+  - "Priprema narudžbe" (ručni zadatak)
+  - "Odobravanje popusta" (korisnički zadatak)
+- Ako djelatnik odobri popust, dodajemo servisni zadatak "Izrčaunaj popust od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal`.
+- Nakon toga, dodajemo AND skretnicu spajanja i XOR skretnicu spajanja kako bismo spojili ispravno tokove procesa i nastavili prema aktivnosti "Isporuka narudžbe".
+
+<img src="./screenshots/webshop-app/webshop-order-process_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 35. Nadograđeni BPMN model "webshop-order-process" s logikom za odobravanje popusta i izmjenu vrijednosti procesne varijable `orderTotal`.
+
+> Napomena: Procesnu definiciju ne možete deployati dok imate grešaka. Nedostaju implementacije zadatka "Evidencija popusta u sustav", vrijednosti na XOR skretnicu "Popust odobren" i definicija servisnog zadatka "Izračun popusta od 10%".
+
+#### Prikaz vrijednosti procesnih varijabli u Formi <!-- omit in toc -->
+
+Ipak, kako bismo unaprijedili korisničko iskustvo, želimo djelatniku u formi prikazati podatke koje je korisnik unio prilikom narudžbe. Nadogradit ćemo našu Camunda formu `order-confirmation-form.form` kako bismo prikazali sljedeće informacije:
+
+- Ime i prezime kupca (`customerName`)
+- ID narudžbe (`orderId`)
+- Ukupni iznos narudžbe (`orderTotal`)
+- Popis artikala u narudžbi (`items`)
+
+Otvorite formu `order-confirmation-form.form` unutar Camunda Modelera i dodajte **tablicu**.
+
+Nazvat ćemo tablicu "Pristigla narudžba" i dodati joj 4 stupca (prema ključevima u procesnim varijablama):
+
+- `customerName`
+- `orderId`
+- `orderTotal`
+- `items`
+
+Za svaki stupac dodajte naslov i odgovarajući ključ (mi ćemo dodati sufiks `_form` svakom kako bismo razlikovali varijable u formi od onih u procesu).
+
+<img src="./screenshots/webshop-app/tablica_narudzbe_01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 36. Dodavanje tablice "Pristigla narudžba" u Camunda Forms formu "order-confirmation-form.form".
+
+Podatke ćemo napuniti FEEL izrazom pod **Data Source**:
+
+```
+[
+  {
+    customer_name_form: customerName,
+    order_id_form: orderId,
+    order_total_form: orderTotal,
+    items_forms: string join(items, ", ")
+  }
+]
+```
+
+Ovdje koristimo FEEL funkciju `string join()` kako bismo niz artikala iz procesne varijable `items` pretvorili u jedan string razdvojen zarezima za prikaz u stupcu tablice. **Pod ključeve navodimo definirane ključeve stupaca tablice, a kao vrijednosti se referenciramo na procesne varijable**.
+
+---
+
+Zatim, izradit ćemo novu Camunda formu `popust_form.form` gdje ćemo jednostavno dodati checkbox za odobravanje popusta. Pohranite novu formu unutar procesne aplikacije.
+
+Dodat ćemo u formu i sliku koja označava 10%, čisto da izgleda malo zanimljivije. Procesnu varijablu odobrenog popusta nazvat ćemo `popust_odobren`.
+
+<img src="./screenshots/webshop-app/popust_form.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 37. Camunda Forms forma "popust_form.form" za odobravanje popusta s checkbox elementom.
+
+Obavezno moramo još dodati ispravne FEEL uvjete na izlazne slijedove iz XOR skretnice "Popust odobren?":
+
+- Za izlazni slijed "da":
+
+```
+popust_odobren = true
+```
+
+- Za izlazni slijed "ne":
+
+```
+popust_odobren = false
+```
+
+#### Script task za izračun popusta <!-- omit in toc -->
+
+Sada moramo implementirati servisni zadatak "Izračun popusta od 10%" koji će ažurirati vrijednost procesne varijable `orderTotal` smanjenjem za 10%. Ipak, kako nemamo vanjski job worker za ovaj zadatak, moramo koristiti jednostavni **script task** koji će izvršiti skriptu unutar samog procesnog enginea.
+
+Ne koristi li se servisni zadatak za to? Da, ali u kontekstu procesnog aplikacija na Camunda 8 platformi, servisni zadaci se interpretiraju kao vanjski servisi koji rade određene poslove izvan procesnog enginea. Budući da nemamo vanjski servis za izračun popusta, koristit varijantu _script taska_ koji omogućuje izvršavanje skripti unutar procesa.
+
+**Script task** omogućuje sinkrono izvršavanje koda unutar procesnog enginea bez potrebe za vanjskim servisom. Ovo je korisno za jednostavne zadatke poput jednostavnih izračuna ili manipulacije podacima. Za sve ozbiljnije zadatke, preporučuje se korištenje servisnih zadataka s vanjskim job workerima.
+
+<img src="./screenshots/webshop-app/service_task.png" style="width:30%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 38. Zamjena servisnog zadatka "Izračun popusta od 10%" sa _skriptnim taskom_ unutar Camunda Modelera.
+
+Izmjenite postavke _Implementation_ u _Properties Panelu_ za odabrani _script task_ u `FEEL Expression`.
+
+Nakon toga, definirajte naziv **rezultantne procesne varijable**, npr. `orderTotal_w_discount` te unesite sljedeći FEEL izraz za izračun popusta:
+
+```
+orderTotal * 0.9
+```
+
+- vrijednost procesne varijable `orderTotal` se množi s 0.9 kako bi se izračunala nova vrijednost s popustom od 10%
+
+<img src="./screenshots/webshop-app/script_element_expression.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 39. Konfiguracija _script taska_ s FEEL izrazom za izračun popusta unutar Camunda Modelera.
+
+Spremite sve promjene i deployajte nadograđeni BPMN model na Camunda platformu. Nakon toga, pokrenite novu procesnu instancu s početnim procesnim varijablama putem Postmana. **Pazite da odaberete točnu verziju procesne definicije**.
+
+Početno stanje u Operate aplikaciji: čekanje na potvrdu narudžbe. Dakle, prebacujemo se u Tasklist aplikaciju.
+
+<img src="./screenshots/webshop-app/v6_01.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 40. Procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s tokenom na korisničkom zadatku "Potvrda narudžbe" nakon nadogradnje BPMN modela.
+
+Ako otvorite zadatak "Potvrda narudžbe" u Tasklist aplikaciji, vidjet ćete da je tablica ispunjena podacima iz procesnih varijabli kao što smo definirali u formi FEEL izrazom.
+
+<img src="./screenshots/webshop-app/v6_02.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 41. Pregled zadatka "Potvrda narudžbe" u Camunda Tasklist aplikaciji s ispunjenom tablicom podacima iz procesnih varijabli.
+
+Potvrđujemo narudžbu i odmah prelazimo na zadatak "Odobravanje popusta". Ovdje ćemo označiti _checkbox_ za odobravanje popusta i kompletirati zadatak.
+
+Nakon odobravanja popusta, _script task_ će automatski izračunati novu vrijednost procesne varijable `orderTotal_w_discount`, umanjenu za 10% u odnosu na početnu vrijednost `orderTotal`.
+
+Gotovi smo! Vratimo se u Operate aplikaciju i osvježimo karticu "Processes". Proces ćete pronaći pod filterom **Finished Instances**: `Completed`. Odaberite instancu i pregledajte je li se uspješno izračunala vrijednost procesne varijable `orderTotal_w_discount`.
+
+<img src="./screenshots/webshop-app/v6_03.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+
+> Slika 42. Završena procesna instanca "webshop-order-process" u Camunda Operate aplikaciji s izmijenjenom vrijednošću procesne varijable `orderTotal_w_discount` nakon odobrenja popusta.
+
+# Samostalni zadatak za vježbu 6
+
+Modelirajte jednostavni proces prijave studentske prakse na Fakultetu informatike u Puli. Postoje 3 sudionika u procesu prakse:
+
+1. **Student**
+2. **Poslodavac**
+3. **Profesor**
+
+Proces započinje kod studenta odabirom zadatka za praksu. Student ispunjava web formu gdje unosi svoje ime, prezime, JMBAG i šifru zadatka (izmislite podatke).
+
+Sljedeći korak je odobravanje prakse od strane profesora. Profesor pregledava podatke studenta i šifru zadatka u web sučelju, a nakon toga odobrava ili odbija prijavu. Ako prijava nije prihvaćena, proces se vraća na studenta i njegovu aktivnost ispunjavanja web forme. Ako profesor prihvati prijavu, proces se nastavlja kod poslodavca. Poslodavac provodi intervju sa studentom, a nakon toga odlučuje hoće li ga prihvatiti ili odbiti. Ako ga odbije, proces se ponovno vraća na studenta i njegov unos podataka. Ako ga prihvati, proces ide prema studentu koji sad mora unijeti kratak opis zadatka, datum izvođenja prakse te ime i prezime mentora koji mu je dodijeljen te istovremeno prema profesoru kojeg se samo obavještava. Nakon izvršavanja tih paralelnih aktivnosti, proces se završava.
+
+Nakon što ste modelirali proces, implementirajte procesnu aplikaciju u **Camundi 8**:
+
+- Dodajte definirane korisničke aktivnosti i korespondirajuće forme
+- Definirajte procesne varijable i njihove vrijednosti
+- Definirajte skretnice i uvjete na izlaznim tokovima
+- Obavještavanje sudionika procesa ne implementirate
+
+**Predajete zip datoteku koja sadrži sve potrebne datoteke procesne aplikacije.**

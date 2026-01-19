@@ -11,6 +11,35 @@
       "properties": {}
     },
     {
+      "type": "table",
+      "layout": {
+        "row": "Row_1xjukja",
+        "columns": null
+      },
+      "label": "Pristigla narudžba",
+      "rowCount": 10,
+      "columns": [
+        {
+          "label": "Customer name",
+          "key": "customer_name_form"
+        },
+        {
+          "label": "Order ID",
+          "key": "order_id_form"
+        },
+        {
+          "label": "Order Total",
+          "key": "order_total_form"
+        },
+        {
+          "label": "Items",
+          "key": "items_forms"
+        }
+      ],
+      "id": "Field_1r8g680",
+      "dataSource": "=[\n  {\n    customer_name_form: customerName,\n    order_id_form: orderId,\n    order_total_form: orderTotal,\n    items_forms: string join(items, \", \")\n  }\n]\n"
+    },
+    {
       "label": "Potvrđujem ispravnost narudžbe",
       "type": "checkbox",
       "layout": {

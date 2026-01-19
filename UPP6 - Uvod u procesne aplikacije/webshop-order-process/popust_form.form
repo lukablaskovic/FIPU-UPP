@@ -1,0 +1,33 @@
+{
+  "components": [
+    {
+      "type": "image",
+      "layout": {
+        "row": "Row_0u732md",
+        "columns": 5
+      },
+      "id": "Field_0fmup9s",
+      "source": "https://img.freepik.com/premium-photo/3d-ten-percent-discount-10-discount-10-sale_118019-5970.jpg"
+    },
+    {
+      "label": "Odobravate li popust od 10%?",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_0u732md",
+        "columns": null
+      },
+      "id": "Field_06q0vqx",
+      "key": "popust_odobren",
+      "description": "Ako odaberete ovu opciju, kupcu će biti odobren popust od 10% na cijelu narudžbu."
+    }
+  ],
+  "type": "default",
+  "id": "popust_form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.39.0"
+  },
+  "schemaVersion": 19
+}
