@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1k45mmo" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="5.39.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.7.0">
+  <decision id="Decision_popust" name="Izračunavanje popusta">
+    <decisionTable id="DecisionTable_17k30qy">
+      <input id="Input_1" label="Vrijednost narudžbe">
+        <inputExpression id="InputExpression_1" typeRef="number">
+          <text>order_totalAmount</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Ukupni popust (%)" name="popust_multiplier" typeRef="number" />
+      <rule id="DecisionRule_0h14l40">
+        <description>Ako je vrijednost narudžbe &lt;= 500$, nema popusta</description>
+        <inputEntry id="UnaryTests_03au8p3">
+          <text>&lt;=500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1amcusy">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kr4tno">
+        <description>Ako je vrijednost narudžbe u rasponu 501 - 1500$, popust je 10%</description>
+        <inputEntry id="UnaryTests_0lr3mwh">
+          <text>[501..1500]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_018lvox">
+          <text>0.10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1iu7kbt">
+        <description>Ako je vrijednost narudžbe veća od 1500$, popust je 15%</description>
+        <inputEntry id="UnaryTests_0w7nn8f">
+          <text>&gt;1500</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_126g82r">
+          <text>0.15</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_popust">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

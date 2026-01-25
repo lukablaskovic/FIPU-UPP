@@ -35,7 +35,7 @@ Takav način razvoja donosi niz prednosti: bolju usklađenost softvera s poslovn
   - [3.4 XOR grananje procesa na temelju procesnih varijabli](#34-xor-grananje-procesa-na-temelju-procesnih-varijabli)
   - [3.5 Kako još pokrenuti procesne instance?](#35-kako-još-pokrenuti-procesne-instance)
   - [3.6 Izmjena vrijednosti procesnih varijabli tijekom izvođenja procesa](#36-izmjena-vrijednosti-procesnih-varijabli-tijekom-izvođenja-procesa)
-- [Zadaci za vježbu 6](#zadaci-za-vježbu-6)
+- [Zadaci za Vježbu 6](#zadaci-za-vježbu-6)
 
 <div style="page-break-after: always; break-after: page;"></div>
 
@@ -1216,7 +1216,7 @@ Kako se snalaziti u izraditi Camunda 8 procesnih aplikacija?
 - Pomognite si generirati složenije koristeći genAI te ih testirajte poput [FEEL Playground](https://camunda.github.io/feel-scala/docs/playground/) alata.
 - Definirajte si osnovno okruženje u Postmanu kako biste mogli brže testirati svoje procese putem REST API-ja
 
-# Zadaci za vježbu 6
+# Zadaci za Vježbu 6
 
 Modelirajte jednostavni proces prijave studentske prakse na Fakultetu informatike u Puli. Postoje 3 sudionika u procesu prakse (modelirajte 1 polje i 3 staze):
 

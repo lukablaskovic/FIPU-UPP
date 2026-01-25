@@ -1,0 +1,80 @@
+{
+  "components": [
+    {
+      "text": "# Potvrda pristigle narudžbe",
+      "type": "text",
+      "layout": {
+        "row": "Row_0r1nkzc",
+        "columns": 13
+      },
+      "id": "Field_0plkhcd",
+      "properties": {}
+    },
+    {
+      "type": "table",
+      "layout": {
+        "row": "Row_1xjukja",
+        "columns": null
+      },
+      "label": "Podaci o kupcu",
+      "dataSource": "=[\n  {\nkupac_table_imeprezime: customerName,\n    kupac_table_email: customerEmail\n  }\n]",
+      "rowCount": 10,
+      "id": "Field_1r8g680",
+      "columns": [
+        {
+          "label": "Customer name",
+          "key": "kupac_table_imeprezime"
+        },
+        {
+          "label": "Customer email",
+          "key": "kupac_table_email"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "layout": {
+        "row": "Row_02we77m",
+        "columns": null
+      },
+      "label": "Stavke narudžbe",
+      "rowCount": 10,
+      "columns": [
+        {
+          "label": "Naziv stavke",
+          "key": "stavke_table_naziv"
+        },
+        {
+          "key": "stavke_table_jed_cijena",
+          "label": "Jedinična cijena"
+        },
+        {
+          "label": "Naručena količina",
+          "key": "stavke_table_kolicina"
+        }
+      ],
+      "id": "Field_1g0gnmb",
+      "dataSource": "=for item in items\nreturn {\n  stavke_table_naziv: item.name,\nstavke_table_kolicina: item.quantity,\nstavke_table_jed_cijena: item.price\n}\n"
+    },
+    {
+      "label": "Potvrđujem ispravnost narudžbe",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_18m7ndw",
+        "columns": null
+      },
+      "id": "Field_11m817k",
+      "key": "checkbox_potvrda_narudzbe",
+      "description": "Molimo vas da odaberete opciju iznad ako ste pregledali pristiglu narudžbu i potvrđujete ju za daljnju obradu."
+    }
+  ],
+  "type": "default",
+  "id": "order-confirmation-form",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.39.0"
+  },
+  "schemaVersion": 19
+}
