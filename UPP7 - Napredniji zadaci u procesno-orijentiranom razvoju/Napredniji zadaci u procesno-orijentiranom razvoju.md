@@ -10,7 +10,7 @@
 # (7) Napredniji zadaci u procesno-orijentiranom razvoju
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_6.png?raw=true" style="width:9%; border-radius: 8px; float:right;]"></img>
-U ovoj skripti prolazimo kroz servisne i otpremne zadatke, događaje, potprocese te DMN u procesno-orijentiranom razvoju poslovnih aplikacija. Dosad smo ove koncepte razmatrali u kontekstu modeliranja poslovnih procesa, a u nastavku ih povezujemo s praktičnom izgradnjom procesno orijentiranih poslovnih aplikacija koristeći Camunda 8 BPM platformu. Pritom nastavljamo razvoj procesne aplikacije za upravljanje narudžbama u trgovini na način da ćemo implementirati servisni zadatak koji će putem REST API-ja komunicirati s našim Express.js poslužiteljem za upravljanje narudžbama, kao i otpremni zadatak koji će slati email obavijesti korisnicima. Također, vidjet ćemo kako koristiti događaje i potprocese za modeliranje složenijih procesa te kako integrirati DMN odluke u procesnu aplikaciju kroz <i>Business rule taskove</i>.
+U ovoj skripti prolazimo kroz servisne i otpremne zadatke, događaje, potprocese te DMN u procesno-orijentiranom razvoju poslovnih aplikacija. Dosad smo ove koncepte razmatrali u kontekstu modeliranja poslovnih procesa, a u nastavku ih povezujemo s praktičnom izgradnjom procesno-orijentiranih poslovnih aplikacija koristeći Camunda 8 BPM platformu. Pritom nastavljamo razvoj procesne aplikacije za upravljanje narudžbama u trgovini na način da ćemo implementirati servisni zadatak koji će putem REST API-ja komunicirati s našim Express.js poslužiteljem za upravljanje narudžbama, kao i otpremni zadatak koji će slati email obavijesti korisnicima. Također, vidjet ćemo kako koristiti događaje i potprocese za modeliranje složenijih procesa te kako integrirati DMN odluke u procesnu aplikaciju kroz <i>Business rule taskove</i>.
 
 <div style="float: clear; margin-right:5px;">
 
@@ -27,7 +27,7 @@ U ovoj skripti prolazimo kroz servisne i otpremne zadatke, događaje, potprocese
 - [1. Servisni zadaci u procesnoj aplikaciji](#1-servisni-zadaci-u-procesnoj-aplikaciji)
   - [1.1 Priprema Express.js REST API poslužitelja](#11-priprema-expressjs-rest-api-poslužitelja)
     - [Izmjena "order-confirmation" forme](#izmjena-order-confirmation-forme)
-  - [1.2 Implementacija REST Outbound Connetora za servisne zadatke](#12-implementacija-rest-outbound-connetora-za-servisne-zadatke)
+  - [1.2 Implementacija REST Outbound Connectora za servisne zadatke](#12-implementacija-rest-outbound-connectora-za-servisne-zadatke)
     - [Ručno rješavanje incidenata u Camunda Operate aplikaciji](#ručno-rješavanje-incidenata-u-camunda-operate-aplikaciji)
     - [Sprječavanje incidenta _error boundary_ događajem](#sprječavanje-incidenta-error-boundary-događajem)
 - [2. Otpremni zadaci u procesnoj aplikaciji](#2-otpremni-zadaci-u-procesnoj-aplikaciji)
@@ -56,9 +56,9 @@ Osim toga, Zeebe _engine_ podržava i ponašanje kao HTTP klijent, što znači d
 
 Obzirom da se mi na kolegiju web aplikacije bavimo izradom Node.js poslužitelja koji komuniciraju putem HTTP protokola, nastojat ćemo povezati gradivo iz ovog poglavlja s našim dosadašnjim znanjem o izradi REST API poslužitelja u Node.js okruženju na način da implementiramo servisne zadatke koji će putem procesnog _enginea_ slati HTTP zahtjeve prema našem postojećem Express.js poslužitelju za upravljanje narudžbama.
 
-Na ovaj način, mi ustvari povezujemo dva koncepta koja smo na prošlim vježbama suprodstavili:
+Na ovaj način, mi ustvari povezujemo dva koncepta koja smo na prošlim vježbama suprotstavili:
 
-1. **Procesno orijentirani razvoj** poslovnih aplikacija (BPM) koristeći Camunda 8 platformu
+1. **Procesno-orijentirani razvoj** poslovnih aplikacija (BPM) koristeći Camunda 8 platformu
 2. **Klasični backend razvoj** - REST API poslužitelj koristeći Node.js i Express.js framework.
 
 Međutim, **poslovnu logiku naše aplikacije sada nastojimo odvojiti u procesnu aplikaciju**, dok **podatkovni sloj postaje Express.js REST API poslužitelj**.
@@ -71,7 +71,7 @@ Implementirat ćemo jednostavan Express.js poslužitelj koji će obraditi dolazn
 
 Pozivanje ovih funkcija će se vršiti putem servisnog zadataka "Obrada narudžbe" koji će slati HTTP POST zahtjev prema našem Express.js poslužitelju koristeći REST Outbound Connector.
 
-Otvorite Camunda Modeler i sve komponente procesne aplikacije koje smo izradili na prethodnim vježbama. Nakon uspješne potvrde narudžbe, dodajte novi servisni zadatak naziva "Obrada narudžbe" koji će izvršiti spomenute operacije nad podacima narudžbe iz procesne instnace.
+Otvorite Camunda Modeler i sve komponente procesne aplikacije koje smo izradili na prethodnim vježbama. Nakon uspješne potvrde narudžbe, dodajte novi servisni zadatak naziva "Obrada narudžbe" koji će izvršiti spomenute operacije nad podacima narudžbe iz procesne instance.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/obrda_narudzbe_service.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -79,7 +79,7 @@ Otvorite Camunda Modeler i sve komponente procesne aplikacije koje smo izradili 
 
 Prije nego što konfiguriramo [REST Outbound Connector](https://docs.camunda.io/docs/components/connectors/protocol/rest/), implementirat ćemo jednostavni Express.js poslužitelj koji će obrađivati dolazne narudžbe.
 
-Initializirajte novi Node.js projekt za naš Express.js poslužitelj i biblioteku za validaciju podataka `express-validator`:
+Inicijalizirajte novi Node.js projekt za naš Express.js poslužitelj i biblioteku za validaciju podataka `express-validator`:
 
 ```bash
 mkdir order-management-api
@@ -234,7 +234,7 @@ Otvorite Camunda Tasklist i provjerite ispravnost prikaza podataka o kupcu i sta
 
 > Slika 5. Prikaz forme za potvrdu narudžbe s podacima o kupcu i stavkama narudžbe u Camunda Tasklist aplikaciji.
 
-## 1.2 Implementacija REST Outbound Connetora za servisne zadatke
+## 1.2 Implementacija REST Outbound Connectora za servisne zadatke
 
 Sljedeći korak je implementacija **REST Outbound Connectora** u servisnom zadatku "Obrada narudžbe" kako bismo poslali HTTP POST zahtjev prema našem Express.js poslužitelju.
 
@@ -246,7 +246,7 @@ U postavkama odaberite `Template -> Select`, a potom u izborniku pretražite poj
 
 > Slika 6. Odabir REST Outbound Connectora u postavkama servisnog zadatka.
 
-Primjetit će se da je BPMN servisni zadatak promijenio ikonu kako bi označio da koristi REST Outbound Connector. **Mi i dalje koristimo servisni zadatak**, samo je njegova implementacija sada definirana putem REST Outbound Connectora pa je to naznačeno i ikonografijom.
+Primijetit ćete da je BPMN servisni zadatak promijenio ikonu kako bi označio da koristi REST Outbound Connector. **Mi i dalje koristimo servisni zadatak**, samo je njegova implementacija sada definirana putem REST Outbound Connectora pa je to naznačeno i ikonografijom.
 
 **REST Outbound Connector** predstavlja gotovu konfiguraciju servisnog zadatka koja nam omogućava slanje HTTP zahtjeva prema vanjskim sustavima ili API-jima bez potrebe za dodatnim kodiranjem.
 
@@ -259,7 +259,7 @@ Ako otvorite postavke, vidjet ćete uobičajene parametre za konfiguraciju REST 
 
 Osim toga, vidimo i **Error handling** te **Output mapping** sekcije koje možemo koristiti za rukovanje greškama i mapiranje odgovora iz REST API-ja na procesne varijable, slično kao što smo radili sa _script taskom_ na prošlim vježbama.
 
-Kako bismo poslali `POST /orders` zahtjev prema našem Express.js poslužitelju, konfigurirajmo sljedeće parametre:
+Kako bismo poslali `POST /orders` zahtjev prema našem Express.js poslužitelju, konfiguriramo sljedeće parametre:
 
 - **Authorization**: None
 - **HTTP endpoint**:
@@ -281,7 +281,7 @@ Kako bismo poslali `POST /orders` zahtjev prema našem Express.js poslužitelju,
 
 - možemo odabrati i `Ignore null values` _checkbox_ kako bismo izbjegli slanje atributa s `null` vrijednostima (iako u našem slučaju to nije potrebno jer su sve varijable definirane).
 
-> To je to! Deployajte procesnu definiciju i započnite novu instancu procesa kako biste testirali ispravnost konfiguracije.
+> To je to! _Deployajte_ procesnu definiciju i započnite novu instancu procesa kako biste testirali ispravnost konfiguracije.
 
 Nakon što potvrdite narudžbu u Camunda Tasklist aplikaciji, servisni zadatak "Obrada narudžbe" će se izvršiti i poslati HTTP POST zahtjev prema našem Express.js poslužitelju. Isto možete provjeriti u konzoli gdje je pokrenut Express.js poslužitelj:
 
@@ -346,7 +346,7 @@ Pošaljite jedan takav zahtjev i pogledajte što će se dogoditi u Camunda Opera
 
 Dobit ćemo grešku odnosno **Incident** tijekom izvođenja naše procesne instance. Ovo se događa zato što nismo implementirali nikakvo rukovanje greškama u slučaju da naš Express.js poslužitelj vrati HTTP statusni kod `400` (Bad Request) ili neki drugi kod koji označava grešku. Samim time, **procesna instanca ovdje ne može nastaviti dalje** jer servisni zadatak nije uspio izvršiti svoju funkciju.
 
-> Zamislite sljedeću poslovnu situaciju. Nakon što djelatnik trgovine potvrdi narudžbu, dođe do greške prilikom obrade narudžbe na poslužitelju, ali ovaj put dođe do greške koju djelatnik ne može riješiti (npr. zbog nedostupnosti baze podataka ili nekog drugog tehničkog problema). Tada bi poslužitelj trebao rezultirati statusnim kodom `500` (Internal Server Error), a procesna instanca bi trebala biti pauzirana dok se greška ne riješi. Jedna od velikih prednosti procesno-orijentiranog razvoja je što poslužitelj (Camunda 8 _engine_) pamti stanje procesa, samim time djelatnik trgovine može **ponišititi instancu**, **ponovno je pokrenuti** (_eng. retry_) ili pak **preusmjeriti _token_ na neku drugu aktivnost**. Naravno, najbolja situacija bi bila kada nikad ne bi došlo do greške, ili kada bi _flow_ automatski preusmjerio, ali u stvarnom svijetu to nije uvijek moguće, a i **vrlo je teško predvidjeti sve moguće scenarije dok se ne dogode**.
+> Zamislite sljedeću poslovnu situaciju. Nakon što djelatnik trgovine potvrdi narudžbu, dođe do greške prilikom obrade narudžbe na poslužitelju, ali ovaj put dođe do greške koju djelatnik ne može riješiti (npr. zbog nedostupnosti baze podataka ili nekog drugog tehničkog problema). Tada bi poslužitelj trebao rezultirati statusnim kodom `500` (Internal Server Error), a procesna instanca bi trebala biti pauzirana dok se greška ne riješi. Jedna od velikih prednosti procesno-orijentiranog razvoja je što poslužitelj (Camunda 8 _engine_) pamti stanje procesa, samim time djelatnik trgovine može **poništiti instancu**, **ponovno je pokrenuti** (_eng. retry_) ili pak **preusmjeriti _token_ na neku drugu aktivnost**. Naravno, najbolja situacija bi bila kada nikad ne bi došlo do greške, ili kada bi _flow_ automatski preusmjerio, ali u stvarnom svijetu to nije uvijek moguće, a i **vrlo je teško predvidjeti sve moguće scenarije dok se ne dogode**.
 
 Ne moramo ništa implementirati, već direktno incident možemo riješiti kroz Camunda Operate aplikaciju.
 
@@ -425,7 +425,7 @@ Više o event handlingu za servisne zadatke možete pročitati [ovdje](https://d
 
 Otpremni zadaci (_eng. send tasks_) su specijalizirani tip servisnih zadataka koji se koriste za slanje poruka ili obavijesti iz procesne aplikacije prema vanjskim sustavima ili korisnicima. U kontekstu naše procesne aplikacije za upravljanje narudžbama, **implementirat ćemo otpremni zadatak koji će slati email obavijesti korisnicima nakon što je njihova narudžba obrađena i spremna za isporuku**.
 
-Kao i kod servisnih zadataka, možemo koristiti Camunda 8 SDK za Node.js za implementaciju otpremnih zadataka, koristiti gotove predloške te spojiti se na vanjske email servise poput Sendgrida, slanje obavijesti na Slack kanal, slanjem poruke na RabbitMQ, Microsoft Teams, itd. Mogućnosti su neograničene.
+Kao i kod servisnih zadataka, možemo koristiti Camunda 8 SDK za Node.js za implementaciju otpremnih zadataka, koristiti gotove predloške te spojiti se na vanjske email servise poput _Sendgrida_, slanje obavijesti na _Slack_ kanal, slanjem poruke na _RabbitMQ_, _Microsoft Teams_, itd. Mogućnosti su neograničene.
 
 Kako nemamo [SMTP server](https://aws.amazon.com/what-is/smtp/) (_eng. Simple Mail Transfer Protocol_) za slanje emailova, iskoristit ćemo popularni Node.js paket **Email.js** koji omogućava slanje emailova putem različitih email servisa (Gmail, Outlook, Yahoo, itd.) bez potrebe za vlastitim SMTP serverom.
 
@@ -455,7 +455,7 @@ Odaberite `Add New Service` i slijedite upute za autorizaciju vašeg email raču
 
 > Slika 15. Odabir Gmail servisa u Email.js sučelju.
 
-> Ovo nije najbolje produkcijsko rješenje - u pravilu želite izbjegavati korištenje osobnih email računa za slanje emailova iz poslovnih aplikacija. Bolje je koristiti namjenske email servise poput Sendgrid, Mailgun, Amazon SES, itd. koji su dizajnirani za slanje velikog broja emailova i imaju bolje performanse i pouzdanost. Ipak, za male aplikacije ili potrebe testiranja i učenja, korištenje osobnog email računa je u redu.
+> Ovo nije najbolje produkcijsko rješenje - u pravilu želite izbjegavati korištenje osobnih email računa za slanje emailova iz poslovnih aplikacija. Bolje je koristiti namjenske email servise poput _Sendgrid_, _Mailgun_, _Amazon SES_, itd. koji su dizajnirani za slanje velikog broja emailova i imaju bolje performanse i pouzdanost. Ipak, za male aplikacije ili potrebe testiranja i učenja, korištenje osobnog email računa je u redu.
 
 Odaberite `Connect account` i autorizirajte vaš email račun. Pripazite da **omogućite Email.js aplikaciji slanje emailova** u vaše ime prilikom autorizacije. Nakon vježbe, ovo možete jednostavno opozvati brisanjem servisa u Email.js sučelju.
 
@@ -489,8 +489,8 @@ U Email.js, _placeholderi_ za varijable definiraju se dvostrukim vitičastim zag
 
 Napravit ćemo sljedeće izmjene u predlošku:
 
-1. Promijeniti ćemo sliku u zaglavlju na neku prikladniju - stavit ćemo logotip našeg Fakulteta/Sveučilišta.
-2. Promijeniti ćemo `From Name` varijablu (desno) - stavit ćemo `UPP Procesna aplikacija`.
+1. Promijenit ćemo sliku u zaglavlju na neku prikladniju - stavit ćemo logotip našeg Fakulteta/Sveučilišta.
+2. Promijenit ćemo `From Name` varijablu (desno) - stavit ćemo `UPP Procesna aplikacija`.
 3. Otvorite HTML kod predloška i pronađite početak i kraj `orders` sekcije. Zamijenit ćemo taj dio varijablom `orders_html` koja će se generirati na poslužitelju kao HTML tablica s podacima o stavkama narudžbe.
 
 Isječak iz predloška koji treba zamijeniti:
@@ -703,7 +703,7 @@ Možete staviti svoj vlastiti email kako biste testirali i na taj način sami se
 
 Sada kada imamo funkcionalan endpoint za slanje email obavijesti, možemo implementirati otpremni zadatak u našoj procesnoj aplikaciji koristeći REST Outbound Connector.
 
-Odabrati ćemo **REST Outbound Connector** kao implementaciju otpremnog zadatka "Obavještavanje korisnika o potvrdi narudžbe". Navedeno možemo implementirati na isti način kao i servisni zadatak u prethodnoj sekciji.
+Odabrat ćemo **REST Outbound Connector** kao implementaciju otpremnog zadatka "Obavještavanje korisnika o potvrdi narudžbe". Navedeno možemo implementirati na isti način kao i servisni zadatak u prethodnoj sekciji.
 
 Konfigurirajmo sljedeće parametre:
 
@@ -735,7 +735,7 @@ Također, **pripazite da koristite ispravne nazive ključeva** koji se očekuje 
 
 > Slika 21. Postavke _Send Taska_ s REST Outbound Connectorom za slanje email obavijesti putem Express.js poslužitelja.
 
-> Deployajte procesnu definiciju i započnite novu instancu procesa kako biste testirali ispravnost konfiguracije otpremnog zadatka.
+> _Deployajte_ procesnu definiciju i započnite novu instancu procesa kako biste testirali ispravnost konfiguracije otpremnog zadatka.
 
 Ako ste sve napravili ispravno, nakon što potvrdite narudžbu u Camunda Tasklist aplikaciji, servisni zadatak "Obrada narudžbe" će se izvršiti, a potom i otpremni zadatak "Obavještavanje korisnika o potvrdi narudžbe" koji će poslati email obavijest korisniku. **Sve možete pratiti i u konzoli gdje je pokrenut Express.js poslužitelj**.
 
@@ -753,7 +753,7 @@ Također, možemo koristiti **događaje** (_eng. events_) poput _timer eventa_ z
 
 > Pokazat ćemo osnovne stvari, međutim ako vas zanimaju detalji znate gdje možete pronaći više informacija - [Camunda 8 dokumentacija](https://docs.camunda.io/docs/components/).
 
-Primjerice, možemo dodati apstrakno polje "Klijent" i pokazati informacijske tokove izmđu naše procesne aplikacije i klijenta kao nekog vanjskog entiteta. Mi nećemo izrađivati procesnu aplikaciju za klijenta (nema puno smisla - to bi bila obična web aplikacija za naručivanje proizvoda), ali ćemo pokazati kako bi to izgledalo na BPMN dijagramu radi boljeg razumijevanja modeliranog procesa.
+Primjerice, možemo **dodati apstraktno polje** "Klijent" i pokazati informacijske tokove između naše procesne aplikacije i klijenta kao nekog vanjskog entiteta. Mi nećemo izrađivati procesnu aplikaciju za klijenta (nema puno smisla - to bi bila obična web aplikacija za naručivanje proizvoda), ali ćemo pokazati kako bi to izgledalo na BPMN dijagramu radi boljeg razumijevanja modeliranog procesa.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/webshop-order-process_w_abstract_pool.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -778,7 +778,7 @@ Samo ćemo simulirati aktivnosti unutar potprocesa koristeći ručne zadatke i _
 Potproces dodajemo u glavni proces nakon ručnog zadatka "Predaja narudžbe dostavnoj službi". Unutar potprocesa imamo sljedeći događaja i aktivnosti:
 
 - "Pickup proizvoda" (_start event_)
-- "15 sekundi" (_intermediate timer event_) - simulira vrijeme potrebno za preuzimanje proizvoda od strane dostavne službe
+- "15 sekundi" (_intermediate timer event_) - simulira vrijeme potrebno za preuzimanje proizvoda od dostavne službe
 - "Dostava proizvoda u sortirnicu" (ručni zadatak)
 - "30 sekundi" (_intermediate timer event_) - simulira vrijeme potrebno za dostavu proizvoda u sortirnicu
 - "Sortiranje proizvoda" (ručni zadatak)
@@ -799,7 +799,7 @@ Više o vremenskim formatima možete pronaći [ovdje](https://docs.camunda.io/do
 
 > To je to! Možete _deployati_ procesnu definiciju i isprobati kako će se potproces ponašati unutar glavnog procesa u Camunda Operate aplikaciji.
 
-I prije nego pokrenete instancu, unutar Camunda Operate aplikacije vidjet plavu strelicu pored potprocesa koja označava da je to potproces. Možete ju stisnuti i otvorit će vam ugniježđeni prikaz potprocesa.
+I prije nego pokrenete instancu, unutar Camunda Operate aplikacije vidjet ćete plavu strelicu pored potprocesa koja označava da je to potproces. Možete ju stisnuti i otvorit će vam ugniježđeni prikaz potprocesa.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/potproces_definition.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
@@ -819,7 +819,7 @@ Umjesto fiksnog iznosa popusta od 10% na cijelu narudžbu, koju djelatnik može 
 
 Izradite novu DMN tablicu odluka naziva `izracunavanje_popusta.dmn` i pohranite ju u direktorij poslovne aplikacije.
 
-Tablicai ima jedan ulazni uvjet: **Vrijednost narudžbe** (`number`) i jedan izlazni rezultat: **Popust (%)** (`number`).
+Tablica ima jedan ulazni uvjet: **Vrijednost narudžbe** (`number`) i jedan izlazni rezultat: **Popust (%)** (`number`).
 
 Odaberite **_unique hit policy_** za tablicu i definirajte sljedeća poslovna pravila:
 
