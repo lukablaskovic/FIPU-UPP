@@ -50,7 +50,7 @@ Osim toga, Zeebe _engine_ podržava i ponašanje kao HTTP klijent, što znači d
 
 > [gRPC](https://grpc.io/) (eng. gRPC Remote Procedure Calls) je open-source [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) (eng. Remote Procedure Call) razvojni okvir koji za serijalizaciju podataka koristi Protocol Buffers ([Protobuf](https://protobuf.dev/)), a za prijenos podataka protokol HTTP/2. Omogućuje učinkovitu i skalabilnu komunikaciju između raspodijeljenih sustava te podržava rad u različitim programskim jezicima i na različitim platformama.
 
-<img src="./screenshots/zeebe_architecture.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/zeebe_architecture.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 1. Arhitektura Camunda 8 Zeebe procesnog _enginea_ (izvor: [Camunda Documentation](https://docs.camunda.io/docs/components/zeebe/technical-concepts/architecture/))
 
@@ -73,7 +73,7 @@ Pozivanje ovih funkcija će se vršiti putem servisnog zadataka "Obrada narudžb
 
 Otvorite Camunda Modeler i sve komponente procesne aplikacije koje smo izradili na prethodnim vježbama. Nakon uspješne potvrde narudžbe, dodajte novi servisni zadatak naziva "Obrada narudžbe" koji će izvršiti spomenute operacije nad podacima narudžbe iz procesne instnace.
 
-<img src="./screenshots/obrda_narudzbe_service.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/obrda_narudzbe_service.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 2. Servisni zadatak "Obrada narudžbe" dodajemo nakon "da" slijeda iz skretnica "Narudžba potvrđena?".
 
@@ -214,13 +214,13 @@ Za upis podataka u **1. tablici**, pišemo sljedeći FEEL izraz:
 - gdje su `kupac_table_imeprezime` i `kupac_table_email` **nazivi stupaca** u tablici za prikaz podataka o kupcu.
 - `customerName` i `customerEmail` su nazivi **procesnih varijabli** koje sadrže podatke o kupcu.
 
-<img src="./screenshots/potvrda_narudzbe_form_kupac.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/potvrda_narudzbe_form_kupac.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 3. Prikaz podataka o kupcu u formi za potvrdu narudžbe.
 
 Dodajemo i **2. tablicu** za prikaz stavki narudžbe s FEEL izrazom. Možemo koristiti petlju `for item in items` kako bismo iterirali kroz sve stavke narudžbe iz procesne varijable `items`:
 
-<img src="./screenshots/obrada_narudzbe_form_stavke.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/obrada_narudzbe_form_stavke.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 4. Prikaz stavki narudžbe u formi za potvrdu narudžbe.
 
@@ -230,7 +230,7 @@ Kako biste izbjegli grešku sa servisnim zadatkom "Obrada narudžbe" (koji još 
 
 Otvorite Camunda Tasklist i provjerite ispravnost prikaza podataka o kupcu i stavkama narudžbe u formi:
 
-<img src="./screenshots/tasklist_potvrda_pristigle_narudzbe.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/tasklist_potvrda_pristigle_narudzbe.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 5. Prikaz forme za potvrdu narudžbe s podacima o kupcu i stavkama narudžbe u Camunda Tasklist aplikaciji.
 
@@ -242,7 +242,7 @@ Vratite se u Camunda Modeler i otvorite postavke servisnog zadatka "Obrada narud
 
 U postavkama odaberite `Template -> Select`, a potom u izborniku pretražite pojam "rest" te odaberite **REST Outbound Connector**.
 
-<img src="./screenshots/odabir_rest_outbound_connector.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/odabir_rest_outbound_connector.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 6. Odabir REST Outbound Connectora u postavkama servisnog zadatka.
 
@@ -330,7 +330,7 @@ Pohranit ćemo samo dodatne podatke o narudžbi koje je generirao naš poslužit
 
 > _Deployajte_ procesnu definiciju i započnite novu instancu procesa kako biste testirali ispravnost konfiguracije s mapiranjem izlaznih podataka.
 
-<img src="./screenshots/mapirani_podaci_iz_tijela_odgovora.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/mapirani_podaci_iz_tijela_odgovora.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 7. Unutar Camunda Operate aplikacije možemo vidjeti mapirane podatke iz HTTP odgovora pohranjene u procesne varijable nakon izvršenja servisnog zadatka "Obrada narudžbe".
 
@@ -338,7 +338,7 @@ Ako pošaljemo neispravne podatke (npr. izostavimo email adresu kupca), naš Exp
 
 Pošaljite jedan takav zahtjev i pogledajte što će se dogoditi u Camunda Operate aplikaciji.
 
-<img src="./screenshots/bad_request_no_handle.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/bad_request_no_handle.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 8. U slučaju greške (npr. nedostaje email adresa kupca), servisni zadatak "Obrada narudžbe" će pasti s greškom jer nismo implementirali rukovanje greškama.
 
@@ -356,17 +356,17 @@ Kada dođe do incidenta, u gornjem desnom kutu imate 3 opcije za ručno upravlja
 - **Cancel instance**: poništavanje instance (prekida se daljnje izvršavanje procesa)
 - **Modify instance**: nudi niz mogućnosti, uključujući preusmjeravanje toka procesa na drugu aktivnost, dodavanje ili izmjenu procesnih varijabli, itd.
 
-<img src="./screenshots/handling_incident.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/handling_incident.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 9. Opcije za upravljanje incidentom u Camunda Operate aplikaciji.
 
 Ako odaberemo **Modify instance**, možemo preusmjeriti tok procesa na neku drugu aktivnost. Primjerice, pokušajmo preusmjeriti tok na zadatak "Potvrda narudžbe" kako bismo "lopticu" prebacili natrag djelatniku trgovine koji sada može odbiti narudžbu i time završiti proces.
 
-<img src="./screenshots/moving_instance_01.png" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/moving_instance_01.png?raw=true" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 10. Unutar Camunda Operate aplikacije odaberite Modify Instance, a potom Move instance da biste preusmjerili tok procesa na drugu aktivnost.
 
-<img src="./screenshots/moving_instance_02.png" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/moving_instance_02.png?raw=true" style="width:50%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 11. Odaberite aktivnost "Potvrda narudžbe" kao novu točku na koju želite preusmjeriti tok procesa.
 
@@ -388,7 +388,7 @@ Pojedini boundary event može "uhvatiti" više različitih tipova grešaka. Prim
 
 Pod **Errors** dodajte globalnu referencu greške (na taj način da možemo koristiti istu grešku na više mjesta u procesu ako je potrebno). Nazovimo grešku `data-validation-error` s kodom `400`.
 
-<img src="./screenshots/interrupting-error-boundary-event.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/interrupting-error-boundary-event.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 12. Konfiguracija _interrupting error boundary eventa_ za hvatanje greške s kodom `400`.
 
@@ -415,7 +415,7 @@ else null
 
 > _Deployajte_ procesnu definiciju i započnite novu instancu procesa bez podataka i odobrite narudžbu. Unutar Operate aplikacije vidjet ćete da je instanca završila budući da se tok procesa preusmjerio na završni događaj preko _boundary eventa_ **umjesto da je došlo do incidenta**.
 
-<img src="./screenshots/correct_error_handling_w_boundary.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/correct_error_handling_w_boundary.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 13. U Camunda Operate aplikaciji vidimo da je procesna instanca završila bez incidenta zahvaljujući implementaciji _interrupting error boundary eventa_.
 
@@ -435,7 +435,7 @@ Sve što trebamo je podesiti Email.js s našim email računom, implementirati ga
 
 Dodat ćemo novi _send task_ naziva "Obavještavanje korisnika o potvrdi narudžbe" nakon servisnog zadatka "Obrada narudžbe" u našem BPMN modelu.
 
-<img src="./screenshots/webshop-order-process-add-sendtask.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/webshop-order-process-add-sendtask.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 14. Dodavanje otpremnog zadatka "Obavještavanje korisnika o potvrdi narudžbe" nakon servisnog zadatka "Obrada narudžbe".
 
@@ -451,7 +451,7 @@ Izradite novi Email.js račun na [Emailjs.com](https://www.emailjs.com/) i slije
 
 Odaberite `Add New Service` i slijedite upute za autorizaciju vašeg email računa. Odabirom servisa, vi ustvari konfigurirate Email.js da koristi taj servis (vaš email račun) za slanje emailova.
 
-<img src="./screenshots/emailjs/select-service.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/select-service.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 15. Odabir Gmail servisa u Email.js sučelju.
 
@@ -461,7 +461,7 @@ Odaberite `Connect account` i autorizirajte vaš email račun. Pripazite da **om
 
 Ako je autorizacija uspješna, vidjet ćete vaš servis na Email.js nadzornoj ploči i **dobit ćete email potvrde u vaš sandučić**.
 
-<img src="./screenshots/emailjs/confirmation_test_email.png" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/confirmation_test_email.png?raw=true" style="width:60%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 16. Primjer email potvrde koju šalje Email.js nakon uspješne autorizacije email računa.
 
@@ -471,7 +471,7 @@ Prije nego krenemo s pisanjem koda, izradit ćemo novi **Email.js predložak** k
 
 Odaberite `Email Templates` u lijevom izborniku, a potom `Create New Template`.
 
-<img src="./screenshots/emailjs/new_template.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/new_template.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 17. Izrada novog Email.js predloška.
 
@@ -479,7 +479,7 @@ Odaberite `Order Confirmation` kao vrstu predloška. Ako hoćete, možete i ruč
 
 Uredite predložak prema vašim preferencijama. Možete prilagoditi boje, fontove, slike, itd. Predložak je moguće urediti za **Desktop** i **Mobile** prikaz. Ako odaberete `Edit Content`, možete birati između **Email.js Design uređivača** ili ručnog uređivanja HTML/CSS koda.
 
-<img src="./screenshots/emailjs/order-confirmation-template.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/order-confirmation-template.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 18. Uređivanje Email.js predloška za potvrdu narudžbe.
 
@@ -687,7 +687,7 @@ app.post(
 
 Prije nego implementiramo otpremni zadatak u procesnoj aplikaciji, testirajmo ispravnost novog endpointa koristeći Postman.
 
-<img src="./screenshots/emailjs/postman_send_email_success.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/postman_send_email_success.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 19. Testiranje slanja emaila putem Postmana koristeći novi endpoint `POST /order-confirmation-email`.
 
@@ -695,7 +695,7 @@ Ako nema grešaka, trebali biste dobiti `200 OK` odgovor, a email bi trebao sti�
 
 Možete staviti svoj vlastiti email kako biste testirali i na taj način sami sebi poslali potvrdu narudžbe.
 
-<img src="./screenshots/emailjs/gmail-success.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/gmail-success.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 20. Primjer email obavijesti o potvrdi narudžbe primljene u Gmail sandučiću.
 
@@ -731,7 +731,7 @@ Pripazite da koristite **ispravne procesnih varijabli** koje smo definirali i ma
 
 Također, **pripazite da koristite ispravne nazive ključeva** koji se očekuje na Express.js poslužitelju.
 
-<img src="./screenshots/emailjs/send_task_Setup.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/send_task_Setup.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 21. Postavke _Send Taska_ s REST Outbound Connectorom za slanje email obavijesti putem Express.js poslužitelja.
 
@@ -739,7 +739,7 @@ Također, **pripazite da koristite ispravne nazive ključeva** koji se očekuje 
 
 Ako ste sve napravili ispravno, nakon što potvrdite narudžbu u Camunda Tasklist aplikaciji, servisni zadatak "Obrada narudžbe" će se izvršiti, a potom i otpremni zadatak "Obavještavanje korisnika o potvrdi narudžbe" koji će poslati email obavijest korisniku. **Sve možete pratiti i u konzoli gdje je pokrenut Express.js poslužitelj**.
 
-<img src="./screenshots/emailjs/send_task_Success.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/emailjs/send_task_Success.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 22. U Camunda Operate aplikaciji možemo vidjeti da je otpremni zadatak "Obavještavanje korisnika o potvrdi narudžbe" uspješno izvršen.
 
@@ -755,13 +755,13 @@ Također, možemo koristiti **događaje** (_eng. events_) poput _timer eventa_ z
 
 Primjerice, možemo dodati apstrakno polje "Klijent" i pokazati informacijske tokove izmđu naše procesne aplikacije i klijenta kao nekog vanjskog entiteta. Mi nećemo izrađivati procesnu aplikaciju za klijenta (nema puno smisla - to bi bila obična web aplikacija za naručivanje proizvoda), ali ćemo pokazati kako bi to izgledalo na BPMN dijagramu radi boljeg razumijevanja modeliranog procesa.
 
-<img src="./screenshots/webshop-order-process_w_abstract_pool.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/webshop-order-process_w_abstract_pool.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 23. Dodavanje apstraktnog polja "Klijent" i informacijskih tokova između procesne aplikacije i klijenta.
 
 Također, možemo "simulirati" trajanje aktivnosti koristeći _timer evente_. Primjerice, možemo dodati _intermediate timer evente_ nakon ručnih aktivnosti "Priprema narudžbe za slanje" i "Predaja narudžbe dostavnoj službi" kako bismo simulirali vrijeme potrebno za pripremu i predaju narudžbe. Naravno, u stvarnoj procesnoj aplikaciji, ove aktivnosti ne bi bile simulirane.
 
-<img src="./screenshots/timer_events.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/timer_events.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 24. Dodavanje _intermediate timer eventa_ za simulaciju trajanja aktivnosti nakon ručnih zadataka.
 
@@ -771,7 +771,7 @@ Možemo dodati i potprocese (_eng. subprocesses_) kako bismo grupirali povezane 
 
 Samo ćemo simulirati aktivnosti unutar potprocesa koristeći ručne zadatke i _timer evente_ - **ideja je pokazati kako se potproces ponaša unutar procesne aplikacije**.
 
-<img src="./screenshots/potproces-dostave.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/potproces-dostave.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 25. Implementacija simulacije potprocesa "Dostava narudžbe kupcu" unutar glavnog procesa upravljanja narudžbama.
 
@@ -787,7 +787,13 @@ Potproces dodajemo u glavni proces nakon ručnog zadatka "Predaja narudžbe dost
 - "30 sekundi" (_intermediate timer event_) - simulira vrijeme potrebno za dostavu proizvoda kupcu
 - "Proizvodi dostavljeni" (_end event_)
 
-<img src="./screenshots/webshop-order-process_w_subprocess.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+Kod dodavanja timer eventa, pripazite da koristite ispravan format trajanja vremena u ISO 8601 formatu. Primjerice, za 15 sekundi koristimo `PT15S`, a za 30 sekundi `PT30S` i odabiremo **Duration** opciju.
+
+Također, moguće je odabrati i **Date** opciju ako želite postaviti točan datum i vrijeme kada se događaj treba aktivirati.
+
+Više o vremenskim formatima možete pronaći [ovdje](https://docs.camunda.io/docs/components/modeler/forms/form-element-library/forms-element-library-datetime/).
+
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/webshop-order-process_w_subprocess.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 26. Cjelokupni BPMN dijagram procesne aplikacije za upravljanje narudžbama s dodanim potprocesom "Dostava narudžbe kupcu".
 
@@ -795,13 +801,13 @@ Potproces dodajemo u glavni proces nakon ručnog zadatka "Predaja narudžbe dost
 
 I prije nego pokrenete instancu, unutar Camunda Operate aplikacije vidjet plavu strelicu pored potprocesa koja označava da je to potproces. Možete ju stisnuti i otvorit će vam ugniježđeni prikaz potprocesa.
 
-<img src="./screenshots/potproces_definition.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/potproces_definition.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 27. Pregled potprocesa unutar Camunda Operate aplikacije.
 
 **Potproces se ponaša kao samostalni proces unutar glavnog procesa, ali je logički povezan s njim.**
 
-<img src="./screenshots/potproces_izvodenje.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/potproces_izvodenje.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 28. Praćenje izvršavanja instance potprocesa unutar Camunda Operate aplikacije.
 
@@ -821,7 +827,7 @@ Odaberite **_unique hit policy_** za tablicu i definirajte sljedeća poslovna pr
 - ako je ukupni iznos narudžbe između `501` i `1500`, popust je `10%`
 - ako je ukupni iznos narudžbe veći od `1500`, popust je `15%`
 
-<img src="./screenshots/dmn_discount.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/dmn_discount.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 29. DMN tablica odluka za izračunavanje popusta na temelju ukupnog iznosa narudžbe.
 
@@ -841,7 +847,7 @@ order_totalAmount - order_totalAmount * popust_multiplier;
 
 Prije njega, dodajemo novi **Business rule task** koji ćemo povezati na našu DMN tablicu odluka `izracunavanje_popusta.dmn` - možemo ga nazvati "Izračunavanje popusta".
 
-<img src="./screenshots/adding_business_rule_task.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/adding_business_rule_task.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 30. Dodavanje _Business Rule Taska_ za povezivanje s DMN tablicom odluka.
 
@@ -851,13 +857,13 @@ Kako biste povezali DMN i Business rule task, odaberite DMN i otvorite **DRD pri
 
 Možete još ažurirati formu za odobrenje popusta kako bi bila jasnija korisnicima - npr. promijeniti tekst pitanja u "Želite li primijeniti popust na ovu narudžbu?" ili slično.
 
-<img src="./screenshots/drd_id.png" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/drd_id.png?raw=true" style="width:70%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 31. Promjena ID-a DMN tablice odluka unutar DRD prikaza.
 
 > To je to! Pokrenite novu instancu procesa i isprobajte kako DMN tablica odlučuje o visini popusta na temelju ukupnog iznosa narudžbe.
 
-<img src="./screenshots/popust_apliciran.png" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/popust_apliciran.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
 > Slika 32. Primjer izvršavanja procesa u _Operateu_ gdje je DMN tablica odlučila o visini popusta na temelju ukupnog iznosa narudžbe.
 
