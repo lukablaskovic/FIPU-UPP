@@ -559,6 +559,8 @@ Jednom kad ste unijeli sve potrebne varijable okruženja, možemo implementirati
 
 Implementirat ćemo endpoint `POST /order-confirmation-email` koji će primati podatke o narudžbi i slati email obavijest korisniku koristeći Email.js REST API.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 **Ukupna implementacija endpointa može izgledati ovako**:
 
 - nemojte zaboraviti uključiti `dotenv` i `axios` na početku `index.js` datoteke
@@ -872,6 +874,8 @@ Unutar Camunda Operate aplikacije, možemo pratiti izvršavanje procesa i vidjet
 > Slika 32. Primjer izvršavanja procesa u _Operateu_ gdje je DMN tablica odlučila o visini popusta na temelju ukupnog iznosa narudžbe.
 
 Možemo iz procesnih varijabli u Operate aplikaciji uočiti da se na našu narudžbu od `2500$` uspješno primijenio popust od `15%`, te je konačni iznos narudžbe sada `2125$`.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 # Zadaci za Vježbu 7
 
