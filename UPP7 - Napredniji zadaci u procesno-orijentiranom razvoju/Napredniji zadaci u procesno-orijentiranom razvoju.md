@@ -445,7 +445,7 @@ U sljedećoj sekciji ćemo implementirati Email.js na našem Express.js posluži
 
 **Email.js** je popularni servis za slanje emailova direktno iz JavaScript aplikacija bez potrebe za vlastitim SMTP serverom. Pritom ga je moguće koristiti i na klijentskoj (npr. Vue.js) i na serverskoj strani (Node.js).
 
-Izradite novi Email.js račun na [Emailjs.com](https://www.emailjs.com/) i slijedite upute za postavljanje servisa za slanje emailova (npr. Gmail, Outlook, Yahoo, itd.).
+Izradite novi Email.js račun na [Emailjs.com](https://www.emailjs.com/) i slijedite upute za postavljanje servisa za slanje emailova (npr. _Gmail_, _Outlook_, _Yahoo_, itd.).
 
 > Napomena: Možete slobodno koristiti i studentski _unipu_ račun za ovu vježbu koristeći **Gmail servis**.
 
