@@ -82,10 +82,10 @@ Prije nego što konfiguriramo [REST Outbound Connector](https://docs.camunda.io/
 Inicijalizirajte novi Node.js projekt za naš Express.js poslužitelj i biblioteku za validaciju podataka `express-validator`:
 
 ```bash
-mkdir order-management-api
-cd order-management-api
-npm init -y
-npm install express express-validator
+→ mkdir order-management-api
+→ cd order-management-api
+→ npm init -y
+→ npm install express express-validator
 ```
 
 Nakon toga, implementirajmo osnovni Express.js poslužitelj u datoteci `index.js` i endpoint za obradu narudžbi `POST /orders`:
@@ -159,7 +159,7 @@ Ulazni podaci (podaci koji "dolaze" u procesnu aplikaciju pokretanjem instance) 
 curl naredba za testiranje endpointa:
 
 ```bash
-curl -X POST http://localhost:3000/orders \
+→ curl -X POST http://localhost:3000/orders \
 -H "Content-Type: application/json" \
 -d '{
   "customerName": "John Doe",
@@ -487,7 +487,7 @@ Uočit ćete _placeholdere_ za varijable poput `{{order_id}}`, `{{orders}}`, `{{
 
 U Email.js, _placeholderi_ za varijable definiraju se dvostrukim vitičastim zagradama `{{naziv_varijable}}`.
 
-Napravit ćemo sljedeće izmjene u predlošku:
+**Napravit ćemo sljedeće izmjene u predlošku:**
 
 1. Promijenit ćemo sliku u zaglavlju na neku prikladniju - stavit ćemo logotip našeg Fakulteta/Sveučilišta.
 2. Promijenit ćemo `From Name` varijablu (desno) - stavit ćemo `UPP Procesna aplikacija`.
@@ -536,7 +536,7 @@ Kako je Email.js servis namijenjen za korištenje na klijentskoj strani, samo za
 Da dobro ste čuli, slati ćemo HTTP zahtjev s poslužitelja. 🚀
 
 ```bash
-npm install axios dotenv
+→ npm install axios dotenv
 ```
 
 Za to nam je potrebno nekoliko sigurnosnih podataka (API par ključeva, Service ID, Template ID) koje ćemo pohraniti u `.env` datoteku kako bismo ih mogli koristiti unutar našeg Express.js poslužitelja.
@@ -745,7 +745,7 @@ Ako ste sve napravili ispravno, nakon što potvrdite narudžbu u Camunda Tasklis
 
 # 3. Događaji i potprocesi u procesnoj aplikaciji
 
-Procesni _engine_ Camunde 8 podržava implementaciju gotovo svih BPMN elemenata poslovne logike koji su definirani standardom.
+Procesni _engine_ Camunde 8 podržava implementaciju gotovo svih BPMN elemenata poslovne logike koji su definirani standardom. Nećemo naravno pokazati sve što smo radili na prethodnim vježbama kada smo učili modelirati, ipak, malo ćemo još "začiniti" našu procesnu aplikaciju dodatnim BPMN (i DMN) elementima.
 
 Primjerice, možemo iskoristiti i one neke elemente modeliranja kojima smo se bavili na prethodnim vježbama, poput **dodavanja apstraktnih polja** i korištenja komunikacije informacijskim tokovima (_eng. message flows_) između različitih procesnih aplikacija.
 
@@ -767,7 +767,7 @@ Također, možemo "simulirati" trajanje aktivnosti koristeći _timer evente_. Pr
 
 ## 3.1 Potprocesi u procesnoj aplikaciji
 
-Možemo dodati i potprocese (_eng. subprocesses_) kako bismo grupirali povezane aktivnosti unutar većeg procesa. Primjerice, možemo izraditi potproces "Dostava narudžbe" gdje ćemo simulirati aktivnosti vezane uz dostavu narudžbe.
+Možemo dodati i potprocese u našu procesnu aplikaciju kako bismo grupirali povezane aktivnosti unutar većeg procesa. Primjerice, možemo izraditi potproces "Dostava narudžbe" gdje ćemo simulirati aktivnosti vezane uz dostavu narudžbe.
 
 Samo ćemo simulirati aktivnosti unutar potprocesa koristeći ručne zadatke i _timer evente_ - **ideja je pokazati kako se potproces ponaša unutar procesne aplikacije**.
 
@@ -775,7 +775,9 @@ Samo ćemo simulirati aktivnosti unutar potprocesa koristeći ručne zadatke i _
 
 > Slika 25. Implementacija simulacije potprocesa "Dostava narudžbe kupcu" unutar glavnog procesa upravljanja narudžbama.
 
-Potproces dodajemo u glavni proces nakon ručnog zadatka "Predaja narudžbe dostavnoj službi". Unutar potprocesa imamo sljedeći događaja i aktivnosti:
+Potproces dodajemo u glavni proces nakon ručnog zadatka "Predaja narudžbe dostavnoj službi".
+
+**Unutar potprocesa imamo sljedeći događaja i aktivnosti**:
 
 - "Pickup proizvoda" (_start event_)
 - "15 sekundi" (_intermediate timer event_) - simulira vrijeme potrebno za preuzimanje proizvoda od dostavne službe
@@ -819,7 +821,7 @@ Umjesto fiksnog iznosa popusta od 10% na cijelu narudžbu, koju djelatnik može 
 
 Izradite novu DMN tablicu odluka naziva `izracunavanje_popusta.dmn` i pohranite ju u direktorij poslovne aplikacije.
 
-Tablica ima jedan ulazni uvjet: **Vrijednost narudžbe** (`number`) i jedan izlazni rezultat: **Popust (%)** (`number`).
+Tablica ima jedan ulazni uvjet: **Vrijednost narudžbe** (`number`) i jedan izlazni rezultat: **Ukupni Popust (%)** (`number`).
 
 Odaberite **_unique hit policy_** za tablicu i definirajte sljedeća poslovna pravila:
 
@@ -862,6 +864,8 @@ Možete još ažurirati formu za odobrenje popusta kako bi bila jasnija korisnic
 > Slika 31. Promjena ID-a DMN tablice odluka unutar DRD prikaza.
 
 > To je to! Pokrenite novu instancu procesa i isprobajte kako DMN tablica odlučuje o visini popusta na temelju ukupnog iznosa narudžbe.
+
+Unutar Camunda Operate aplikacije, možemo pratiti izvršavanje procesa i vidjeti kako je DMN tablica odlučila o visini popusta. Uočite promjene u procesnim varijablama i primjenu Business rule taska iz _Instance History_ prikaza.
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju/screenshots/popust_apliciran.png?raw=true" style="width:80%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); margin-top:10px;"></img>
 
