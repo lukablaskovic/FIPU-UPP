@@ -9,7 +9,7 @@
 
 # (7) Napredniji zadaci u procesno-orijentiranom razvoju
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_6.png?raw=true" style="width:9%; border-radius: 8px; float:right;]"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_7.png?raw=true" style="width:9%; border-radius: 8px; float:right;]"></img>
 U ovoj skripti prolazimo kroz servisne i otpremne zadatke, događaje, potprocese te DMN u procesno-orijentiranom razvoju poslovnih aplikacija. Dosad smo ove koncepte razmatrali u kontekstu modeliranja poslovnih procesa, a u nastavku ih povezujemo s praktičnom izgradnjom procesno-orijentiranih poslovnih aplikacija koristeći Camunda 8 BPM platformu. Pritom nastavljamo razvoj procesne aplikacije za upravljanje narudžbama u trgovini na način da ćemo implementirati servisni zadatak koji će putem REST API-ja komunicirati s našim Express.js poslužiteljem za upravljanje narudžbama, kao i otpremni zadatak koji će slati email obavijesti korisnicima. Također, vidjet ćemo kako koristiti događaje i potprocese za modeliranje složenijih procesa te kako integrirati DMN odluke u procesnu aplikaciju kroz <i>Business rule taskove</i>.
 
 <div style="float: clear; margin-right:5px;">
@@ -17,7 +17,7 @@ U ovoj skripti prolazimo kroz servisne i otpremne zadatke, događaje, potprocese
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 25.1.2026.**
+**🆙 Posljednje ažurirano: 29.1.2026.**
 
 ## Sadržaj
 
@@ -399,7 +399,7 @@ Moramo unijeti FEEL izraz za **Error expression**. Definirat ćemo izraz koji ć
 **Sintaksa:**
 
 ```feel
-if response.status = 400 then bpmnError("statusni_kod", "poruka") else null
+if error.code = "400" then bpmnError("statusni_kod", "poruka") else null
 ```
 
 **Naš izraz:**
