@@ -1,11 +1,13 @@
-# Upravljanje poslovnim procesima (UPP)
+# Upravljanje poslovnim procesima ([UPP - 199739](https://fipu.unipu.hr/fipu/predmet/upp))
+
+<img src="../images/UPP-banner.png" alt="Upravljanje poslovnim procesima (UPP - 199739)" style="border-radius: 8px;">
 
 **Nositelj**: izv. prof. dr. sc. Darko Etinger  
 **Asistent**: Luka Blašković, mag. inf.
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="../images/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
 # (3) Složena grananja
 
@@ -17,11 +19,11 @@
 <div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja sljedova aktivnosti.</div>
 <br>
 
-**🆙 Posljednje ažurirano: 16.11.2025.**
+**🆙 Posljednje ažurirano: 12.9.2026.**
 
 ## Sadržaj
 
-- [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
+- [Upravljanje poslovnim procesima (UPP - 199739)](#upravljanje-poslovnim-procesima-upp---199739)
 - [(3) Složena grananja](#3-složena-grananja)
   - [Sadržaj](#sadržaj)
 - [1. Ekskluzivna (eng. Exclusive) skretnica](#1-ekskluzivna-eng-exclusive-skretnica)

@@ -11,3 +11,10 @@ UPP6 - Servisna arhitektura procesne aplikacije/express-email-server/.env
 UPP6 - Uvod u procesno-orijentirani razvoj poslovnih aplikacija/webshop-order-process-video
 UPP7 - Napredniji zadaci u procesno-orijentiranom razvoju/order-management-api/.env
 .env
+
+# Local PDF and Google Drive tools
+script-patcher/credentials.json
+script-patcher/token.json
+script-patcher/.venv/
+script-patcher/node_modules/
+script-patcher/__pycache__/

@@ -1,11 +1,13 @@
-# Upravljanje poslovnim procesima (UPP)
+# Upravljanje poslovnim procesima ([UPP - 199739](https://fipu.unipu.hr/fipu/predmet/upp))
+
+<img src="../images/UPP-banner.png" alt="Upravljanje poslovnim procesima (UPP - 199739)" style="border-radius: 8px;">
 
 **Nositelj**: izv. prof. dr. sc. Darko Etinger  
 **Asistent**: Luka Blašković, mag. inf.
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="../images/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
 # (4) Smjernice u modeliranju, boundary eventi i predlošci tokova rada
 
@@ -19,11 +21,11 @@ Cilj ove skripte pružiti je sveobuhvatan pregled principa i smjernica u modelir
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 30.12.2025.**
+**🆙 Posljednje ažurirano: 12.9.2026.**
 
 ## Sadržaj
 
-- [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
+- [Upravljanje poslovnim procesima (UPP - 199739)](#upravljanje-poslovnim-procesima-upp---199739)
 - [(4) Smjernice u modeliranju, boundary eventi i predlošci tokova rada](#4-smjernice-u-modeliranju-boundary-eventi-i-predlošci-tokova-rada)
   - [Sadržaj](#sadržaj)
 - [1. Smjernice za modeliranje procesa](#1-smjernice-za-modeliranje-procesa)

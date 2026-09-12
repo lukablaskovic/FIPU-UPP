@@ -1,11 +1,13 @@
-# Upravljanje poslovnim procesima (UPP)
+# Upravljanje poslovnim procesima ([UPP - 199739](https://fipu.unipu.hr/fipu/predmet/upp))
+
+<img src="../images/UPP-banner.png" alt="Upravljanje poslovnim procesima (UPP - 199739)" style="border-radius: 8px;">
 
 **Nositelj**: izv. prof. dr. sc. Darko Etinger  
 **Asistent**: Luka Blašković, mag. inf.
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="../images/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
 # (6) Uvod u procesno-orijentirani razvoj poslovnih aplikacija
 
@@ -17,11 +19,11 @@ Takav način razvoja donosi niz prednosti: bolju usklađenost softvera s poslovn
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 19.1.2026.**
+**🆙 Posljednje ažurirano: 12.9.2026.**
 
 ## Sadržaj
 
-- [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
+- [Upravljanje poslovnim procesima (UPP - 199739)](#upravljanje-poslovnim-procesima-upp---199739)
 - [(6) Uvod u procesno-orijentirani razvoj poslovnih aplikacija](#6-uvod-u-procesno-orijentirani-razvoj-poslovnih-aplikacija)
   - [Sadržaj](#sadržaj)
 - [1. Uvod u procesne aplikacije](#1-uvod-u-procesne-aplikacije)

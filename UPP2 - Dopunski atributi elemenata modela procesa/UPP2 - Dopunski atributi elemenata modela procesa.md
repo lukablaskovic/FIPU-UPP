@@ -1,11 +1,13 @@
-# Upravljanje poslovnim procesima (UPP)
+# Upravljanje poslovnim procesima ([UPP - 199739](https://fipu.unipu.hr/fipu/predmet/upp))
+
+<img src="../images/UPP-banner.png" alt="Upravljanje poslovnim procesima (UPP - 199739)" style="border-radius: 8px;">
 
 **Nositelj**: izv. prof. dr. sc. Darko Etinger  
 **Asistent**: Luka Blašković, mag. inf.
 
 **Ustanova**: Sveučilište Jurja Dobrile u Puli, Fakultet informatike u Puli
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="../images/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
 
 # (2) Dopunski atributi elemenata modela procesa
 
@@ -17,13 +19,13 @@
 <div style="float: clear; margin-right:5px;"> </div>
 <br>
 
-**🆙 Posljednje ažurirano: 20.11.2025.**
+**🆙 Posljednje ažurirano: 12.9.2026.**
 
 - ispravak na Slici 7
 
 ## Sadržaj
 
-- [Upravljanje poslovnim procesima (UPP)](#upravljanje-poslovnim-procesima-upp)
+- [Upravljanje poslovnim procesima (UPP - 199739)](#upravljanje-poslovnim-procesima-upp---199739)
 - [(2) Dopunski atributi elemenata modela procesa](#2-dopunski-atributi-elemenata-modela-procesa)
   - [Sadržaj](#sadržaj)
 - [1. Uvod](#1-uvod)
