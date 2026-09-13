@@ -11,7 +11,7 @@
 
 # (2) Dopunski atributi elemenata modela procesa
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-UPP/refs/heads/main/UPP2%20-%20Dopunski%20atributi%20elemenata%20modela%20procesa/UPP_2.png" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-UPP/refs/heads/main/upp-icons/UPP_2.png" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;">Elementi modela poslovnog procesa prikazuju se pomoću karakterističnih simbola vidljivih na grafičkom dijagramu. Oblik svakog simbola otkriva vrstu objekta i njegovu osnovnu funkciju u procesu. Uz to, pojedinim elementima mogu se pridružiti tekstualni, brojčani ili logički podaci koji detaljnije opisuju ponašanje objekta u složenom modelu procesa. U ovoj ćemo skripti nadograditi osnovne objekte koje smo prethodno obradili i istražiti koje dodatne informacije možemo definirati unutar njih.</div>
 <br>
@@ -19,7 +19,7 @@
 <div style="float: clear; margin-right:5px;"> </div>
 <br>
 
-**🆙 Posljednje ažurirano: 12.9.2026.**
+**🆙 Posljednje ažurirano: 13.9.2026.**
 
 - ispravak na Slici 7
 

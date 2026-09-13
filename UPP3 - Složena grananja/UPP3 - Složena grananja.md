@@ -11,7 +11,7 @@
 
 # (3) Složena grananja
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/UPP_3.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_3.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;"></div>
 <br>
@@ -19,7 +19,7 @@
 <div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja sljedova aktivnosti.</div>
 <br>
 
-**🆙 Posljednje ažurirano: 12.9.2026.**
+**🆙 Posljednje ažurirano: 13.9.2026.**
 
 ## Sadržaj
 

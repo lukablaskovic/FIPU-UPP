@@ -9,14 +9,14 @@
 
 # (1) Uvod u poslovno modeliranje
 
-<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP1%20-%20Uvod%20u%20poslovno%20modeliranje/UPP_1.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
+<img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/upp-icons/UPP_1.png?raw=true" style="width:9%; border-radius: 8px; float:right;"></img>
 
 <div style="float: clear; margin-right:5px;">Sva razmatranja o poslovnim procesima polaze od potrebe da se poslovi, bilo da je riječ o proizvodnji, trgovini, uslugama, javnoj upravi, zdravstvu ili obrazovanju, obavljaju na optimalan način: što brže, kvalitetnije i uz minimalan utrošak resursa. Modeliranje poslovnih procesa jedan je od ključnih alata za postizanje tog cilja. Ono je prije svega poslovna, a ne informatička disciplina. Na ovom kolegiju praktično ćemo se upoznati s modeliranjem poslovnih procesa pomoću BPMN 2.0 notacije te istražiti kako se stečena znanja primjenjuju u razvoju softverskih rješenja.</div>
 
 <div style="float: clear; margin-right:5px;"> </div>
 <br>
 
-**🆙 Posljednje ažurirano: 19.10.2025.**
+**🆙 Posljednje ažurirano: 13.9.2026.**
 
 ## Sadržaj
 
