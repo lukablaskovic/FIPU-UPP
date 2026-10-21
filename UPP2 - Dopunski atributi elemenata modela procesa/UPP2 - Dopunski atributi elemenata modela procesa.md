@@ -79,7 +79,7 @@ Rekli smo da događaje definiramo **kružnicama** koje su povezane s tokom. Doga
 
 Početni događaj je **istovjetan početku prve aktivnosti**, dok završni događaj **nastaje kada završi zadnja aktivnost**.
 
-U interpretaciji nekog dijagrama poslovnog procesa **nastupanje nekog događaja naziva se** **okidanje** jer se pojavom događaja omogućuje izvođenje aktivnosti koja slijedi poslije njega.
+U interpretaciji nekog dijagrama poslovnog procesa **nastupanje nekog događaja naziva se** **okidanjem** jer se pojavom događaja omogućuje izvođenje aktivnosti koja slijedi poslije njega.
 
 Pri određivanju nekog događaja uvijek treba razmotriti što je bio **uzrok** njegova nastanka i gdje je nastao te kakva je **posljedica** njegova pojavljivanja i gdje se ona vidi.
 
