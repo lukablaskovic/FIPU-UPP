@@ -27,3 +27,4 @@ Kolegij slušaju:
 4. [Smjernice u modeliranju, boundary eventi i predlošci tokova rada](https://youtu.be/LMpgYzFAlys) ([UPP4](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP4%20-%20Smjernice%20u%20modeliranju%2C%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada))
 5. [Decision Model and Notation (DMN)](https://youtu.be/77WpdtOUzYM) ([UPP5](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP5%20-%20Decision%20Model%20and%20Notation%20(DMN)))
 6. [Uvod u procesno-orijentirani razvoj poslovnih aplikacija](https://youtu.be/WAkPsoADrZY) ([UPP6](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP6%20-%20Uvod%20u%20procesno-orijentirani%20razvoj%20poslovnih%20aplikacija))
+7. [Napredniji zadaci u procesno-orijentiranom razvoju](https://youtu.be/4k1-YO_w8HE) ([UPP7](https://github.com/lukablaskovic/FIPU-UPP/tree/main/UPP7%20-%20Napredniji%20zadaci%20u%20procesno-orijentiranom%20razvoju))
