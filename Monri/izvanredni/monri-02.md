@@ -6,9 +6,9 @@
 
 Radite **najmanje u paru (dvije osobe)**: jedan student preuzima Monri Payments, drugi ugostitelja. Veća grupa dijeli se u dva tima prema ulogama.
 
-**Najprije pročitajte [zajedničke upute za istraživanje, video i predaju (PDF)](upute.pdf).** Cilj je samostalno istraživanje stvarnog poslovnog procesa (*process discovery*) i njegovo pojednostavnjeno mapiranje u BPMN radi prezentacije.
+**Najprije pročitajte [zajedničke upute za istraživanje, video i predaju (PDF)](https://github.com/lukablaskovic/FIPU-UPP/blob/main/Monri/izvanredni/upute.pdf).** Cilj je samostalno istraživanje stvarnog poslovnog procesa (*process discovery*) i njegovo pojednostavnjeno mapiranje u BPMN radi prezentacije.
 
-Drugi dio zadatka: [Monri Payments (PDF)](monri-01.pdf).
+Drugi dio zadatka: [Monri Payments (PDF)](https://github.com/lukablaskovic/FIPU-UPP/blob/main/Monri/izvanredni/monri-01.pdf).
 
 ### Priča i tekst zadatka
 
@@ -28,7 +28,7 @@ Vrlo je važno jasno definirati kada proces počinje, a kada završava. Koji su 
 
 **Zajednički snimite video od 15–20 minuta uz isključivo BPMN modele, bez PowerPointa ili sličnih slajdova.** Svaka strana postavlja **najmanje 5 pitanja** drugoj strani i odgovara na njezina pitanja. Ugostitelj prvo predstavlja potrebe i budžet, Monri razjašnjava potrebe i predstavlja ponudu, a ugostitelj zatim postavlja dodatna pitanja i pregovara.
 
-**Na Merlin predajte oba BPMN modela (PDF i izvorne datoteke), dokument istraživanja s opisom objekta, budžetom i ponudom (bez PDV-a i s PDV-om), pitanja i odgovore, izvore i AI razgovore ako ste koristili AI te poveznicu na video na Google Driveu ili YouTubeu.** Detaljni zahtjevi nalaze se u [zajedničkim uputama](upute.pdf).
+**Na Merlin predajte oba BPMN modela (PDF i izvorne datoteke), dokument istraživanja s opisom objekta, budžetom i ponudom (bez PDV-a i s PDV-om), pitanja i odgovore, izvore i AI razgovore ako ste koristili AI te poveznicu na video na Google Driveu ili YouTubeu.** Detaljni zahtjevi nalaze se u [zajedničkim uputama](https://github.com/lukablaskovic/FIPU-UPP/blob/main/Monri/izvanredni/upute.pdf).
 
 **Rok predaje: 15.11.2026. do 23:59.**
 

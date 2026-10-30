@@ -12,8 +12,8 @@ Zadatak se izvodi **na daljinu i asinkrono**, bez prezentacije u dvorani.
 
 Radite **najmanje u paru (dvije osobe)**. U paru **jedan student preuzima ulogu Monri Paymentsa, a drugi ulogu ugostitelja**. Ako vas je više, podijelite se u dva tima prema ulogama; svaki član mora imati jasno naveden doprinos i sudjelovati u videu.
 
-- **Monri Payments:** [tekst zadatka za pružatelja usluge (PDF)](monri-01.pdf).
-- **Ugostitelj:** [tekst zadatka za ugostitelja (PDF)](monri-02.pdf).
+- **Monri Payments:** [tekst zadatka za pružatelja usluge (PDF)](https://github.com/lukablaskovic/FIPU-UPP/blob/main/Monri/izvanredni/monri-01.pdf).
+- **Ugostitelj:** [tekst zadatka za ugostitelja (PDF)](https://github.com/lukablaskovic/FIPU-UPP/blob/main/Monri/izvanredni/monri-02.pdf).
 
 Pročitajte oba zadatka kako biste razumjeli i sugovornikovu perspektivu. Svaka strana istražuje i izrađuje **svoj BPMN model**: Monri proces uvođenja sustava, a ugostitelj proces ugovaranja i uvođenja sustava iz svoje perspektive. Međusobno uskladite razmjenu upita, ponude, prihvata i dogovora o instalaciji.
 
