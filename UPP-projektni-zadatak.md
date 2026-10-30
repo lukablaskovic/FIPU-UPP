@@ -1,8 +1,10 @@
 # Upute za izradu projektnog zadatka iz kolegija Upravljanje poslovnim procesima (UPP)
 
-<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important;"></img>
+<img src="https://raw.githubusercontent.com/lukablaskovic/FIPU-PJS/main/0.%20Template/FIPU_UNIPU.png" style="width:40%; box-shadow: none !important; display: block; float: none;"></img>
 
-**Posljednje ažurirano: 15. 12. 2025.**
+**Akademska godina: 2026./2027.**
+
+**Posljednje ažurirano: 30.10.2026.**
 
 U nastavku su definirane upute za izradu projektnog zadatka iz kolegija Upravljanje poslovnim procesima. Projektni zadatak obuhvaća modeliranje stvarnog poslovnog procesa po izboru prema [BPMN2.0 standardu](https://www.bpmn.org/). **Prvi dio projekta** obuhvaća identifikaciju poslovnog procesa, analizu procesnih aktivnosti i dokumentiranje i modeliranje [trenutnog stanja](https://www.lucidchart.com/blog/as-is-process-analysis) (_As-Is_) i [budućeg stanja](https://www.agilitysystem.net/insight/as-is-to-be-process-mapping/#elementor-toc__heading-anchor-3) (_To-Be_) poslovnog procesa. **Drugi dio projekta** odnosi se na izradu _process-driven_ aplikacije koristeći [Camunda 8 platformu](https://docs.camunda.io/).
 
@@ -153,6 +155,8 @@ Iznimno, **ukoliko je _As-Is_ vrlo složen, možete izraditi reduciranu verziju 
 
 Nakon što završite s modeliranjem oba stanja poslovnog procesa, potrebno je sastaviti dokumentaciju u obliku seminarskog rada od minimalno 15 stranica sadržaja (plus naslovna stranica, zaključak, sažetak i popis literature) gdje ćete detaljno opisati oba modelirana stanja poslovnog procesa, analizu prikupljenih podataka, identificirane probleme i predložene optimizacije. Seminar mora biti napisan u skladu s akademskim standardima pisanja, uključujući pravilno navođenje izvora i literaturnih referenci (APA6 ili APA7 stil citiranja). **Izvori prikupljanja podataka također moraju biti pravilno citirani.**
 
+Navedena poglavlja predavanja potražite na Merlinu u kolegiju Upravljanje poslovnim procesima za akademsku godinu **2026./2027.**
+
 **Seminar treba sadržavati cjeline:**
 
 - **Identifikacija poslovnog procesa**
@@ -160,7 +164,7 @@ Nakon što završite s modeliranjem oba stanja poslovnog procesa, potrebno je sa
   - Odredite svrhu procesa i njegovu važnost za odabranu organizaciju.
   - Opišite kako ste došli do informacija o procesu.
   - Proučite materijale iz 4. poglavlja predavanja te iskoristite jednu od tehnika utvrđivanja poslovnih procesa (npr. _customer-journey mapping_).
-  - **Proučiti 4. poglavlje iz PREDAVANJA**: [Identifikacije i otkrivanje poslovnih procesa](https://moodle.srce.hr/2025-2026/course/section.php?id=3217094) za dodatne smjernice u pisanju ovog poglavlja.
+  - **Proučiti 4. poglavlje iz PREDAVANJA**: Identifikacije i otkrivanje poslovnih procesa za dodatne smjernice u pisanju ovog poglavlja.
 
 - **Analiza i modeliranje trenutnog stanja poslovnog procesa (As-Is)**
   - Glavno poglavlje gdje ćete predstaviti modelirani _As-Is_ proces.
@@ -171,13 +175,13 @@ Nakon što završite s modeliranjem oba stanja poslovnog procesa, potrebno je sa
   - Pojasnite one aktivnosti ili grananja koji mogu biti dvosmisleni, nejasni ili složeni za razumijevanje u trenutnom stanju izvođenja procesa.
   - Za ključne skretnice, ispišite poslovna pravila koja definiraju kako se proces granja (npr. u tabličnom obliku kao poslovni slučajevi).
   - Upotrijebite neke od tehnika analiza kvalitativne i/ili kvantitativne analize procesa (npr. _waste analysis, root-cause analysis, why-why, pareto analiza, flow analysis, queueing theory..._).
-  - **Proučiti 8. i 9. poglavlje iz PREDAVANJA**: [(8) Kvalitativna analiza procesa](https://moodle.srce.hr/2025-2026/course/section.php?id=3217098) i [(9) Kvantitativna analiza procesa](https://moodle.srce.hr/2025-2026/course/section.php?id=3217099) za dodatne smjernice
+  - **Proučiti 8. i 9. poglavlje iz PREDAVANJA**: (8) Kvalitativna analiza procesa i (9) Kvantitativna analiza procesa za dodatne smjernice
 
 - **Analiza i modeliranje budućeg stanja poslovnog procesa (To-Be)**
   - Identificirajte ciljeve (što se želi postići _To-Be_ analizom?) npr. poboljšanje učinkovitosti, smanjenje financijskih troškova, ušteda vremena, bolja usklađenost s zakonskim regulativama, povećanje zadovoljstva korisnika i sl.
   - Kako ste došli do prijedloga optimizacije (npr. analiza _As-Is_ modela, _benchmarking_ s najboljim praksama u industriji, konzultacije s dionicima procesa, korištenje analitičkih alata i sl.)
   - Predložite promjene i poboljšanja u _To-Be_ modelu (ključni pojmovi: Automatizacija aktivnosti, Redizajn procesa, Lean pristupi, Six Sigma pristupi, procesna zrelost i sl.)
-  - **Proučiti 10. i 11. poglavlje iz PREDAVANJA**: [(10) Unaprjeđivanje i mjerenje poslovnih procesa i procesna zrelost](https://moodle.srce.hr/2025-2026/course/section.php?id=3217100) i [(11) Lean Six Sigma - DMAIC in R](https://moodle.srce.hr/2025-2026/course/section.php?id=3217101) za dodatne smjernice
+  - **Proučiti 10. i 11. poglavlje iz PREDAVANJA**: (10) Unaprjeđivanje i mjerenje poslovnih procesa i procesna zrelost i (11) Lean Six Sigma - DMAIC in R za dodatne smjernice
 
 ## 2. Drugi dio projekta: Izrada process-driven aplikacije na Camunda 8 platformi (max. 10 dodatnih bodova)
 
@@ -209,7 +213,7 @@ Job Worker mora komunicirati s Camunda 8 engineom putem Zeebe **Client API-ja** 
 
 Projektni zadatak **moguće je prezentirati na 2 načina**:
 
-- **uživo u dogovorenom terminu vježbi u 1. mjesecu 2026. godine**, npr. ako odlučite izaći na 1. ili 2. ispitni rok u veljači (premda nije obavezno)
+- **uživo u dogovorenom terminu vježbi u 1. mjesecu 2027. godine**, npr. ako odlučite izaći na 1. ili 2. ispitni rok u veljači (premda nije obavezno)
 - **snimanjem videozapisa u trajanju 20-tak minuta na bilo kojem ispitnom roku** (pa i prvom)
   - +10-15 minuta za prikaz _process-driven_ aplikacije (ako radite drugi dio projekta)
 
