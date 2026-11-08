@@ -21,3 +21,6 @@ script-patcher/__pycache__/
 
 # Generated script status site
 /_site/
+
+# Keep task solutions local
+rjesenja/

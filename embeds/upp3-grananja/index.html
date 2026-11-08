@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UPP3 · Grananja i spajanja</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:transparent;color:#202b36;font:16px/1.55 system-ui,sans-serif}main{max-width:980px;margin:auto;padding:28px}h1{font-size:clamp(26px,4vw,36px);line-height:1.15;letter-spacing:-.04em;margin:4px 0 12px}h2{font-size:22px;margin:0 0 8px}p{margin:8px 0}.intro{color:#506475}nav{display:flex;gap:8px;margin:24px 0}button{font:inherit;cursor:pointer;border:1px solid #c4cfd8;background:#fff;color:inherit;border-radius:7px;padding:10px 16px}button:hover:not(:disabled){background:#edf3f7}button[aria-pressed=true],#start{background:#185d80;border-color:#185d80;color:white}button:disabled{cursor:default;color:#647582;background:#f0f3f5}button:focus-visible,input:focus-visible{outline:3px solid #dc7f18;outline-offset:3px}nav button{flex:1;text-align:left}nav small{display:block;font-size:13px}.rules{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px 0;border-top:1px solid #d8e1e8;border-bottom:1px solid #d8e1e8}.rules strong{font-size:12px;letter-spacing:.08em;color:#506475}fieldset{border:0;padding:0;margin:20px 0 14px}legend{font-weight:600;margin-bottom:8px}.choices{display:flex;gap:20px;flex-wrap:wrap}label{display:flex;align-items:center;gap:7px;cursor:pointer}input{accent-color:#185d80;width:18px;height:18px}.controls{display:flex;align-items:center;gap:16px}.diagram{display:block;width:100%;height:auto;margin:20px 0 8px}.gateway-icon{width:28px;height:28px;vertical-align:middle;margin-right:6px;flex-shrink:0}#reset{display:inline-flex;align-items:center;gap:8px}#reset svg{width:18px;height:18px}.selectors{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0 16px}.selectors h2{font-size:16px}nav{margin:8px 0}nav button{padding:8px;text-align:center;min-width:0}.gateway-icon{display:block;margin:0 auto 4px}.controls{flex-wrap:wrap}svg text{font:16px system-ui,sans-serif;fill:#202b36}svg .caption{font-size:13px;fill:#506475}.path{fill:none;stroke:#b3bfc9;stroke-width:2}.task{fill:#f5f7f9;stroke:#b3bfc9;stroke-width:2}.active .path,.active .task{stroke:#a66b00}.active .task{fill:#ffe38a}.done .path,.done .task{stroke:#257044}.done .task{fill:#a9dfb5}.gateway{fill:white;stroke:#202b36;stroke-width:2}.pending{fill:#ffe38a;stroke:#a66b00}.passed{fill:#a9dfb5;stroke:#257044}.path.pending,.path.passed{fill:none}.actions button.active{background:#ffe38a;border-color:#a66b00;color:#202b36}.actions button.done{background:#a9dfb5;border-color:#257044;color:#202b36}.symbol{fill:none;stroke:#202b36;stroke-width:3;stroke-linecap:square}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.actions button{font-size:14px;padding:10px 6px}#status{margin:16px 0;padding:13px 16px;background:#eef3f7;border-left:3px solid #185d80}#status.pending{background:#fff1bc;border-color:#a66b00}#status.complete{background:#d4efda;border-color:#257044}.note{font-size:14px;color:#506475;margin-top:18px}@media(max-width:520px){.selectors{grid-template-columns:1fr;gap:12px}main{padding:18px 12px}nav{gap:5px}nav button{padding:10px}nav small{font-size:11px}.rules{gap:16px}.controls{gap:8px}.actions{grid-template-columns:1fr}svg text{font-size:19px}svg .caption{font-size:16px}}
+</style>
+</head>
+<body>
+<main>
+<header><h1>Grananja i spajanja</h1><p class="intro">Grananje određuje koji se tokovi pokreću. Spajanje određuje kada proces nastavlja dalje.</p></header>
+<div class="selectors"><section><h2>Grananja</h2><nav aria-label="Skretnica grananja"><button data-mode="XOR" aria-pressed="true"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><path d="M11 11L21 21M21 11L11 21"/></svg><b>XOR</b></button><button data-mode="AND" aria-pressed="false"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><path d="M16 9V23M9 16H23"/></svg><b>AND</b></button><button data-mode="OR" aria-pressed="false"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><circle cx="16" cy="16" r="6"/></svg><b>OR</b></button></nav></section><section><h2>Spajanja</h2><nav aria-label="Skretnica spajanja"><button data-join="XOR" aria-pressed="true"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><path d="M11 11L21 21M21 11L11 21"/></svg><b>XOR</b></button><button data-join="AND" aria-pressed="false"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><path d="M16 9V23M9 16H23"/></svg><b>AND</b></button><button data-join="OR" aria-pressed="false"><svg class="gateway-icon" viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 1L31 16 16 31 1 16Z"/><circle cx="16" cy="16" r="6"/></svg><b>OR</b></button></nav></section></div>
+<div class="rules"><div><strong>GRANANJE</strong><p id="split">Odabire se točno jedan izlazni tok, ovisno o uvjetima.</p></div><div><strong>SPAJANJE</strong><p id="join">Propušta svaki pristigli tok bez čekanja ostalih.</p></div></div>
+<noscript><p>Za interaktivni prikaz uključi JavaScript. AND pokreće sve tokove i čeka sve ulaze; OR pokreće tokove čiji su uvjeti ispunjeni i u ovom primjeru čeka sve pokrenute grane.</p></noscript>
+<fieldset id="choices"><legend id="legend">Odaberi tok čiji je uvjet ispunjen:</legend><div class="choices" id="inputs"></div></fieldset>
+<div class="controls"><button id="start">Pokreni tok</button><button id="reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></svg>Početno stanje</button></div>
+<svg class="diagram" viewBox="0 0 760 290" role="img" aria-labelledby="diagram-title diagram-description">
+<title id="diagram-title">Grananje i spajanje kroz tri moguće aktivnosti</title><desc id="diagram-description">Odaberi skretnicu i pokreni tok. Stanje aktivnosti i spajanja dostupno je i tekstom ispod dijagrama.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#647582"/></marker></defs>
+<circle id="begin" cx="24" cy="135" r="13" fill="white" stroke="#202b36" stroke-width="2"/><path id="incoming" class="path" d="M37 135H91" marker-end="url(#arrow)"/>
+<g id="branch-0"><path class="path" d="M125 105V50H280" marker-end="url(#arrow)"/><rect class="task" x="280" y="25" width="180" height="50" rx="9"/><text x="370" y="56" text-anchor="middle">Aktivnost A</text><path class="path" d="M460 50H615V103" marker-end="url(#arrow)"/></g>
+<g id="branch-1"><path class="path" d="M157 135H280" marker-end="url(#arrow)"/><rect class="task" x="280" y="110" width="180" height="50" rx="9"/><text x="370" y="141" text-anchor="middle">Aktivnost B</text><path class="path" d="M460 135H582" marker-end="url(#arrow)"/></g>
+<g id="branch-2"><path class="path" d="M125 165V220H280" marker-end="url(#arrow)"/><rect class="task" x="280" y="195" width="180" height="50" rx="9"/><text x="370" y="226" text-anchor="middle">Aktivnost C</text><path class="path" d="M460 220H615V167" marker-end="url(#arrow)"/></g>
+<path id="split-gateway" class="gateway" d="M125 103 157 135 125 167 93 135Z"/><g id="split-symbol" class="symbol" transform="translate(125 135)"></g><path id="join-gateway" class="gateway" d="M615 103 647 135 615 167 583 135Z"/><g id="join-symbol" class="symbol" transform="translate(615 135)"></g><text class="caption" x="125" y="275" text-anchor="middle">Grananje</text><text class="caption" x="615" y="275" text-anchor="middle">Spajanje</text>
+<path id="outgoing" class="path" d="M647 135H713" marker-end="url(#arrow)"/><circle id="end" cx="731" cy="135" r="15" fill="white" stroke="#647582" stroke-width="3"/>
+</svg>
+<div class="actions" aria-label="Završavanje aktivnosti"><button data-finish="0" disabled>Završi A</button><button data-finish="1" disabled>Završi B</button><button data-finish="2" disabled>Završi C</button></div>
+<p id="status" role="status" aria-live="polite">Odaberi uvjet i pokreni tok.</p>
+<p class="note" id="note"></p>
+
+</main>
+<script>
+const definitions = {
+ XOR: {title:'Ekskluzivna skretnica',symbol:'×',split:'Odabire se točno jedan izlazni tok, ovisno o uvjetima.',join:'Propušta svaki pristigli tok bez čekanja ostalih.',legend:'Odaberi tok čiji je uvjet ispunjen:',note:''},
+ AND: {title:'Paralelna skretnica',symbol:'+',split:'Pokreću se svi izlazni tokovi, bez provjere uvjeta.',join:'Čeka tok na svakom ulazu pa nastavlja dalje.',legend:'Pokreću se sve tri aktivnosti:',note:'Paralelne aktivnosti ne moraju trajati jednako. Završetak jedne aktivnosti nije dovoljan za nastavak.'},
+ OR: {title:'Inkluzivna skretnica',symbol:'○',split:'Pokreću se svi tokovi čiji su uvjeti ispunjeni: jedan ili više.',join:'U ovom primjeru čeka sve pokrenute grane. Nepokrenute ne čeka.',legend:'Označi tokove čiji su uvjeti ispunjeni:',note:'Ako nijedan uvjet nije ispunjen, koristi se zadani tok ako postoji. Ovaj primjer nema zadani tok, pa odaberi barem jednu granu.'}
+};
+const $ = id => document.getElementById(id);
+const symbols = {
+ XOR:'<path d="M-9 -9L9 9M9 -9L-9 9"/>',
+ AND:'<path d="M0 -12V12M-12 0H12"/>',
+ OR:'<circle r="11"/>'
+};
+let mode = 'XOR', joinMode = 'XOR', active = [], done = [];
+function render(){
+ document.querySelectorAll('[data-finish]').forEach((button,i)=>{
+  const running=active.includes(i), finished=done.includes(i);
+  button.disabled=!running||finished;
+  button.className=finished?'done':running?'active':'';
+  button.textContent=`${finished?'Završeno':running?'Završi':'Nije pokrenuto'} ${'ABC'[i]}`;
+  $('branch-'+i).setAttribute('class', finished?'done':running?'active':'');
+ });
+ const waiting=(joinMode==='AND'?[0,1,2]:active).filter(i=>!done.includes(i));
+ const outputs=joinMode==='XOR'?done.length:Number(active.length>0&&waiting.length===0);
+ const started=active.length>0;
+ for(const id of ['begin','incoming','split-gateway']) $(id).classList.toggle('passed',started);
+ for(const id of ['join-gateway','outgoing','end']){
+  $(id).classList.toggle('passed',outputs>0);
+  $(id).classList.toggle('pending',started&&!outputs);
+ }
+ $('status').classList.toggle('pending',started&&!outputs);
+ $('status').classList.toggle('complete',outputs>0);
+ if(!active.length) return;
+ const progress=`Završeno ${done.length} od ${active.length}.`;
+ if(joinMode==='XOR'){
+  $('status').textContent=`${progress} Izlazni tok aktiviran: ${outputs} puta. Svaki pristigli tok prolazi zasebno, bez čekanja ostalih.`;
+ }else if(outputs){
+  $('status').textContent=`${progress} Izlazni tok aktiviran jednom. Proces nastavlja dalje.`;
+ }else{
+  const blocked=joinMode==='AND'&&active.length<3;
+  $('status').textContent=`${progress} Spajanje čeka: ${waiting.map(i=>'ABC'[i]).join(', ')}.${blocked?' Zastoj: AND čeka i nepokrenute grane koje u ovom primjeru neće stići.':''}`;
+ }
+}
+function reset(){
+ active=[];done=[];
+ $('split').textContent=definitions[mode].split;
+ $('join').textContent=definitions[joinMode].join;
+ $('legend').textContent=definitions[mode].legend;
+ $('note').hidden=joinMode==='XOR';
+ $('note').textContent=joinMode==='XOR'?definitions.XOR.note:joinMode==='AND'?'AND spajanje čeka sva tri ulaza, čak i kada grananje pokrene samo jednu ili dvije grane.':'OR spajanje u ovom modelu čeka samo pokrenute grane; ostale ne čeka.';
+ document.querySelectorAll('[data-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
+ document.querySelectorAll('[data-join]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.join===joinMode)));
+ $('split-symbol').innerHTML=symbols[mode];
+ $('join-symbol').innerHTML=symbols[joinMode];
+ $('diagram-title').textContent=`${mode} grananje i ${joinMode} spajanje`;
+ $('inputs').innerHTML=[0,1,2].map(i=>`<label><input type="${mode==='XOR'?'radio':'checkbox'}" name="branch" value="${i}" ${mode==='AND'||i===0?'checked':''} ${mode==='AND'?'disabled':''}>Tok ${'ABC'[i]}</label>`).join('');
+ $('start').textContent='Pokreni tok';
+ $('status').textContent=mode==='AND'?'Pokreni sve tokove.':'Odaberi uvjet i pokreni tok.';
+ render();
+}
+document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;reset();}));
+document.querySelectorAll('[data-join]').forEach(button=>button.addEventListener('click',()=>{joinMode=button.dataset.join;reset();}));
+$('start').addEventListener('click',()=>{
+ active=[...document.querySelectorAll('input:checked')].map(input=>Number(input.value));done=[];
+ render();
+ if(!active.length){$('status').textContent='Odaberi barem jedan tok. Nijedan uvjet nije ispunjen, a zadani tok nije definiran.';return;}
+ document.querySelectorAll('input').forEach(input=>input.disabled=true);
+ $('start').textContent='Pokreni ponovno';
+});
+document.querySelectorAll('[data-finish]').forEach(button=>button.addEventListener('click',()=>{done.push(Number(button.dataset.finish));render();}));
+$('reset').addEventListener('click',reset);
+reset();
+</script>
+</body>
+</html>
