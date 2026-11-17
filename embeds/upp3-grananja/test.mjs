@@ -9,7 +9,6 @@ try {
  const mode=name=>page.locator(`[data-mode="${name}"]`).click();
  const join=name=>page.locator(`[data-join="${name}"]`).click();
  const start=()=>page.locator('#start').click();
- const finish=i=>page.locator(`[data-finish="${i}"]`).click();
  const status=()=>page.locator('#status').innerText();
  const output=()=>page.locator('#status').evaluate(el=>el.classList.contains('complete'));
  for(const split of ['XOR','AND','OR']){
@@ -20,22 +19,20 @@ try {
     const selected=[0,1,2].filter(i=>mask&(1<<i));
     if(split==='XOR') await page.locator(`input[value="${selected[0]}"]`).check();
     if(split==='OR') for(let i=0;i<3;i++) await page.locator(`input[value="${i}"]`).setChecked(selected.includes(i));
-    await start();assert.equal(await output(),false);
-    assert.equal(await page.locator('[data-finish]:enabled').count(),selected.length);
-    for(const [step,i] of [...selected].reverse().entries()){
-     await finish(i);
-     const expected=merge==='XOR'||(merge==='AND'?step===2:step===selected.length-1);
-     assert.equal(await output(),expected,`${split} → ${merge}, mask ${mask}, step ${step}`);
-     if(merge==='XOR') assert.match(await status(),new RegExp(`Izlazni tok aktiviran: ${step+1} puta`));
-    }
-    if(merge==='AND'&&mask!==7) assert.match(await status(),/Zastoj/);
-    await start();assert.equal(await output(),false);
+    await start();
+    const expected=merge!=='AND'||mask===7;
+    assert.equal(await output(),expected,`${split} → ${merge}, mask ${mask}`);
+    for(let i=0;i<3;i++) assert.equal(await page.locator('#branch-'+i).getAttribute('class'),selected.includes(i)?'done':'');
+    if(merge==='XOR') assert.match(await status(),new RegExp(`Izlazni tok aktiviran: ${selected.length} puta`));
+    if(!expected) assert.match(await status(),/Zastoj/);
+    await start();assert.equal(await output(),expected);
+
    }
   }
  }
  await mode('OR');await page.locator('input[value="0"]').uncheck();await start();
  assert.match(await status(),/Odaberi barem jedan/);
- assert.equal(await page.locator('[data-finish]:enabled').count(),0);
+ assert.equal(await page.locator('[data-finish]').count(),0);
  await page.locator('#reset').focus();await page.keyboard.press('Enter');
  assert.equal(await page.locator('input:enabled').count(),3);
  assert.equal(await page.locator('[data-join="OR"]').getAttribute('aria-pressed'),'true');
@@ -44,27 +41,27 @@ try {
  assert.equal(await page.locator('#join-symbol circle').count(),1);
  const boxes=await page.locator('.diagram').evaluate(svg=>({labels:[...svg.querySelectorAll('.caption')].map(el=>{const b=el.getBBox();return {top:b.y,bottom:b.y+b.height};}),branches:[...svg.querySelectorAll('[id^="branch-"]')].map(el=>{const b=el.getBBox();return b.y+b.height;})}));
  for(const label of boxes.labels) assert.ok(label.top>Math.max(...boxes.branches),'Labels must be below all branches');
- await mode('AND');await join('XOR');await start();await finish(0);
+ await mode('AND');await join('XOR');await start();
  const fill=selector=>page.locator(selector).evaluate(el=>getComputedStyle(el).fill);
  const green='rgb(169, 223, 181)', yellow='rgb(255, 227, 138)';
  assert.equal(await fill('#begin'),green);
  assert.equal(await fill('#split-gateway'),green);
  assert.equal(await fill('#branch-0 .task'),green);
- assert.equal(await fill('#branch-1 .task'),yellow);
+ assert.equal(await fill('#branch-1 .task'),green);
  assert.equal(await fill('#end'),green);
- await join('AND');await start();await finish(0);
- assert.equal(await fill('#join-gateway'),yellow);
- assert.equal(await fill('#end'),yellow);
- await finish(1);await finish(2);
+ await join('AND');await start();
+ assert.equal(await fill('#join-gateway'),green);
+ assert.equal(await fill('#end'),green);
+ 
  assert.equal(await fill('#join-gateway'),green);
  assert.equal(await fill('#end'),green);
  await page.locator('#reset').click();
  assert.equal(await fill('#begin'),'rgb(255, 255, 255)');
  assert.equal(await fill('#end'),'rgb(255, 255, 255)');
- await mode('XOR');await join('AND');await start();await finish(0);
+ await mode('XOR');await join('AND');await start();
  assert.equal(await fill('#branch-1 .task'),'rgb(245, 247, 249)');
  assert.equal(await fill('#join-gateway'),yellow);
- await mode('AND');await start();await finish(0);
+ await mode('AND');await start();
  await page.screenshot({path:'/tmp/upp3-desktop.png',fullPage:true});
  for(const width of [320,375,768]){
   await page.setViewportSize({width,height:900});
@@ -76,5 +73,5 @@ try {
  await page.setViewportSize({width:375,height:900});
  await page.screenshot({path:'/tmp/upp3-mobile.png',fullPage:true});
  assert.deepEqual(errors,[]);
- console.log('PASS: all nine gateway pairs, all branch subsets, XOR outputs, AND deadlocks, OR joins, reset/restart, keyboard, SVG labels, task/event state colors, mobile widths and browser errors.');
+ console.log('PASS: all nine gateway pairs, all branch subsets, XOR outputs, AND deadlocks, OR joins, reset/restart, keyboard, SVG labels, automatic task completion and state colors, mobile widths and browser errors.');
 } finally {await browser.close();}

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>UPP3 · Grananja i spajanja</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:transparent;color:#202b36;font:16px/1.55 system-ui,sans-serif}main{max-width:980px;margin:auto;padding:28px}h1{font-size:clamp(26px,4vw,36px);line-height:1.15;letter-spacing:-.04em;margin:4px 0 12px}h2{font-size:22px;margin:0 0 8px}p{margin:8px 0}.intro{color:#506475}nav{display:flex;gap:8px;margin:24px 0}button{font:inherit;cursor:pointer;border:1px solid #c4cfd8;background:#fff;color:inherit;border-radius:7px;padding:10px 16px}button:hover:not(:disabled){background:#edf3f7}button[aria-pressed=true],#start{background:#185d80;border-color:#185d80;color:white}button:disabled{cursor:default;color:#647582;background:#f0f3f5}button:focus-visible,input:focus-visible{outline:3px solid #dc7f18;outline-offset:3px}nav button{flex:1;text-align:left}nav small{display:block;font-size:13px}.rules{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px 0;border-top:1px solid #d8e1e8;border-bottom:1px solid #d8e1e8}.rules strong{font-size:12px;letter-spacing:.08em;color:#506475}fieldset{border:0;padding:0;margin:20px 0 14px}legend{font-weight:600;margin-bottom:8px}.choices{display:flex;gap:20px;flex-wrap:wrap}label{display:flex;align-items:center;gap:7px;cursor:pointer}input{accent-color:#185d80;width:18px;height:18px}.controls{display:flex;align-items:center;gap:16px}.diagram{display:block;width:100%;height:auto;margin:20px 0 8px}.gateway-icon{width:28px;height:28px;vertical-align:middle;margin-right:6px;flex-shrink:0}#reset{display:inline-flex;align-items:center;gap:8px}#reset svg{width:18px;height:18px}.selectors{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0 16px}.selectors h2{font-size:16px}nav{margin:8px 0}nav button{padding:8px;text-align:center;min-width:0}.gateway-icon{display:block;margin:0 auto 4px}.controls{flex-wrap:wrap}svg text{font:16px system-ui,sans-serif;fill:#202b36}svg .caption{font-size:13px;fill:#506475}.path{fill:none;stroke:#b3bfc9;stroke-width:2}.task{fill:#f5f7f9;stroke:#b3bfc9;stroke-width:2}.active .path,.active .task{stroke:#a66b00}.active .task{fill:#ffe38a}.done .path,.done .task{stroke:#257044}.done .task{fill:#a9dfb5}.gateway{fill:white;stroke:#202b36;stroke-width:2}.pending{fill:#ffe38a;stroke:#a66b00}.passed{fill:#a9dfb5;stroke:#257044}.path.pending,.path.passed{fill:none}.actions button.active{background:#ffe38a;border-color:#a66b00;color:#202b36}.actions button.done{background:#a9dfb5;border-color:#257044;color:#202b36}.symbol{fill:none;stroke:#202b36;stroke-width:3;stroke-linecap:square}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.actions button{font-size:14px;padding:10px 6px}#status{margin:16px 0;padding:13px 16px;background:#eef3f7;border-left:3px solid #185d80}#status.pending{background:#fff1bc;border-color:#a66b00}#status.complete{background:#d4efda;border-color:#257044}.note{font-size:14px;color:#506475;margin-top:18px}@media(max-width:520px){.selectors{grid-template-columns:1fr;gap:12px}main{padding:18px 12px}nav{gap:5px}nav button{padding:10px}nav small{font-size:11px}.rules{gap:16px}.controls{gap:8px}.actions{grid-template-columns:1fr}svg text{font-size:19px}svg .caption{font-size:16px}}
+*{box-sizing:border-box}body{margin:0;background:transparent;color:#202b36;font:16px/1.55 system-ui,sans-serif}main{max-width:980px;margin:auto;padding:28px}h1{font-size:clamp(26px,4vw,36px);line-height:1.15;letter-spacing:-.04em;margin:4px 0 12px}h2{font-size:22px;margin:0 0 8px}p{margin:8px 0}.intro{color:#506475}nav{display:flex;gap:8px;margin:24px 0}button{font:inherit;cursor:pointer;border:1px solid #c4cfd8;background:#fff;color:inherit;border-radius:7px;padding:10px 16px}button:hover:not(:disabled){background:#edf3f7}button[aria-pressed=true],#start{background:#185d80;border-color:#185d80;color:white}button:disabled{cursor:default;color:#647582;background:#f0f3f5}button:focus-visible,input:focus-visible{outline:3px solid #dc7f18;outline-offset:3px}nav button{flex:1;text-align:left}nav small{display:block;font-size:13px}.rules{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:18px 0;border-top:1px solid #d8e1e8;border-bottom:1px solid #d8e1e8}.rules strong{font-size:12px;letter-spacing:.08em;color:#506475}fieldset{border:0;padding:0;margin:20px 0 14px}legend{font-weight:600;margin-bottom:8px}.choices{display:flex;gap:20px;flex-wrap:wrap}label{display:flex;align-items:center;gap:7px;cursor:pointer}input{accent-color:#185d80;width:18px;height:18px}.controls{display:flex;align-items:center;gap:16px}.diagram{display:block;width:100%;height:auto;margin:20px 0 8px}.gateway-icon{width:28px;height:28px;vertical-align:middle;margin-right:6px;flex-shrink:0}#reset{display:inline-flex;align-items:center;gap:8px}#reset svg{width:18px;height:18px}.selectors{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:24px 0 16px}.selectors h2{font-size:16px}nav{margin:8px 0}nav button{padding:8px;text-align:center;min-width:0}.gateway-icon{display:block;margin:0 auto 4px}.controls{flex-wrap:wrap}svg text{font:16px system-ui,sans-serif;fill:#202b36}svg .caption{font-size:13px;fill:#506475}.path{fill:none;stroke:#b3bfc9;stroke-width:2}.task{fill:#f5f7f9;stroke:#b3bfc9;stroke-width:2}.done .path,.done .task{stroke:#257044}.done .task{fill:#a9dfb5}.gateway{fill:white;stroke:#202b36;stroke-width:2}.pending{fill:#ffe38a;stroke:#a66b00}.passed{fill:#a9dfb5;stroke:#257044}.path.pending,.path.passed{fill:none}.symbol{fill:none;stroke:#202b36;stroke-width:3;stroke-linecap:square}#status{margin:16px 0;padding:13px 16px;background:#eef3f7;border-left:3px solid #185d80}#status.pending{background:#fff1bc;border-color:#a66b00}#status.complete{background:#d4efda;border-color:#257044}.note{font-size:14px;color:#506475;margin-top:18px}@media(max-width:520px){.selectors{grid-template-columns:1fr;gap:12px}main{padding:18px 12px}nav{gap:5px}nav button{padding:10px}nav small{font-size:11px}.rules{gap:16px}.controls{gap:8px}svg text{font-size:19px}svg .caption{font-size:16px}}
 </style>
 </head>
 <body>
@@ -26,7 +26,6 @@
 <path id="split-gateway" class="gateway" d="M125 103 157 135 125 167 93 135Z"/><g id="split-symbol" class="symbol" transform="translate(125 135)"></g><path id="join-gateway" class="gateway" d="M615 103 647 135 615 167 583 135Z"/><g id="join-symbol" class="symbol" transform="translate(615 135)"></g><text class="caption" x="125" y="275" text-anchor="middle">Grananje</text><text class="caption" x="615" y="275" text-anchor="middle">Spajanje</text>
 <path id="outgoing" class="path" d="M647 135H713" marker-end="url(#arrow)"/><circle id="end" cx="731" cy="135" r="15" fill="white" stroke="#647582" stroke-width="3"/>
 </svg>
-<div class="actions" aria-label="Završavanje aktivnosti"><button data-finish="0" disabled>Završi A</button><button data-finish="1" disabled>Završi B</button><button data-finish="2" disabled>Završi C</button></div>
 <p id="status" role="status" aria-live="polite">Odaberi uvjet i pokreni tok.</p>
 <p class="note" id="note"></p>
 
@@ -43,17 +42,11 @@ const symbols = {
  AND:'<path d="M0 -12V12M-12 0H12"/>',
  OR:'<circle r="11"/>'
 };
-let mode = 'XOR', joinMode = 'XOR', active = [], done = [];
+let mode = 'XOR', joinMode = 'XOR', active = [];
 function render(){
- document.querySelectorAll('[data-finish]').forEach((button,i)=>{
-  const running=active.includes(i), finished=done.includes(i);
-  button.disabled=!running||finished;
-  button.className=finished?'done':running?'active':'';
-  button.textContent=`${finished?'Završeno':running?'Završi':'Nije pokrenuto'} ${'ABC'[i]}`;
-  $('branch-'+i).setAttribute('class', finished?'done':running?'active':'');
- });
- const waiting=(joinMode==='AND'?[0,1,2]:active).filter(i=>!done.includes(i));
- const outputs=joinMode==='XOR'?done.length:Number(active.length>0&&waiting.length===0);
+ [0,1,2].forEach(i=>$('branch-'+i).setAttribute('class',active.includes(i)?'done':''));
+ const waiting=joinMode==='AND'?[0,1,2].filter(i=>!active.includes(i)):[];
+ const outputs=joinMode==='XOR'?active.length:Number(active.length>0&&waiting.length===0);
  const started=active.length>0;
  for(const id of ['begin','incoming','split-gateway']) $(id).classList.toggle('passed',started);
  for(const id of ['join-gateway','outgoing','end']){
@@ -63,7 +56,7 @@ function render(){
  $('status').classList.toggle('pending',started&&!outputs);
  $('status').classList.toggle('complete',outputs>0);
  if(!active.length) return;
- const progress=`Završeno ${done.length} od ${active.length}.`;
+ const progress=`Završeno ${active.length} od ${active.length}.`;
  if(joinMode==='XOR'){
   $('status').textContent=`${progress} Izlazni tok aktiviran: ${outputs} puta. Svaki pristigli tok prolazi zasebno, bez čekanja ostalih.`;
  }else if(outputs){
@@ -74,7 +67,7 @@ function render(){
  }
 }
 function reset(){
- active=[];done=[];
+ active=[];
  $('split').textContent=definitions[mode].split;
  $('join').textContent=definitions[joinMode].join;
  $('legend').textContent=definitions[mode].legend;
@@ -93,13 +86,12 @@ function reset(){
 document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{mode=button.dataset.mode;reset();}));
 document.querySelectorAll('[data-join]').forEach(button=>button.addEventListener('click',()=>{joinMode=button.dataset.join;reset();}));
 $('start').addEventListener('click',()=>{
- active=[...document.querySelectorAll('input:checked')].map(input=>Number(input.value));done=[];
+ active=[...document.querySelectorAll('input:checked')].map(input=>Number(input.value));
  render();
  if(!active.length){$('status').textContent='Odaberi barem jedan tok. Nijedan uvjet nije ispunjen, a zadani tok nije definiran.';return;}
  document.querySelectorAll('input').forEach(input=>input.disabled=true);
  $('start').textContent='Pokreni ponovno';
 });
-document.querySelectorAll('[data-finish]').forEach(button=>button.addEventListener('click',()=>{done.push(Number(button.dataset.finish));render();}));
 $('reset').addEventListener('click',reset);
 reset();
 </script>
