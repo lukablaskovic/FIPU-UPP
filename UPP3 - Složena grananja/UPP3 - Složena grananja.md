@@ -19,7 +19,7 @@
 <div style="float: clear; margin-right:5px;"> Skretnice određuju redoslijed izvođenja aktivnosti u procesu. Do sada smo vidjeli kako jednostavne ekskluzivne skretnice omogućuju odabir između dvije ili više opcija tijekom izvođenja poslovnog procesa. Važno je naglasiti da se pritom uvijek odabire samo jedna opcija — ona koja ispunjava uvjet. U ovom ćemo poglavlju upoznati i druge vrste skretnica, uključujući paralelnu i inkluzivnu. Također, upoznat ćemo se s načinima definiranja „čekanja” na rezultate aktivnosti koje ovise o više uvjeta, koristeći različite oblike spajanja i grananja sljedova aktivnosti.</div>
 <br>
 
-**🆙 Posljednje ažurirano: 13.9.2026.**
+**🆙 Posljednje ažurirano: 18.11.2026.**
 
 ## Sadržaj
 
@@ -321,7 +321,7 @@ U opisanom procesu barem jedan uvjet će uvijek biti zadovoljen (`iznos > 0 eura
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_bitcoin_mjenjacnica.png?raw=true" style="width:70%">
 
-> Slika 15: Proces prodaje Bitcoina u mjenjačnici definiran kroz inkluzivne skretnice grananja i spajanja
+> Slika 15: Proces prodaje Bitcoina u mjenjačnici definiran kroz inkluzivne skretnice grananja i spajanja. [BPMN model](models/pp_bitcoin_mjenjacnica.bpmn)
 
 <hr>
 
@@ -367,7 +367,7 @@ Primjerice, ako je korisnik prodao Bitcoin u iznosu od 750 eura, skretnica spaja
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP3%20-%20Slo%C5%BEena%20grananja/screenshots/pp_odabir_vrsta_jela.png?raw=true" style="width:70%">
 
-> Slika 17: Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu grananja i spajanja
+> Slika 17: Proces posluživanja više vrsta jela u restoranu kroz inkluzivnu skretnicu grananja i spajanja. [BPMN model](models/pp_odabir_vrsta_jela.bpmn)
 
 **Objasnite kako se ponaša ovaj model?**
 

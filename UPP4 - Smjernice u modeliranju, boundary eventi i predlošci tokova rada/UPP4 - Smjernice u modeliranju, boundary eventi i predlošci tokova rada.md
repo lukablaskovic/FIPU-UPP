@@ -21,7 +21,7 @@ Cilj ove skripte pružiti je sveobuhvatan pregled principa i smjernica u modelir
 </div>
 <br>
 
-**🆙 Posljednje ažurirano: 12.9.2026.**
+**🆙 Posljednje ažurirano: 18.11.2026.**
 
 ## Sadržaj
 
@@ -119,7 +119,7 @@ _Primjer:_ _start event_ naziva: "Obrada po primitku narudžbe" može zamijeniti
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_1.png?raw=true" style="width:40%; box-shadow: none !important;"></img>
 
-> Slika 1. Ponekad možemo događaj + aktivnost zamijeniti jednim događajem s dopunskim atributima - ali pripazite da ispravno imenujete takav događaj. Kako je novi objekt događaj, nećemo ga imenovati kao aktivnost, već koristimo **pasivan glagolski oblik**.
+> Slika 1. Ponekad možemo događaj + aktivnost zamijeniti jednim događajem s dopunskim atributima - ali pripazite da ispravno imenujete takav događaj. Kako je novi objekt događaj, nećemo ga imenovati kao aktivnost, već koristimo **pasivan glagolski oblik**. [BPMN model](models/diagram_1.bpmn)
 
 "Pristigla narudžba" prikazujemo kao _start event_ jer se radi o završenoj radnji koja se dogodila u prošlosti. S druge strane, "Upis narudžbe u ERP sustav" prikazujemo kao _user task_ jer se radi o radnji koju je potrebno poduzeti kako bi proces "napredovao".
 
@@ -272,7 +272,7 @@ Iz ovog primjera najvažnije je uočiti **kako su aktivnosti/događaji imenovani
 
 <img src="https://github.com/lukablaskovic/FIPU-UPP/blob/main/UPP4%20-%20Smjernice%20u%20modeliranju,%20boundary%20eventi%20i%20predlo%C5%A1ci%20tokova%20rada/screenshots/diagram_20.png?raw=true" style="width:60%; box-shadow: none !important;"></img>
 
-> Slika 7. Primjer modeliranja procesa predaje zahtjeva za kredit koristeći kombinaciju _Send/Receive Task_ aktivnosti i _Message Intermediate Throw/Catch Event_ međudogađaja s ispravnim imenovanjem.
+> Slika 7. Primjer modeliranja procesa predaje zahtjeva za kredit koristeći kombinaciju _Send/Receive Task_ aktivnosti i _Message Intermediate Throw/Catch Event_ međudogađaja s ispravnim imenovanjem. [BPMN model](models/diagram_20.bpmn)
 
 - ✅ **Dobar dio**: Ispravno imenovanje aktivnosti i događaja prema smjernicama za imenovanje aktivnosti i događaja. "Slanje zahtjeva za kredit" je definitivno aktivnost koja zahtijeva vrijeme i resurse pa smo ju modelirali kao _send task_, dok su "Primitak potvrde na email" te "Primitak obavijesti o ishodu predanog zahtjeva" trenuci u procesu koji ne zahtijevaju vrijeme i resurse pa smo ih modelirali kao _message intermediate catch event_. "Zahtjev za kredit obrađen" je generalni intermediate throw event koji predstavlja ključnu točku u procesu (milestone) te ga možemo i ne moramo dodavati - ovisno koliko želimo detaljno modelirati proces.
 - ❌ **Manje dobar dio**: "Slanje potvrde o primitku zahtjeva na email" je dosta generalno. Npr, ako modeliramo stazu djelatnika banke - onda ovo može ostati _send task_ jer djelatnik zapravo šalje email nakon što je primio zahtjev. Međutim, ako modeliramo stazu IT sustava banke koji automatski šalje email potvrde te ne želimo naglašavati ljudski faktor, tada bi bilo bolje koristiti _message intermediate throw event_ "Potvrda o primitku zahtjeva poslana" budući da se radi o trenutku u procesu kada sustav šalje email, a ne o aktivnosti koja zahtijeva vrijeme i resurse.

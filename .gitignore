@@ -1,22 +1,15 @@
-
-/McDonalds
-/UPP6 - Servisna arhitektura procesne aplikacije/express-email-server/node_modules
-/UPP6 - Servisna arhitektura procesne aplikacije/express-server/node_modules
-UPP6 - Servisna arhitektura procesne aplikacije/express-email-server/.env
-/Praksa_ProcessApp/express-praksa/node_modules
-/Praksa_ProcessApp
-/UPP7 - Napredniji zadaci u procesno-orijentiranom razvoju/express-email-server/node_modules
-/UPP7 - Napredniji zadaci u procesno-orijentiranom razvoju/order-management-api/node_modules
-/Users/lukablaskovic/Github/FIPU-UPP/UPP7 - Napredniji zadaci u procesno-orijentiranom razvoju/express-email-server/.env
-UPP6 - Uvod u procesno-orijentirani razvoj poslovnih aplikacija/webshop-order-process-video
-UPP7 - Napredniji zadaci u procesno-orijentiranom razvoju/order-management-api/.env
+node_modules/
 .env
+
+# Local course materials
+/McDonalds
+Praksa_ProcessApp/
+webshop-order-process-video/
 
 # Local PDF and Google Drive tools
 script-patcher/credentials.json
 script-patcher/token.json
 script-patcher/.venv/
-script-patcher/node_modules/
 script-patcher/__pycache__/
 
 # Generated script status site
